@@ -357,8 +357,8 @@ public class BasketpaidDAO {
 			try {
 				ptmt = con.prepareStatement(sql);
 				
-				ptmt.setString(1, oldcName);
-				ptmt.setString(2, newcName);
+				ptmt.setString(1, newcName);
+				ptmt.setString(2, oldcName);
 				
 				ptmt.executeUpdate();
 				
