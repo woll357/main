@@ -197,6 +197,7 @@ public int total() {
 			
 			
 			try {
+				System.out.println(a+"zzzzzzzzzzzzzzz");
 				sql = "select count(*) from air_item where date(ddate) >= date( sysdate() ) and air_p = ? ";       
 				
 				ptmt = con.prepareStatement(sql);		
