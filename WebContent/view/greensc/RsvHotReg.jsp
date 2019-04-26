@@ -22,7 +22,7 @@
 		<td>${dto.rkind }</td>
 		<td>${dto.hinfo }</td>
 		
-		<td><a href=""><input type="button" value="${dto.cCode}"/></a></td>
+		<td><a href=""><input type="button" value="${dto.hcode}"/></a></td>
 		</tr>
 		</c:forEach>
     
