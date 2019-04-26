@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import db_p.SearchDAO;
 import db_p.SearchDTO;
+import db_p.SearchDTO2;
 import di.MvcAction;
 import di.MvcForward;
 
@@ -42,18 +43,14 @@ public class RsvHotReg implements MvcAction {
 	    }
 
 		
-		SearchDTO dto = new SearchDTO();
-		//city, pcnt, startDay, endDay, rcode
+		SearchDTO2 dto = new SearchDTO2();
 		dto.setCity(request.getParameter("city"));
 		dto.setPcnt(Integer.parseInt(request.getParameter("pcnt")));
 		dto.setStartDay(request.getParameter("startDay"));
 		dto.setEndDay(request.getParameter("endDay"));
 		dto.setRkind(request.getParameter("rkind"));
 	
-		
-		ArrayList<SearchDTO> arr = (ArrayList<SearchDTO>) new SearchDAO().searchHot(dto, (int)diffDays);
-		request.setAttribute("dto", arr);
-
+		request.setAttribute("dto", new SearchDAO().searchHot(dto));
 
 		return null;
 	}

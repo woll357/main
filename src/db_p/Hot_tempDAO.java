@@ -411,6 +411,83 @@ public class Hot_tempDAO {
 	
 	
 	
+	public Room_itemDTO roomDetailByrcode(Room_itemDTO dto) {
+		Room_itemDTO res = new Room_itemDTO();
+		sql = "select * from room_item where rcode = ? ";
+		try {
+			
+			System.out.println("진입했니 룸디테일?");
+			
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getRcode());
+			rs = ptmt.executeQuery();
+			if(rs.next()) {
+				res.setRkind(rs.getString("rkind"));
+				res.setRcnt(rs.getInt("rcnt"));
+				res.setPcnt(rs.getInt("pcnt"));
+				res.setRimg(rs.getString("rimg"));
+				res.setHcode(rs.getString("hcode"));
+				res.setRcode(rs.getString("rcode"));
+				res.setMoney(rs.getInt("money"));
+				res.setWmoney(rs.getInt("wmoney"));
+				res.setWifi(rs.getString("wifi"));
+				res.setMorning(rs.getString("morning"));
+				
+				System.out.println(rs.getString("hcode"));
+				
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		finally {
+			close();
+		}	
+		return res;
+	}
+		
+		public Hot_comDTO hotelDetailByhcode(Hot_comDTO dto) {
+			Hot_comDTO res = null;
+			
+			System.out.println("호텔상세 진입했니?");
+			System.out.println(dto.getHcode());
+			
+			sql = "select * from hot_com where hcode = ?";
+			
+			System.out.println("sql실행하니?"+sql);
+			
+			try {
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, dto.getHcode());
+				rs=ptmt.executeQuery();
+				if(rs.next()) {
+					res = new Hot_comDTO();
+					res.setId(rs.getString("id"));
+					res.setCrn(rs.getString("crn"));
+					res.setHimg(rs.getString("himg"));
+					res.setHname(rs.getString("hname"));
+					res.setCountry(rs.getString("country"));
+					res.setCity(rs.getString("city"));
+					res.setHinfo(rs.getString("hinfo"));
+					res.setHcode(rs.getString("hcode"));
+					res.setAddDetail(rs.getString("addDetail"));
+					res.setGrade(rs.getString("grade")); //이름
+					
+					System.out.println("호텔이름 뭐니?"+rs.getString("hname"));
+					
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			finally {
+				close();
+			}
+			
+			//System.out.println(res.getHnation()+res.getHarea());
+			return res;
+		}
 	
 	public void close() {
 		if(rs!=null)
@@ -437,5 +514,5 @@ public class Hot_tempDAO {
 		
 		
 	}
-	
+
 }

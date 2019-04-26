@@ -77,62 +77,70 @@ public class SearchDAO {
 	}
 	
 	
-	public Object searchHot(SearchDTO dto, int day) {
+	public Object searchHot(SearchDTO2 dto) {
 		
-		ArrayList<SearchDTO> res = new ArrayList<SearchDTO>();
-		ArrayList<SearchDTO> res2 = new ArrayList<SearchDTO>();
-		LinkedHashMap<String, Integer> chk = new LinkedHashMap<String, Integer>();
+		sql = "select distinct hcode from (" + 
+				"select tt.*,ifnull(maxCnt, 0) as mCnt  from " + 
+				"(select rt.*, ifnull(maxNo, 0) as mNo from " + 
+				"(select * from room_item  where rkind = ? and pcnt >= ? and hcode in(" + 
+				"select hcode from hot_com where city = ?)) rt " + 
+				"LEFT OUTER JOIN " + 
+				"(select rcode, max(norescnt) as maxNo from hold_table where noresdate >= ? and  noresdate < ? group by rcode) ht " + 
+				"on ht.rcode = rt.rcode) tt " + 
+				"LEFT OUTER JOIN " + 
+				"(select rcode , max(dfCnt) as maxCnt from " + 
+				"(select rcode, df,count(*) as dfCnt from " + 
+				"(select rcode, date_format(ddate,'%Y-%m-%d') as df  from basketitem where ddate >= ? and  ddate < ? and bstatus = 'm') aa group by rcode, df) bb " + 
+				" group by rcode) bt ON " + 
+				"tt.rcode = bt.rcode) abc " + 
+				"where rcnt > mNo + mCnt;";
+		//등급, 인원, 지역, 시작날, 끝날, 시작날, 끝날
 		
+		ArrayList<SearchDTO2> res = new ArrayList<SearchDTO2>();
+		ArrayList<SearchDTO2> res2 = new ArrayList<SearchDTO2>();
+		String rkind = dto.getRkind();
 		try {
-			
-			sql = "select room_item.rcode,room_item.rkind, room_item.rescnt, room_item.pcnt, "
-					+ "room_item.cCode, room_item.money, hot_com.hinfo, hot_com.hname, hot_com.city, hot_com.country from room_item, hot_com " + 
-					"where hot_com.city=? and room_item.pcnt>=? and room_item.rdate between ?  and ?  and room_item.hcode=hot_com.hcode and room_item.rescnt>0 and room_item.rkind=?";
 			
 			ptmt = con.prepareStatement(sql);
 			
-			ptmt.setString(1, dto.getCity());
+			ptmt.setString(1, dto.getRkind());
 			ptmt.setInt(2, dto.getPcnt());
-			ptmt.setString(3, dto.getStartDay());
-			ptmt.setString(4, dto.getEndDay());
-			ptmt.setString(5, dto.getRkind());
+			ptmt.setString(3, dto.getCity());
+			ptmt.setString(4, dto.getStartDay());
+			ptmt.setString(5, dto.getEndDay());
+			ptmt.setString(6, dto.getStartDay());
+			ptmt.setString(7, dto.getEndDay());
+			
 			rs = ptmt.executeQuery();
 			
 			while(rs.next()) {
-				dto = new SearchDTO();
-				dto.setRkind(rs.getString("rkind"));
-				dto.setRescnt(rs.getInt("rescnt"));
-				dto.setPcnt(rs.getInt("pcnt"));
-				dto.setcCode(rs.getString("cCode"));
-				dto.setMoney(rs.getInt("money"));
-				dto.setHname(rs.getString("hname"));
-				dto.setCity(rs.getString("city"));
-				dto.setCountry(rs.getString("country"));
-				dto.setRcode(rs.getString("rcode"));
-				dto.setHinfo(rs.getString("hinfo"));
+				dto = new SearchDTO2();
+				dto.setHcode(rs.getString("hcode"));
 				res.add(dto);
 			}
 			
-			for (SearchDTO arr : res) {
-				if(chk.size()==0 || !chk.containsKey(arr.getRcode())) {
-					chk.put(arr.getRcode(), 1);
-				}else {
-					int a = chk.get(arr.getRcode())+1;
-					chk.replace(arr.getRcode(), a);
+			for (SearchDTO2 dd : res) {
+				
+				sql="select * from hot_com where hcode=?";
+				
+				ptmt = con.prepareStatement(sql);
+				
+				ptmt.setString(1, dd.getHcode());
+				
+				rs = ptmt.executeQuery();
+				
+				while(rs.next()) {
+					dto = new SearchDTO2();
+					dto.setHcode(rs.getString("hcode"));
+					dto.setCountry(rs.getString("country"));
+					dto.setRkind(rkind);
+					dto.setCity(rs.getString("city"));
+					dto.setHname(rs.getString("hname"));
+					dto.setHinfo(rs.getString("hinfo"));
+					res2.add(dto);
 				}
+				
 			}
-			
-			for (Entry<String, Integer> en : chk.entrySet()) {
-				if(en.getValue()-1==day) {
-					for (SearchDTO rr : res) {
-						if(rr.getRcode().equals(en.getKey())) {
-							res2.add(rr);
-							break;
-						}
-					}
-				}
-			}
-			
 			
 			
 		} catch (SQLException e) {

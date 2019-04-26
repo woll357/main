@@ -312,6 +312,54 @@ public Object comdetail(Air_comDTO dto) {
 				
 			}
 	
+		public Air_comDTO serarchByAirCode(Air_comDTO dto) {
+			Air_comDTO res = null;
+			
+			System.out.println("serarchByAirCode 진입하니?");
+			
+			sql = "select * from air_com where air_code = ? " ;
+			System.out.println(sql);
+			
+			System.out.println("왜안나오지?1");
+			
+			try {
+				ptmt = con.prepareStatement(sql);
+				
+				System.out.println("왜안나오지?2");
+				
+				ptmt.setString(1, dto.getAir_code());
+				System.out.println("항공사코드 나오니?"+dto.getAir_code());
+				rs = ptmt.executeQuery();
+				
+				System.out.println("serarchByAirCode실행되고 있니?");
+				
+				
+				if(rs.next()) {
+					System.out.println("진입하니223");
+					
+					res = new Air_comDTO();
+					res.setAir_code(rs.getString("air_code"));
+					
+					System.out.println("항공사코드"+rs.getString("air_code"));
+					
+					res.setId(rs.getString("id"));
+					res.setCrn(rs.getString("crn"));
+					res.setImg(rs.getString("img"));
+					res.setAir_name(rs.getString("air_name"));
+				}
+						
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			
+			}
+			
+			  finally {
+			  
+			  close();
+			  }
+				return res;
+		}
 	
 	
 		public void close() {
