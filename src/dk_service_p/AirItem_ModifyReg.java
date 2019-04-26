@@ -27,9 +27,8 @@ public class AirItem_ModifyReg implements MvcAction {
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>c코드라구 ㅜ"+request.getParameter("ccode"));
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>c코드라구 ㅜ"+request.getParameter("ddate"));
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>c코드라구 ㅜ"+request.getParameter("carea"));
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>c코드라구 ㅜ"+request.getParameter("darea"));
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>c코드라구 ㅜ"+request.getParameter("money"));
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>c코드라구 ㅜ"+Integer.parseInt(request.getParameter("money")));
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>c코드라구 ㅜ"+Integer.parseInt(request.getParameter("money")));
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>c코드라구 ㅜ"+Integer.parseInt(request.getParameter("money")));
 		
 		Air_itemDTO dto = new Air_itemDTO();

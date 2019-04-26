@@ -36,7 +36,7 @@ public class nh_Controller extends HttpServlet {
 		 * response.getWriter().append("Served at: ").append(request.getContextPath());
 		 */
 		
-		String service = request.getRequestURI().substring("/testProj/greensc/".length());
+		String service = request.getRequestURI().substring("/mainProj/greensc/".length());
 		System.out.println(service);
 		request.setAttribute("mainUrl", "greensc/"+service+".jsp");
 		request.setAttribute("subUrl", "greensc/subMenu.jsp");

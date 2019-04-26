@@ -32,7 +32,7 @@ public class Hmain_cont extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String service = request.getRequestURI().substring("/greenScProj2/hmain/".length());
+		String service = request.getRequestURI().substring("/mainProj/hmain/".length());
 		try {
 			request.setAttribute("topUrl", "hmain/"+"Hmaintop.jsp");
 			request.setAttribute("mainUrl", "hmain/"+service+".jsp");

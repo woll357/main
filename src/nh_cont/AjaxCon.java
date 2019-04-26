@@ -35,7 +35,7 @@ public class AjaxCon extends HttpServlet {
 		/*
 		 * response.getWriter().append("Served at: ").append(request.getContextPath());
 		 */
-		String service = request.getRequestURI().substring("/testProj/greenAjax/".length());
+		String service = request.getRequestURI().substring("/mainProj/greenAjax/".length());
 		System.out.println(service);
 		
 		

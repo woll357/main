@@ -19,7 +19,6 @@ public class LoginReg implements MvcAction {
 		SignUpDTO dto = new SignUpDTO();
 		dto.setId(request.getParameter("id"));
 		dto.setPw(request.getParameter("pw"));
-		
 		SignUpDTO mem =new SignUpDAO().chklogin(dto);
 		
 		if(mem!=null) {
@@ -28,19 +27,29 @@ public class LoginReg implements MvcAction {
 			HttpSession session = request.getSession();
 			
 			if(mem.getGrade().equals("A")) {
+				dto.setGrade(mem.getGrade());
 				mem.setAir_code(new SignUpDAO().chkCode(dto));
+				System.out.println(mem.getAir_code());
+				
+				
+				request.setAttribute("msg", request.getParameter("id")+"님 환영합니다.");
+				request.setAttribute("mainUrl", "greensc/alert.jsp");
+				request.setAttribute("goUrl", "../airgreen/AirHomeMain");
 			}else if(mem.getGrade().equals("H")) {
+				dto.setGrade(mem.getGrade());
 				mem.setHcode(new SignUpDAO().chkCode(dto));
+			}else {
+				request.setAttribute("msg", request.getParameter("id")+"님 환영합니다.");
+				request.setAttribute("mainUrl", "greensc/alert.jsp");
+				request.setAttribute("goUrl", "Home");
 			}
 			
 			
 			session.setAttribute("mem", mem);
-
 			
 			
-			request.setAttribute("msg", request.getParameter("id")+"님 환영합니다.");
-			request.setAttribute("mainUrl", "greensc/alert.jsp");
-			request.setAttribute("goUrl", "Home");
+			
+			
 
 		}else {
 			request.setAttribute("msg", "ID 와 PW 확인 부탁드립니다.");

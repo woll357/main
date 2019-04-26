@@ -19,12 +19,12 @@
 	<c:forEach var="dto" items="${data }" varStatus="no">
 	<tr>
 		<td><img src="../img/${dto.img }" width="100px" height="100px"></td>
-		<td>${dto.air_code }</td>
-		<td>${dto.id }</td>
+		<td>${mem.air_code }</td>
+		<td>${mem.id }</td>
 		<td>${dto.crn }</td>
 		<td>${dto.air_name }</td>
-		<td><a href="AirLine_Modify?id=${dto.id }"><input type="button" value="수정"></a><br>
-		<a href="AirLine_Delete?id=${dto.id }"><input type="button" value="삭제"></a></td>
+		<td><a href="AirLine_Modify"><input type="button" value="수정"></a><br>
+		<a href="AirLine_Delete"><input type="button" value="삭제"></a></td>
 	</tr>
 	</c:forEach>
 </table>

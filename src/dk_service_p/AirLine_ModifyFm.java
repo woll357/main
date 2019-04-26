@@ -5,12 +5,14 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import db_p.Air_comDAO;
 import db_p.Air_comDTO;
+import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
@@ -41,7 +43,7 @@ System.out.println(" 항공사가 수정이 되는 페이지");
 		      dto.setCrn(mm.getParameter("crn"));
 		      dto.setAir_name(mm.getParameter("air_name"));
 		   
-			
+		      HttpSession session = request.getSession();
 			
 			if(mm.getParameter("img")!=null)
 				  dto.setImg(mm.getParameter("img"));
@@ -49,7 +51,7 @@ System.out.println(" 항공사가 수정이 되는 페이지");
 				  dto.setImg(mm.getParameter("img"));
 			
 			
-			   dto.setId(mm.getParameter("id"));
+			   dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
 			
 			String msg = "";
 			String goUrl = "aircom_detail";

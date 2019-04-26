@@ -18,7 +18,7 @@
 		</tr>
 		<tr>
 			<td>출발지</td><td>
-				<select name="carea">                                   
+				<select name="darea">                                   
 				<option value="인천">인천</option>
 				<option value="도쿄">도쿄</option>
 				<option value="오사카" >오사카</option> 
@@ -55,8 +55,8 @@
 		<tr>
 			<td>좌석등급</td><td>
 				<select name="flightclass">                                   
-				<option value="인천">일반</option>
-				<option value="도쿄">비즈니스</option>       
+				<option value="일반">일반</option>
+				<option value="비즈니스">비즈니스</option>       
 				</select>
 			</td>
 	</tr>

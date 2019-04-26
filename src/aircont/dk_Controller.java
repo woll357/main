@@ -36,7 +36,7 @@ public class dk_Controller extends HttpServlet {
 		 * response.getWriter().append("Served at: ").append(request.getContextPath());
 		 */
 		
-		String service = request.getRequestURI().substring("/odkProj/airgreen/".length());
+		String service = request.getRequestURI().substring("/mainProj/airgreen/".length());
 		
 		System.out.println(service);
 		

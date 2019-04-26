@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -11,6 +12,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import db_p.Air_comDAO;
 import db_p.Air_tempDAO;
 import db_p.Air_tempDTO;
+import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
@@ -36,12 +38,17 @@ public class airTempHomeReg implements MvcAction {
 					new DefaultFileRenamePolicy()
 					);
 			
+			HttpSession session = request.getSession();
+	
+		    
+			
+			
 			Air_tempDTO dto = new Air_tempDTO();
-			dto.setId(mm.getParameter("id"));
+			dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
 			dto.setCrn(mm.getParameter("crn"));
 			dto.setImg(mm.getParameter("img"));
 			dto.setAir_name(mm.getParameter("air_name"));
-			dto.setGrade(mm.getFilesystemName("grade"));
+			dto.setGrade(((SignUpDTO) session.getAttribute("mem")).getGrade());
 			
 			new Air_tempDAO().write(dto);
 		
