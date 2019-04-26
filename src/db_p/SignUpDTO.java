@@ -1,8 +1,108 @@
 package db_p;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class SignUpDTO {
 	String grade, id, pw, pname, birth, gender, email, phone, black,
-			preason, emg, country, city, addDetail,hcode;
+			preason, emg, country, city, addDetail,  crn, img,
+			air_name, himg, hinfo, air_code, hcode, hname;
+	Integer no, num,bnum;
+	Date time;
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	
+	
+	
+	public String getHname() {
+		return hname;
+	}
+
+	public void setHname(String hname) {
+		this.hname = hname;
+	}
+
+	public String getAir_code() {
+		return air_code;
+	}
+
+	public void setAir_code(String air_code) {
+		this.air_code = air_code;
+	}
+
+	public String getHcode() {
+		return hcode;
+	}
+
+	public void setHcode(String hcode) {
+		this.hcode = hcode;
+	}
+
+	public Integer getNo() {
+		return no;
+	}
+
+	public void setNo(Integer no) {
+		this.no = no;
+	}
+
+	public Integer getNum() {
+		return num;
+	}
+
+	public void setNum(Integer num) {
+		this.num = num;
+	}
+
+	
+
+	public Integer getBnum() {
+		return bnum;
+	}
+
+	public void setBnum(Integer bnum) {
+		this.bnum = bnum;
+	}
+
+	public String getCrn() {
+		return crn;
+	}
+
+	public void setCrn(String crn) {
+		this.crn = crn;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+	public String getAir_name() {
+		return air_name;
+	}
+
+	public void setAir_name(String air_name) {
+		this.air_name = air_name;
+	}
+
+	public String getHimg() {
+		return himg;
+	}
+
+	public void setHimg(String himg) {
+		this.himg = himg;
+	}
+
+	public String getHinfo() {
+		return hinfo;
+	}
+
+	public void setHinfo(String hinfo) {
+		this.hinfo = hinfo;
+	}
 
 	public String getGrade() {
 		return grade;
@@ -115,15 +215,23 @@ public class SignUpDTO {
 	public void setAddDetail(String addDetail) {
 		this.addDetail = addDetail;
 	}
-
-	public String getHcode() {
-		return hcode;
+	public Date getTime() {
+		return time;
 	}
-
-	public void setHcode(String hcode) {
-		this.hcode = hcode;
+	public void setTime(Date time) {
+		this.time = time;
 	}
-	
+	public String getTimeStr() {
+		return sdf.format(time);
+	}
+	public void setTimeStr(String time) {
+		try {
+			this.time = sdf.parse(time);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	
 }
