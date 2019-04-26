@@ -30,6 +30,31 @@ public class Hot_tempDAO {
 		
 	}
 	
+	public void delewrite(DereDTO dto) {
+		
+
+		
+		try {
+			
+			sql = "insert into dere "
+					+ " (id,kind,Code,request,requestdate) values "
+					+ " (? ,? ,? ,? ,sysdate());";
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getId());
+			ptmt.setString(2, dto.getKind());
+			ptmt.setString(3, dto.getCode());
+			ptmt.setString(4, dto.getRequest());
+			ptmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+			close();
+		}
+		
+	}
+	
 	public void roomwrite(Room_itemDTO dto) {
 
 		try {
