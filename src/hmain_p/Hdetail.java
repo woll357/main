@@ -23,9 +23,6 @@ public class Hdetail implements MvcAction {
 		HttpSession session = request.getSession();
 	      dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
 	     
-	      
-
-		
 		Hot_comDTO dto2 = new Hot_tempDAO().detail(dto);
 
 		request.setAttribute("dto",dto2);

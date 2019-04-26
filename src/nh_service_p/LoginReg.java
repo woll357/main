@@ -38,6 +38,9 @@ public class LoginReg implements MvcAction {
 			}else if(mem.getGrade().equals("H")) {
 				dto.setGrade(mem.getGrade());
 				mem.setHcode(new SignUpDAO().chkCode(dto));
+				request.setAttribute("msg", request.getParameter("id")+"님 환영합니다.");
+				request.setAttribute("mainUrl", "greensc/alert.jsp");
+				request.setAttribute("goUrl", "../hmain/Hmain");
 			}else {
 				request.setAttribute("msg", request.getParameter("id")+"님 환영합니다.");
 				request.setAttribute("mainUrl", "greensc/alert.jsp");

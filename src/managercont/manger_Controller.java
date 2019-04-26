@@ -36,7 +36,7 @@ public class manger_Controller extends HttpServlet {
 		 * response.getWriter().append("Served at: ").append(request.getContextPath());
 		 */
 		
-		String service = request.getRequestURI().substring("/odkproJ/Manager/".length());
+		String service = request.getRequestURI().substring("/mainProj/Manager/".length());
 		
 		request.setAttribute("mainUrl", "manager/"+service+".jsp" );
 		request.setAttribute("subUrl", "manager/subMenu.jsp");
