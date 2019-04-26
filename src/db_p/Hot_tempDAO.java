@@ -30,6 +30,38 @@ public class Hot_tempDAO {
 		
 	}
 	
+	public Hot_comDTO detail2(Hot_comDTO dto) {
+		Hot_comDTO res = null;
+		
+		sql = "select * from hot_com where hcode = ?";
+		
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.hcode);
+			rs=ptmt.executeQuery();
+			if(rs.next()) {
+				res = new Hot_comDTO();
+				res.setId(rs.getString("id"));
+				res.setHname(rs.getString("hname"));
+				res.setCrn(rs.getString("crn"));
+				res.setHimg(rs.getString("himg"));
+				res.setCountry(rs.getString("country"));
+				res.setCity(rs.getString("city"));
+				res.setGrade(rs.getString("grade"));
+				res.setHcode(rs.getString("hcode"));
+				res.setHinfo(rs.getString("hinfo"));
+				res.setAddDetail(rs.getString("adddetail"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			close();
+		}	
+		return res;
+	}
+	
 	public void delewrite(DereDTO dto) {
 		
 
