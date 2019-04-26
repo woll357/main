@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context>
+   <Resource
+      name = "scanner"
+      auth = "Container"
+      type = "javax.sql.DataSource"
+      driverClassName = "com.mysql.jdbc.Driver"
+      url = "jdbc:mysql://localhost:3306/green_sc"
+      username = "main"
+      password = "123456"
+   />
+
+</Context>
