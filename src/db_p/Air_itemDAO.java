@@ -289,23 +289,26 @@ public class Air_itemDAO {
 		
 		
 		
-		public Object air_pitemlist() {
+		public Object air_pitemlist(Air_itemDTO dto) {
 			
 			ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 			
 			
-			
 			try {
-				sql = "select distinct air_p , darea , carea from air_item ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
+				sql = "select distinct air_p , darea , carea from air_item where air_code = ? ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
 				//limit 0, 3  - > 3개만 가져옴
 				ptmt = con.prepareStatement(sql);
 				
+				ptmt.setString(1, dto.getAir_code());
+		
 				
 				rs = ptmt.executeQuery();
 				
 				while(rs.next()) {
 					
-				Air_itemDTO dto = new Air_itemDTO();
+				dto = new Air_itemDTO();
+				
+				
 				dto.setAir_p(rs.getString("air_p"));	
 				dto.setDarea(rs.getString("darea"));
 				dto.setCarea(rs.getString("carea"));		
@@ -327,6 +330,10 @@ public class Air_itemDAO {
 			
 			return res;
 		}
+		
+		
+		
+		
 		
 		
 		public Object air_pitemlist2(String air_p) {
