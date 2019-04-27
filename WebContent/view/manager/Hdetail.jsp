@@ -29,7 +29,7 @@
 	<tr>
 		<td>방갯수</td>
 		<td>${data.rcnt }</td>
-		<td><a href="Hdetail">방삭제</a></td>
+		<td><a href="HroomDelete">방삭제</a></td>
 	</tr>
 	<tr>
 		<td>방인원</td>
