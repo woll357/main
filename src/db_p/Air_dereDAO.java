@@ -90,7 +90,15 @@ public class Air_dereDAO {
 			ptmt.setString(1, a);	
 			ptmt.executeUpdate() ;
 			
-		
+			sql = "delete from hot_com where hcode = ?";
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, a);
+			ptmt.executeUpdate() ;
+			
+			sql = "delete from room_item where hcode = ?";
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, a);
+			ptmt.executeUpdate() ;
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
