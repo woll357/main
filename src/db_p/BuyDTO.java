@@ -6,12 +6,21 @@ import java.util.Date;
 
 public class BuyDTO {
 
-	int pno, bnum, totalPrice;
+	int pno, bnum, totalPrice, no;
 	String bcode, id, bstatus, pCode;
 	Date bdate;
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
 	
+	
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
+	}
+
 	public String getBdateStr() {
 		return sdf.format(bdate);
 	}

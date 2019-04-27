@@ -6,12 +6,19 @@ import java.util.Date;
 
 public class BasketpaidDTO {
 	int pno, cNum, totalPrice, psn;
-	String basketID, cType, cName, itemName, location1, location2, bcode, id;
+	String basketID, cType, cName, itemName, location1, location2, bcode, id, bstatus;
 	Date ddate, fdate;
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	
-	
+
+	public String getBstatus() {
+		return bstatus;
+	}
+
+	public void setBstatus(String bstatus) {
+		this.bstatus = bstatus;
+	}
+
 	public String getFdateStr() {
 		return sdf.format(fdate);
 	}

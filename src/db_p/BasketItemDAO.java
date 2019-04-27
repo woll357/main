@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -24,7 +25,7 @@ public class BasketItemDAO {
 			e.printStackTrace();
 		}	
 	}
-	
+
 	public void insert(BasketItemDTO dto) {
 		
 		sql = "insert into basketItem "
@@ -46,6 +47,30 @@ public class BasketItemDAO {
 		}finally {
 			close();
 		}
+	}
+	
+	public void modifyBstatus(BasketItemDTO dto) {
+		
+		sql = "update basketItem set bstatus = ? "
+				+ " where basketID = ?";
+				
+	System.out.println(sql);
+	
+	try {
+		ptmt = con.prepareStatement(sql);
+		
+		ptmt.setString(1, dto.getBstatus());
+		ptmt.setString(2, dto.getBasketID());
+		
+		ptmt.executeUpdate();
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally {
+		close();
+	}
+
 	}
 	
 	public boolean delete(BasketItemDTO dto) { //장바구니에 해당하는 아이템들 삭제

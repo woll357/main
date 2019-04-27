@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class BasketItemDTO {
-	String cCode, rcode, basketID;
+	String cCode, rcode, basketID, bstatus;
 	int basketItemCode, price;
 	Date ddate;
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -23,6 +23,16 @@ public class BasketItemDTO {
 		}
 	}
 	
+	
+	
+	public String getBstatus() {
+		return bstatus;
+	}
+
+	public void setBstatus(String bstatus) {
+		this.bstatus = bstatus;
+	}
+
 	public String getRcode() {
 		return rcode;
 	}

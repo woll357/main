@@ -116,7 +116,7 @@ public class BasketDAO {
 	}
 	
 	
-public BasketDTO detail(BasketDTO dto) {	//basketID찾기
+	public BasketDTO detail(BasketDTO dto) {	
 		
 		BasketDTO res = new BasketDTO();
 		
@@ -201,8 +201,7 @@ public BasketDTO detail(BasketDTO dto) {	//basketID찾기
 				res.setPsn(rs.getInt("psn"));
 				res.setNo(rs.getInt("no"));
 				res.setId(rs.getString("id"));
-				
-				
+
 				}
 			
 			

@@ -25,15 +25,40 @@ public class TravelerInfoReg implements MvcAction {
 			e.printStackTrace();
 		}
 		
-		String [] basketIDs = request.getParameterValues("basketIDs");
+		System.out.println("TravelerInfoReg들어와?");
 		
+		String [] basketIDs = request.getParameterValues("basketIDs"); //모두 H면 돌면 안돼.
+		
+		System.out.println("장바구니 몇개 갖고있어?"+basketIDs.length);
+		
+		boolean chk = false;
+		
+		AAA: for (int i = 0; i < basketIDs.length; i++) {
+			System.out.println(i);
+			BasketDTO dto = new BasketDTO();
+			dto.setBasketID(basketIDs[i]);
+			dto = new BasketDAO().detail(dto);
+			
+			
+			if(dto.getcType().equals("A")) {
+				System.out.println("여긴들어와?");
+				chk = true;
+				break AAA;
+			}
+		}
+		if(chk) {
+		
+			
+		System.out.println("비행기 고객 정보 입력 진입하니?");
+			
 		String [] airBaskets = request.getParameterValues("airBaskets");
+		
 		
 		String pname = request.getParameterValues("cKorName")[0];
 		String mainEngLastName = request.getParameterValues("cEngLastName")[0];
 		String mainEngFirstName = request.getParameterValues("cEngFirstName")[0];
 		
-		String id = "1112";//request.getParameter("id");
+		String id = "1112";//((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
 		String bid = request.getParameter("bid");
 		System.out.println(id);
 
@@ -80,6 +105,29 @@ public class TravelerInfoReg implements MvcAction {
 		request.setAttribute("mainUrl", "payment/PaymentMain.jsp");
 		request.setAttribute("topUrl", "payment/PaymentMainTop.jsp");
 		
+		return null;
+		}
+		else if(!chk) {
+			
+			int totalPrice = 0;
+			
+			for (int i = 0; i < basketIDs.length; i++) {
+				BasketDTO dto = new BasketDTO();
+				
+				dto.setBasketID(basketIDs[i]);
+			
+				dto = new BasketDAO().detail(dto);
+				System.out.println("얼마니?"+dto.getTotalPrice());
+				totalPrice+=dto.getTotalPrice();
+			}
+			
+			request.setAttribute("totalPrice", totalPrice);
+			request.setAttribute("basketIDs", basketIDs);
+			request.setAttribute("mainUrl", "payment/PaymentMain.jsp");
+			request.setAttribute("topUrl", "payment/PaymentMainTop.jsp");
+			
+			return null;
+		}
 		return null;
 	}
 }
