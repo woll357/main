@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import db_p.Air_planeDAO;
 import db_p.Air_planeDTO;
+import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
@@ -19,7 +20,7 @@ public class Airplane_InsertReg implements MvcAction {
 		//비행기 등록
 		Air_planeDTO dto = new Air_planeDTO();
 		
-		dto.setAir_code(request.getParameter("air_code"));
+		dto.setAir_code(((SignUpDTO) session.getAttribute("mem")).getAir_code());
 		dto.setAp_code(request.getParameter("ap_code"));
 		
 		

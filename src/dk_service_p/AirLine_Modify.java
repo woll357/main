@@ -11,6 +11,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import db_p.Air_comDAO;
 import db_p.Air_comDTO;
+import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
@@ -28,7 +29,7 @@ public class AirLine_Modify implements MvcAction {
 		Air_comDTO dto = new Air_comDTO();
 		
 
-		dto.setId(request.getParameter("id"));
+		dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
 	
 		
 		Air_comDAO dao = new Air_comDAO() ;
