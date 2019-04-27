@@ -12,6 +12,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import db_p.Air_comDAO;
 import db_p.Air_comDTO;
+import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
@@ -52,7 +53,7 @@ System.out.println(" 항공사가 수정이 되는 페이지");
 				  dto.setImg(mm.getParameter("img"));
 			
 			
-			   dto.setId(mm.getParameter("id"));
+			   dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
 			
 			String msg = "";
 			String goUrl = "aircom_detail";

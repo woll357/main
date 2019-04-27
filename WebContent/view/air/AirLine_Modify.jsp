@@ -9,7 +9,7 @@
 <body>
 <form action="AirLine_ModifyFm" method="post"  enctype="multipart/form-data">
 <table border="">
-	<input type="hidden" name="id" value="${dto.id }">
+	<input type="hidden" name="id" value="${mem.id }">
 	<tr>
 		<td>이미지<input type="file"></td>
 		<td>사업자등록증</td>

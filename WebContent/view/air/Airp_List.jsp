@@ -13,8 +13,8 @@
 		<tr>
 			<td colspan="2">항공편 코드</td>
 			<td><input type="text" name="air_p"/></td>
-			<input type="hidden" name="air_code" value="${air_code }">
-			<input type="hidden" name="id" value="${id }">
+			<input type="hidden" name="air_code" value="${mem.air_code }">
+			<input type="hidden" name="id" value="${mem.id }">
 			<td align="center"><input type="submit" value="선택  " /></td>
 		</tr>
 	<tr>
@@ -26,7 +26,7 @@
 
 <c:forEach var="dto" items="${data}" varStatus="no">	
 	<tr>
-	<td><%-- <a href="AirItem_Detail?ccode=${dto.ccode }">${dto.ccode }</a> --%><a href="Airp_List2?air_p=${dto.air_p }&air_code=${air_code }">${dto.air_p }</a></td>	
+	<td><%-- <a href="AirItem_Detail?ccode=${dto.ccode }">${dto.ccode }</a> --%><a href="Airp_List2?air_p=${dto.air_p }&air_code=${mem.air_code }">${dto.air_p }</a></td>	
 		<td>${dto.air_name }</td>
 		<td>${dto.darea }</td>
 		<td>${dto.carea }</td>

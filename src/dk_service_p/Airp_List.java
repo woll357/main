@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import db_p.Air_itemDAO;
+import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
@@ -17,16 +18,16 @@ public class Airp_List implements MvcAction {
 		HttpSession session = request.getSession();
 		
 		
-		System.out.println(request.getParameter("air_code"));
-			System.out.println(request.getParameter("id"));
+		System.out.println(((SignUpDTO) session.getAttribute("mem")).getAir_code());
+			System.out.println(((SignUpDTO) session.getAttribute("mem")).getId());
 			Air_itemDAO dao = new Air_itemDAO();
 			
 			
-		      request.setAttribute("data", dao.air_pitemlistt(request.getParameter("air_code")));
+		      request.setAttribute("data", dao.air_pitemlistt(((SignUpDTO) session.getAttribute("mem")).getAir_code()));
 		      
 		      
-		      request.setAttribute("air_code",request.getParameter("air_code"));
-		      request.setAttribute("id", request.getParameter("id"));
+		      request.setAttribute("air_code",((SignUpDTO) session.getAttribute("mem")).getAir_code());
+		      request.setAttribute("id", ((SignUpDTO) session.getAttribute("mem")).getId());
 		      
 		      
 		      System.out.println("항공편 리스트 진입");

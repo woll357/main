@@ -12,6 +12,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import db_p.Air_comDAO;
 import db_p.Air_tempDAO;
 import db_p.Air_tempDTO;
+import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
@@ -38,7 +39,7 @@ public class airTempHomeReg implements MvcAction {
 					);
 			
 			Air_tempDTO dto = new Air_tempDTO();
-			dto.setId(mm.getParameter("id"));
+			dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
 			dto.setCrn(mm.getParameter("crn"));
 			dto.setImg(mm.getParameter("img"));
 			dto.setAir_name(mm.getParameter("air_name"));

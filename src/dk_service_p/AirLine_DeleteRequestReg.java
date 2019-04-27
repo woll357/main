@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import db_p.Air_dereDAO;
 import db_p.Air_dereDTO;
+import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
@@ -25,7 +26,7 @@ public class AirLine_DeleteRequestReg implements MvcAction {
 		
 		dto.setCode(request.getParameter("code"));
 		dto.setRequest(request.getParameter("request"));
-		dto.setId(request.getParameter("id"));
+		dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
 		dto.setKind(request.getParameter("kind"));
 		
 		new Air_dereDAO().insert(dto);
