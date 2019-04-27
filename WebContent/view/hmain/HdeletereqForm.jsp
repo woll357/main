@@ -4,7 +4,7 @@
 		<input type="hidden" name="Code" value="${mem.hcode }"  />
 		<input type="hidden" name="id" value="${mem.id }"  />
 		<input type="hidden" name="kind" value="호텔" />
-		<table>
+		<table border="">
 				<tr>
 					<td>사유</td>
 					<td><input type="text" name="request" /></td>

@@ -16,7 +16,7 @@
 	</tr>
 </table>
 
-방목록
+방목록 S=> 스탠다르룸  D=>디럭스룸
 <c:forEach var="data" items="${roomdata }" varStatus="no">
 <table border="">
 	<tr>

@@ -15,9 +15,12 @@
 	<tr>
 	<td colspan="2">${dto.hinfo }</td>
 	</tr>
+		<tr>
+		<td colspan="3">${dto.addDetail }</td>
+	</tr>
 
 </table>
-협력방목록
+협력방목록   S=> 스탠다르룸  D=>디럭스룸
 <c:forEach var="data" items="${roomdata }" varStatus="no">
 <table border="">
 	<tr>

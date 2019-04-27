@@ -4,7 +4,7 @@
 <h2>관리자호텔리스트보기</h2>
 
 <form action="HlistSearch">
-	<table>
+	<table border="">
 		<tr>
 			<td>호텔코드로검색</td>
 			<td><input type="text" name="hcode" /></td>
@@ -17,10 +17,10 @@
 <table border="">
 	<tr>
 		<td>호텔코드</td>
-		<td colspan="2">${dto.hcode }</td>
+		<td colspan="2" width="200">${dto.hcode }</td>
 	</tr>
 	<tr>
-		<td rowspan="3"><img src="../img/${dto.himg }" alt="" /></td>
+		<td rowspan="3" width="220"><img src="../img/${dto.himg }" alt="" /></td>
 		<td>${dto.country }</td>
 		<td>${dto.city }</td>
 	</tr>
@@ -31,8 +31,12 @@
 	<td colspan="2">${dto.hinfo }</td>
 	</tr>
 	<tr>
+		<td colspan="3">${dto.addDetail }</td>
+	</tr>
+	<tr>
 	<td align="left" colspan="3"><a href="Hdetail?hcode=${dto.hcode }">관리자상세조회</a></td>
 	</tr>
+
 
 </table>
 </c:forEach>
