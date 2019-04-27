@@ -87,6 +87,42 @@ public class SignUpDAO {
 		return res;
 	}
 	
+	public void deleteId(SignUpDTO dto) {
+		
+		try {
+			sql="DELETE from member where id=?";
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getId());
+			ptmt.executeUpdate();
+			sql="DELETE from air_temp where id=?";
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getId());
+			ptmt.executeUpdate();
+			sql="DELETE from hot_temp where id=?";
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getId());
+			ptmt.executeUpdate();
+			sql="DELETE from manager_temp where id=?";
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getId());
+			ptmt.executeUpdate();
+			
+			if(dto.getGrade().equals("M")) {
+				sql="DELETE from manager where id=?";
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, dto.getId());
+				ptmt.executeUpdate();
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+
+	}
 	
 	
 	public String chkCode(SignUpDTO dto) {
@@ -506,8 +542,49 @@ public void gradeMgUpup(SignUpDTO dto) {
 		      
 		   }
 	
+		public String findPw(SignUpDTO dto) {
+			
+			sql="select * from member where phone=? and id=?";
+			String res = null; 
+			try {
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, dto.getPhone());
+				ptmt.setString(2, dto.getId());
+				
+				rs = ptmt.executeQuery();
+				if(rs.next()) {
+					res=rs.getString("pw");
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				close();
+			}
+			return res;
+		}
 	
-	
+		public String findId(SignUpDTO dto) {
+			
+			sql="select * from member where phone=?";
+			String res = null; 
+			try {
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, dto.getPhone());
+				rs = ptmt.executeQuery();
+				if(rs.next()) {
+					res=rs.getString("id");
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				close();
+			}
+			return res;
+		}
 	
 	
 	public void close() {

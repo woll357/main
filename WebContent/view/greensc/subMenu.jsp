@@ -17,9 +17,9 @@
 <table border="">
 <tr>
 <td><a href="ModifyMem?mypage=in">회원 정보 수정</a></td>
-<td>탈퇴 신청</td>
+<td><a href="DeleteMySign?mypage=in">탈퇴 신청</a></td>
 <td>구매 정보</td>
-<td>등업 신청</td>
+<td><a href="Appbss?mypage=in">등업 신청</a></td>
 </tr>
 </table>
 </c:if>

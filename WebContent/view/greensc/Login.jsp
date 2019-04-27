@@ -23,8 +23,13 @@
 		<td><input type="text" name="pw"/></td>
 	</tr>
 	<tr>
-		<td><input type="submit" value="로그인"/></td>
-		<td><a href="SignUp"><input type="button" value="회원가입"/></a></td>
+		<td colspan="2">
+		
+		<input type="submit" value="로그인"/>
+		<a href="SignUp"><input type="button" value="회원가입"/></a>
+		<a href="FindMySign"><input type="button" value="ID/PW찾기"/></a>
+		
+		</td>
 	</tr>
 </table>
 
