@@ -53,6 +53,22 @@
 				</table>
 			</c:when>
 
+			<c:when test="${param.aotcont=='in' }">
+				<table border="">
+					<tr>
+						<td><a href="../airgreen/AirLine_Detail?aotcont=in">항공사 수정 및 삭제</a></td>
+						<td><a href="../airgreen/HAirItem_List?aotcont=in">호텔수정</a></td>
+						<td><a href="../airgreen/Airp_List?aotcont=in">방등록</a></td>
+						<td><a href="../airgreen/AirHomeMain?aotcont=in">메인</a></td>
+						<td>매출내역</td>
+						<td>예약내역</td>
+					</tr>
+				</table>
+			</c:when>
+			
+			
+			
+			
 			<c:when test="${param.partner=='in' }">
 				<table border="">
 					<tr>
