@@ -335,6 +335,7 @@ public void roomdelete(Room_itemDTO dto) {
 				dto.setGrade(rs.getString("grade"));
 				dto.setHinfo(rs.getString("hinfo"));
 				dto.setAddDetail(rs.getString("adddetail"));
+				dto.setHcode(rs.getString("hcode"));
 				res.add(dto);
 				
 			}

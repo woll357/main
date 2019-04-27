@@ -17,7 +17,7 @@
 	</tr>
 
 </table>
-방목록
+협력방목록
 <c:forEach var="data" items="${roomdata }" varStatus="no">
 <table border="">
 	<tr>
@@ -40,7 +40,7 @@
 	<tr>
 		<td>금액</td>
 		<td>${data.money }</td>
-		<td><a href="Hdetail">방삭제신청</a></td>
+		<td><a href="HroomDelete?rcode=${data.rcode }">방삭제</a></td>
 	</tr>
 	<tr>
 		<td>주말금액</td>

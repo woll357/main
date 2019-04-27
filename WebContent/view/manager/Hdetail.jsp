@@ -24,7 +24,7 @@
 		<td rowspan="7"><img src="../img/${data.rimg }" alt="" /></td>
 		<td>방종류</td>
 		<td>${data.rkind }</td>
-		<td><a href="HroommodiForm?rcode=${data.rcode }">방수정</a></td>
+		<td><a href="HroomModiForm?rcode=${data.rcode }">방수정</a></td>
 	</tr>
 	<tr>
 		<td>방갯수</td>
