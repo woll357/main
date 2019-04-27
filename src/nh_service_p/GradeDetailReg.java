@@ -42,6 +42,7 @@ public class GradeDetailReg implements MvcAction {
 			dto.setId(request.getParameter("id"));
 			dto.setCrn(request.getParameter("crn"));
 			dto.setAir_name(request.getParameter("air_name"));
+			dto.setGrade(request.getParameter("grade"));
 			dao.gradeAirUpup(dto);
 			
 			

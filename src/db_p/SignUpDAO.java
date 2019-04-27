@@ -125,6 +125,72 @@ public class SignUpDAO {
 	}
 	
 	
+	
+	public void upupGrade(SignUpDTO dto) {
+		
+		if(dto.getGrade().equals("M")) {
+			
+			sql = "insert into manager_temp "
+					+ "(id, bnum, grade, time) values "
+					+ "(?,?,?,sysdate())";
+			
+			try {
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, dto.getId());
+				ptmt.setInt(2, dto.getBnum());
+				ptmt.setString(3, dto.getGrade());
+				ptmt.executeUpdate();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+
+		}else if(dto.getGrade().equals("A")) {
+			
+			sql = "insert into air_temp "
+					+ "(id, bnum, grade, time) values "
+					+ "(?,?,?,sysdate())";
+			
+			try {
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, dto.getId());
+				ptmt.setString(2, dto.getCrn());
+				ptmt.setString(3, dto.getAir_name());
+				ptmt.setString(4, dto.getGrade());
+				ptmt.executeUpdate();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}else {
+			
+			sql = "insert into hot_temp(id, crn, country, city, hname, hinfo, grade, time) values " + 
+					"(?, ?, (select country from member where id = ?), "
+					+ "(select city from member where id = ?), ?, ?, ?, sysdate())";
+			
+			try {
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, dto.getId());
+				ptmt.setString(2, dto.getCrn());
+				ptmt.setString(3, dto.getId());
+				ptmt.setString(4, dto.getId());
+				ptmt.setString(5, dto.getHname());
+				ptmt.setString(6, dto.getHinfo());
+				ptmt.setString(7, dto.getGrade());
+				ptmt.executeUpdate();
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+	}
+	
+	
 	public String chkCode(SignUpDTO dto) {
 		String res=null;
 		
@@ -183,6 +249,8 @@ public class SignUpDAO {
 			ptmt.setString(6, dto.getAddDetail());
 			ptmt.setString(7, dto.getId());
 			ptmt.executeUpdate();
+			
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -193,22 +261,54 @@ public class SignUpDAO {
 	
 	public void modifyMem(SignUpDTO dto, String bb) {
 		
-		sql = "update member set pw=?, phone=?, email=?, country=?, city=?, "
-				+ "addDetail=?, black=?, preason=? where id=?";
+		
 		System.out.println(dto.getBlack());
 		try {
-			ptmt = con.prepareStatement(sql);
-			ptmt.setString(1, dto.getPw());
-			ptmt.setString(2, dto.getPhone());
-			ptmt.setString(3, dto.getEmail());
-			ptmt.setString(4, dto.getCountry());
-			ptmt.setString(5, dto.getCity());
-			ptmt.setString(6, dto.getAddDetail());
-			ptmt.setString(7, dto.getBlack());
-			ptmt.setString(8, dto.getPreason());
-			ptmt.setString(9, dto.getId());
 			
-			ptmt.executeUpdate();
+			if(dto.getGrade()=="H"||dto.getGrade()=="A") {
+				sql = "update member set pw=?, phone=?, email=? where id=?";
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, dto.getPw());
+				ptmt.setString(2, dto.getPhone());
+				ptmt.setString(3, dto.getEmail());
+				ptmt.setString(4, dto.getId());
+				
+				ptmt.executeUpdate();
+			}else {
+
+				sql = "update member set pw=?, phone=?, email=?, country=?, city=?, "
+						+ "addDetail=?, black=?, preason=? where id=?";
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, dto.getPw());
+				ptmt.setString(2, dto.getPhone());
+				ptmt.setString(3, dto.getEmail());
+				ptmt.setString(4, dto.getCountry());
+				ptmt.setString(5, dto.getCity());
+				ptmt.setString(6, dto.getAddDetail());
+				ptmt.setString(7, dto.getBlack());
+				ptmt.setString(8, dto.getPreason());
+				ptmt.setString(9, dto.getId());
+				
+				ptmt.executeUpdate();
+				
+				sql="select * from hot_temp where id = ?";
+				
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, dto.getId());
+				rs = ptmt.executeQuery();
+				
+				if(rs.next()) {
+					sql = "update hot_temp set country=?, city=? where id=?";
+					ptmt = con.prepareStatement(sql);
+					ptmt.setString(1, dto.getCountry());
+					ptmt.setString(2, dto.getCity());
+					ptmt.setString(3, dto.getId());
+					ptmt.executeUpdate();
+				}
+				
+				
+			}
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -465,6 +565,10 @@ public void gradeMgUpup(SignUpDTO dto) {
 	         ptmt.setString(1, dto.getId());
 	         ptmt.executeUpdate();
 	         
+	         sql = "update member set grade = 'M' where id = ?";
+	         ptmt = con.prepareStatement(sql);
+	         ptmt.setString(1, dto.getId());
+	         ptmt.executeUpdate();
 	         
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -495,6 +599,11 @@ public void gradeMgUpup(SignUpDTO dto) {
 			ptmt.executeUpdate();
 			
 			 sql = "DELETE FROM air_temp WHERE id=?";
+	         ptmt = con.prepareStatement(sql);
+	         ptmt.setString(1, dto.getId());
+	         ptmt.executeUpdate();
+	         
+	         sql = "update member set grade = 'A' where id = ?";
 	         ptmt = con.prepareStatement(sql);
 	         ptmt.setString(1, dto.getId());
 	         ptmt.executeUpdate();
@@ -531,6 +640,10 @@ public void gradeMgUpup(SignUpDTO dto) {
 		         ptmt.setString(1, dto.getId());
 		         ptmt.executeUpdate();
 		         
+		         sql = "update member set grade = 'H' where id = ?";
+		         ptmt = con.prepareStatement(sql);
+		         ptmt.setString(1, dto.getId());
+		         ptmt.executeUpdate();
 		         
 		      } catch (SQLException e) {
 		         // TODO Auto-generated catch block

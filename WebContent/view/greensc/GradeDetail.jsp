@@ -80,12 +80,11 @@
     <input type="hidden" name="no" value="${dto.no }"/>
     <input type="hidden" name="id" value="${dto.id }"/>
     <input type="hidden" name="crn" value="${dto.crn }"/>
-    <input type="hidden" name="hname" value="H${dto.hname }"/>
+    <input type="hidden" name="hname" value="${dto.hname }"/>
     <input type="hidden" name="country" value="${dto.country }"/>
     <input type="hidden" name="city" value="${dto.city }"/>
     <input type="hidden" name="hinfo" value="${dto.hinfo }"/>
     <input type="hidden" name="grade" value="${dto.grade }"/>
-    <input type="hidden" name="hname" value="H${dto.hname }"/>
     	<table border="">
     		<tr>
     			<td>ID</td>
@@ -97,7 +96,7 @@
     		</tr>
     		<tr>
     			<td>호텔 이름</td>
-    			<td>${dto.air_name }</td>
+    			<td>${dto.hname }</td>
     		</tr>
     		<tr>
     			<td>요청 등급</td>

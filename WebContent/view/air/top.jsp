@@ -9,13 +9,7 @@
 <body>
 <!-- <div width=1300px>항공사 관리 페이지</div> -->
 <h4>항공사 관리 페이지</h4>
-<a href="../greensc/ModifyMem?mypage=in">마이페이지</a>
-
-
-
-
-
-로그아웃	마이페이지	공지	자주묻는 질문	Q&A	홈
-
+<a href="http://localhost:8080/odkproJ/airgreen/AirHomeMain">홈으로</a>
+<a href="">로그아웃</a>
 </body>
 </html>

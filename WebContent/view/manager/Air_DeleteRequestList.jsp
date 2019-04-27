@@ -20,7 +20,7 @@
 	<c:forEach var="dto" items="${data }" varStatus="no">
 	<tr>
 		<td>${dto.code }</td>
-		<td>${mem.id }</td>
+		<td>${dto.id }</td>
 		<td>${dto.requsetdate }</td>
 		<td>${dto.kind }</td>
 		<td>${dto.request }</td>

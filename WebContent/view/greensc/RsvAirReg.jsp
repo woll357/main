@@ -72,8 +72,8 @@
 		
 		</c:if>
 		
-		<form action="../Basket/BaksetBeforeReg" method="post">
-		<input type="hidden" name="psn" value="${param.seatcnt }"/>
+		<form action="../Basket/BasketAirReg" method="post">
+		<input type="hidden" name="seatcnt" value="${param.seatcnt }"/>
 		<table border="">
 			<tr>
 				<td colspan="8">

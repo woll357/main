@@ -37,14 +37,6 @@
 			</c:choose>		
 			</td>
 		</tr>
-    	<tr>
-    		<td>나라</td>
-    		<td><input type="text" name="country" value="${dto.country }"/></td>
-    	</tr>
-    	<tr>
-    		<td>호텔</td>
-    		<td><input type="text" name="city" value="${dto.city }"/></td>
-    	</tr>
     		<tr>
 
 			<td colspan="2" align="right">

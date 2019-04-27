@@ -30,6 +30,25 @@ public class Hot_tempDAO {
 		
 	}
 	
+public void roomdelete(Room_itemDTO dto) {
+		
+
+		try {
+			sql = "delete from room_item where rcode = ?";
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getRcode());
+			ptmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			
+			close();
+		}
+		
+	}
+	
 	public Hot_comDTO detail2(Hot_comDTO dto) {
 		Hot_comDTO res = null;
 		
@@ -59,6 +78,38 @@ public class Hot_tempDAO {
 		finally {
 			close();
 		}	
+		return res;
+	}
+	
+	public Object hotelsearch(Hot_comDTO rr) {
+		ArrayList<Hot_comDTO> res = new ArrayList<Hot_comDTO>();
+		
+		sql = "select * from hot_com where hcode = ?";	
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, rr.hcode);
+			rs = ptmt.executeQuery();
+			while(rs.next()) {
+				Hot_comDTO dto = new Hot_comDTO();
+				dto.setId(rs.getString("id"));
+				dto.setHname(rs.getString("hname"));
+				dto.setCrn(rs.getString("crn"));
+				dto.setHimg(rs.getString("himg"));
+				dto.setCountry(rs.getString("country"));
+				dto.setCity(rs.getString("city"));
+				dto.setGrade(rs.getString("grade"));
+				dto.setHinfo(rs.getString("hinfo"));
+				dto.setAddDetail(rs.getString("adddetail"));
+				dto.setHcode(rs.getString("hcode"));
+				res.add(dto);			
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			close();
+		}
 		return res;
 	}
 	

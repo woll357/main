@@ -1,8 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+	
     <table border="">
+    
+    <tr>
+    	<td>체크인 : </td>
+    	<td colspan="3">
+    	<input type="text" readonly="readonly" value="${param.startDay }"/>
+    	</td>
+    	<td>체크 아웃 : </td>
+    	<td colspan="2">
+		<input type="text" readonly="readonly" value="${param.endDay }"/>
+    	</td>
+    </tr>
+    
     <tr>
     <td colspan="2">국가</td>
     <td>도시</td>
@@ -22,7 +34,7 @@
 		<td>${dto.rkind }</td>
 		<td>${dto.hinfo }</td>
 		
-		<td><a href=""><input type="button" value="${dto.hcode}"/></a></td>
+		<td><a href="Hdetail?hcode=${dto.hcode }&startDay=${param.startDay }&endDay=${param.endDay }">상세조회</a></td>
 		</tr>
 		</c:forEach>
     

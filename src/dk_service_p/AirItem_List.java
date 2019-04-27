@@ -14,10 +14,9 @@ public class AirItem_List implements MvcAction {
 	@Override
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		
 		HttpSession session = request.getSession();
-
-		System.out.println(((SignUpDTO) session.getAttribute("mem")).getAir_code());
+		
+		System.out.println((((SignUpDTO) session.getAttribute("mem")).getAir_code()));
 		
 		Air_itemDAO dao = new Air_itemDAO();
 	      

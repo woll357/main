@@ -7,7 +7,7 @@
 
 	<c:when test="${param.grade=='M' }">
 
-		<form action="">
+		<form action="UpupReg" method="post">
 			<input type="hidden" name="grade" value="M" />
 			<table>
 				<tr>
@@ -30,7 +30,7 @@
 	<c:when test="${param.grade=='A' }">
 
 
-		<form action="">
+		<form action="UpupReg" method="post">
 			<input type="hidden" name="grade" value="A" />
 			<table>
 				<tr>
@@ -59,7 +59,7 @@
 	</c:when>
 	<c:otherwise>
 
-		<form action="">
+		<form action="UpupReg" method="post">
 			<input type="hidden" name="grade" value="H" />
 
 			<table border="">

@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import db_p.Air_itemDAO;
 import db_p.Air_itemDTO;
@@ -15,7 +16,7 @@ public class AirItem_ModifyReg implements MvcAction {
 	@Override
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		
+		HttpSession session = request.getSession();
 		try {
 			request.setCharacterEncoding("utf-8");
 		} catch (UnsupportedEncodingException e) {
@@ -27,8 +28,9 @@ public class AirItem_ModifyReg implements MvcAction {
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>c코드라구 ㅜ"+request.getParameter("ccode"));
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>c코드라구 ㅜ"+request.getParameter("ddate"));
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>c코드라구 ㅜ"+request.getParameter("carea"));
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>c코드라구 ㅜ"+request.getParameter("darea"));
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>c코드라구 ㅜ"+request.getParameter("money"));
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>c코드라구 ㅜ"+Integer.parseInt(request.getParameter("money")));
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>c코드라구 ㅜ"+Integer.parseInt(request.getParameter("money")));
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>c코드라구 ㅜ"+Integer.parseInt(request.getParameter("money")));
 		
 		Air_itemDTO dto = new Air_itemDTO();

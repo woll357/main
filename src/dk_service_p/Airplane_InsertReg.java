@@ -2,6 +2,7 @@ package dk_service_p;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import db_p.Air_planeDAO;
 import db_p.Air_planeDTO;
@@ -14,7 +15,7 @@ public class Airplane_InsertReg implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		
+		HttpSession session = request.getSession();
 		//비행기 등록
 		Air_planeDTO dto = new Air_planeDTO();
 		

@@ -12,7 +12,6 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import db_p.Air_comDAO;
 import db_p.Air_comDTO;
-import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
@@ -21,6 +20,8 @@ public class AirLine_ModifyFm implements MvcAction {
 	@Override
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
+		
+		HttpSession session = request.getSession();
 		
 System.out.println(" AirLine_ModifyFm 페이지 진입");
 System.out.println(" 항공사가 수정이 되는 페이지");
@@ -43,7 +44,7 @@ System.out.println(" 항공사가 수정이 되는 페이지");
 		      dto.setCrn(mm.getParameter("crn"));
 		      dto.setAir_name(mm.getParameter("air_name"));
 		   
-		      HttpSession session = request.getSession();
+			
 			
 			if(mm.getParameter("img")!=null)
 				  dto.setImg(mm.getParameter("img"));
@@ -51,7 +52,7 @@ System.out.println(" 항공사가 수정이 되는 페이지");
 				  dto.setImg(mm.getParameter("img"));
 			
 			
-			   dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
+			   dto.setId(mm.getParameter("id"));
 			
 			String msg = "";
 			String goUrl = "aircom_detail";

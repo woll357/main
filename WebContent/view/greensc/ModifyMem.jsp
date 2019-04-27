@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
     <form action="ModifyMemReg" method="post">
     <input type="hidden" name="id" value="${mem.id }"/>
@@ -23,9 +24,11 @@
     			<td>연락처</td>
     			<td><input type="text" name="phone" value="${dto.phone }"/></td>
     		</tr>
+    		<c:if test="${mem.grade=='C' ||mem.grade=='M'}">
     		<tr>
     			<td colspan="2">주소</td>
     		</tr>
+    		
     		<tr>
     			<td>나라</td>
     			<td><input type="text" name="country" value="${dto.country}"/></td>
@@ -38,6 +41,9 @@
     			<td>상세주소</td>
     			<td><input type="text" name="addDetail" value="${dto.addDetail}"/></td>
     		</tr>
+    		</c:if>
+    		
+    		
     		<tr>
     			<td colspan="2">
     			<input type="submit" value="수정하기"/>

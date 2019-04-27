@@ -21,7 +21,7 @@
 			</c:when>
 			<c:otherwise>
 			<td><a href="Login">로그인</a></td>
-			<td>회원가입</td>
+			<td><a href="SignUp">회원가입</a></td>
 			<td><a href="NoticeList">공지</a></td>
 			<td><a href="FnqList">자주묻는 질문</a></td>
 			<td><a href="Home">홈</a></td>

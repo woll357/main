@@ -19,7 +19,7 @@ public class Airp_List2 implements MvcAction {
 	      
 		
 		
-	      request.setAttribute("dto", dao.air_pitemlist2(request.getParameter("air_p")));      
+	      request.setAttribute("dto", dao.mair_pitemlist(request.getParameter("air_p")));      
 	     
 	      
 	      System.out.println("항공편 리스트 진입");
