@@ -33,7 +33,7 @@ public class Payment_Controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String service = request.getRequestURI().substring("/mainProj2/payment/".length());
+		String service = request.getRequestURI().substring("/mainProj/payment/".length());
 		
 		request.setAttribute("mainUrl","payment/"+service+".jsp");
 		request.setAttribute("topUrl","payment/"+service+"Top"+".jsp");

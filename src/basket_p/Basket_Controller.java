@@ -31,7 +31,7 @@ public class Basket_Controller extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String service = request.getRequestURI().substring("/mainProj2/basket/".length());
+		String service = request.getRequestURI().substring("/mainProj/basket/".length());
 		
 		request.setAttribute("mainUrl","basket/"+service+".jsp");
 		request.setAttribute("topUrl","basket/"+service+"Top"+".jsp");
