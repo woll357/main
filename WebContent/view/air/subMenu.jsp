@@ -17,7 +17,6 @@
 			</tr>
 		</table>
 	</c:when>
-
 	<c:when test="${param.mgpage=='in'}">
 		<table border="">
 			<tr>
@@ -53,17 +52,15 @@
 				</table>
 			</c:when>
 
-			<c:when test="${param.partner=='in' }">
+			<c:when test="${param.aotcont=='in' }">
 				<table border="">
 					<tr>
-						<td><a href="../Manager/AirLine_List?partner=in">항공사 목록</a></td>
-						<td><a href="../Manager/AirItem_List?partner=in">항공권상품목록조회</a></td>
-						<td><a href="../Manager/Airp_List?partner=in">항공편목록</a></td>
-						<td><a href="../Manager/Air_DeleteRequestList?partner=in">삭제신청목록</a></td>
-						<td><a href="../Manager/Hlist?partner=in">호텔목록</a></td>
+						<td><a href="../airgreen/AirLine_Detail?aotcont=in">항공사 수정 및 삭제</a></td>
+						<td><a href="../airgreen/AirItem_List?aotcont=in">항공권상품목록조회</a></td>
+						<td><a href="../airgreen/Airp_List?aotcont=in">항공편목록</a></td>
 					</tr>
 				</table>
 			</c:when>
-
+			
 </c:choose>
 

@@ -42,6 +42,15 @@
 			
 			</c:when>
 			
+			<c:when test="${mem.grade=='A' }">
+
+			<td><a href="../greensc/LogOut">로그아웃</a></td>
+			<td><a href="../greensc/ModifyMem?mypage=in">마이페이지</a></td>
+			<td><a href="../airgreen/AirHomeMain?aotcont=in">항공관리</a></td>
+			<td><a href="../greensc/AirHomeMain">홈</a></td>
+			
+			</c:when>
+			
 			<c:otherwise>
 
 			<td><a href="../greensc/Login">로그인</a></td>
