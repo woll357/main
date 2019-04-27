@@ -642,6 +642,7 @@ public Object mair_pitemlist(String air_p ) {
 				res.setSeatcnt(rs.getInt("seatcnt"));
 				res.setFlightclass(rs.getString("flightclass"));
 				res.setTotseatcnt(rs.getInt("totseatcnt"));
+				res.setAir_code(rs.getString("air_code"));
 			}
 					
 		} catch (SQLException e) {

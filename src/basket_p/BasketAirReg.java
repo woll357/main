@@ -33,6 +33,10 @@ public class BasketAirReg implements MvcAction {
 		
 		String [] cCodes = request.getParameterValues("ccode"); //넘겨받는게 ccode로 들어오고 나는 cCodes로 넣는다.
 
+		for (String string : cCodes) {
+			System.out.println(string);
+		}
+		
 		
 		String id = ((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
 		
@@ -53,6 +57,7 @@ public class BasketAirReg implements MvcAction {
 				
 				Air_itemDTO airdto = new Air_itemDTO();
 				airdto.setCcode(cCodes[i]);
+				
 				airdto = new Air_itemDAO().itemdetail(airdto); //편도정보를 가지고온다.
 				
 
