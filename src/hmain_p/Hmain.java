@@ -15,13 +15,12 @@ public class Hmain implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		HttpSession session = request.getSession();
-	    SignUpDTO dto = new SignUpDTO();
-		dto.setId("qqq");
-		dto.setGrade("H");
-		dto.setHcode("H1000");
-	    
-	    session.setAttribute("mem",dto);
+		/*
+		 * HttpSession session = request.getSession(); SignUpDTO dto = new SignUpDTO();
+		 * dto.setId("qqq"); dto.setGrade("H"); dto.setHcode("H1000");
+		 * 
+		 * session.setAttribute("mem",dto);
+		 */
 	    
 	    
 		
