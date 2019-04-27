@@ -17,7 +17,6 @@ public class ModifyMem implements MvcAction {
 	@Override
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		System.out.println("마이페이지 수정 진입");
 		try {
 			request.setCharacterEncoding("utf-8");
 		} catch (UnsupportedEncodingException e) {
@@ -32,6 +31,8 @@ public class ModifyMem implements MvcAction {
 		
 		new SignUpDAO().detailMem(dto);
 		request.setAttribute("dto", new SignUpDAO().detailMem(dto));
+		
+		
 		
 		return null;
 	}
