@@ -48,7 +48,20 @@ public void roomdelete(Room_itemDTO dto) {
 		}
 		
 	}
-	
+public void holddelete(Room_itemDTO dto) {
+	sql = "delete from hold_table where rcode = ?";
+	try {
+		ptmt = con.prepareStatement(sql);
+		ptmt.setString(1, dto.getRcode());
+		ptmt.executeUpdate();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	finally {
+		close();
+	}	
+}
 	public Hot_comDTO detail2(Hot_comDTO dto) {
 		Hot_comDTO res = null;
 		
@@ -268,6 +281,7 @@ public void roomdelete(Room_itemDTO dto) {
 				dto.setNorescnt(rs.getInt("norescnt"));
 				dto.setNoresdate(rs.getDate("noresdate"));
 				dto.setReason(rs.getString("reason"));
+				dto.setRcode(rs.getString("rcode")); 
 				res.add(dto);
 				
 			}

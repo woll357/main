@@ -4,16 +4,18 @@
 <h3>예약불가목록</h3>
     
     <c:forEach var="data" items="${data }" varStatus="no">
-    <table border="" width="100%">
+    <table border="">
     	<tr>
     		<td>날짜</td>
     		<td>예약불가갯수</td>
     		<td>사유</td>
+    		<td>삭제</td>
     	</tr>
     	<tr>
     		<td>${data.noresdate }</td>
     		<td>${data.norescnt }</td>
     		<td>${data.reason }</td> 
+    		<td><a href="HnoresListDelete?rcode=${data.rcode }">삭제</a></td>
     	</tr>    
     </table>
     </c:forEach>
