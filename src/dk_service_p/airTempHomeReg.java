@@ -12,7 +12,6 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import db_p.Air_comDAO;
 import db_p.Air_tempDAO;
 import db_p.Air_tempDTO;
-import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
@@ -22,7 +21,7 @@ public class airTempHomeReg implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		// TODO Auto-generated method stub
-	
+		HttpSession session = request.getSession();
 		System.out.println("진입");
 		
 		String path = request.getRealPath("/img");
@@ -38,17 +37,12 @@ public class airTempHomeReg implements MvcAction {
 					new DefaultFileRenamePolicy()
 					);
 			
-			HttpSession session = request.getSession();
-	
-		    
-			
-			
 			Air_tempDTO dto = new Air_tempDTO();
-			dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
+			dto.setId(mm.getParameter("id"));
 			dto.setCrn(mm.getParameter("crn"));
 			dto.setImg(mm.getParameter("img"));
 			dto.setAir_name(mm.getParameter("air_name"));
-			dto.setGrade(((SignUpDTO) session.getAttribute("mem")).getGrade());
+			dto.setGrade(mm.getFilesystemName("grade"));
 			
 			new Air_tempDAO().write(dto);
 		

@@ -7,13 +7,21 @@ import java.util.Date;
 public class Air_itemDTO {
 	
 	Date ddate ;
-	String darea , carea , img , air_code , ap_code , ccode , flightclass ,air_p;
+	String darea , carea , img , air_code , ap_code , ccode , flightclass ,air_p , air_name;
 	Date a_time;
 	int money ,seatcnt , totseatcnt;
 	
 	
 	
 	
+	public String getAir_name() {
+		return air_name;
+	}
+
+	public void setAir_name(String air_name) {
+		this.air_name = air_name;
+	}
+
 	public String getAir_p() {
 		return air_p;
 	}

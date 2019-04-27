@@ -11,7 +11,6 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import db_p.Air_comDAO;
 import db_p.Air_comDTO;
-import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
@@ -21,12 +20,15 @@ public class AirLine_Modify implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		// TODO Auto-generated method stub
+		
+		HttpSession session = request.getSession();
+		
 		System.out.println("항공사  수정 페이지");
 		
 		Air_comDTO dto = new Air_comDTO();
 		
-		HttpSession session = request.getSession();
-		dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
+
+		dto.setId(request.getParameter("id"));
 	
 		
 		Air_comDAO dao = new Air_comDAO() ;

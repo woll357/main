@@ -11,12 +11,13 @@
 <form action="AirCom_Detail">
 	<table border="" >	
 		<tr>
-			<td colspan="">항공편 코드</td>
+			<td colspan="2">항공편 코드</td>
 			<td><input type="text" name="air_p" /></td>
 			<td align="center"><input type="submit" value="선택  " /></td>
 		</tr>
 	<tr>
 		<td>항공편코드</td>
+		<td>회사명</td>
 		<td>출발지</td>
 		<td>도착지</td>
 	</tr>
@@ -24,6 +25,7 @@
 <c:forEach var="dto" items="${data}" varStatus="no">	
 	<tr>
 	<td><%-- <a href="AirItem_Detail?ccode=${dto.ccode }">${dto.ccode }</a> --%><a href="Airp_List2?air_p=${dto.air_p }">${dto.air_p }</a></td>	
+		<td>${dto.air_name }</td>
 		<td>${dto.darea }</td>
 		<td>${dto.carea }</td>
 		

@@ -4,10 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import db_p.Air_comDTO;
 import db_p.Air_dereDAO;
 import db_p.Air_dereDTO;
-import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
@@ -17,7 +15,7 @@ public class AirLine_DeleteRequestReg implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		HttpSession session = request.getSession();	
+		HttpSession session = request.getSession();
 		
 		System.out.println("항공사 삭제 신청 insert");
 		
@@ -27,7 +25,7 @@ public class AirLine_DeleteRequestReg implements MvcAction {
 		
 		dto.setCode(request.getParameter("code"));
 		dto.setRequest(request.getParameter("request"));
-		dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
+		dto.setId(request.getParameter("id"));
 		dto.setKind(request.getParameter("kind"));
 		
 		new Air_dereDAO().insert(dto);

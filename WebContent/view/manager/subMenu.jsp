@@ -10,7 +10,12 @@
 <!-- <a href= "AirCom_Detail" >항공편 검색</a> -->
 <!-- <a href= "Airp_List" >항공편 검색</a>  -->
 <a href="AirLine_List">항공사 목록</a>
+<a href= "AirItem_List?air_code=A1000" >상품 목록 조회</a>
+<a href="AirLine_List">항공사 목록</a>
+<a href= "Airp_List" >항공편 목록</a> 
+<a href= "Air_DeleteRequestList" >삭제 신청 목록</a> 
 <a href="Hlist">호텔 목록</a>
+
 <!-- 여기다가 아이디 세션 넣기 -->
 </body>
 </html>

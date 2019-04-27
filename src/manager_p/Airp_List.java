@@ -14,10 +14,12 @@ public class Airp_List implements MvcAction {
 		// TODO Auto-generated method stub
 		
 		System.out.println(request.getParameter("air_p"));
-			
+			System.out.println(request.getParameter("air_code"));
 			Air_itemDAO dao = new Air_itemDAO();
 		      
 		      request.setAttribute("data", dao.air_pitemlist());
+		      request.setAttribute("air_code", request.getParameter("air_code"));
+		      
 		      
 		      
 		      System.out.println("항공편 리스트 진입");

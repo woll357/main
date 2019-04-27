@@ -289,26 +289,72 @@ public class Air_itemDAO {
 		
 		
 		
-		public Object air_pitemlist(Air_itemDTO dto) {
+//		public Object air_pitemlist(Air_itemDTO dto) {
+//			
+//			ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
+//			
+//			
+//			try {
+//				sql = "select distinct air_p , darea , carea from air_item where air_code = ? ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
+//				//limit 0, 3  - > 3개만 가져옴
+//				ptmt = con.prepareStatement(sql);
+//				
+//				ptmt.setString(1, dto.getAir_code());
+//		
+//				
+//				rs = ptmt.executeQuery();
+//				
+//				while(rs.next()) {
+//					
+//				dto = new Air_itemDTO();
+//				
+//				
+//				dto.setAir_p(rs.getString("air_p"));	
+//				dto.setDarea(rs.getString("darea"));
+//				dto.setCarea(rs.getString("carea"));		
+//					
+//					
+//							
+//					res.add(dto);
+//				}
+//				
+//				
+//			} catch (SQLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}finally {
+//				
+//				close();
+//			}
+//			
+//			
+//			return res;
+//		}
+//		
+		
+		
+	public Object air_pitemlist() {
 			
 			ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 			
 			
+			
 			try {
-				sql = "select distinct air_p , darea , carea from air_item where air_code = ? ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
+				sql = "	select air_name, air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
 				//limit 0, 3  - > 3개만 가져옴
 				ptmt = con.prepareStatement(sql);
 				
-				ptmt.setString(1, dto.getAir_code());
-		
+				
 				
 				rs = ptmt.executeQuery();
 				
+				
+				
 				while(rs.next()) {
 					
-				dto = new Air_itemDTO();
+				Air_itemDTO dto = new Air_itemDTO();
 				
-				
+				dto.setAir_name(rs.getString("air_name"));	
 				dto.setAir_p(rs.getString("air_p"));	
 				dto.setDarea(rs.getString("darea"));
 				dto.setCarea(rs.getString("carea"));		
@@ -317,6 +363,9 @@ public class Air_itemDAO {
 							
 					res.add(dto);
 				}
+				
+				
+				
 				
 				
 			} catch (SQLException e) {
@@ -330,11 +379,103 @@ public class Air_itemDAO {
 			
 			return res;
 		}
+	
+	
+	public Object air_pitemlistsarch(String air_p , String air_code) {
+		
+		ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 		
 		
 		
+		try {
+			sql = "	select air_name, air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code and air_item.air_p = ? and air_item.air_code = ? ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
+			//limit 0, 3  - > 3개만 가져옴
+			ptmt = con.prepareStatement(sql);
+			
+			ptmt.setString(1, air_p);
+			ptmt.setString(2, air_code);
+			
+			rs = ptmt.executeQuery();
+			
+			
+			
+			while(rs.next()) {
+				
+			Air_itemDTO dto = new Air_itemDTO();
+			
+			dto.setAir_name(rs.getString("air_name"));	
+			dto.setAir_p(rs.getString("air_p"));	
+			dto.setDarea(rs.getString("darea"));
+			dto.setCarea(rs.getString("carea"));		
+				
+				
+						
+				res.add(dto);
+			}
+			
+			
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+			close();
+		}
 		
 		
+		return res;
+	}
+	
+	
+	public Object air_pitemlistt(String a) {
+		
+		ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
+		
+		
+		
+		try {
+			sql = "	select air_name, air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code and air_item.air_code = ? ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
+			//limit 0, 3  - > 3개만 가져옴
+			ptmt = con.prepareStatement(sql);
+			
+			ptmt.setString(1, a);
+			
+			rs = ptmt.executeQuery();
+			
+			
+			
+			while(rs.next()) {
+				
+			Air_itemDTO dto = new Air_itemDTO();
+			
+			dto.setAir_name(rs.getString("air_name"));	
+			dto.setAir_p(rs.getString("air_p"));	
+			dto.setDarea(rs.getString("darea"));
+			dto.setCarea(rs.getString("carea"));		
+				
+				
+						
+				res.add(dto);
+			}
+			
+			
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+			close();
+		}
+		
+		
+		return res;
+	}
 		
 		public Object air_pitemlist2(String air_p) {
 			
@@ -382,7 +523,99 @@ public class Air_itemDAO {
 			return res;
 		}
 		
+public Object air_pitemlist3(String air_p , String air_code) {
+			
+			ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
+	
+			try {
+				sql = "select * from air_item where air_p = ? and air_code = ? ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
+
+				ptmt = con.prepareStatement(sql);
+				
+				ptmt.setString(1, air_p);
+				ptmt.setString(2, air_code);
+				
+				rs = ptmt.executeQuery();
+				
+				while(rs.next()) {
+					
+					Air_itemDTO dto = new Air_itemDTO();
+								
+					
+					dto.setCcode(rs.getString("ccode"));
+					dto.setDdate(rs.getTimestamp("ddate"));
+					dto.setDarea(rs.getString("darea"));
+					dto.setCarea(rs.getString("carea"));
+					dto.setAp_code(rs.getString("ap_code"));
+					dto.setMoney(rs.getInt("money"));
+					dto.setA_time(rs.getTimestamp("a_time"));
+					dto.setSeatcnt(rs.getInt("seatcnt"));
+					dto.setFlightclass(rs.getString("flightclass"));	
+					dto.setTotseatcnt(rs.getInt("totseatcnt"));
+					
+								
+					res.add(dto);
+				}
+				
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				
+				close();
+			}
+			
+			
+			return res;
+		}
+
+public Object mair_pitemlist(String air_p ) {
+	
+	ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
+
+	try {
+		sql = "select * from air_item where air_p = ? ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
+
+		ptmt = con.prepareStatement(sql);
 		
+		ptmt.setString(1, air_p);
+	
+		
+		rs = ptmt.executeQuery();
+		
+		while(rs.next()) {
+			
+			Air_itemDTO dto = new Air_itemDTO();
+						
+			
+			dto.setCcode(rs.getString("ccode"));
+			dto.setDdate(rs.getTimestamp("ddate"));
+			dto.setDarea(rs.getString("darea"));
+			dto.setCarea(rs.getString("carea"));
+			dto.setAp_code(rs.getString("ap_code"));
+			dto.setMoney(rs.getInt("money"));
+			dto.setA_time(rs.getTimestamp("a_time"));
+			dto.setSeatcnt(rs.getInt("seatcnt"));
+			dto.setFlightclass(rs.getString("flightclass"));	
+			dto.setTotseatcnt(rs.getInt("totseatcnt"));
+			
+						
+			res.add(dto);
+		}
+		
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally {
+		
+		close();
+	}
+	
+	
+	return res;
+}
 	
 	
 	

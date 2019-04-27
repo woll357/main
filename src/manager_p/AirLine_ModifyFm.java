@@ -5,14 +5,12 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import db_p.Air_comDAO;
 import db_p.Air_comDTO;
-import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
@@ -24,7 +22,7 @@ public class AirLine_ModifyFm implements MvcAction {
 		
 System.out.println(" AirLine_ModifyFm 페이지 진입");
 System.out.println(" 항공사가 수정이 되는 페이지");
-HttpSession session = request.getSession();
+		
 		String path = request.getRealPath("/img");
 		path = "D:\\mainWork\\testProj\\WebContent\\img";
 		
@@ -51,7 +49,7 @@ HttpSession session = request.getSession();
 				  dto.setImg(mm.getParameter("img"));
 			
 			
-			   dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
+			   dto.setId(mm.getParameter("id"));
 			
 			String msg = "";
 			String goUrl = "AirLine_List";
