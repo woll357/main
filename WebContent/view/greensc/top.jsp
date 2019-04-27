@@ -8,31 +8,50 @@
 <table>
 	<tr>
 		
-		<c:choose>
-			<c:when test="${mem.id!=null }">
+	<c:choose>
 
-			<td><a href="LogOut">로그아웃</a></td>
-			<td><a href="ModifyMem?mypage=in">마이페이지</a></td>
-			<td><a href="NoticeList">공지</a></td>
-			<td><a href="FnqList">자주묻는 질문</a></td>
-			<td><a href="QnaList">Q&A</a></td>
-			<td><a href="Home">홈</a></td>
+			<c:when test="${mem.grade=='C' }">
+
+			<td><a href="../greensc/LogOut">로그아웃</a></td>
+			<td><a href="../greensc/ModifyMem?mypage=in">마이페이지</a></td>
+			<td><a href="../greensc/NoticeList?center=in">고객센터</a></td>
+			<td><a href="../Basket/BasketMain">장바구니</a></td>
+			<td><a href="../greensc/Home">홈</a></td>
 			
 			</c:when>
+			
+			
+			<c:when test="${mem.grade=='M' }">
+
+			<td><a href="../greensc/LogOut">로그아웃</a></td>
+			<td><a href="../greensc/ModifyMem?mypage=in">마이페이지</a></td>
+			<td><a href="../greensc/NoticeList?center=in">고객센터</a></td>
+			<td><a href="../greensc/MgPage?mgpage=in">고객관리</a></td>
+			<td><a href="../Manager/AirLine_List?partner=in">협력업체관리</a></td>
+			<td>판매자관리</td>
+			<td><a href="../greensc/Home">홈</a></td>
+			
+			</c:when>
+			
+			<c:when test="${mem.grade=='H' }">
+
+			<td><a href="../greensc/LogOut">로그아웃</a></td>
+			<td><a href="../greensc/ModifyMem?mypage=in">마이페이지</a></td>
+			<td><a href="../hmain/Hmain?hotcont=in">호텔관리</a></td>
+			<td><a href="../greensc/Home">홈</a></td>
+			
+			</c:when>
+			
 			<c:otherwise>
-			<td><a href="Login">로그인</a></td>
-			<td><a href="SignUp">회원가입</a></td>
-			<td><a href="NoticeList">공지</a></td>
-			<td><a href="FnqList">자주묻는 질문</a></td>
-			<td><a href="Home">홈</a></td>
+
+			<td><a href="../greensc/Login">로그인</a></td>
+			<td><a href="../greensc/SignUp?">회원가입</a></td>
+			<td><a href="../greensc/NoticeList?center=in">고객센터</a></td>
+			<td><a href="../greensc/Home">홈</a></td>
+			
 			</c:otherwise>
 		</c:choose>
-		
-		
-		
-		
-		<c:if test="${mem.grade=='M' }">
-		<td><a href="MgPage?mgpage=in">관리자</a></td>
-		</c:if>
+
 	</tr>
+	
 </table>
