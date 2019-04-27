@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import db_p.BasketDAO;
 import db_p.BasketDTO;
+import db_p.SignUpDTO;
 import db_p.TravelerInfoDAO;
 import db_p.TravelerInfoDTO;
 import di.MvcAction;
@@ -24,6 +25,7 @@ public class TravelerInfoReg implements MvcAction {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		String id = ((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
 		
 		System.out.println("TravelerInfoReg들어와?");
 		
@@ -58,7 +60,6 @@ public class TravelerInfoReg implements MvcAction {
 		String mainEngLastName = request.getParameterValues("cEngLastName")[0];
 		String mainEngFirstName = request.getParameterValues("cEngFirstName")[0];
 		
-		String id = "1112";//((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
 		String bid = request.getParameter("bid");
 		System.out.println(id);
 

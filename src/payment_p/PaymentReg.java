@@ -17,6 +17,7 @@ import db_p.BuyDAO;
 import db_p.BuyDTO;
 import db_p.PaymentDAO;
 import db_p.PaymentDTO;
+import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
@@ -29,7 +30,7 @@ public class PaymentReg implements MvcAction {
 		try {
 			request.setCharacterEncoding("utf-8");
 			
-			String id = "1112";
+			String id = ((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
 			int totalPrice = Integer.parseInt(request.getParameter("totalPrice"));
 			
 			String [] basketIDs = request.getParameterValues("basketIDs");
@@ -158,14 +159,6 @@ public class PaymentReg implements MvcAction {
 			e.printStackTrace();
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-
 		return null;
 	}
 

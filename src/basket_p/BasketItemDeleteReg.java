@@ -10,6 +10,7 @@ import db_p.BasketDAO;
 import db_p.BasketDTO;
 import db_p.BasketItemDAO;
 import db_p.BasketItemDTO;
+import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
@@ -26,7 +27,7 @@ public class BasketItemDeleteReg implements MvcAction {
 			e.printStackTrace();
 		}
 		
-		String id = "1112";
+		String id = ((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
 		
 		String basketID = request.getParameter("basketID");
 		

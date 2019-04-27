@@ -48,9 +48,6 @@ public class BasketReg implements MvcAction {
 			}
 		}
 		
-		//String [] airBaskets = new String [airBasketss.size()];
-		
-		
 		request.setAttribute("airBaskets", airBaskets);
 		request.setAttribute("basketIDs", basketIDs);
 		request.setAttribute("mainUrl", "payment/TravelerInfoMain.jsp");

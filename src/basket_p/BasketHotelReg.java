@@ -35,7 +35,7 @@ public class BasketHotelReg implements MvcAction {
 		
 		String rcode = request.getParameter("rcode");
 		
-		String id = "1112";//((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
+		String id = ((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
 		
 		String cType = rcode.substring(0, 1);
 		System.out.println(cType);

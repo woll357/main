@@ -34,7 +34,7 @@ public class BasketAirReg implements MvcAction {
 		String [] cCodes = request.getParameterValues("ccode"); //넘겨받는게 ccode로 들어오고 나는 cCodes로 넣는다.
 
 		
-		String id = "1112";//((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
+		String id = ((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
 		
 		String cType = cCodes[0].substring(0, 1);
 		
