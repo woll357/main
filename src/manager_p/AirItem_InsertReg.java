@@ -1,4 +1,4 @@
-package dk_service_p;
+package manager_p;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,8 +24,7 @@ public class AirItem_InsertReg implements MvcAction {
 		dto.setAp_code(request.getParameter("ap_code"));
 		dto.setDdateStr(request.getParameter("ddate"));
 		dto.setDarea(request.getParameter("darea"));
-		dto.setImg("..");
-		dto.setAir_code(((SignUpDTO) session.getAttribute("mem")).getAir_code());
+		dto.setAir_code(request.getParameter("air_code"));
 		dto.setCarea(request.getParameter("carea"));
 		dto.setMoney(Integer.parseInt(request.getParameter("money")));
 		dto.setTotseatcnt(Integer.parseInt(request.getParameter("totseatcnt")));

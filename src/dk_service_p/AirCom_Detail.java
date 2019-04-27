@@ -30,6 +30,7 @@ public class AirCom_Detail implements MvcAction {
 //		
 //		request.setAttribute("dto", dao.comdetail(dto));
 		
+	
 		HttpSession session = request.getSession();
 		System.out.println(((SignUpDTO) session.getAttribute("mem")).getAir_code());
 		

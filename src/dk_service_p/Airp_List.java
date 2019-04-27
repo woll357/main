@@ -19,7 +19,7 @@ public class Airp_List implements MvcAction {
 		
 		
 		System.out.println(((SignUpDTO) session.getAttribute("mem")).getAir_code());
-			System.out.println(((SignUpDTO) session.getAttribute("mem")).getId());
+		System.out.println(((SignUpDTO) session.getAttribute("mem")).getId());
 			Air_itemDAO dao = new Air_itemDAO();
 			
 			

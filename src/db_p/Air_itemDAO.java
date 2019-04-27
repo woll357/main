@@ -39,7 +39,7 @@ public class Air_itemDAO {
 			
 		try {
 			sql = "insert into air_item (ap_code, ddate, darea, img , air_code , carea , money, totseatcnt, flightclass , air_p ,ccode )" 
-			+ " values (                   ?   ,    ?  ,   ? ,'asiano.jpg', 'A1000', ? ,    ? ,       ? ,       ? ,      'jd100' ,'상품코드' )";
+			+ " values (                   ?   ,    ?  ,   ? ,   ? , ?, ? ,    ? ,       ? ,       ? ,      'jd100' ,'상품코드' )";
 				//                        비행기코드
 				
 				
@@ -47,17 +47,35 @@ public class Air_itemDAO {
 				ptmt.setString(1, dto.getAp_code());
 				ptmt.setString(2, dto.getDdateStr());
 				ptmt.setString(3, dto.getDarea());
-				ptmt.setString(4, dto.getCarea());
-				ptmt.setInt(5, dto.getMoney());
-				ptmt.setInt(6, dto.getTotseatcnt());
-				ptmt.setString(7, dto.getFlightclass());
+				ptmt.setString(4, dto.getImg());
+				ptmt.setString(5, dto.getAir_code());
+				ptmt.setString(6, dto.getCarea());
+				ptmt.setInt(7, dto.getMoney());
+				ptmt.setInt(8, dto.getTotseatcnt());
+				ptmt.setString(9, dto.getFlightclass());
 			//	ptmt.setString(8, dto.getAir_p());
 //				ptmt.setString(9, dto.getCcode());
 				
 				ptmt.executeUpdate();
 				
+				
+				sql = "update air_item set ccode = concat( air_code , '-' , ap_code,'-' , no ) where no =  LAST_INSERT_ID() ";
 			
 						
+				ptmt = con.prepareStatement(sql);
+				
+			
+				 ptmt.executeUpdate();
+				 
+					sql = "update air_item set ccode = concat( air_code , '-' , ap_code,'-' , no ) where no =  LAST_INSERT_ID() ";
+					
+					
+					ptmt = con.prepareStatement(sql);
+					
+				
+					 ptmt.executeUpdate();
+				
+				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

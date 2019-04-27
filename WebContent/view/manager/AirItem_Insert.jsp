@@ -10,6 +10,10 @@
 <form action="AirItem_InsertReg">
 	<table border="">
 		<tr>
+		<td>항공사 코드</td>
+		<td><input type="text" name="air_code" /></td>
+		</tr>	
+		<tr>
 			<td>비행기코드</td>
 			<td><input type="text" name="ap_code" /></td>
 		</tr>
