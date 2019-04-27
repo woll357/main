@@ -19,7 +19,9 @@
 			<td align="center"><input type="submit" value="선택  " /></td>
 		</tr>
 	<tr>
+	
 		<td>상품코드</td>
+		<td>항공사 코드</td>
 		<td>비행기코드</td>
 		<td>출발시간</td>
 		<td>출발지</td>
@@ -33,8 +35,9 @@
 
 <c:forEach var="dto" items="${data}" varStatus="no">	
 	<tr>
-	
+		
 	<td><a href="AirItem_Detail?ccode=${dto.ccode }">${dto.ccode }</a></td>	
+		<td>${dto.air_code }</td>
 		<td>${dto.ap_code }</td>
 		<td>${dto.ddate }</td>
 		<td>${dto.darea }</td>

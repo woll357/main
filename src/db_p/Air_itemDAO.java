@@ -32,7 +32,12 @@ public class Air_itemDAO {
 	
 	}
 
-
+	//select air_name, air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code;
+	
+	//관리자
+	
+	
+	
 	
 	public void insert(Air_itemDTO dto) {
 			
@@ -64,16 +69,7 @@ public class Air_itemDAO {
 						
 				ptmt = con.prepareStatement(sql);
 				
-			
-				 ptmt.executeUpdate();
-				 
-					sql = "update air_item set ccode = concat( air_code , '-' , ap_code,'-' , no ) where no =  LAST_INSERT_ID() ";
-					
-					
-					ptmt = con.prepareStatement(sql);
-					
-				
-					 ptmt.executeUpdate();
+		
 				
 				
 			} catch (SQLException e) {
@@ -277,6 +273,55 @@ public class Air_itemDAO {
 					Air_itemDTO dto = new Air_itemDTO();
 					
 					
+					dto.setDdate(rs.getTimestamp("ddate"));
+					dto.setDarea(rs.getString("darea"));
+					dto.setCarea(rs.getString("carea"));
+					dto.setAp_code(rs.getString("ap_code"));
+					dto.setCcode(rs.getString("ccode"));
+					dto.setMoney(rs.getInt("money"));
+					dto.setA_time(rs.getTimestamp("a_time"));
+					dto.setSeatcnt(rs.getInt("seatcnt"));
+					dto.setFlightclass(rs.getString("flightclass"));	
+					dto.setTotseatcnt(rs.getInt("totseatcnt"));
+					
+								
+					res.add(dto);
+				}
+				
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				
+				close();
+			}
+			
+			
+			return res;
+		}
+		
+		//관리자
+
+		public Object itemlistm() {
+			
+			ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
+			
+			
+			
+			try {
+				sql = "select * from air_item ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
+				//limit 0, 3  - > 3개만 가져옴
+				ptmt = con.prepareStatement(sql);
+				
+				
+				rs = ptmt.executeQuery();
+				
+				while(rs.next()) {
+					
+					Air_itemDTO dto = new Air_itemDTO();
+					
+					dto.setAir_code(rs.getString("air_code"));
 					dto.setDdate(rs.getTimestamp("ddate"));
 					dto.setDarea(rs.getString("darea"));
 					dto.setCarea(rs.getString("carea"));
