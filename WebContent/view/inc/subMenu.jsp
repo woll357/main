@@ -60,9 +60,9 @@
 				<td><a href="../airgreen/AirItem_List?aotcont=in">항공권상품목록조회</a></td>
 				<td><a href="../airgreen/Airp_List?aotcont=in">항공편목록</a></td>
 				<td><a href="../airgreen/Airplane_List?aotcont=in">비행기목록</a></td>
-				<td><a href="../airsell/AirReserveList?aotcont=in">매출내역</a></td>
-				<td><a href="../airsell/AirSalesList?aotcont=in">예약내역</a></td>
-				
+				<td><a href="../airsell/AirSalesList?aotcont=in">매출내역</a></td>
+				<td><a href="../airsell/AirReserveList?aotcont=in">예약내역</a></td>
+
 			</tr>
 		</table>
 	</c:when>
