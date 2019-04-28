@@ -36,7 +36,7 @@ public class BasketpaidDAO {
 			ptmt = con.prepareStatement(sql);
 			
 			ptmt.setString(1, dto.getId());
-			ptmt.setString(1, dto.getBstatus());
+			ptmt.setString(2, dto.getBstatus());
 	
 			rs = ptmt.executeQuery();
 			
