@@ -27,19 +27,26 @@ public class UpupReg implements MvcAction {
 		
 		HttpSession session = request.getSession();		
 		SignUpDTO dto = new SignUpDTO();
+		dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
+		
+		if(new SignUpDAO().chkempty(dto)) {
+			request.setAttribute("msg", "관계자는 예약하실 수 없습니다. 예약내역을 환불하여 주세요.");
+			request.setAttribute("mainUrl", "greensc/alert.jsp");
+			request.setAttribute("goUrl", "Appbss");
+		}else {
 		
 		if(request.getParameter("grade").equals("M")) {
-			dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
+			
 			dto.setBnum(Integer.parseInt(request.getParameter("bnum")));
 			dto.setGrade(request.getParameter("grade"));
 		}else if(request.getParameter("grade").equals("A")) {
-			dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
+			
 			dto.setCrn(request.getParameter("crn"));
 			dto.setGrade(request.getParameter("grade"));
 			dto.setAir_name(request.getParameter("air_name"));
 			dto.setAir_codecom(request.getParameter("air_codecom"));
 		}else{
-			dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
+			
 			dto.setCrn(request.getParameter("crn"));
 			dto.setGrade(request.getParameter("grade"));
 			dto.setHname(request.getParameter("hname"));
@@ -50,7 +57,7 @@ public class UpupReg implements MvcAction {
 		request.setAttribute("msg", "신청이 완료되었습니다.");
 		request.setAttribute("mainUrl", "greensc/alert.jsp");
 		request.setAttribute("goUrl", "Appbss");
-		
+		}
 		return null;
 	}
 
