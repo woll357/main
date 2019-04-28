@@ -43,7 +43,9 @@
     <input type="hidden" name="crn" value="${dto.crn }"/>
     <input type="hidden" name="air_name" value="${dto.air_name }"/>
     <input type="hidden" name="grade" value="${dto.grade }"/>
+    <input type="hidden" name="air_codecom" value="${dto.air_codecom }"/>
     	<table border="">
+    	
     		<tr>
     			<td>ID</td>
     			<td>${dto.id }</td>

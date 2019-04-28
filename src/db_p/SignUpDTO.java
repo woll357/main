@@ -7,13 +7,21 @@ import java.util.Date;
 public class SignUpDTO {
 	String grade, id, pw, pname, birth, gender, email, phone, black,
 			preason, emg, country, city, addDetail,  crn, img,
-			air_name, himg, hinfo, air_code, hcode, hname;
+			air_name, himg, hinfo, air_code, hcode, hname, air_codecom;
 	Integer no, num,bnum;
 	Date time;
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
 	
 	
+	public String getAir_codecom() {
+		return air_codecom;
+	}
+
+	public void setAir_codecom(String air_codecom) {
+		this.air_codecom = air_codecom;
+	}
+
 	public String getHname() {
 		return hname;
 	}

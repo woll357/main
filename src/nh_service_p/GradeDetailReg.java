@@ -36,9 +36,8 @@ public class GradeDetailReg implements MvcAction {
 			dao.gradeMgUpup(dto);
 			
 		}else if(rqGrade.equals("A")) {
-			
 			dto.setNo(Integer.parseInt(request.getParameter("no")));
-			dto.setAir_code("A"+request.getParameter("no"));
+			dto.setAir_code("A"+request.getParameter("air_codecom")+request.getParameter("no"));
 			dto.setId(request.getParameter("id"));
 			dto.setCrn(request.getParameter("crn"));
 			dto.setAir_name(request.getParameter("air_name"));

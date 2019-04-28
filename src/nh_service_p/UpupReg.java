@@ -37,6 +37,7 @@ public class UpupReg implements MvcAction {
 			dto.setCrn(request.getParameter("crn"));
 			dto.setGrade(request.getParameter("grade"));
 			dto.setAir_name(request.getParameter("air_name"));
+			dto.setAir_codecom(request.getParameter("air_codecom"));
 		}else{
 			dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
 			dto.setCrn(request.getParameter("crn"));

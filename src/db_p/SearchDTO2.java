@@ -4,11 +4,24 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class SearchDTO2 {
-	String bstatus, rcode, rkind, rimg, hcode, hname, country, city, hinfo, startDay, endDay;
+	String bstatus, rcode, rkind, rimg, hcode, hname, country, city, hinfo, startDay, endDay, himg;
 	Date ddate, noresdate;
 	Integer norescnt, rcnt, pcnt, money;
 
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+	
+
+	
+	
+	
+	public String getHimg() {
+		return himg;
+	}
+
+	public void setHimg(String himg) {
+		this.himg = himg;
+	}
 
 	public String getBstatus() {
 		return bstatus;

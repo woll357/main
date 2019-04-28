@@ -41,7 +41,11 @@ public class LoginReg implements MvcAction {
 				request.setAttribute("msg", request.getParameter("id")+"님 환영합니다.");
 				request.setAttribute("mainUrl", "greensc/alert.jsp");
 				request.setAttribute("goUrl", "../hmain/Hmain");
-			}else {
+			}else if(mem.getGrade().equals("M"))  {
+				request.setAttribute("msg", request.getParameter("id")+"님 환영합니다.");
+				request.setAttribute("mainUrl", "greensc/alert.jsp");
+				request.setAttribute("goUrl", "NoticeList?center=in");
+			}else{
 				request.setAttribute("msg", request.getParameter("id")+"님 환영합니다.");
 				request.setAttribute("mainUrl", "greensc/alert.jsp");
 				request.setAttribute("goUrl", "Home");

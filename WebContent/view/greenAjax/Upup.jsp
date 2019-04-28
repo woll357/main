@@ -50,6 +50,10 @@
 					<td><input type="text" name="air_name" /></td>
 				</tr>
 				<tr>
+					<td>회사코드</td>
+					<td><input type="text" name="air_codecom" /></td>
+				</tr>
+				<tr>
 					<td colspan="2"><input type="submit" value="제출"> <input
 						type="reset" value="초기화"></td>
 				</tr>
@@ -92,15 +96,6 @@
 						<input type="reset" value="초기화" /></td>
 				</tr>
 			</table>
-
-
-
-
-
-
-
-
-
 
 
 		</form>

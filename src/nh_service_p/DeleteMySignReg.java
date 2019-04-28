@@ -34,6 +34,18 @@ public class DeleteMySignReg implements MvcAction {
 			request.setAttribute("msg", str);
 	        request.setAttribute("goUrl", "DeleteMySign");
 	        request.setAttribute("mainUrl", "greensc/alert.jsp");
+		}else if(new SignUpDAO().chkempty(dto)) {
+			if(dto.getGrade().equals("A")||dto.getGrade().equals("H")) {
+				str = "협력업체 관리 > 삭제 신청 부탁드립니다.";
+				request.setAttribute("msg", str);
+		        request.setAttribute("goUrl", "../Manager/Air_DeleteRequestList?partner=in");
+		        request.setAttribute("mainUrl", "greensc/alert.jsp");
+			}else if(dto.getGrade().equals("C")) {
+				str = "구매 내역이 존재합니다. 환불 부탁드립니다.";
+				request.setAttribute("msg", str);
+		        request.setAttribute("goUrl", "../purchase/DetailReserveInfo?mypage=in");
+		        request.setAttribute("mainUrl", "greensc/alert.jsp");
+			}
 		}else if(new SignUpDAO().chklogin(dto)!=null && 
 			request.getParameter("agree").equals("true")) {
 			new SignUpDAO().deleteId(dto);

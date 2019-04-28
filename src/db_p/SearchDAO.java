@@ -37,7 +37,7 @@ public class SearchDAO {
 
 		try {
 			
-			sql="select air_item.ddate, air_item.darea, air_item.carea, air_item.seatcnt, air_item.flightclass, money, air_item.a_time, air_com.air_name,air_item.ap_Code,air_item.cCode from air_item, air_com " + 
+			sql="select air_com.img, air_item.ddate, air_item.darea, air_item.carea, air_item.seatcnt, air_item.flightclass, money, air_item.a_time, air_com.air_name,air_item.ap_Code,air_item.cCode from air_item, air_com " + 
 				"where date(air_item.ddate)=date(?) and air_item.darea=? and air_item.carea =? and air_item.seatcnt>=? and air_item.flightclass=? and air_item.air_code=air_com.air_code order by money;";
 			ptmt = con.prepareStatement(sql);
 			
@@ -60,6 +60,7 @@ public class SearchDAO {
 				dto.setAir_name(rs.getString("air_name"));
 				dto.setSeatcnt(rs.getInt("seatcnt"));
 				dto.setcCode(rs.getString("cCode"));
+				dto.setImg(rs.getString("img"));
 				res.add(dto);
 			}
 			
@@ -137,6 +138,7 @@ public class SearchDAO {
 					dto.setCity(rs.getString("city"));
 					dto.setHname(rs.getString("hname"));
 					dto.setHinfo(rs.getString("hinfo"));
+					dto.setHimg(rs.getString("himg"));
 					res2.add(dto);
 				}
 				

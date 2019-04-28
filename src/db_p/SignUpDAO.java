@@ -87,33 +87,39 @@ public class SignUpDAO {
 		return res;
 	}
 	
-	public void deleteId(SignUpDTO dto) {
+	
+	public boolean chkempty(SignUpDTO dto) {
+		boolean res=false;
 		
 		try {
-			sql="DELETE from member where id=?";
-			ptmt = con.prepareStatement(sql);
-			ptmt.setString(1, dto.getId());
-			ptmt.executeUpdate();
-			sql="DELETE from air_temp where id=?";
-			ptmt = con.prepareStatement(sql);
-			ptmt.setString(1, dto.getId());
-			ptmt.executeUpdate();
-			sql="DELETE from hot_temp where id=?";
-			ptmt = con.prepareStatement(sql);
-			ptmt.setString(1, dto.getId());
-			ptmt.executeUpdate();
-			sql="DELETE from manager_temp where id=?";
-			ptmt = con.prepareStatement(sql);
-			ptmt.setString(1, dto.getId());
-			ptmt.executeUpdate();
-			
-			if(dto.getGrade().equals("M")) {
-				sql="DELETE from manager where id=?";
+			if(dto.getGrade().equals("C")) {
+				sql="select * from basketpaid where id=? and bstatus='m'";
+				
 				ptmt = con.prepareStatement(sql);
 				ptmt.setString(1, dto.getId());
-				ptmt.executeUpdate();
+				rs = ptmt.executeQuery();
+				
+				res=rs.next();
+				
+			}else if(dto.getGrade().equals("A")) {
+				sql="select * from air_com where id=?";
+				
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, dto.getId());
+				rs = ptmt.executeQuery();
+				
+				res=rs.next();
+				
+			}else if(dto.getGrade().equals("H")) {
+				sql="select * from hot_com where id=?";
+				
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, dto.getId());
+				rs = ptmt.executeQuery();
+				
+				res=rs.next();
+				
 			}
-			
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -122,12 +128,12 @@ public class SignUpDAO {
 			close();
 		}
 
-	}
+		return res;
+	}	
 	
 	
 	
 	public void upupGrade(SignUpDTO dto) {
-		
 		if(dto.getGrade().equals("M")) {
 			
 			sql = "insert into manager_temp "
@@ -149,8 +155,8 @@ public class SignUpDAO {
 		}else if(dto.getGrade().equals("A")) {
 			
 			sql = "insert into air_temp "
-					+ "(id, bnum, grade, time) values "
-					+ "(?,?,?,sysdate())";
+					+ "(id, crn, air_name, grade, time, air_codecom) values "
+					+ "(?,?,?,?,sysdate(),?)";
 			
 			try {
 				ptmt = con.prepareStatement(sql);
@@ -158,6 +164,7 @@ public class SignUpDAO {
 				ptmt.setString(2, dto.getCrn());
 				ptmt.setString(3, dto.getAir_name());
 				ptmt.setString(4, dto.getGrade());
+				ptmt.setString(5, dto.getAir_codecom());
 				ptmt.executeUpdate();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -189,7 +196,42 @@ public class SignUpDAO {
 		}
 		
 	}
-	
+	public void deleteId(SignUpDTO dto) {
+	      
+	      try {
+	         sql="DELETE from member where id=?";
+	         ptmt = con.prepareStatement(sql);
+	         ptmt.setString(1, dto.getId());
+	         ptmt.executeUpdate();
+	         sql="DELETE from air_temp where id=?";
+	         ptmt = con.prepareStatement(sql);
+	         ptmt.setString(1, dto.getId());
+	         ptmt.executeUpdate();
+	         sql="DELETE from hot_temp where id=?";
+	         ptmt = con.prepareStatement(sql);
+	         ptmt.setString(1, dto.getId());
+	         ptmt.executeUpdate();
+	         sql="DELETE from manager_temp where id=?";
+	         ptmt = con.prepareStatement(sql);
+	         ptmt.setString(1, dto.getId());
+	         ptmt.executeUpdate();
+	         
+	         if(dto.getGrade().equals("M")) {
+	            sql="DELETE from manager where id=?";
+	            ptmt = con.prepareStatement(sql);
+	            ptmt.setString(1, dto.getId());
+	            ptmt.executeUpdate();
+	         }
+	         
+	         
+	      } catch (SQLException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      }finally {
+	         close();
+	      }
+
+	   }
 	
 	public String chkCode(SignUpDTO dto) {
 		String res=null;
@@ -494,6 +536,7 @@ public class SignUpDAO {
 			res.setAir_name(rs.getString("air_name"));
 			res.setGrade(rs.getString("grade"));
 			res.setTime(rs.getDate("time"));
+			res.setAir_codecom(rs.getString("air_codecom"));
 
 			}
 		} catch (SQLException e) {
@@ -620,8 +663,8 @@ public void gradeMgUpup(SignUpDTO dto) {
 		
 		   try {
 		         sql = "insert into hot_com " 
-		               + " (id, crn, hname, hinfo, grade, country, city, hcode) values "
-		               + " (?, ?, ?, ?, ? ,? ,?, ?)";
+		               + " (id, crn, hname, hinfo, grade, country, city, hcode, addDetail) values "
+		               + " (?, ?, ?, ?, ? ,? ,?, ?, (select addDetail from member where id = ?))";
 		         
 		         ptmt = con.prepareStatement(sql);
 		         ptmt.setString(1, dto.getId());
@@ -632,6 +675,7 @@ public void gradeMgUpup(SignUpDTO dto) {
 		         ptmt.setString(6, dto.getCountry());
 		         ptmt.setString(7, dto.getCity());
 		         ptmt.setString(8, dto.getHcode());
+		         ptmt.setString(9, dto.getId());
 		         ptmt.executeUpdate();
 		         
 		         
