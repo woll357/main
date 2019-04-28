@@ -22,7 +22,6 @@ public class ShowHotelReserveList {
 		ArrayList<Room_itemDTO> dtos = (ArrayList)new Hot_tempDAO().roomlist(dto);
 		
 		for (Room_itemDTO room : dtos) {
-			
 			BasketItemDTO bidto = new BasketItemDTO();
 			bidto.setRcode(room.getRcode());
 			bidto.setBstatus(bstatus);

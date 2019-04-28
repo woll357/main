@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import db_p.BasketItemDTO;
 import db_p.BasketpaidDTO;
 import db_p.BuyDTO;
+import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 import payment_p.ChangeBstatus;
@@ -16,7 +17,7 @@ public class CheckInReg implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		String hcode = "H1000";
+		String hcode = ((SignUpDTO)request.getSession().getAttribute("mem")).getHcode();
 		
 		String basketID = request.getParameter("basketID");
 		String bstatus = "p";

@@ -16,6 +16,7 @@ import db_p.BasketpaidDAO;
 import db_p.BasketpaidDTO;
 import db_p.Hot_tempDAO;
 import db_p.Room_itemDTO;
+import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
@@ -31,7 +32,7 @@ public class AirReserveList implements MvcAction {
 	@Override
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		String air_code = "A1000";
+		String air_code = ((SignUpDTO)request.getSession().getAttribute("mem")).getAir_code();
 		String bstatus = "m";
 		//예약내역 확인할꺼야
 		
