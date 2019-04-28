@@ -30,7 +30,7 @@ public class PaymentReg implements MvcAction {
 		try {
 			request.setCharacterEncoding("utf-8");
 			
-			String id = "1112";
+			String id =((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
 			
 			String [] basketIDs = request.getParameterValues("basketIDs");
 			String cComName = request.getParameter("cComName");
