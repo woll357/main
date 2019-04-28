@@ -36,7 +36,6 @@ public class Payment_Controller extends HttpServlet {
 		String service = request.getRequestURI().substring("/mainProj/payment/".length());
 		
 		request.setAttribute("mainUrl","payment/"+service+".jsp");
-		request.setAttribute("topUrl","payment/"+service+"Top"+".jsp");
 		
 		
 		try {
