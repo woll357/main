@@ -49,6 +49,5 @@ public class ShowHotelSalesList {
 		request.setAttribute("totalSalse", totalSalse);
 		request.setAttribute("salesList",salesList);
 		request.setAttribute("mainUrl", "hotelsell/HotelSalesList.jsp");
-		request.setAttribute("topUrl", "hotelsell/HotelSalesListTop.jsp");
 	}
 }

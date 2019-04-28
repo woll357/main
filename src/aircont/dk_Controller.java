@@ -43,8 +43,6 @@ public class dk_Controller extends HttpServlet {
 		/* request.setAttribute("TopUrl", "air/inc/top.jsp" ); */
 		
 		request.setAttribute("mainUrl", "air/"+service+".jsp" );
-		request.setAttribute("subUrl", "air/subMenu.jsp");
-		request.setAttribute("topUrl", "air/top.jsp");
 		
 		/*
 		 * request.setAttribute("HomeUrl", "air/"+service+"top"+".jsp" );

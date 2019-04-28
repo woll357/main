@@ -42,6 +42,5 @@ public class ShowHotelReserveList {
 		
 		request.setAttribute("reserveList",reserveList);
 		request.setAttribute("mainUrl", "hotelsell/HotelReserveList.jsp");
-		request.setAttribute("topUrl", "hotelsell/HotelReserveListTop.jsp");
 	}
 }

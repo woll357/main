@@ -34,9 +34,7 @@ public class Hotelsell_Controller extends HttpServlet {
 		String service = request.getRequestURI().substring("/mainProj/hotelsell/".length());
 		
 		request.setAttribute("mainUrl","hotelsell/"+service+".jsp");
-		request.setAttribute("topUrl","hotelsell/"+service+"Top"+".jsp");
-		
-		System.out.println(request.getAttribute("topUrl"));
+
 		System.out.println(request.getAttribute("mainUrl"));
 		
 		try {
