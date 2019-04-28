@@ -1,8 +1,11 @@
 package hotelsell_p;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import db_p.BasketItemDAO;
 import db_p.BasketItemDTO;
 import db_p.BasketpaidDTO;
 import db_p.BuyDTO;
@@ -21,6 +24,7 @@ public class CheckInReg implements MvcAction {
 		
 		String basketID = request.getParameter("basketID");
 		String bstatus = "p";
+
 		new ChangeBstatus(basketID, bstatus);
 
 		bstatus = "m";

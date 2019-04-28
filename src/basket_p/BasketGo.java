@@ -26,13 +26,9 @@ public class BasketGo {
 
 		ArrayList<BasketDTO> adtos = new ArrayList<BasketDTO>();
 		ArrayList<BasketDTO> hdtos = new ArrayList<BasketDTO>();
-
-		System.out.println("BasketGo에서 내 아이디 나오니?"+myDTO.getId());
 		
 		
 		ArrayList<BasketDTO> myBasketList = new BasketDAO().itemCNT(myDTO);
-		
-		System.out.println("사이즈 몇이야?"+myBasketList.size());
 		
 		for (BasketDTO basket : myBasketList) {
 

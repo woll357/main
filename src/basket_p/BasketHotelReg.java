@@ -87,7 +87,6 @@ public class BasketHotelReg implements MvcAction {
 			new BasketDAO().insert(dto);
 			
 			dto = new BasketDAO().findBasketID(dto);
-			System.out.println("여기이인가?"+dto.getBasketID());
 			
 			SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			
@@ -119,7 +118,6 @@ public class BasketHotelReg implements MvcAction {
 				startDay.setDate(startDay.getDate()+1);
 			}
 			
-			System.out.println("총액"+totalPrice);
 			dto.setTotalPrice(totalPrice);
 			new BasketDAO().modifyTotalPrice(dto);
 

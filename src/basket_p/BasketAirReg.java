@@ -48,12 +48,8 @@ public class BasketAirReg implements MvcAction {
 		if(cType.equals("A")) {
 			
 			int psn= Integer.parseInt(request.getParameter("seatcnt")); // 좌석수로 받고 psn으로 넣는다.
-			System.out.println(psn);
-			
-			System.out.println("씨코드갯수"+cCodes.length); //1 또는 2
 			
 			for (int i = 0; i < cCodes.length; i++) { 
-				System.out.println("두번놔아라!");
 				
 				Air_itemDTO airdto = new Air_itemDTO();
 				airdto.setCcode(cCodes[i]);
@@ -83,15 +79,11 @@ public class BasketAirReg implements MvcAction {
 
 				int no = new BasketDAO().itemCNT(dto).size();
 				dto.setNo(no);
-				System.out.println(no); //나 장바구니에 몇개있니?
 
 				dto.setDdate(airdto.getDdate());
 				dto.setFdate(airdto.getA_time());
 				dto.setTotalPrice(airdto.getMoney());
-				
-				System.out.println(airdto.getA_time());
-				
-				
+		
 				new BasketDAO().insert(dto);
 				
 				System.out.println("삽입까지 성공했다");
@@ -100,7 +92,6 @@ public class BasketAirReg implements MvcAction {
 				
 				BasketItemDTO itemdto = new BasketItemDTO();
 				
-				System.out.println("basketID뭐야?"+dto.getBasketID());
 				
 				itemdto.setBasketID(dto.getBasketID());
 				
@@ -115,7 +106,6 @@ public class BasketAirReg implements MvcAction {
 				//넣어준 basketID를 찾아야한다 자신의 id와 no로.
 				//지울 때 지운 no보다 큰 장바구니 item의 no는 1씩 감소
 				
-				System.out.println("===================================");
 			}
 			
 		}
