@@ -13,10 +13,10 @@ public class AirSalesList implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		String hcode = ((SignUpDTO)request.getSession().getAttribute("mem")).getAir_code();
+		String air_code = ((SignUpDTO)request.getSession().getAttribute("mem")).getAir_code();
 		String bstatus = "p";
 		
-		new ShowAirSalesList(request, response, hcode, bstatus);
+		new ShowAirSalesList(request, response, air_code, bstatus);
 		
 		
 		return null;

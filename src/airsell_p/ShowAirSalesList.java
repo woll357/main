@@ -35,6 +35,7 @@ public class ShowAirSalesList {
 			
 			for (BasketItemDTO basketid : basketIDs) {
 				
+				System.out.println("들어는오니?");
 				
 				BasketpaidDTO bpdto = new BasketpaidDTO();
 				bpdto.setBasketID(basketid.getBasketID());
