@@ -30,7 +30,7 @@ public class QnaDetail implements MvcAction {
 		CenterDTO dto = new CenterDTO();
 		dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
 		dto.setNum(Integer.parseInt(request.getParameter("num")));
-		dto.setAnswer("정보보기");
+		dto.setAnswer("대기");
 		CenterDAO dao = new CenterDAO();
 		
 		CenterDTO res = dao.qnaDetail(dto);

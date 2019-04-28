@@ -53,7 +53,7 @@
 			<td>작성자</td>
 			<c:choose>
 				<c:when test="${mem.grade=='M' }">
-					<td>${dto.id }</td>
+					<td>${mem.id }</td>
 				</c:when>
 				<c:otherwise>
 					<td>운영자</td>
