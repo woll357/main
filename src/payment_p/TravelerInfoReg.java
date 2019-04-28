@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import db_p.BasketDAO;
 import db_p.BasketDTO;
+import db_p.SignUpDTO;
 import db_p.TravelerInfoDAO;
 import db_p.TravelerInfoDTO;
 import di.MvcAction;
@@ -58,7 +59,7 @@ public class TravelerInfoReg implements MvcAction {
 		String mainEngLastName = request.getParameterValues("cEngLastName")[0];
 		String mainEngFirstName = request.getParameterValues("cEngFirstName")[0];
 		
-		String id = "1112";//((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
+		String id = ((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
 		String bid = request.getParameter("bid");
 		System.out.println(id);
 
@@ -103,7 +104,6 @@ public class TravelerInfoReg implements MvcAction {
 		request.setAttribute("totalPrice", totalPrice);
 		request.setAttribute("basketIDs", basketIDs);
 		request.setAttribute("mainUrl", "payment/PaymentMain.jsp");
-		request.setAttribute("topUrl", "payment/PaymentMainTop.jsp");
 		
 		return null;
 		}
@@ -124,7 +124,6 @@ public class TravelerInfoReg implements MvcAction {
 			request.setAttribute("totalPrice", totalPrice);
 			request.setAttribute("basketIDs", basketIDs);
 			request.setAttribute("mainUrl", "payment/PaymentMain.jsp");
-			request.setAttribute("topUrl", "payment/PaymentMainTop.jsp");
 			
 			return null;
 		}
