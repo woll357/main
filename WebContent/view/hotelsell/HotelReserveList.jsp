@@ -17,7 +17,7 @@
 			<td>${i.ddate }</td>
 			<td>${i.fdate }</td>
 			<td>${i.id }</td>
-			<td><a href="CheckInReg?basketID=${i.basketID }">체크인</a></td>
+			<td><a href="CheckInReg?basketID=${i.basketID }&aotcont=in">체크인</a></td>
 		</tr>
 		</c:forEach>
 		

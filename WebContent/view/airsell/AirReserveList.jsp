@@ -17,7 +17,7 @@
 			<td>${i.ddate }</td>
 			<td>${i.fdate }</td>
 			<td>${i.id }</td>
-			<td><a href="BoardingReg?basketID=${i.basketID }">탑승수속</a></td>
+			<td><a href="BoardingReg?basketID=${i.basketID }&aotcont=in">탑승수속</a></td>
 		</tr>
 		</c:forEach>
 		
