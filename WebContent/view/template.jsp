@@ -9,13 +9,13 @@
 <body>
 <table border="" width = 1500px >
 	<tr>
-		<td  height="50px"><jsp:include page="${topUrl }" /></td> 
+		<td  height="50px"><jsp:include page="inc/top.jsp" /></td> 
 	</tr>
 	<tr>
 		<td height="150px"><jsp:include page="inc/logo.jsp" /></td>
 	</tr>
 	<tr>
-		<td height="50px"><jsp:include page="${subUrl }" /></td>
+		<td height="50px"><jsp:include page="inc/subMenu.jsp" /></td>
 	</tr>
 	<tr>
 		<td height="500px"><jsp:include page="${mainUrl }" /></td>

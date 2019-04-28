@@ -28,7 +28,7 @@
 			<td><a href="../greensc/NoticeList?center=in">고객센터</a></td>
 			<td><a href="../greensc/MgPage?mgpage=in">고객관리</a></td>
 			<td><a href="../Manager/AirLine_List?partner=in">협력업체관리</a></td>
-			<td><a href="../Manager/ManagerSellList?sales=in&bstatus=m">판매자관리</a></td>
+			<td><a href="../Manager/ManagerSellList?sales=in&bstatus=m">판매관리</a></td>
 			<td><a href="../greensc/Home">홈</a></td>
 			
 			</c:when>
