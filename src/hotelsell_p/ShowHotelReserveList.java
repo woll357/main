@@ -29,8 +29,7 @@ public class ShowHotelReserveList {
 			ArrayList<BasketItemDTO> basketIDs = new BasketItemDAO().basketIDListByRcode(bidto);
 			
 			for (BasketItemDTO basketid : basketIDs) {
-				
-				
+
 				BasketpaidDTO bpdto = new BasketpaidDTO();
 				bpdto.setBasketID(basketid.getBasketID());
 				bpdto.setBstatus(bstatus);

@@ -12,6 +12,7 @@ import db_p.BasketpaidDAO;
 import db_p.BasketpaidDTO;
 import db_p.BuyDAO;
 import db_p.BuyDTO;
+import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 import payment_p.ChangeBstatus;
@@ -30,8 +31,7 @@ public class RefundReg implements MvcAction {
 		}
 		
 		String basketID = request.getParameter("basketID");
-		System.out.println("내가 선택한 상품"+basketID);
-		String id = "1112"; //= ((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
+		String id = ((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
 		String bstatus = "r";
 		
 		new ChangeBstatus(basketID, bstatus);

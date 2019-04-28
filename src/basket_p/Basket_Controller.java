@@ -34,10 +34,6 @@ public class Basket_Controller extends HttpServlet {
 		String service = request.getRequestURI().substring("/mainProj/basket/".length());
 		
 		request.setAttribute("mainUrl","basket/"+service+".jsp");
-		request.setAttribute("topUrl","basket/"+service+"Top"+".jsp");
-		
-		System.out.println(request.getAttribute("topUrl"));
-		System.out.println(request.getAttribute("mainUrl"));
 		
 		try {
 			MvcAction action = (MvcAction)Class.forName("basket_p."+service).newInstance();

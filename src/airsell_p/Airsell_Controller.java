@@ -34,10 +34,7 @@ public class Airsell_Controller extends HttpServlet {
 		String service = request.getRequestURI().substring("/mainProj/airsell/".length());
 		
 		request.setAttribute("mainUrl","airsell/"+service+".jsp");
-		request.setAttribute("topUrl","airsell/"+service+"Top"+".jsp");
 		
-		System.out.println(request.getAttribute("topUrl"));
-		System.out.println(request.getAttribute("mainUrl"));
 		
 		try {
 			MvcAction action = (MvcAction)Class.forName("airsell_p."+service).newInstance();
@@ -46,9 +43,7 @@ public class Airsell_Controller extends HttpServlet {
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/view/template.jsp");
 			dispatcher.forward(request, response);
-			
-			
-			
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

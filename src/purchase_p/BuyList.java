@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import db_p.BasketpaidDAO;
 import db_p.BasketpaidDTO;
+import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
@@ -15,7 +16,7 @@ public class BuyList implements MvcAction {
 	@Override
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		String id = "1112";
+		String id = ((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();;
 		String bstatus = "p";
 		
 		BasketpaidDTO bpdto = new BasketpaidDTO();
@@ -39,7 +40,6 @@ public class BuyList implements MvcAction {
 		request.setAttribute("adtos",adtos);
 		request.setAttribute("hdtos",hdtos);
 		request.setAttribute("mainUrl", "purchase/DetailReserveInfo.jsp");
-		request.setAttribute("topUrl", "purchase/DetailReserveInfoTop.jsp");
 		
 		
 		return null;

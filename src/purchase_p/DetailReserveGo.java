@@ -34,7 +34,6 @@ public class DetailReserveGo {
 		request.setAttribute("adtos",adtos);
 		request.setAttribute("hdtos",hdtos);
 		request.setAttribute("mainUrl", "purchase/DetailReserveInfo.jsp");
-		request.setAttribute("topUrl", "purchase/DetailReserveInfoTop.jsp");
 		
 	}
 

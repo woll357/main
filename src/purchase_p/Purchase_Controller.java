@@ -32,12 +32,10 @@ public class Purchase_Controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-			String service = request.getRequestURI().substring("/mainProj2/purchase/".length());
+			String service = request.getRequestURI().substring("/mainProj/purchase/".length());
 			
 			request.setAttribute("mainUrl","purchase/"+service+".jsp");
-			request.setAttribute("topUrl","purchase/"+service+"Top"+".jsp");
 			
-			System.out.println(request.getAttribute("topUrl"));
 			System.out.println(request.getAttribute("mainUrl"));
 			
 			try {

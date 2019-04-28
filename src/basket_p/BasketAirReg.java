@@ -30,20 +30,16 @@ public class BasketAirReg implements MvcAction {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		String [] cCodes = request.getParameterValues("ccode"); //넘겨받는게 ccode로 들어오고 나는 cCodes로 넣는다.
 
 		for (String string : cCodes) {
 			System.out.println(string);
 		}
-		
-		
+	
 		String id = ((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
 		
 		String cType = cCodes[0].substring(0, 1);
 		
-		System.out.println(cType);
-	
 
 		if(cType.equals("A")) {
 			
@@ -62,8 +58,6 @@ public class BasketAirReg implements MvcAction {
 				
 				aircomdto = new Air_comDAO().serarchByAirCode(aircomdto);//항공사 정보 찾기
 
-				System.out.println(airdto);
-				System.out.println(cCodes[i]);
 				
 				BasketDTO dto = new BasketDTO();
 				dto.setId(id);
@@ -85,8 +79,6 @@ public class BasketAirReg implements MvcAction {
 				dto.setTotalPrice(airdto.getMoney());
 		
 				new BasketDAO().insert(dto);
-				
-				System.out.println("삽입까지 성공했다");
 				
 				dto = new BasketDAO().findBasketID(dto);
 				

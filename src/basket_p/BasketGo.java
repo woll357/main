@@ -19,7 +19,6 @@ public class BasketGo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		BasketDTO myDTO = new BasketDTO();
 		
 		myDTO.setId(id);
@@ -46,7 +45,6 @@ public class BasketGo {
 		request.setAttribute("adtos", adtos);
 		request.setAttribute("hdtos", hdtos);
 		request.setAttribute("mainUrl", "basket/BasketMain.jsp");
-		request.setAttribute("topUrl", "basket/BasketMainTop.jsp");
 		
 	}
 }

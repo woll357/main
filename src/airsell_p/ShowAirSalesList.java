@@ -51,7 +51,6 @@ public class ShowAirSalesList {
 		request.setAttribute("totalSalse", totalSalse);
 		request.setAttribute("salesList",salesList);
 		request.setAttribute("mainUrl", "airsell/AirSalesList.jsp");
-		request.setAttribute("topUrl", "airsell/AirSalesListTop.jsp");
 	}
 	
 }
