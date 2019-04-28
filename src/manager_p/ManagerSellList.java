@@ -18,7 +18,7 @@ public class ManagerSellList implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		String bstatus = "p";//request.getParameter("bstatus");
+		String bstatus = request.getParameter("bstatus");
 
 		
 		ArrayList<BasketpaidDTO> managerSellList = new ArrayList<BasketpaidDTO>();
@@ -37,7 +37,6 @@ public class ManagerSellList implements MvcAction {
 		
 		request.setAttribute("managerSellList",managerSellList);
 		request.setAttribute("mainUrl", "manager/ManagerSellList.jsp");
-		request.setAttribute("topUrl", "manager/ManagerSellListTop.jsp");
 		
 		
 		return null;
