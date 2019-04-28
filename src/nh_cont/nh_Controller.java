@@ -39,8 +39,6 @@ public class nh_Controller extends HttpServlet {
 		String service = request.getRequestURI().substring("/mainProj/greensc/".length());
 		System.out.println(service);
 		request.setAttribute("mainUrl", "greensc/"+service+".jsp");
-		request.setAttribute("subUrl", "greensc/subMenu.jsp");
-		request.setAttribute("topUrl", "greensc/top.jsp");
 		try {
 			MvcAction action = (MvcAction)Class.forName("nh_service_p."+service).newInstance();
 			MvcForward forward=action.execute(request, response);
