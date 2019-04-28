@@ -76,20 +76,18 @@ public class BasketItemDAO {
 	public boolean delete(BasketItemDTO dto) { //장바구니에 해당하는 아이템들 삭제
 		
 		System.out.println("BasketItem Delete진입");
-		
 		boolean res = false;
-		
 		try {
-			
 			sql = "delete from basketitem where basketID = ? ";
 			System.out.println(sql);
-			
 			
 			ptmt = con.prepareStatement(sql);
 			
 			ptmt.setString(1, dto.getBasketID());
 			
 			res = ptmt.executeUpdate() > 0;
+			
+			System.out.println(res);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -98,7 +96,64 @@ public class BasketItemDAO {
 			
 			close();
 		}
-
+		return res;
+	}
+	
+	public ArrayList<BasketItemDTO> basketIDListByRcode(BasketItemDTO dt){ //예약내역 찾기
+		ArrayList<BasketItemDTO> res = new ArrayList<BasketItemDTO>();
+		try {
+			sql = "select distinct basketID from basketitem where rcode = ? and bstatus = ?";
+			ptmt = con.prepareStatement(sql);
+			
+			ptmt.setString(1, dt.getRcode());
+			ptmt.setString(2, dt.getBstatus());
+	
+			rs = ptmt.executeQuery();
+			
+			while(rs.next()) {
+				BasketItemDTO dto = new BasketItemDTO();
+				dto.setBasketID(rs.getString("basketID"));
+				
+				res.add(dto);
+			}
+	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+			close();
+		}
+		
+		return res;
+		
+	}
+	
+	public ArrayList<BasketItemDTO> basketIDListByBstatus(BasketItemDTO dt){ //예약내역 찾기
+		ArrayList<BasketItemDTO> res = new ArrayList<BasketItemDTO>();
+		try {
+			sql = "select distinct basketID from basketitem where bstatus = ?";
+			ptmt = con.prepareStatement(sql);
+			
+			ptmt.setString(1, dt.getBstatus());
+	
+			rs = ptmt.executeQuery();
+			
+			while(rs.next()) {
+				BasketItemDTO dto = new BasketItemDTO();
+				dto.setBasketID(rs.getString("basketID"));
+				
+				res.add(dto);
+			}
+	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+			close();
+		}
+		
 		return res;
 		
 	}

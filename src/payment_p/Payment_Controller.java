@@ -38,8 +38,6 @@ public class Payment_Controller extends HttpServlet {
 		request.setAttribute("mainUrl","payment/"+service+".jsp");
 		request.setAttribute("topUrl","payment/"+service+"Top"+".jsp");
 		
-		System.out.println(request.getAttribute("topUrl"));
-		System.out.println(request.getAttribute("mainUrl"));
 		
 		try {
 			MvcAction action = (MvcAction)Class.forName("payment_p."+service).newInstance();

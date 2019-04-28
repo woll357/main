@@ -723,6 +723,47 @@ public Object mair_pitemlist(String air_p ) {
 			return res;
 	}
 	
+public ArrayList itemlistByAir_Code(Air_itemDTO dt) {
+		
+		ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
+
+		
+		try {
+			sql = "select * from air_item where air_code = ? ";       
+			ptmt = con.prepareStatement(sql);
+			
+			ptmt.setString(1, dt.getAir_code());
+
+			rs = ptmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				Air_itemDTO dto = new Air_itemDTO();
+
+				dto.setDdate(rs.getTimestamp("ddate"));
+				dto.setDarea(rs.getString("darea"));
+				dto.setCarea(rs.getString("carea"));
+				dto.setAp_code(rs.getString("ap_code"));
+				dto.setCcode(rs.getString("ccode"));
+				dto.setMoney(rs.getInt("money"));
+				dto.setA_time(rs.getTimestamp("a_time"));
+				dto.setSeatcnt(rs.getInt("seatcnt"));
+				dto.setFlightclass(rs.getString("flightclass"));	
+				dto.setTotseatcnt(rs.getInt("totseatcnt"));
+
+				res.add(dto);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+			close();
+		}
+
+		return res;
+	}
 	
 	public void close() {
 		if(rs!=null) try {rs.close();} catch (SQLException e) {	}

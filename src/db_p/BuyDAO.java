@@ -74,16 +74,15 @@ public class BuyDAO {
 		try {
 
 			sql = "insert into buy "
-					+ "(bnum, bdate, id, totalPrice, pCode) "
-					+ "values(?, ?, ?, ?, ?)";
+					+ "(basketID, bdate, id, totalPrice) "
+					+ "values(?, ?, ?, ?)";
 			System.out.println(sql);
 			
 			ptmt = con.prepareStatement(sql);
-			ptmt.setInt(1, dto.getBnum());
+			ptmt.setString(1, dto.getBasketID());
 			ptmt.setString(2, dto.getBdateStr());
 			ptmt.setString(3, dto.getId());
 			ptmt.setInt(4, dto.getTotalPrice());
-			ptmt.setString(5, dto.getpCode());
 			
 			ptmt.executeUpdate();
 			
@@ -106,6 +105,29 @@ public class BuyDAO {
 		}
 	}
 	
+	public void givePcode(BuyDTO dto) {
+		
+		try {
+		sql = "update buy set pcode = ? where id = ? and bdate = ?";
+			
+			System.out.println("나오니?"+sql);
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getpCode());
+			ptmt.setString(2, dto.getId());
+			ptmt.setString(3, dto.getBdateStr());
+			
+			ptmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+	}
+	
 	public BuyDTO detail(BuyDTO dto) {	//basketID찾기
 			
 			BuyDTO res = new BuyDTO();
@@ -122,19 +144,19 @@ public class BuyDAO {
 				
 				ptmt.setString(1, dto.getId());
 				ptmt.setString(2, dto.getBdateStr());
-	
+				System.out.println(dto.getBdateStr());
+				
 				rs = ptmt.executeQuery();
 				
 				if(rs.next()) {
 				
 				res.setPno(rs.getInt("pno"));
 				res.setBcode(rs.getString("bcode"));
-				res.setBnum(rs.getInt("bnum"));
+				res.setBasketID(rs.getString("basketID"));
 				res.setBdate(rs.getTimestamp("bdate"));
 				res.setId(rs.getString("id"));
 				res.setTotalPrice(rs.getInt("totalPrice"));
 				res.setBstatus(rs.getString("bstatus"));
-				res.setpCode(rs.getString("pCode"));
 				
 				}
 			} catch (SQLException e1) {
@@ -147,17 +169,18 @@ public class BuyDAO {
 			return res;
 		}
 	
-	public void modifyBstatus(BuyDTO dto) {
+	public void modifyBD(BuyDTO dto) {
 		
-		sql = "update buy set bstatus = ? where bcode = ?";
-				
+		sql = "update buy set bstatus = ?, bdate = ? where basketID = ?";
+		
 	System.out.println(sql);
 	
 	try {
 		ptmt = con.prepareStatement(sql);
-		
+		System.out.println("구매테이블 상태 뭘로 바뀌니? BuyDAO"+dto.getBstatus());
 		ptmt.setString(1, dto.getBstatus());
-		ptmt.setString(2, dto.getBcode());
+		ptmt.setString(2, dto.getBdateStr());
+		ptmt.setString(3, dto.getBasketID());
 		
 		ptmt.executeUpdate();
 		

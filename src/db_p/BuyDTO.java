@@ -6,13 +6,21 @@ import java.util.Date;
 
 public class BuyDTO {
 
-	int pno, bnum, totalPrice, no;
-	String bcode, id, bstatus, pCode;
+	int pno, totalPrice, no;
+	String bcode, id, bstatus, pCode, basketID;
 	Date bdate;
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
 	
 	
+	public String getBasketID() {
+		return basketID;
+	}
+
+	public void setBasketID(String basketID) {
+		this.basketID = basketID;
+	}
+
 	public int getNo() {
 		return no;
 	}
@@ -39,12 +47,6 @@ public class BuyDTO {
 	}
 	public void setPno(int pno) {
 		this.pno = pno;
-	}
-	public int getBnum() {
-		return bnum;
-	}
-	public void setBnum(int bnum) {
-		this.bnum = bnum;
 	}
 	public int getTotalPrice() {
 		return totalPrice;

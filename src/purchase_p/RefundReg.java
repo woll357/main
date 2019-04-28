@@ -1,6 +1,7 @@
 package purchase_p;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,9 +12,9 @@ import db_p.BasketpaidDAO;
 import db_p.BasketpaidDTO;
 import db_p.BuyDAO;
 import db_p.BuyDTO;
-import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
+import payment_p.ChangeBstatus;
 
 public class RefundReg implements MvcAction {
 
@@ -30,25 +31,10 @@ public class RefundReg implements MvcAction {
 		
 		String basketID = request.getParameter("basketID");
 		System.out.println("내가 선택한 상품"+basketID);
-		String id =  ((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
+		String id = "1112"; //= ((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
+		String bstatus = "r";
 		
-		BasketpaidDTO bpdto = new BasketpaidDTO();
-		BasketItemDTO bidto = new BasketItemDTO();
-		BuyDTO bdto = new BuyDTO();
-		
-		bpdto.setBasketID(basketID);
-		
-		new BasketpaidDAO().detail(bpdto);
-		bdto.setBcode(bpdto.getBcode());
-		bdto.setBstatus("r");
-		
-		bpdto.setBstatus("r");
-		bidto.setBasketID(basketID);
-		bidto.setBstatus("r");
-		
-		new BuyDAO().modifyBstatus(bdto);
-		new BasketpaidDAO().modifyBstatus(bpdto);
-		new BasketItemDAO().modifyBstatus(bidto);
+		new ChangeBstatus(basketID, bstatus);
 		
 		new DetailReserveGo(id, request, response);
 		

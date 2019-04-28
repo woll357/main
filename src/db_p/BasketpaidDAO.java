@@ -27,7 +27,52 @@ public class BasketpaidDAO {
 		}	
 	}
 	
-	public ArrayList<BasketpaidDTO> myReserveList(BasketpaidDTO dto) {					//장바구니에 몇개있니?
+	public ArrayList<BasketpaidDTO> myList(BasketpaidDTO dto) {
+		ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
+		
+		try {
+			
+			sql = "select * from basketpaid where id = ? and bstatus= ? ";
+			ptmt = con.prepareStatement(sql);
+			
+			ptmt.setString(1, dto.getId());
+			ptmt.setString(1, dto.getBstatus());
+	
+			rs = ptmt.executeQuery();
+			
+			while(rs.next()) {
+				dto = new BasketpaidDTO();
+				dto.setPno(rs.getInt("pno"));
+				dto.setBasketID(rs.getString("basketID"));
+				dto.setcType(rs.getString("cType"));
+				dto.setcNum(rs.getInt("cNum"));
+				dto.setcName(rs.getString("cName"));
+				dto.setItemName(rs.getString("itemName"));
+				dto.setDdate(rs.getTimestamp("ddate"));
+				dto.setFdate(rs.getTimestamp("fdate"));
+				dto.setLocation1(rs.getString("location1"));
+				dto.setLocation2(rs.getString("location2"));
+				dto.setTotalPrice(rs.getInt("totalPrice"));
+				dto.setPsn(rs.getInt("psn"));
+				dto.setBcode(rs.getString("bcode"));
+				dto.setId(rs.getString("id"));
+				dto.setBstatus(rs.getString("bstatus"));
+				
+				res.add(dto);
+			}
+	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+			close();
+		}
+
+		return res;
+	}
+	
+	public ArrayList<BasketpaidDTO> myReserveList(BasketpaidDTO dto) {
 		ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
 		
 		try {
@@ -67,7 +112,50 @@ public class BasketpaidDAO {
 			
 			close();
 		}
+
+		return res;
+	}
+	
+	public ArrayList<BasketpaidDTO> myRefundList(BasketpaidDTO dto) {					//장바구니에 몇개있니?
+		ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
 		
+		try {
+			
+			sql = "select * from basketpaid where id = ? and bstatus= 'r'";
+			ptmt = con.prepareStatement(sql);
+			
+			ptmt.setString(1, dto.getId());
+	
+			rs = ptmt.executeQuery();
+			
+			while(rs.next()) {
+				dto = new BasketpaidDTO();
+				dto.setPno(rs.getInt("pno"));
+				dto.setBasketID(rs.getString("basketID"));
+				dto.setcType(rs.getString("cType"));
+				dto.setcNum(rs.getInt("cNum"));
+				dto.setcName(rs.getString("cName"));
+				dto.setItemName(rs.getString("itemName"));
+				dto.setDdate(rs.getTimestamp("ddate"));
+				dto.setFdate(rs.getTimestamp("fdate"));
+				dto.setLocation1(rs.getString("location1"));
+				dto.setLocation2(rs.getString("location2"));
+				dto.setTotalPrice(rs.getInt("totalPrice"));
+				dto.setPsn(rs.getInt("psn"));
+				dto.setBcode(rs.getString("bcode"));
+				dto.setId(rs.getString("id"));
+				dto.setBstatus(rs.getString("bstatus"));
+				
+				res.add(dto);
+			}
+	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+			close();
+		}
 		
 		return res;
 	}

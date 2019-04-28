@@ -3,10 +3,17 @@ package db_p;
 public class PaymentDTO {
 	
 	int pCode;
-	String cComName, cNum, exDate, cPw, cvc, id;
+	String cComName, cNum, exDate, cPw, cvc, id, bcode;
 
-	
-	
+
+	public String getBcode() {
+		return bcode;
+	}
+
+	public void setBcode(String bcode) {
+		this.bcode = bcode;
+	}
+
 	public int getpCode() {
 		return pCode;
 	}

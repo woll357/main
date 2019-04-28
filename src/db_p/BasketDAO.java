@@ -122,10 +122,8 @@ public class BasketDAO {
 		
 		sql = "select * from basket where basketID = ? ";
 		
-		System.out.println(sql);
 		
 		try {
-			System.out.println("detail 진입하니??11");
 			
 			
 			ptmt = con.prepareStatement(sql);

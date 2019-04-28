@@ -26,16 +26,22 @@ public class PaymentDAO {
 		}	
 	}
 	
-	public void insert(String id) {
+	public void insert(PaymentDTO dto) {
 		
 		sql = "insert into payment "
-			+ "(id) values(?)";
+			+ "(cComName, cNum, cvc, cPw, exDate, id, bcode) "
+			+ "values(?, ?, ?, ?, ?,?, ?)";
 		System.out.println(sql);
 		try {
 			ptmt = con.prepareStatement(sql);
-			ptmt.setString(1,id);
+			ptmt.setString(1, dto.getcComName());
+			ptmt.setString(2, dto.getcNum());
+			ptmt.setString(3, dto.getCvc());
+			ptmt.setString(4, dto.getcPw());
+			ptmt.setString(5, dto.getExDate());
+			ptmt.setString(6, dto.getId());
+			ptmt.setString(7, dto.getBcode());
 			ptmt.executeUpdate();
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -78,11 +84,12 @@ public class PaymentDAO {
 	public PaymentDTO detail(PaymentDTO dto) {
 		PaymentDTO res = null;
 		
-		sql = "select * from payment where id = ?";
+		sql = "select * from payment where id = ? and bcode = ? ";
 		
 		try {
 			ptmt = con.prepareStatement(sql);
-			ptmt.setString(1, dto.id);
+			ptmt.setString(1, dto.getId());
+			ptmt.setString(2, dto.getBcode());
 			rs = ptmt.executeQuery();
 			
 			if(rs.next()) {
@@ -94,6 +101,7 @@ public class PaymentDAO {
 				res.setCvc(rs.getString("cvc"));
 				res.setcPw(rs.getString("cPw"));
 				res.setExDate(rs.getString("exDate"));
+				res.setId(rs.getString("id"));
 				
 			}
 					

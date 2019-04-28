@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<form action="../greensc/Home">
+<%request.setCharacterEncoding("utf-8"); %>
+
+<form action="mainUrl">
 	<table border="" >
 		<tr>
 			<td>항공사명</td>
@@ -54,7 +56,7 @@
 	<table>
 	<tr>
 	<td>총액</td>
-	<td>${bdto.totalPrice }</td>
+	<td>${totalPrice }</td>
 	<td><input type="submit" value="확인" /></td>
 	</tr>
 	</table>

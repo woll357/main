@@ -17,7 +17,7 @@ public class DetailReserveInfo implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		String id =((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
+		String id = "1112";//((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
 		
 		new DetailReserveGo(id, request, response);
 		
