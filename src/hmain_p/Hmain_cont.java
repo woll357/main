@@ -34,9 +34,9 @@ public class Hmain_cont extends HttpServlet {
 		// TODO Auto-generated method stub
 		String service = request.getRequestURI().substring("/mainProj/hmain/".length());
 		try {
-			request.setAttribute("topUrl", "hmain/"+"Hmaintop.jsp");
+
 			request.setAttribute("mainUrl", "hmain/"+service+".jsp");
-			request.setAttribute("subUrl", "hmain/"+"Hmainsub.jsp");
+
 			
 			MvcAction action = (MvcAction)Class.forName("hmain_p."+service).newInstance();
 			MvcForward forward = action.execute(request, response); //list.java의 execute 메소드 실행

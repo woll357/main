@@ -39,7 +39,7 @@ public class manger_Controller extends HttpServlet {
 		String service = request.getRequestURI().substring("/mainProj/Manager/".length());
 		
 		request.setAttribute("mainUrl", "manager/"+service+".jsp" );
-		request.setAttribute("subUrl", "manager/subMenu.jsp");
+
 		
 		
 		try {
