@@ -56,7 +56,8 @@
 		  
 		  $('.btn').on({
 		      'click':function(){
-		    	  dataGet("../greenAjax/DupTest?id="+$('#id').val()+"&phone="+$('#phone').val());
+		    	  var pp=$('#phone1').val()+"-"+$('#phone2').val()+"-"+$('#phone3').val();
+		    	  dataGet("../greenAjax/DupTest?id="+$('#id').val()+"&phone="+pp);
 		      }
 		   });
 		   
@@ -104,8 +105,8 @@
 		<tr>
 			<td align="center">연락처</td>
 			<td>
-			<input name="phone" type="text" id="phone1"/>-
-			<input name="phone" type="text" id="phone2"/>-
+			<input name="phone" type="text" id="phone1"/> -
+			<input name="phone" type="text" id="phone2"/> -
 			<input name="phone" type="text" id="phone3"/>
 			</td><td>
 			<input type="button" value="중복확인" class="btn"/>
