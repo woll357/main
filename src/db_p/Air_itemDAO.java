@@ -723,7 +723,67 @@ public Object mair_pitemlist(String air_p ) {
 			return res;
 	}
 	
-public ArrayList itemlistByAir_Code(Air_itemDTO dt) {
+	
+	//관리자 비행기 리스트
+	public Air_itemDTO airplanlistm() {
+		
+		Air_itemDTO res = null;
+		
+		sql = "select air_name , ap_code  from air_com, air_item where air_com.air_code=air_item.air_code order by air_name ";
+		
+		try {
+			ptmt = con.prepareStatement(sql);
+			
+			rs = ptmt.executeQuery();
+			
+			if(rs.next()) {
+				res = new Air_itemDTO();
+				res.setAir_name(rs.getString("air_name"));
+				res.setAp_code(rs.getString("ap_code"));
+				}
+					
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		
+		}finally {
+		   close();
+	  }
+		       
+		return res;
+	}
+	//관리자 비행기 찾기
+	public Air_itemDTO airplanedetailm(String air_name) {
+		
+		Air_itemDTO res = null;
+		
+		sql = "select air_name , ap_code  from air_com, air_item where air_com.air_code=air_item.air_code and air_name = ? order by air_name ";
+		
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, air_name);
+		
+			rs = ptmt.executeQuery();
+			
+			if(rs.next()) {
+				res = new Air_itemDTO();
+				res.setAir_name(rs.getString("air_name"));
+				res.setAp_code(rs.getString("ap_code"));
+			}
+					
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		
+		}finally {
+		   close();
+	  }
+		       
+		return res;
+	}
+	//협력업체 비행기 상품 찾기
+	
+	public ArrayList itemlistByAir_Code(Air_itemDTO dt) {
 		
 		ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 
