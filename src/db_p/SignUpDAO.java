@@ -629,8 +629,8 @@ public void gradeMgUpup(SignUpDTO dto) {
 	public void gradeAirUpup(SignUpDTO dto) {
 		
 		sql = "insert into air_com " 
-	          + " (no, air_code, id, crn, air_name) values "
-	          + " (?, ?, ?, ?, ?)";
+	          + " (no, air_code, id, crn, air_name, img) values "
+	          + " (?, ?, ?, ?, ?, ?)";
 		
 		try {
 			
@@ -640,7 +640,7 @@ public void gradeMgUpup(SignUpDTO dto) {
 			ptmt.setString(3, dto.id);
 			ptmt.setString(4, dto.crn);
 			ptmt.setString(5, dto.air_name);
-			
+			ptmt.setString(6, dto.img);
 			ptmt.executeUpdate();
 			
 			 sql = "DELETE FROM air_temp WHERE id=?";
@@ -665,8 +665,8 @@ public void gradeMgUpup(SignUpDTO dto) {
 		
 		   try {
 		         sql = "insert into hot_com " 
-		               + " (id, crn, hname, hinfo, grade, country, city, hcode, addDetail) values "
-		               + " (?, ?, ?, ?, ? ,? ,?, ?, (select addDetail from member where id = ?))";
+		               + " (id, crn, hname, hinfo, grade, country, city, hcode, addDetail, himg) values "
+		               + " (?, ?, ?, ?, ? ,? ,?, ?, (select addDetail from member where id = ?), ?)";
 		         
 		         ptmt = con.prepareStatement(sql);
 		         ptmt.setString(1, dto.getId());
@@ -678,6 +678,7 @@ public void gradeMgUpup(SignUpDTO dto) {
 		         ptmt.setString(7, dto.getCity());
 		         ptmt.setString(8, dto.getHcode());
 		         ptmt.setString(9, dto.getId());
+		         ptmt.setString(10, dto.getHimg());
 		         ptmt.executeUpdate();
 		         
 		         
