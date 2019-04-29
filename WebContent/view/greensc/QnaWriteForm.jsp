@@ -14,7 +14,7 @@
 			<td colspan="2" align="right">
 				<input type="submit" value="작성" />
 				<input type="reset" value="초기화" />
-				<a href="QnaList">목록으로</a>
+				<a href="QnaList?center=in">목록으로</a>
 			</td>
 		</tr>
 	</table>

@@ -20,7 +20,7 @@
 		<td>내용</td><td>${dto.contentBr }</td>
 	</tr><tr>
 		<td colspan="2" align="right">
-			<a href="FnqList">목록으로</a>
+			<a href="../greensc/FnqList?center=in">목록으로</a>
 			
 		</td>
 	</tr>

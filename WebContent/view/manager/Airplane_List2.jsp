@@ -27,7 +27,7 @@
 	<tr >
 		<td colspan="2">회사명</td>
 		<td > 비행기 코드</td>
-	</tr>
+	</tr> 
 <c:forEach var="dto" items="${data }" varStatus="no" >
 	<tr>
 	<td>${dto.air_name }</td>

@@ -19,9 +19,23 @@ public class Find implements MvcAction {
 			SignUpDTO dto = new SignUpDTO();
 			dto.setId(request.getParameter("id"));
 			
+			HttpSession session = request.getSession();
+			
+			
+			if(new SignUpDAO().chkMem(dto) && !dto.getId().equals(((SignUpDTO) session.getAttribute("mem")).getId())) {
+				request.setAttribute("dto", new SignUpDAO().detailMem(dto));
+				
+				}else if(!new SignUpDAO().chkMem(dto)){
+					request.setAttribute("goUrl", "../greensc/MgPage?mgpage=in");
+					request.setAttribute("msg", "No1");
+					request.setAttribute("mainUrl", "greensc/alert.jsp");
+				}else if(dto.getId().equals(((SignUpDTO) session.getAttribute("mem")).getId())) {
+					request.setAttribute("goUrl", "../greensc/ModifyMem?mypage=in");
+					request.setAttribute("msg", "No2");
+					request.setAttribute("mainUrl", "greensc/alert.jsp");
+				}
 
-
-			request.setAttribute("dto", new SignUpDAO().detailMem(dto));
+			
 
 			//response.getWriter().append("Served at: ").append(""+new SignUpDAO().detailMem(dto));
 

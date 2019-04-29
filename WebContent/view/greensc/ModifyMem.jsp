@@ -48,7 +48,7 @@
     			<td colspan="2">
     			<input type="submit" value="수정하기"/>
     			<input type="reset" value="초기화"/>
-    			<a href="Home">홈으로</a>
+    			<a href="../greensc/Home">홈으로</a>
     			</td>
     		</tr>
     		

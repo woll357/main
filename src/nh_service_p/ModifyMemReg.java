@@ -37,8 +37,12 @@ public class ModifyMemReg implements MvcAction {
 		dto.setCity(request.getParameter("city"));
 		dto.setAddDetail(request.getParameter("addDetail"));
 		dto.setGrade(((SignUpDTO) session.getAttribute("mem")).getGrade());
+		
+		
 
 		if(!((SignUpDTO) session.getAttribute("mem")).getId().equals(request.getParameter("id"))) {
+			
+			
 			
 			dto.setBlack(request.getParameter("black"));
 			dto.setPreason(request.getParameter("preason"));
