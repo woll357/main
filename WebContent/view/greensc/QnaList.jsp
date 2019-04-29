@@ -14,7 +14,7 @@
 	<c:forEach var="dto" items="${data}" varStatus="no">
 				<tr>
 					<td>${dto.num+1 }</td>
-					<td><a href="QnaDetail?num=${dto.num }">${dto.title }</a></td>
+					<td><a href="QnaDetail?num=${dto.num }&center=in">${dto.title }</a></td>
 					<td>${dto.id }</td>
 					<td>${dto.time }</td>
 					<td>${dto.answer }</td>
@@ -24,7 +24,7 @@
 	</c:forEach>
 
 	<tr>
-		<td colspan="5"><a href="QnaWriteForm">글쓰기</a></td>
+		<td colspan="5"><a href="QnaWriteForm?center=in">글쓰기</a></td>
 	</tr>
 
 </table>

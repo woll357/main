@@ -24,11 +24,11 @@
 	</tr>
 	<tr>
 		<td colspan="2" align="right"><c:if test="${dto.answer=='대기' }">
-				<a href="QnaList">목록으로</a>
+				<a href="QnaList?center=in">목록으로</a>
 			</c:if> <c:if test="${mem.grade=='M' }">
 				<c:choose>
 					<c:when test="${dto.answer=='대기' }">
-						<a href="ReplyQna?num=${dto.num }">답변</a>
+						<a href="ReplyQna?num=${dto.num }&center=in">답변</a>
 					</c:when>
 
 					<c:otherwise>
@@ -71,7 +71,7 @@
 			<td>${dto2.contentBr }</td>
 		</tr>
 		<tr>
-			<td colspan="2" align="right"><a href="QnaList">목록으로</a></td>
+			<td colspan="2" align="right"><a href="QnaList?center=in">목록으로</a></td>
 		</tr>
 	</table>
 

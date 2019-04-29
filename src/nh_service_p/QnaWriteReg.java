@@ -39,7 +39,7 @@ public class QnaWriteReg implements MvcAction {
 	         int num = new CenterDAO().qnaWrite(dto);
 	         
 	        request.setAttribute("msg", "작성되었습니다.");
-	        request.setAttribute("goUrl", "QnaDetail?num="+num);
+	        request.setAttribute("goUrl", "QnaDetail?num="+num+"&center=in");
 	        request.setAttribute("mainUrl", "greensc/alert.jsp");
 	        
 	        

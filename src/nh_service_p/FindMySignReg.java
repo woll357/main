@@ -17,8 +17,6 @@ public class FindMySignReg implements MvcAction {
 		SignUpDTO dto = new SignUpDTO();
 		dto.setId(request.getParameter("id"));
 		dto.setPhone(request.getParameter("phone"));
-		System.out.println("id : "+request.getParameter("id"));
-		System.out.println("pw : "+request.getParameter("phone"));
 		String me = null;
 		if(request.getParameter("id")!=null) {
 			me="PW : "+(String)new SignUpDAO().findPw(dto)+" 입니다.";

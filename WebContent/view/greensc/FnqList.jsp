@@ -15,7 +15,7 @@
 	<c:if test="${dto.num>-1 }">
 	<tr>
 		<td>${no.index }</td>
-		<td><a href="FnqDetail?num=${dto.num }">${dto.title }</a></td>
+		<td><a href="../greensc/FnqDetail?num=${dto.num }&center=in">${dto.title }</a></td>
 		<c:choose>
 			<c:when test="${mem.grade=='M' }"><td>${dto.id }</td></c:when>
 			<c:otherwise><td>운영자</td></c:otherwise>
@@ -28,7 +28,7 @@
 <c:if test="${mem.grade=='M' }">
 
 <tr>
-<td colspan="5"><a href="FnqWrite">글쓰기</a></td>
+<td colspan="5"><a href="../greensc/FnqWrite?center=in">글쓰기</a></td>
 </tr>
 </c:if>
 

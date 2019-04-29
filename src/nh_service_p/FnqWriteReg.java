@@ -39,7 +39,7 @@ public class FnqWriteReg implements MvcAction {
 	         int num = new CenterDAO().fnqWrite(dto);
 	         
 	        request.setAttribute("msg", "작성되었습니다.");
-	        request.setAttribute("goUrl", "FnqDetail?num="+num);
+	        request.setAttribute("goUrl", "FnqDetail?num="+num+"&center=in");
 	        request.setAttribute("mainUrl", "greensc/alert.jsp");
 	        
 	        

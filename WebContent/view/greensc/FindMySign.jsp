@@ -5,8 +5,8 @@
 
 <table border="">
 	<tr>
-		<td>ID 찾기</td>
 		<td>PW 찾기</td>
+		<td>ID 찾기</td>		
 	</tr>
 	<tr>
 		<td>
@@ -22,7 +22,7 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-					<input type="submit" value="ID찾기"/>
+					<input type="submit" value="PW찾기"/>
 					</td>
 				</tr>
 			</table>
@@ -41,7 +41,7 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-					<input type="submit" value="PW찾기"/>
+					<input type="submit" value="ID찾기"/>
 					</td>
 				</tr>
 			</table>
