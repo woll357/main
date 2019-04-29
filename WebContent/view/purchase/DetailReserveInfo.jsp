@@ -22,7 +22,7 @@
 			<td>${adto.location1 }</td>
 			<td>${adto.location2 }</td>
 			<td>${adto.psn }</td>
-			<td><a href="RefundReg?basketID=${adto.basketID }" >환불</a></td>
+			<td><a href="RefundReg?basketID=${adto.basketID }&mypage=in" >환불</a></td>
 		</tr>
 		</c:forEach>
 	</table>
@@ -47,7 +47,7 @@
 			<td>${hdto.location1 }</td>
 			<td>${hdto.location2 }</td>
 			<td>${hdto.psn }</td>
-			<td><a href="RefundReg?basketID=${hdto.basketID }" >환불</a></td>
+			<td><a href="RefundReg?basketID=${hdto.basketID }&mypage=in" >환불</a></td>
 		</tr>
 		</c:forEach>
 	</table>
