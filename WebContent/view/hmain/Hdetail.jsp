@@ -18,16 +18,25 @@
 		<tr>
 		<td colspan="3">${dto.addDetail }</td>
 	</tr>
-
+	<tr>
+		<td>사업자등록번호</td>
+		<td colspan="2">${dto.crn }</td>
+	</tr>
 </table>
-협력방목록   S=> 스탠다르룸  D=>디럭스룸
+<br>
+협력방목록   
 <c:forEach var="data" items="${roomdata }" varStatus="no">
 <table border="">
 	<tr>
 		<tr>
 		<td rowspan="7"><img src="../img/${data.rimg }" alt="" /></td>
 		<td>방종류</td>
-		<td>${data.rkind }</td>
+		<c:if test="${data.rkind=='S' }">
+		<td>스탠다드</td>
+		</c:if>
+		<c:if test="${data.rkind=='D' }">
+		<td>디럭스룸</td>
+		</c:if>
 		<td><a href="HroommodiForm?rcode=${data.rcode }&partner=in">방수정</a></td>
 	</tr>
 	<tr>

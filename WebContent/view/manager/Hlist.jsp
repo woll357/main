@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <h2>관리자호텔리스트보기</h2>
 
-<form action="HlistSearch">
+<form action="HlistSearch?partner=in">
 	<table border="">
 		<tr>
 			<td>호텔코드로검색</td>
