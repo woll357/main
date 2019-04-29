@@ -39,7 +39,7 @@ public class BuyList implements MvcAction {
 
 		request.setAttribute("adtos",adtos);
 		request.setAttribute("hdtos",hdtos);
-		request.setAttribute("mainUrl", "purchase/DetailReserveInfo.jsp");
+		request.setAttribute("mainUrl", "purchase/BuyList.jsp");
 		
 		
 		return null;
