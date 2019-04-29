@@ -25,16 +25,17 @@
 	</tr>
 	
 	<tr >
-		<td colspan="2">회사명</td>
-		<td > 비행기 코드</td>
+		<td colspan="">회사명</td>
+		<td colspan="2"> 비행기 코드</td>
 	</tr>
 <c:forEach var="dto" items="${ddd }" varStatus="no" >
 	<tr>
-	<td>${dto.air_name }</td><td>${dto.ap_code }</td><td><a href="Airplane_Delete?ap_code=${dto.ap_code }"><input type="button" value="삭제"></a></td>
-	</tr>
-	</c:forEach>
+	<td>${dto.air_name }항공</td>
+	<td><a href="Airplaneitem_List?ap_code=${dto.ap_code }">${dto.ap_code }</a></td>
+	<td><a href="Airplane_Delete?ap_code=${dto.ap_code }"><input type="button" value="삭제"></a></td>
+</c:forEach>
 	<tr>
-	<td colspan="3" align="right" ><a href="Airplane_Insert"><input type="submit" value="등록"></a></td>
+	<td colspan="3" align="right" ><a href="Airplane_Insert"><input type="button" value="등록"></a></td>
 	</tr>
 </table>
 </form>

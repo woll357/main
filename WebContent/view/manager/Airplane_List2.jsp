@@ -30,11 +30,13 @@
 	</tr>
 <c:forEach var="dto" items="${data }" varStatus="no" >
 	<tr>
-	<td>${dto.air_name }</td><td>${dto.ap_code }</td><td><a href="Airplane_Delete?ap_code=${dto.ap_code }"><input type="button" value="삭제"></a></td>
+	<td>${dto.air_name }</td>
+	<td><a href="Airplaneitem_List?ap_code=${dto.ap_code }">${dto.ap_code }</a></td>
+	<td><a href="Airplane_Delete?ap_code=${dto.ap_code }"><input type="button" value="삭제"></a></td>
 	</tr>
 	</c:forEach>
 	<tr>
-	<td colspan="3" align="right" ><a href="Airplane_Insert"><input type="submit" value="등록"></a></td>
+	<td colspan="3" align="right" ><a href="Airplane_Insert"><input type="button" value="등록"></a></td>
 	</tr>
 </table>
 </form>

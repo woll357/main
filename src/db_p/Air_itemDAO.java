@@ -633,13 +633,67 @@ public Object air_pitemlist3(String air_p , String air_code) {
 			return res;
 		}
 
+//관리자 비행기 모든 상품 열람 select * from air_item where ap_code = 'a105';
+public Object mair_planeitemlist(String ap_code ) {
+	
+	ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
+
+	try {
+		
+		sql = " select * from air_item where ap_code = ? ";        
+		ptmt = con.prepareStatement(sql);
+		
+		ptmt.setString(1, ap_code);
+	
+		
+		rs = ptmt.executeQuery();
+		
+		while(rs.next()) {
+			
+			Air_itemDTO dto = new Air_itemDTO();
+						
+			
+			dto.setCcode(rs.getString("ccode"));
+			dto.setDdate(rs.getTimestamp("ddate"));
+			dto.setDarea(rs.getString("darea"));
+			dto.setCarea(rs.getString("carea"));
+			dto.setAp_code(rs.getString("ap_code"));
+			dto.setMoney(rs.getInt("money"));
+			dto.setA_time(rs.getTimestamp("a_time"));
+			dto.setSeatcnt(rs.getInt("seatcnt"));
+			dto.setFlightclass(rs.getString("flightclass"));	
+			dto.setTotseatcnt(rs.getInt("totseatcnt"));
+			
+						
+			res.add(dto);
+		}
+		
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally {
+		
+		close();
+	}
+	
+	
+	return res;
+}
+
+
+
+
+
+
+
 public Object mair_pitemlist(String air_p ) {
 	
 	ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 
 	try {
-		sql = "select * from air_item where air_p = ? ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
-
+		
+		sql = "select * from air_item where air_p = ? ";        
 		ptmt = con.prepareStatement(sql);
 		
 		ptmt.setString(1, air_p);
@@ -725,9 +779,9 @@ public Object mair_pitemlist(String air_p ) {
 	
 	
 	//관리자 비행기 리스트
-	public Air_itemDTO airplanlistm() {
+	public Object airplanlistm() {
 		
-		Air_itemDTO res = null;
+		ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 		
 		sql = "select air_name , ap_code  from air_com, air_item where air_com.air_code=air_item.air_code order by air_name ";
 		
@@ -736,10 +790,14 @@ public Object mair_pitemlist(String air_p ) {
 			
 			rs = ptmt.executeQuery();
 			
-			if(rs.next()) {
-				res = new Air_itemDTO();
-				res.setAir_name(rs.getString("air_name"));
-				res.setAp_code(rs.getString("ap_code"));
+			while(rs.next()) {
+				
+				Air_itemDTO dto = new Air_itemDTO();
+				
+				dto.setAir_name(rs.getString("air_name"));
+				dto.setAp_code(rs.getString("ap_code"));
+				
+				res.add(dto) ;
 				}
 					
 		} catch (SQLException e) {
@@ -752,12 +810,13 @@ public Object mair_pitemlist(String air_p ) {
 		       
 		return res;
 	}
+	
 	//관리자 비행기 찾기
-	public Air_itemDTO airplanedetailm(String air_name) {
+	public Object airplanedetailm(String air_name) {
 		
-		Air_itemDTO res = null;
+		ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 		
-		sql = "select air_name , ap_code  from air_com, air_item where air_com.air_code=air_item.air_code and air_name = ? order by air_name ";
+		sql = "select air_name , ap_code  from air_com, air_item where air_com.air_code=air_item.air_code and air_name = ? order by air_name; ";
 		
 		try {
 			ptmt = con.prepareStatement(sql);
@@ -765,10 +824,13 @@ public Object mair_pitemlist(String air_p ) {
 		
 			rs = ptmt.executeQuery();
 			
-			if(rs.next()) {
-				res = new Air_itemDTO();
-				res.setAir_name(rs.getString("air_name"));
-				res.setAp_code(rs.getString("ap_code"));
+			while(rs.next()) {
+				Air_itemDTO dto = new Air_itemDTO();
+			
+				dto.setAir_name(rs.getString("air_name"));
+				dto.setAp_code(rs.getString("ap_code"));
+				
+				res.add(dto);
 			}
 					
 		} catch (SQLException e) {
