@@ -7,6 +7,8 @@ import db_p.Air_dereDAO;
 import db_p.Air_dereDTO;
 import di.MvcAction;
 import di.MvcForward;
+import payment_p.ModifyBstatusByAir_code;
+import payment_p.ModifyBstatusByhcode;
 
 public class Air_DeleteRequestDelete implements MvcAction {
 
@@ -22,9 +24,18 @@ public class Air_DeleteRequestDelete implements MvcAction {
 		
 		Air_dereDAO dao = new Air_dereDAO();
 		
-		System.out.println(request.getParameter("code"));
-		dao.delete(request.getParameter("code"));
+		String code = request.getParameter("code");
 		
+		if(code.substring(0, 1).equals("H")) {
+			new ModifyBstatusByhcode(code);
+		}
+		else if(code.substring(0, 1).equals("A")) {
+			new ModifyBstatusByAir_code(code);
+		}
+		
+		
+		System.out.println(code);
+		dao.delete(code);
 		
 		request.setAttribute("msg", "삭제되었습니다.");
 		request.setAttribute("goUrl", "AirManagerHome");

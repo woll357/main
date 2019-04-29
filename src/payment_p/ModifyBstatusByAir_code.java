@@ -7,9 +7,9 @@ import db_p.Air_itemDTO;
 import db_p.BasketItemDAO;
 import db_p.BasketItemDTO;
 
-public class FindBasketIDByair_code {
+public class ModifyBstatusByAir_code {
 	
-	public FindBasketIDByair_code(String air_code) {
+	public ModifyBstatusByAir_code(String air_code) {
 		// TODO Auto-generated constructor stub
 		
 		Air_itemDTO aidto = new Air_itemDTO();

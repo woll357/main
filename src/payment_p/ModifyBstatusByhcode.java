@@ -7,9 +7,9 @@ import db_p.BasketItemDTO;
 import db_p.Hot_tempDAO;
 import db_p.Room_itemDTO;
 
-public class FindBasketIDByhcode {
+public class ModifyBstatusByhcode {
 
-	public FindBasketIDByhcode(String hcode) {
+	public ModifyBstatusByhcode(String hcode) {
 		// TODO Auto-generated constructor stub
 		
 		Room_itemDTO ridto = new Room_itemDTO();
