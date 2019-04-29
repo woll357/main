@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<style>
+#airImg{
+	width: 30px;
+	height: 30px;
+}
+</style>
 
  <script src="../js/jquery-3.3.1.min.js"></script>
 
@@ -25,15 +30,18 @@
 		<c:forEach var="dto" items="${dto1}" varStatus="no">
 		<tr>
 		
-		<td id="${no.index+1 }_arpNo">${no.index+1 }</td>
-		<td id="${no.index+1 }_arpName">${dto.air_name }</td>
-		<td id="${no.index+1 }_arpDdate">${dto.ddate }</td>
-		<td id="${no.index+1 }_arpCdate">${dto.a_time }</td>
-		<td id="${no.index+1 }_arpDarea">${dto.darea }</td>
-		<td id="${no.index+1 }_arpCarea">${dto.carea }</td>
-		<td id="${no.index+1 }_arpSeatcnt">${dto.seatcnt }</td>
-		<td id="${no.index+1 }_arpMoney">${dto.money }</td>
-		<td id="${no.index+1 }_arpBtn"><input type="button" value="${dto.cCode}"/></td>
+		<td id="${no.index+1 }_awpNo">${no.index+1 }</td>
+		<td id="${no.index+1 }_awpName">
+		<img id="airImg" alt="" src="../img/${dto.img }">
+		${dto.air_name }
+		</td>
+		<td id="${no.index+1 }_awpDdate">${dto.ddate }</td>
+		<td id="${no.index+1 }_awpCdate">${dto.a_time }</td>
+		<td id="${no.index+1 }_awpDarea">${dto.darea }</td>
+		<td id="${no.index+1 }_awpCarea">${dto.carea }</td>
+		<td id="${no.index+1 }_awpSeatcnt">${dto.seatcnt }</td>
+		<td id="${no.index+1 }_awpMoney">${dto.money }</td>
+		<td id="${no.index+1 }_awpBtn"><input type="button" value="${dto.cCode}"/></td>
 		</tr>
 		</c:forEach>
 		
@@ -59,7 +67,10 @@
 		<c:forEach var="dto" items="${dto2}" varStatus="no">
 		<tr>
 		<td id="${no.index+1 }_rtpNo">${no.index+1 }</td>
-		<td id="${no.index+1 }_rtpName">${dto.air_name }</td>
+		<td id="${no.index+1 }_rtpName">
+		<img id="airImg" alt="" src="../img/${dto.img }">
+		${dto.air_name }
+		</td>
 		<td id="${no.index+1 }_rtpDdate">${dto.ddate }</td>
 		<td id="${no.index+1 }_rtpCdate">${dto.a_time }</td>
 		<td id="${no.index+1 }_rtpDarea">${dto.darea }</td>
@@ -133,9 +144,33 @@
 		
 		상품코드<input name="ccode"><input name="ccode">
 		
+		<c:choose>
+		<c:when test="${mem.id!=null && mem.id!=''}">
 		<input type="submit" value="장바구니">
+		</c:when>
+		<c:otherwise>
+		<input type="button" value="장바구니" id="btn"/>
+		</c:otherwise>
+		</c:choose>
+		
+		
 		</form>
 		
 		
 		
 </table>
+
+<script>
+
+$(document).ready(function(){
+	
+	$('#btn').on({
+		'click':function(){
+			alert("로그인 하세요");
+		}
+		
+	})
+	
+})
+
+</script>
