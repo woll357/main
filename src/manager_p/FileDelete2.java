@@ -22,7 +22,8 @@ public class FileDelete2 implements MvcAction {
 		// TODO Auto-generated method stub
 		String path = request.getRealPath("/img");
 		//path = "C:\\d\\mainWork\\mainProj\\WebContent\\img";
-		path = "D:\\mainWork\\mainProj\\WebContent\\img";
+		//path = "D:\\mainWork\\mainProj\\WebContent\\img";
+		path = "C:\\apache-tomcat-8.5.38\\webapps\\mainProj\\img";
 		
 		try {
 			MultipartRequest mm = new MultipartRequest(
