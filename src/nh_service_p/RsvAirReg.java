@@ -6,9 +6,13 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import db_p.CenterDTO;
 import db_p.SearchDAO;
 import db_p.SearchDTO;
+import db_p.SignUpDAO;
+import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
@@ -17,7 +21,7 @@ public class RsvAirReg implements MvcAction {
 	@Override
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		System.out.println("항공예약 진입");
+
 		
 		try {
 			request.setCharacterEncoding("utf-8");
@@ -25,6 +29,18 @@ public class RsvAirReg implements MvcAction {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		HttpSession session = request.getSession();
+		
+		
+		SignUpDTO dto = new SignUpDTO();
+
+        dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
+
+		
+		System.out.println(new SignUpDAO().chkBlack(dto));
+		if(new SignUpDAO().chkBlack(dto)) {
+			
 		
 		
 		String ddate1 = request.getParameter("ddate1");
@@ -50,7 +66,13 @@ public class RsvAirReg implements MvcAction {
 		request.setAttribute("way", "rtp");
 		}
 		
-		
+		}else {
+			
+			request.setAttribute("msg", "개인 정보상의 문제로 조회가 불가능합니다..");
+	        request.setAttribute("goUrl", "../greensc/Home");
+	        request.setAttribute("mainUrl", "greensc/alert.jsp");
+			
+		}
 
 		
 		return null;

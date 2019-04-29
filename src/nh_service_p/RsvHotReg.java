@@ -7,10 +7,13 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import db_p.SearchDAO;
 import db_p.SearchDTO;
 import db_p.SearchDTO2;
+import db_p.SignUpDAO;
+import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
@@ -43,6 +46,18 @@ public class RsvHotReg implements MvcAction {
 	    }
 
 		
+	    HttpSession session = request.getSession();
+		
+		
+		SignUpDTO chk = new SignUpDTO();
+
+		chk.setId(((SignUpDTO) session.getAttribute("mem")).getId());
+
+		
+		
+		if(new SignUpDAO().chkBlack(chk)) {
+	    
+	    
 		SearchDTO2 dto = new SearchDTO2();
 		dto.setCity(request.getParameter("city"));
 		dto.setPcnt(Integer.parseInt(request.getParameter("pcnt")));
@@ -51,6 +66,13 @@ public class RsvHotReg implements MvcAction {
 		dto.setRkind(request.getParameter("rkind"));
 	
 		request.setAttribute("dto", new SearchDAO().searchHot(dto));
+		}else {
+			
+			request.setAttribute("msg", "개인 정보상의 문제로 조회가 불가능합니다..");
+	        request.setAttribute("goUrl", "../greensc/Home");
+	        request.setAttribute("mainUrl", "greensc/alert.jsp");
+			
+		}
 
 		return null;
 	}
