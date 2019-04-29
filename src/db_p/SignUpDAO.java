@@ -165,7 +165,7 @@ public class SignUpDAO {
 				ptmt.setString(3, dto.getAir_name());
 				ptmt.setString(4, dto.getGrade());
 				ptmt.setString(5, dto.getAir_codecom());
-				ptmt.setString(7, dto.getImg());
+				ptmt.setString(6, dto.getImg());
 				ptmt.executeUpdate();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
