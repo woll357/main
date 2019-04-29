@@ -14,15 +14,15 @@ public class ModifyBstatusByhcode {
 		System.out.println("실행되니?111111111111111111111111111111111111111111");
 		Room_itemDTO ridto = new Room_itemDTO();
 		ridto.setHcode(hcode);
+		
 		ArrayList<Room_itemDTO> ridtos = (ArrayList<Room_itemDTO>) new Hot_tempDAO().roomlist(ridto);
 		
 		System.out.println("Room_itemDTO size"+ridtos.size());
 		
-		String bstatus= "r";
+		
 		
 		for (Room_itemDTO rr : ridtos) {
-			
-			
+			String bstatus= "m";
 			BasketItemDTO bidto = new BasketItemDTO();
 			bidto.setRcode(rr.getRcode());
 			bidto.setBstatus(bstatus);
@@ -32,6 +32,7 @@ public class ModifyBstatusByhcode {
 			ArrayList<BasketItemDTO> bidtos = new BasketItemDAO().basketIDListByRcode(bidto);
 			
 			for (BasketItemDTO bb : bidtos) {
+				bstatus = "r";
 				System.out.println("bb.getBasketID:"+bb.getBasketID());
 				new ChangeBstatus(bb.getBasketID(), bstatus);
 			}

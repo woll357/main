@@ -33,7 +33,7 @@ public class Air_DeleteRequestDelete implements MvcAction {
 		String code = request.getParameter("code");
 		
 		if(code.substring(0, 1).equals("H")) {
-//			new ModifyBstatusByhcode(code);
+			new ModifyBstatusByhcode(code);
 
 			Hot_comDTO hdto = new Hot_comDTO();
 			hdto.setHcode(code);
@@ -45,7 +45,7 @@ public class Air_DeleteRequestDelete implements MvcAction {
 			
 		}
 		else if(code.substring(0, 1).equals("A")) {
-//			new ModifyBstatusByAir_code(code);
+			new ModifyBstatusByAir_code(code);
 			
 			Air_comDTO adto = new Air_comDTO();
 			adto.setAir_code(code);
