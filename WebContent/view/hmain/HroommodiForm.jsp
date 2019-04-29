@@ -2,6 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <h3>방수정</h3>
+    <script>    	
+    	function fileDelete() {
+    		roommod.action = "FileDelete2";
+    		roommod.submit();
+    	}
+    
+    </script>
+
  <form name = "roommod" action="HroommodiReg" method="post" enctype="multipart/form-data">
      <input type="hidden" name="rcode" value="${dto.rcode }" />
  	<table border="" width="100%">
@@ -37,7 +45,7 @@
 			<td>
 			<c:choose>
 				<c:when test="${dto.rimg!=null }">
-					${dto.rimg }<input type="button" value="파일삭제" onclick=""/>	
+					${dto.rimg }<input type="button" value="파일삭제" onclick="fileDelete()"/>	
 					<input type="hidden" name="rimg" value="${dto.rimg }"  />
 				</c:when>
 				<c:otherwise>

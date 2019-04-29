@@ -1,4 +1,4 @@
-package hmain_p;
+package manager_p;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,10 +11,11 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import db_p.Hot_comDTO;
 import db_p.Hot_tempDAO;
+import db_p.Room_itemDTO;
 import di.MvcAction;
 import di.MvcForward;
 
-public class FileDelete implements MvcAction {
+public class FileDelete2 implements MvcAction {
 
 	@Override
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
@@ -31,29 +32,33 @@ public class FileDelete implements MvcAction {
 					"utf-8",
 					new DefaultFileRenamePolicy()
 					);
-			Hot_comDTO dto = new Hot_comDTO();
+			Room_itemDTO dto = new Room_itemDTO();
 			
-			dto.setHname(mm.getParameter("hname"));
-			dto.setHinfo(mm.getParameter("hinfo"));
-
-			dto.setCountry(mm.getParameter("country"));
-			dto.setCity(mm.getParameter("city"));
-			dto.setId(mm.getParameter("id"));
+			dto.setRcode(mm.getParameter("rcode"));
+			dto.setHcode(mm.getParameter("hcode"));
+			dto.setRkind(mm.getParameter("rkind"));
+			dto.setRcnt(Integer.parseInt(mm.getParameter("rcnt")));
+			dto.setPcnt(Integer.parseInt(mm.getParameter("pcnt")));
+			dto.setWifi(mm.getParameter("wifi"));
+			dto.setMoney(Integer.parseInt(mm.getParameter("money")));
+			dto.setWmoney(Integer.parseInt(mm.getParameter("wmoney")));
+			dto.setMorning(mm.getParameter("morning"));
 			
-			Hot_comDTO dto2 = new Hot_tempDAO().fileDelete(dto);
+			
+			
+			Room_itemDTO dto2 = new Hot_tempDAO().filedelete2(dto);
 			
 			if(dto2!=null) {
-				File ff = new File(path+"\\"+dto2.getHimg());
+				File ff = new File(path+"\\"+dto2.getRimg());
 				ff.delete();
 			}
 			else {
-				dto.setHimg(mm.getParameter("himg"));
-			}
-				
+				dto.setRimg(mm.getParameter("rimg"));
+			}		
+			
 			request.setAttribute("dto", dto);
-					
-
-			request.setAttribute("mainUrl", "hmain/HmodiForm.jsp");
+				
+			request.setAttribute("mainUrl", "manager/HroomModiForm.jsp");
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

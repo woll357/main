@@ -20,26 +20,31 @@ public class HroommodiReg implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		String path = request.getRealPath("/img");
-		/* path = "C:\\d\\mainWork\\mainProj\\WebContent\\img"; */
-		path = "D:\\mainWork\\mainProj\\WebContent\\img";
 		
-		try {
-			MultipartRequest mm = new MultipartRequest(
-					request,
-					path,
-					10*1024*1024,
-					"utf-8",
-					new DefaultFileRenamePolicy()
-					);
+		 //path = "C:\\d\\mainWork\\mainProj\\WebContent\\img";
+
+		path = "D:\\mainWork\\mainProj\\WebContent\\img";
+		 
+		 
+		 
+		 try {
+				MultipartRequest mm = new MultipartRequest(
+						request,
+						path,
+						10*1024*1024,
+						"utf-8",
+						new DefaultFileRenamePolicy()
+						);
+		
 			Room_itemDTO dto = new Room_itemDTO();
 			dto.setRkind(mm.getParameter("rkind"));
 			dto.setRcnt(Integer.parseInt(mm.getParameter("rcnt")));
 			dto.setPcnt(Integer.parseInt(mm.getParameter("pcnt")));
 			dto.setRcode(mm.getParameter("rcode"));
 			
-			if(mm.getParameter("rimg")!= null)
+			if(mm.getParameter("rimg")!= null) {
 				dto.setRimg(mm.getParameter("rimg"));
-			else
+			}else
 				dto.setRimg(mm.getFilesystemName("rimg"));
 			
 			dto.setMoney(Integer.parseInt(mm.getParameter("money")));
@@ -54,10 +59,10 @@ public class HroommodiReg implements MvcAction {
 			new Hot_tempDAO().roommodify(dto);
 			goUrl = "Hdetail";
 			
-			if((mm.getParameter("rimg")==null)){
-				File ff = new File(path+"\\"+dto.getRimg());
-				ff.delete();
-			}
+			/*
+			 * if((mm.getParameter("rimg")==null)){ File ff = new
+			 * File(path+"\\"+dto.getRimg()); ff.delete(); }
+			 */
 			
 			request.setAttribute("goUrl", goUrl);
 			request.setAttribute("mainUrl", "hmain/alert.jsp");

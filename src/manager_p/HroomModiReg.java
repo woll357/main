@@ -20,7 +20,8 @@ public class HroomModiReg implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		String path = request.getRealPath("/img");
-		path = "C:\\d\\mainWork\\greenScProj2\\WebContent\\img";
+		//path = "C:\\d\\mainWork\\mainProj\\WebContent\\img";
+		path = "D:\\mainWork\\mainProj\\WebContent\\img";
 		
 		try {
 			MultipartRequest mm = new MultipartRequest(
@@ -54,10 +55,7 @@ public class HroomModiReg implements MvcAction {
 			new Hot_tempDAO().roommodify(dto);
 			goUrl = "Hdetail?hcode="+(mm.getParameter("hcode"));
 			
-			if((mm.getParameter("rimg")==null)){
-				File ff = new File(path+"\\"+dto.getRimg());
-				ff.delete();
-			}
+
 			
 			request.setAttribute("goUrl", goUrl);
 			request.setAttribute("mainUrl", "manager/alert.jsp");

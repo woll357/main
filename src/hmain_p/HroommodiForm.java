@@ -14,6 +14,8 @@ public class HroommodiForm implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
+		
+		
 		Room_itemDTO dto = new Room_itemDTO();
 		
 		dto.setRcode(request.getParameter("rcode"));

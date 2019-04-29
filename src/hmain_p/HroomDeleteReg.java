@@ -16,7 +16,8 @@ public class HroomDeleteReg implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		String path = request.getRealPath("/img");
-		path = "C:\\d\\mainWork\\greenScProj2\\WebContent\\img";
+		//path = "C:\\d\\mainWork\\greenScProj2\\WebContent\\img";
+		path = "D:\\mainWork\\mainProj\\WebContent\\img";
 		
 		Room_itemDTO dto = new Room_itemDTO();
 		

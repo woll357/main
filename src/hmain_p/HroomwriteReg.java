@@ -20,7 +20,8 @@ public class HroomwriteReg implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		String path = request.getRealPath("/img");
-		path = "C:\\d\\mainWork\\mainProj\\WebContent\\img";
+		//path = "C:\\d\\mainWork\\mainProj\\WebContent\\img";
+		path = "D:\\mainWork\\mainProj\\WebContent\\img";
 		
 		try {
 			MultipartRequest mm = new MultipartRequest(

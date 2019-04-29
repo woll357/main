@@ -497,6 +497,47 @@ public void holddelete(Room_itemDTO dto) {
 		return res;
 	}
 	
+	public Room_itemDTO filedelete2(Room_itemDTO dto) {
+		Room_itemDTO res = null;
+		
+		sql = "select * from Room_item where rcode = ?";
+		
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.rcode);	
+			rs=ptmt.executeQuery();
+			if(rs.next()) {
+				res = new Room_itemDTO();
+				res.setRkind(rs.getString("rkind"));
+				res.setRcnt(rs.getInt("rcnt"));
+				res.setPcnt(rs.getInt("pcnt"));
+				res.setRimg(rs.getString("rimg"));
+				res.setHcode(rs.getString("hcode"));
+				res.setMoney(rs.getInt("money"));
+				res.setWmoney(rs.getInt("wmoney"));
+				res.setWifi(rs.getString("wifi"));
+				res.setMorning(rs.getString("morning"));
+				
+				sql = "update room_item set rimg = null where rcode = ?";
+				
+				ptmt = con.prepareStatement(sql);
+				
+
+				ptmt.setString(1, dto.getRcode());
+				ptmt.executeUpdate();
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			close();
+		}
+		return res;
+	}
+	
+	
 	public Room_itemDTO roomdetail(Room_itemDTO dto) {
 		Room_itemDTO res = null;
 		

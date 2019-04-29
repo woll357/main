@@ -20,7 +20,7 @@ public class HmodiReg implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		String path = request.getRealPath("/img");
-		/* path = "C:\\d\\mainWork\\mainProj\\WebContent\\img"; */
+		 //path = "C:\\d\\mainWork\\mainProj\\WebContent\\img"; 
 		path = "D:\\mainWork\\mainProj\\WebContent\\img";
 		
 		try {
@@ -50,11 +50,6 @@ public class HmodiReg implements MvcAction {
 			new Hot_tempDAO().hotmodify(dto);
 			goUrl="Hmain";
 
-				
-			if((mm.getParameter("himg")==null)){
-				File ff = new File(path+"\\"+dto.getHimg());
-				ff.delete();
-			}
 					
 			request.setAttribute("goUrl", goUrl);
 			request.setAttribute("mainUrl", "hmain/alert.jsp");
