@@ -54,7 +54,7 @@ public class UpupReg implements MvcAction {
 		
 		if(mm.getParameter("grade").equals("M")) {
 			
-			dto.setBnum(Integer.parseInt(mm.getParameter("bnum")));
+			dto.setBnum(mm.getParameter("bnum"));
 			dto.setGrade(mm.getParameter("grade"));
 		}else if(mm.getParameter("grade").equals("A")) {
 			

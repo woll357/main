@@ -31,7 +31,7 @@ public class GradeDetailReg implements MvcAction {
 		if(rqGrade.equals("M")) {
 			
 			dto.setId(request.getParameter("id"));
-			dto.setBnum(Integer.parseInt(request.getParameter("bnum")));
+			dto.setBnum(request.getParameter("bnum"));
 			dto.setGrade(request.getParameter("grade"));
 			dao.gradeMgUpup(dto);
 			

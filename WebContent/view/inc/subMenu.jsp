@@ -6,10 +6,10 @@
 	<c:when test="${param.mypage=='in'}">
 		<table border="">
 			<tr>
-				<td><a href="ModifyMem?mypage=in">회원 정보 수정</a></td>
-				<td><a href="DeleteMySign?mypage=in">탈퇴 신청</a></td>
+				<td><a href="../greensc/ModifyMem?mypage=in">회원 정보 수정</a></td>
+				<td><a href="../greensc/DeleteMySign?mypage=in">탈퇴 신청</a></td>
 				<c:if test="${mem.grade=='C' }">
-					<td><a href="Appbss?mypage=in">등업 신청</a></td>
+					<td><a href="../greensc/Appbss?mypage=in">등업 신청</a></td>
 					<td><a href="../purchase/DetailReserveInfo?mypage=in">예약내역조회</a></td>
 					<td><a href="../purchase/BuyList?mypage=in">구매내역조회</a></td>
 					<td><a href="../purchase/RefundList?mypage=in">환불내역조회</a></td>
@@ -20,8 +20,8 @@
 	<c:when test="${param.mgpage=='in'}">
 		<table border="">
 			<tr>
-				<td><a href="MgPage?mgpage=in">회원 검색</a></td>
-				<td><a href="MgGradeUp?mgpage=in">등업 관리</a></td>
+				<td><a href="../greensc/MgPage?mgpage=in">회원 검색</a></td>
+				<td><a href="../greensc/MgGradeUp?mgpage=in">등업 관리</a></td>
 			</tr>
 		</table>
 	</c:when>
@@ -29,10 +29,10 @@
 	<c:when test="${param.center=='in'}">
 		<table border="">
 			<tr>
-				<td><a href="NoticeList?center=in">공지</a></td>
-				<td><a href="FnqList?center=in">자주묻는질문</a></td>
+				<td><a href="../greensc/NoticeList?center=in">공지</a></td>
+				<td><a href="../greensc/FnqList?center=in">자주묻는질문</a></td>
 				<c:if test="${mem.id!=null }">
-					<td><a href="QnaList?center=in">Q&A</a></td>
+					<td><a href="../greensc/QnaList?center=in">Q&A</a></td>
 				</c:if>
 			</tr>
 		</table>

@@ -7,8 +7,8 @@ import java.util.Date;
 public class SignUpDTO {
 	String grade, id, pw, pname, birth, gender, email, phone, black,
 			preason, emg, country, city, addDetail,  crn, img,
-			air_name, himg, hinfo, air_code, hcode, hname, air_codecom;
-	Integer no, num,bnum;
+			air_name, himg, hinfo, air_code, hcode, hname, air_codecom,bnum;
+	Integer no, num;
 	Date time;
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
@@ -64,11 +64,11 @@ public class SignUpDTO {
 
 	
 
-	public Integer getBnum() {
+	public String getBnum() {
 		return bnum;
 	}
 
-	public void setBnum(Integer bnum) {
+	public void setBnum(String bnum) {
 		this.bnum = bnum;
 	}
 

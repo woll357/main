@@ -143,7 +143,7 @@ public class SignUpDAO {
 			try {
 				ptmt = con.prepareStatement(sql);
 				ptmt.setString(1, dto.getId());
-				ptmt.setInt(2, dto.getBnum());
+				ptmt.setString(2, dto.getBnum());
 				ptmt.setString(3, dto.getGrade());
 				ptmt.executeUpdate();
 			} catch (SQLException e) {
@@ -404,7 +404,7 @@ public class SignUpDAO {
 			SignUpDTO dto = new SignUpDTO();
 			dto.setNum(rs.getInt("num"));
 			dto.setId(rs.getString("id"));
-			dto.setBnum(rs.getInt("bnum"));
+			dto.setBnum(rs.getString("bnum"));
 			dto.setGrade(rs.getString("grade"));
 			dto.setTime(rs.getDate("time"));
 			res.add(dto);
@@ -505,7 +505,7 @@ public class SignUpDAO {
 				res = new SignUpDTO();
 				res.setNum(rs.getInt("num"));
 				res.setId(rs.getString("id"));
-				res.setBnum(rs.getInt("bnum"));
+				res.setBnum(rs.getString("bnum"));
 				res.setGrade(rs.getString("grade"));
 				res.setTime(rs.getDate("time"));			
 			}
@@ -600,7 +600,7 @@ public void gradeMgUpup(SignUpDTO dto) {
 			
 			ptmt = con.prepareStatement(sql);
 			ptmt.setString(1, dto.id);
-			ptmt.setInt(2, dto.getBnum());
+			ptmt.setString(2, dto.getBnum());
 			ptmt.setString(3, dto.getGrade());
 			
 			ptmt.executeUpdate();
@@ -644,7 +644,7 @@ public void gradeMgUpup(SignUpDTO dto) {
 			ptmt.executeUpdate();
 			
 			 sql = "DELETE FROM air_temp WHERE id=?";
-	         ptmt = con.prepareStatement(sql);
+	         ptmt = con.prepareStatement(sql); 
 	         ptmt.setString(1, dto.getId());
 	         ptmt.executeUpdate();
 	         
