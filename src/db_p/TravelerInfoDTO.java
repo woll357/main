@@ -3,10 +3,8 @@ package db_p;
 public class TravelerInfoDTO {
 
 	String passport, id, mainEngLastName, mainEngFirstName, pname, birthDate,
-	cEngLastName, cEngFirstName, cKorName, cph, cemail, basketID;
-	
-	
-	
+	cEngLastName, cEngFirstName, cKorName, cph1, cph2, cph3, cemail1, cemail2, basketID;
+
 	public String getBasketID() {
 		return basketID;
 	}
@@ -87,22 +85,45 @@ public class TravelerInfoDTO {
 		this.cKorName = cKorName;
 	}
 
-	public String getCph() {
-		return cph;
+	public String getCph1() {
+		return cph1;
 	}
 
-	public void setCph(String cph) {
-		this.cph = cph;
+	public void setCph1(String cph1) {
+		this.cph1 = cph1;
 	}
 
-	public String getCemail() {
-		return cemail;
+	public String getCph2() {
+		return cph2;
 	}
 
-	public void setCemail(String cemail) {
-		this.cemail = cemail;
+	public void setCph2(String cph2) {
+		this.cph2 = cph2;
 	}
-	
-	
+
+	public String getCph3() {
+		return cph3;
+	}
+
+	public void setCph3(String cph3) {
+		this.cph3 = cph3;
+	}
+
+	public String getCemail1() {
+		return cemail1;
+	}
+
+	public void setCemail1(String cemail1) {
+		this.cemail1 = cemail1;
+	}
+
+	public String getCemail2() {
+		return cemail2;
+	}
+
+	public void setCemail2(String cemail2) {
+		this.cemail2 = cemail2;
+	}
+
 	
 }

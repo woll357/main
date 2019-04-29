@@ -32,6 +32,8 @@ public class TravelerInfoDetail implements MvcAction {
 		
 		tdtos = new TravelerInfoDAO().TravelerInfoListByBasketID(tdto);
 		
+		System.out.println(tdtos.size());
+		
 		request.setAttribute("tdtos",tdtos);
 		request.setAttribute("mainUrl", "purchase/TravelerInfoDetail.jsp");
 		

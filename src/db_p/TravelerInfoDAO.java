@@ -30,8 +30,8 @@ public class TravelerInfoDAO {
 	public void insert(TravelerInfoDTO dto) {
 		
 		sql = "insert into travelerInfo "
-			+ "(pname, passport, mainEngLastName, mainEngFirstName, cEngLastName, cEngFirstName, cKorName, birthDate, cph, cemail, id, basketID) "
-			+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			+ "(pname, passport, mainEngLastName, mainEngFirstName, cEngLastName, cEngFirstName, cKorName, birthDate, cph1, cph2, cph3, cemail1, cemail2, id, basketID) "
+			+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		System.out.println(sql);
 		try {
 			
@@ -46,10 +46,13 @@ public class TravelerInfoDAO {
 			ptmt.setString(6,dto.getcEngFirstName());
 			ptmt.setString(7,dto.getcKorName());
 			ptmt.setString(8,dto.getBirthDate());
-			ptmt.setString(9,dto.getCph());
-			ptmt.setString(10,dto.getCemail());
-			ptmt.setString(11,dto.getId());
-			ptmt.setString(12,dto.getBasketID());
+			ptmt.setString(9,dto.getCph1());
+			ptmt.setString(10,dto.getCph2());
+			ptmt.setString(11,dto.getCph3());
+			ptmt.setString(12,dto.getCemail1());
+			ptmt.setString(13,dto.getCemail2());
+			ptmt.setString(14,dto.getId());
+			ptmt.setString(15,dto.getBasketID());
 			
 			
 			ptmt.executeUpdate();
@@ -83,8 +86,11 @@ public class TravelerInfoDAO {
 				dto.setcEngLastName(rs.getString("cEngLastName"));
 				dto.setcEngFirstName(rs.getString("cEngFirstName"));
 				dto.setcKorName(rs.getString("cKorName"));
-				dto.setCph(rs.getString("cph"));
-				dto.setCemail(rs.getString("cemail"));
+				dto.setCph1(rs.getString("cph1"));
+				dto.setCph2(rs.getString("cph2"));
+				dto.setCph3(rs.getString("cph3"));
+				dto.setCemail1(rs.getString("cemail1"));
+				dto.setCemail1(rs.getString("cemail2"));
 				dto.setBasketID(rs.getString("basketID"));
 								
 				res.add(dto);
@@ -101,6 +107,25 @@ public class TravelerInfoDAO {
 		return res;
 		
 	}
+	
+	public void delete(TravelerInfoDTO dto) {
+		
+		sql = "delete from travelerInfo where basketID = ?";
+				System.out.println(sql);
+		try {
+			
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getBasketID());
+			ptmt.executeUpdate();//여기까지 실행
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+	}
+	
 	
 	public void close() {
 		if(rs!=null) try {rs.close();} catch (SQLException e) {	}

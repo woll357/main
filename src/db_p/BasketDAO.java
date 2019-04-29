@@ -246,27 +246,20 @@ public class BasketDAO {
 		try {
 
 			sql = "delete from basket where basketID = ? ";
-
-			System.out.println(sql);
 			
 			ptmt = con.prepareStatement(sql);
 			
-			System.out.println("내가 몇번인지 아니?"+dto.getBasketID());
 			ptmt.setString(1, dto.getBasketID());
 			
 			ptmt.executeUpdate();//여기까지 실행
 			
 			sql = "update basket set no = no-1 where id = ? and no > ? ";
 			
-			System.out.println(sql);
 			
 			ptmt = con.prepareStatement(sql);
 			
 			ptmt.setString(1, dto.getId());
 			ptmt.setInt(2, dto.getNo());
-			
-			System.out.println("현재아이디?"+dto.getId() );
-			System.out.println("현재몇번째수?"+dto.getNo());
 			
 			ptmt.executeUpdate();
 			

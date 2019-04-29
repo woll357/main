@@ -62,8 +62,6 @@ public class TravelerInfoReg implements MvcAction {
 		String id = ((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
 		String bid = request.getParameter("bid");
 		System.out.println(id);
-
-		
 		
 		for (int i = 0; i < airBaskets.length; i++) {
 			TravelerInfoDTO dto = new TravelerInfoDTO();
@@ -71,7 +69,10 @@ public class TravelerInfoReg implements MvcAction {
 			System.out.println("비행기 장바구니"+airBaskets[i]);
 			dto.setBasketID(airBaskets[i]);		
 			
-			for (int j = 0; j < request.getParameterValues("passport").length; j++) {	
+			
+			//다시해야한다
+			
+			for (int j = i*2; j < request.getParameterValues("passport").length; j++) {	
 				
 				dto.setMainEngLastName(mainEngLastName);
 				dto.setMainEngFirstName(mainEngFirstName);
@@ -82,9 +83,12 @@ public class TravelerInfoReg implements MvcAction {
 				dto.setcEngLastName(request.getParameterValues("cEngLastName")[j]);
 				dto.setcEngFirstName(request.getParameterValues("cEngFirstName")[j]);
 				dto.setBirthDate(request.getParameterValues("birthDate")[j]);
-				dto.setCph(request.getParameterValues("cph1")[j]+request.getParameterValues("cph2")[j]+request.getParameterValues("cph3")[j]);
-				dto.setCemail(request.getParameterValues("cemail1")[j]+"@"+request.getParameterValues("cemail2")[j]);
-			
+				dto.setCph1(request.getParameterValues("cph1")[j]);
+				dto.setCph2(request.getParameterValues("cph2")[j]);
+				dto.setCph3(request.getParameterValues("cph3")[j]);
+				dto.setCemail1(request.getParameterValues("cemail1")[j]);
+				dto.setCemail2(request.getParameterValues("cemail2")[j]);
+				
 				new TravelerInfoDAO().insert(dto);
 			};
 		};
