@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="../js/jquery-3.3.1.min.js"></script>
 
 <script>
@@ -25,7 +25,16 @@ $(document).ready(function(){
 
 </script>
 
+<c:choose>
+<c:when test="${msg=='No' }">
+<script>
+alert("아이디가 없습니다.");
+location.href="${goUrl}";
 
+</script>
+</c:when>
+<c:otherwise></c:otherwise>
+</c:choose>
 <form action="ModifyMemReg" method="post">
 	<input type="hidden" name="id" value="${param.id }" />
 	<table border="">

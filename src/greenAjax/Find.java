@@ -18,10 +18,17 @@ public class Find implements MvcAction {
 	
 			SignUpDTO dto = new SignUpDTO();
 			dto.setId(request.getParameter("id"));
+			System.out.println(new SignUpDAO().chkMem(dto));
+			if(new SignUpDAO().chkMem(dto)) {
+				request.setAttribute("dto", new SignUpDAO().detailMem(dto));
+				
+				}else {
+					request.setAttribute("goUrl", "../greensc/MgPage?mgpage=in");
+					request.setAttribute("msg", "No");
+					request.setAttribute("mainUrl", "greensc/alert.jsp");
+				}
+
 			
-
-
-			request.setAttribute("dto", new SignUpDAO().detailMem(dto));
 
 			//response.getWriter().append("Served at: ").append(""+new SignUpDAO().detailMem(dto));
 

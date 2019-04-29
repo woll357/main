@@ -388,7 +388,7 @@ public class SignUpDAO {
 	}
 
 	public SignUpDTO detailMem(SignUpDTO dto) {
-
+		
 		sql = "select * from member where id = ?";
 		SignUpDTO res = new SignUpDTO();
 		try {
@@ -407,6 +407,26 @@ public class SignUpDAO {
 			res.setAddDetail(rs.getString("addDetail"));
 			res.setBlack(rs.getString("black"));
 			res.setPreason(rs.getString("preason"));
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return res;
+	}
+
+	public boolean chkMem(SignUpDTO dto) {
+		
+		sql = "select * from member where id = ?";
+		boolean res = false;
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getId());
+			rs = ptmt.executeQuery();
+
+			res=rs.next();
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
