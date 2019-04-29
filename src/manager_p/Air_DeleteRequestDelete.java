@@ -32,8 +32,7 @@ public class Air_DeleteRequestDelete implements MvcAction {
 		else if(code.substring(0, 1).equals("A")) {
 			new ModifyBstatusByAir_code(code);
 		}
-		
-		
+
 		System.out.println(code);
 		dao.delete(code);
 		
