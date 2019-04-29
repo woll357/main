@@ -13,8 +13,9 @@
 	</table>
 
 </form>
-<c:forEach var="dto" items="${data }" varStatus="no">	
+
 <table border="">
+<c:forEach var="dto" items="${data }" varStatus="no">	
 	<tr>
 		<td>호텔코드</td>
 		<td colspan="2" width="200">${dto.hcode }</td>
@@ -36,7 +37,29 @@
 	<tr>
 	<td align="left" colspan="3"><a href="Hdetail?hcode=${dto.hcode }&partner=in">관리자상세조회</a></td>
 	</tr>
+</c:forEach>
+	<tr>
+		<td colspan="5" align="center">
+				<c:if test="${startPage>1 }">
+				<a href="?page=${startPage-1 }">[이전]</a>
+				</c:if>
+			<c:forEach begin="${startPage }" end="${endPage }" var="i">
+				<c:choose>
+					<c:when test="${i==nowPage }">
+						[${i }]
+					</c:when>
+					<c:otherwise>
+							<a href="?page=${i }">${i }</a>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+			<c:if test="${endPage<totalPage}">
+				<a href="?page=${endPage+1 }">[다음]</a>
+			</c:if>
+		</td>
+
+	</tr>
+
 
 
 </table>
-</c:forEach>

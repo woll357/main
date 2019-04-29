@@ -329,17 +329,20 @@ public void holddelete(Room_itemDTO dto) {
 		return res;
 	}
 	
-	public Object list() {
+	public Object list(int page, int limit) {
 		ArrayList<Hot_comDTO> res = new ArrayList<Hot_comDTO>();
 		
-		sql = "select * from hot_com";
+		sql = "select * from hot_com order by no limit ?, ?";
 		
 		try {
 			ptmt = con.prepareStatement(sql);
+			ptmt.setInt(1, page);
+			ptmt.setInt(2, limit);
 			rs = ptmt.executeQuery();
 			
 			while(rs.next()) {
 				Hot_comDTO dto = new Hot_comDTO();
+				dto.setNo(rs.getInt("no"));
 				dto.setId(rs.getString("id"));
 				dto.setHname(rs.getString("hname"));
 				dto.setCrn(rs.getString("crn"));
@@ -363,6 +366,26 @@ public void holddelete(Room_itemDTO dto) {
 		
 		return res;
 	}
+	
+	public int total() {  //전체 글수 가져오기
+		int res = 0;
+				
+		try {
+			sql = "select count(*) from hot_com";
+			
+			ptmt = con.prepareStatement(sql);
+
+			rs = ptmt.executeQuery();
+			rs.next();
+			res = rs.getInt(1);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		return res;
+	}
+	
 	
 	public Hot_comDTO detail(Hot_comDTO dto) {
 		Hot_comDTO res = null;

@@ -14,6 +14,9 @@
 	<tr>
 	<td colspan="2">${dto.hinfo }</td>
 	</tr>
+	<tr>
+		<td colspan="3">${dto.addDetail }</td>
+	</tr>
 </table>
 
 방목록
@@ -27,7 +30,12 @@
 		<tr>
 		<td rowspan="7"><img src="../img/${data.rimg }" alt="" /></td>
 		<td>방종류</td>
-		<td>${data.rkind }</td>
+		<c:if test="${data.rkind=='S' }">
+		<td>스탠다드</td>
+		</c:if>
+		<c:if test="${data.rkind=='D' }">
+		<td>디럭스룸</td>
+		</c:if>
 		<td><input type="submit" value="예약" /></td>
 		<%-- <td><a href="../Basket/BasketHotelReg?rcode=${data.rcode}&startDay=${param.startDay }&endDay=${param.endDay }">예약</a></td> --%>
 	</tr>

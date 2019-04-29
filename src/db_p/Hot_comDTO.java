@@ -5,6 +5,16 @@ package db_p;
 public class Hot_comDTO {
 	Integer no;
 	String id,crn,hname,hinfo,grade,himg,country,city,addDetail,hcode;
+	
+	
+	
+	public Integer getNo() {
+		return no;
+	}
+	public void setNo(Integer no) {
+		this.no = no;
+	}
+
 	public String getId() {
 		return id;
 	}

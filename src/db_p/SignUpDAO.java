@@ -447,8 +447,10 @@ public class SignUpDAO {
 			rs = ptmt.executeQuery();
 
 			rs.next();
-			
-			if(rs.getString("black").equals("블랙리스트")) {
+			System.out.println("블랙 먹음?"+rs.getString("black"));
+			if(rs.getString("black")==null) {
+				res = true;
+			}else if(rs.getString("black").equals("블랙리스트")) {
 				res=false;
 			}
 

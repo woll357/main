@@ -24,11 +24,14 @@
     			<td>연락처</td>
     			<td><input type="text" name="phone" value="${dto.phone }"/></td>
     		</tr>
-    		<c:if test="${mem.grade=='C' ||mem.grade=='M'}">
+    		
     		<tr>
     			<td colspan="2">주소</td>
     		</tr>
     		
+    		
+    		<c:choose>
+    		<c:when test="${mem.grade=='C'|| mem.grade=='M'}">
     		<tr>
     			<td>나라</td>
     			<td><input type="text" name="country" value="${dto.country}"/></td>
@@ -41,7 +44,27 @@
     			<td>상세주소</td>
     			<td><input type="text" name="addDetail" value="${dto.addDetail}"/></td>
     		</tr>
-    		</c:if>
+    		</c:when>
+    		
+    		
+    		<c:otherwise>
+    		<tr>
+    			<td>나라</td>
+    			<td><input type="text" readonly="readonly" name="country" value="${dto.country}"/></td>
+    		</tr>
+    		<tr>
+    			<td>도시</td>
+    			<td><input type="text" readonly="readonly" name="city" value="${dto.city}"/></td>
+    		</tr>
+    		<tr>
+    			<td>상세주소</td>
+    			<td><input type="text" readonly="readonly" name="addDetail" value="${dto.addDetail}"/></td>
+    		</tr>
+    		</c:otherwise>
+    		
+    		</c:choose>
+    		
+    		
     		
     		
     		<tr>

@@ -28,22 +28,22 @@
 		<td rowspan="7"><img src="../img/${data.rimg }" alt="" /></td>
 		<td>방종류</td>
 		<td>${data.rkind }</td>
-		<td><a href="HroommodiForm?rcode=${data.rcode }">방수정</a></td>
+		<td><a href="HroommodiForm?rcode=${data.rcode }&partner=in">방수정</a></td>
 	</tr>
 	<tr>
 		<td>방갯수</td>
 		<td>${data.rcnt }</td>
-		<td><a href="HnoresDatewriteForm?rcode=${data.rcode }">예약불가날짜선정</a></td>
+		<td><a href="HnoresDatewriteForm?rcode=${data.rcode }&partner=in">예약불가날짜선정</a></td>
 	</tr>
 	<tr>
 		<td>방인원</td>
 		<td>${data.pcnt }</td>
-		<td><a href="HnoresList?rcode=${data.rcode }">예약불가날짜목록</a></td>
+		<td><a href="HnoresList?rcode=${data.rcode }&partner=in">예약불가날짜목록</a></td>
 	</tr>
 	<tr>
 		<td>금액</td>
 		<td>${data.money }</td>
-		<td><a href="HroomDelete?rcode=${data.rcode }">방삭제</a></td>
+		<td><a href="HroomDelete?rcode=${data.rcode }&partner=in">방삭제</a></td>
 	</tr>
 	<tr>
 		<td>주말금액</td>
