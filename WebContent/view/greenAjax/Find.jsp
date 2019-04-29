@@ -26,9 +26,16 @@ $(document).ready(function(){
 </script>
 
 <c:choose>
-<c:when test="${msg=='No' }">
+<c:when test="${msg=='No1' }">
 <script>
 alert("아이디가 없습니다.");
+location.href="${goUrl}";
+
+</script>
+</c:when>
+<c:when test="${msg=='No2' }">
+<script>
+alert("본인 계정은 마이페이지를 이용해 주세요.");
 location.href="${goUrl}";
 
 </script>
