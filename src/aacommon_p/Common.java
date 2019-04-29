@@ -1,0 +1,11 @@
+package aacommon_p;
+
+public class Common {
+	
+	String 	path = "C:\\apache-tomcat-8.5.38\\webapps\\mainProj\\img";
+
+	public String getPath() {
+		return path;
+	}
+
+}

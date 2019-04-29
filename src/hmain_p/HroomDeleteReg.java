@@ -5,6 +5,7 @@ import java.io.File;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import aacommon_p.Common;
 import db_p.Hot_tempDAO;
 import db_p.Room_itemDTO;
 import di.MvcAction;
@@ -18,7 +19,7 @@ public class HroomDeleteReg implements MvcAction {
 		String path = request.getRealPath("/img");
 		//path = "C:\\d\\mainWork\\greenScProj2\\WebContent\\img";
 		//path = "D:\\mainWork\\mainProj\\WebContent\\img";
-		path = "C:\\apache-tomcat-8.5.38\\webapps\\mainProj\\img";
+		path = new Common().getPath();
 		
 		Room_itemDTO dto = new Room_itemDTO();
 		

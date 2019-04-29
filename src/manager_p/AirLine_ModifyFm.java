@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import aacommon_p.Common;
 import db_p.Air_comDAO;
 import db_p.Air_comDTO;
 import di.MvcAction;
@@ -20,11 +21,12 @@ public class AirLine_ModifyFm implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-System.out.println(" AirLine_ModifyFm 페이지 진입");
-System.out.println(" 항공사가 수정이 되는 페이지");
+		System.out.println(" AirLine_ModifyFm 페이지 진입");
+		System.out.println(" 항공사가 수정이 되는 페이지");
 		
 		String path = request.getRealPath("/img");
-		path = "C:\\apache-tomcat-8.5.38\\webapps\\mainProj\\img";
+		
+		path = new Common().getPath();
 		
 		
 		try {

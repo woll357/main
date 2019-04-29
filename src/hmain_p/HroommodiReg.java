@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import aacommon_p.Common;
 import db_p.Hot_tempDAO;
 import db_p.Room_itemDTO;
 import di.MvcAction;
@@ -24,7 +25,7 @@ public class HroommodiReg implements MvcAction {
 		 //path = "C:\\d\\mainWork\\mainProj\\WebContent\\img";
 
 		//path = "D:\\mainWork\\mainProj\\WebContent\\img";
-		path = "C:\\apache-tomcat-8.5.38\\webapps\\mainProj\\img";
+		path = new Common().getPath();
 		 
 		 
 		 

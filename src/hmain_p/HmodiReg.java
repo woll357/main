@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import aacommon_p.Common;
 import db_p.Hot_comDTO;
 import db_p.Hot_tempDAO;
 import di.MvcAction;
@@ -21,8 +22,7 @@ public class HmodiReg implements MvcAction {
 		// TODO Auto-generated method stub
 		String path = request.getRealPath("/img");
 		 //path = "C:\\d\\mainWork\\mainProj\\WebContent\\img"; 
-		path = "D:\\mainWork\\mainProj\\WebContent\\img";
-		
+		path = new Common().getPath();
 		try {
 			MultipartRequest mm = new MultipartRequest(
 					request,

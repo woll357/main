@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import aacommon_p.Common;
 import db_p.Air_comDAO;
 import db_p.Air_tempDAO;
 import db_p.Air_tempDTO;
@@ -26,8 +27,7 @@ public class airTempHomeReg implements MvcAction {
 		System.out.println("진입");
 		
 		String path = request.getRealPath("/img");
-		
-		path = "C:\\apache-tomcat-8.5.38\\webapps\\mainProj\\img";
+		path = new Common().getPath();
 		
 		try {
 			MultipartRequest mm = new MultipartRequest(

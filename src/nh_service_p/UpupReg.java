@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import aacommon_p.Common;
 import db_p.SignUpDAO;
 import db_p.SignUpDTO;
 import di.MvcAction;
@@ -29,7 +30,7 @@ public class UpupReg implements MvcAction {
 		}
 
 		String path = request.getRealPath("/img");
-		path = "C:\\apache-tomcat-8.5.38\\webapps\\mainProj\\img";
+		path = new Common().getPath();
 
 		try {
 			MultipartRequest mm = new MultipartRequest(request, path, 10 * 1024 * 1024, "utf-8",
