@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -26,7 +27,7 @@ public class TravelerInfoDAO {
 		}	
 	}
 	
-public void insert(TravelerInfoDTO dto) {
+	public void insert(TravelerInfoDTO dto) {
 		
 		sql = "insert into travelerInfo "
 			+ "(pname, passport, mainEngLastName, mainEngFirstName, cEngLastName, cEngFirstName, cKorName, birthDate, cph, cemail, id, basketID) "
@@ -59,6 +60,46 @@ public void insert(TravelerInfoDTO dto) {
 		}finally {
 			close();
 		}
+	}
+	
+	public ArrayList<TravelerInfoDTO> TravelerInfoListByBasketID(TravelerInfoDTO dt){ //예약내역 찾기
+		ArrayList<TravelerInfoDTO> res = new ArrayList<TravelerInfoDTO>();
+		try {
+			sql = "select * from travelerInfo where basketID = ? ";
+			ptmt = con.prepareStatement(sql);
+			
+			ptmt.setString(1, dt.getBasketID());
+	
+			rs = ptmt.executeQuery();
+			
+			while(rs.next()) {
+				TravelerInfoDTO dto = new TravelerInfoDTO();
+				dto.setPassport(rs.getString("passport"));
+				dto.setId(rs.getString("id"));
+				dto.setMainEngLastName(rs.getString("mainEngLastName"));
+				dto.setMainEngFirstName(rs.getString("mainEngFirstName"));
+				dto.setPname(rs.getString("pname"));
+				dto.setBirthDate(rs.getString("birthDate"));
+				dto.setcEngLastName(rs.getString("cEngLastName"));
+				dto.setcEngFirstName(rs.getString("cEngFirstName"));
+				dto.setcKorName(rs.getString("cKorName"));
+				dto.setCph(rs.getString("cph"));
+				dto.setCemail(rs.getString("cemail"));
+				dto.setBasketID(rs.getString("basketID"));
+								
+				res.add(dto);
+			}
+	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+			close();
+		}
+		
+		return res;
+		
 	}
 	
 	public void close() {

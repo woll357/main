@@ -11,6 +11,7 @@
 			<td>출발도시</td>
 			<td>도착도시</td>
 			<td>예약인원</td>
+			<td>여행객정보</td>
 			<td>환불</td>
 		</tr>
 		<c:forEach var="adto" items="${adtos }"   >
@@ -22,7 +23,18 @@
 			<td>${adto.location1 }</td>
 			<td>${adto.location2 }</td>
 			<td>${adto.psn }</td>
-			<td><a href="RefundReg?basketID=${adto.basketID }&mypage=in" >환불</a></td>
+			
+			<td>
+			<form action="TravelerInfoDetail">
+			<input type="submit" value="여행객 상세 정보" />
+			<input type="hidden" name="basketID" value="${adto.basketID }" /></form>
+			</td>
+			
+			<td>
+			<form action="RefundReg">
+			<input type="submit" value="환불" />
+			<input type="hidden" name="basketID" value="${adto.basketID }" /></form>
+			</td>
 		</tr>
 		</c:forEach>
 	</table>
@@ -47,7 +59,13 @@
 			<td>${hdto.location1 }</td>
 			<td>${hdto.location2 }</td>
 			<td>${hdto.psn }</td>
-			<td><a href="RefundReg?basketID=${hdto.basketID }&mypage=in" >환불</a></td>
+			
+			<td>
+			<form action="RefundReg">
+			<input type="submit" value="환불" />
+			<input type="hidden" name="basketID" value="${hdto.basketID }" /></form>
+			</td>
+
 		</tr>
 		</c:forEach>
 	</table>

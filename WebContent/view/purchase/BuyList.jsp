@@ -11,6 +11,7 @@
 			<td>출발도시</td>
 			<td>도착도시</td>
 			<td>예약인원</td>
+			<td>가격</td>
 		</tr>
 		<c:forEach var="adto" items="${adtos }"   >
 		<tr>
@@ -21,6 +22,7 @@
 			<td>${adto.location1 }</td>
 			<td>${adto.location2 }</td>
 			<td>${adto.psn }</td>
+			<td>${adto.totalPrice }</td>
 		</tr>
 		</c:forEach>
 	</table>
@@ -33,6 +35,7 @@
 			<td>국가명</td>
 			<td>도시명</td>
 			<td>방인원</td>
+			<td>가격</td>
 		</tr>
 		
 		<c:forEach var="hdto" items="${hdtos }" >
@@ -44,6 +47,7 @@
 			<td>${hdto.location1 }</td>
 			<td>${hdto.location2 }</td>
 			<td>${hdto.psn }</td>
+			<td>${hdto.totalPrice }</td>
 		</tr>
 		</c:forEach>
 	</table>

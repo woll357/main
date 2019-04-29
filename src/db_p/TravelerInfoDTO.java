@@ -4,7 +4,9 @@ public class TravelerInfoDTO {
 
 	String passport, id, mainEngLastName, mainEngFirstName, pname, birthDate,
 	cEngLastName, cEngFirstName, cKorName, cph, cemail, basketID;
-
+	
+	
+	
 	public String getBasketID() {
 		return basketID;
 	}
