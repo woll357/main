@@ -71,7 +71,7 @@
 			<tr>
 				<td><a href="../Manager/AirLine_List?partner=in">항공사 목록</a></td>
 				<td><a href="../Manager/AirItem_List?partner=in">항공권상품목록조회</a></td>
-						<td><a href="../Manager/Airplane_List?aotcont=in">비행기목록</a></td>
+						<td><a href="../Manager/Airplane_List?partner=in">비행기목록</a></td>
 				<td><a href="../Manager/Airp_List?partner=in">항공편목록</a></td>
 				<td><a href="../Manager/Air_DeleteRequestList?partner=in">삭제신청목록</a></td>
 				<td><a href="../Manager/Hlist?partner=in">호텔목록</a></td>

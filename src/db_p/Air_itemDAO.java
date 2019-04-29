@@ -103,6 +103,71 @@ public class Air_itemDAO {
 	
 		}
 	
+	//관리자 inert 필요없음
+//public void minsert(Air_itemDTO dto) {
+//			
+//			
+//		
+//		try {
+//			sql = "insert into air_item ( ap_code, ddate, darea, img , air_code , carea , money, totseatcnt, flightclass , air_p ,ccode ,a_time )" 
+//			+ " values (                   ?   ,    ?  ,     ? ,  ? ,       ?,         ? ,    ? ,       ? ,       ? ,      'jd100' , '..' ,? )";
+//				//                        비행기코드
+//				
+//				
+//				ptmt = con.prepareStatement(sql);
+//				ptmt.setString(1, dto.getAp_code());
+//				ptmt.setString(2, dto.getDdateStr());
+//				ptmt.setString(3, dto.getDarea());
+//				ptmt.setString(4, dto.getImg());
+//				ptmt.setString(5, dto.getAir_code());
+//				ptmt.setString(6, dto.getCarea());
+//				ptmt.setInt(7, dto.getMoney());
+//				ptmt.setInt(8, dto.getTotseatcnt());
+//				ptmt.setString(9, dto.getFlightclass());
+//				ptmt.setString(10, dto.getA_timeStr());
+//			//	ptmt.setString(8, dto.getAir_p());
+////				ptmt.setString(9, dto.getCcode());
+//				
+//				ptmt.executeUpdate();
+//				
+//				
+//				
+//				
+//				sql = "update air_item set ccode =  concat( ?  , '-' , ? ,'-' , no )  where no = " + 
+//						"(select asd from ( select Max(no) as asd from air_item ) tt);";
+//				
+//				ptmt = con.prepareStatement(sql);
+//				
+//				
+//				ptmt.setString(1, dto.getAir_code());
+//				ptmt.setString(2, dto.getAp_code());
+//				
+//				ptmt.executeUpdate();
+//			
+//				System.out.println("마지막ㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱ");
+//				
+//				
+//			/*
+//			 * ptmt = con.prepareStatement(sql); sql =
+//			 * "select leadtime from locationinfo where darea = ? and carea = ? " ;
+//			 * 
+//			 * ptmt.setString(1, dto.getDarea()); ptmt.setString(2, dto.getCarea());
+//			 * 
+//			 * ptmt.executeUpdate();
+//			 */
+//				
+//				
+//				
+//			} catch (SQLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}finally {
+//				
+//				close();
+//			}
+//	
+//		}
+	
 	
 	
 
@@ -947,6 +1012,7 @@ public Object mair_planeitemlist(String ap_code ) {
 		       
 		return res;
 	}
+	
 	//협력업체 비행기 상품 찾기
 	
 	public ArrayList itemlistByAir_Code(Air_itemDTO dt) {
