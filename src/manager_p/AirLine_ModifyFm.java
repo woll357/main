@@ -24,7 +24,7 @@ System.out.println(" AirLine_ModifyFm 페이지 진입");
 System.out.println(" 항공사가 수정이 되는 페이지");
 		
 		String path = request.getRealPath("/img");
-		path = "D:\\mainWork\\testProj\\WebContent\\img";
+		path = "C:\\apache-tomcat-8.5.38\\webapps\\mainProj\\img";
 		
 		
 		try {

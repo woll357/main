@@ -27,7 +27,7 @@ public class airTempHomeReg implements MvcAction {
 		
 		String path = request.getRealPath("/img");
 		
-		path = "D:\\mainWork\\testProj\\WebContent\\img";
+		path = "C:\\apache-tomcat-8.5.38\\webapps\\mainProj\\img";
 		
 		try {
 			MultipartRequest mm = new MultipartRequest(
