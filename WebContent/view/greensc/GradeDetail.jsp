@@ -44,8 +44,12 @@
     <input type="hidden" name="air_name" value="${dto.air_name }"/>
     <input type="hidden" name="grade" value="${dto.grade }"/>
     <input type="hidden" name="air_codecom" value="${dto.air_codecom }"/>
+    <input type="hidden" name="img" value="${dto.img }"/>
     	<table border="">
-    	
+    		<tr>
+    			<td>요청 등급</td>
+    			<td>${dto.grade }</td>
+    		</tr>
     		<tr>
     			<td>ID</td>
     			<td>${dto.id }</td>
@@ -59,8 +63,8 @@
     			<td>${dto.air_name }</td>
     		</tr>
     		<tr>
-    			<td>요청 등급</td>
-    			<td>${dto.grade }</td>
+    			<td>항공사 사진</td>
+    			<td><img alt="" src="../img/${dto.img }"> </td>
     		</tr>
     		<tr>
     			<td>요청 시간</td>
@@ -87,7 +91,12 @@
     <input type="hidden" name="city" value="${dto.city }"/>
     <input type="hidden" name="hinfo" value="${dto.hinfo }"/>
     <input type="hidden" name="grade" value="${dto.grade }"/>
+    <input type="hidden" name="himg" value="${dto.himg }"/>
     	<table border="">
+    	<tr>
+    			<td>요청 등급</td>
+    			<td>${dto.grade }</td>
+    		</tr>
     		<tr>
     			<td>ID</td>
     			<td>${dto.id }</td>
@@ -101,9 +110,10 @@
     			<td>${dto.hname }</td>
     		</tr>
     		<tr>
-    			<td>요청 등급</td>
-    			<td>${dto.grade }</td>
+    			<td>호텔 사진</td>
+    			<td><img alt="" src="../img/${dto.himg }"></td>
     		</tr>
+    		
     		<tr>
     			<td>요청 시간</td>
     			<td>${dto.time }</td>

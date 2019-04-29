@@ -1,10 +1,14 @@
 package nh_service_p;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import db_p.SignUpDAO;
 import db_p.SignUpDTO;
@@ -25,9 +29,22 @@ public class UpupReg implements MvcAction {
 			e.printStackTrace();
 		}
 		
+		String path = request.getRealPath("/img");
+	      path = "D:\\mainWork\\mainProj\\WebContent\\img";
+	      
+	      try {
+	         MultipartRequest mm = new MultipartRequest(
+	               request,
+	               path,
+	               10*1024*1024,
+	               "utf-8",
+	               new DefaultFileRenamePolicy()
+	               );
+		
 		HttpSession session = request.getSession();		
 		SignUpDTO dto = new SignUpDTO();
 		dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
+		dto.setGrade(mm.getParameter("grade"));
 		
 		if(new SignUpDAO().chkempty(dto)) {
 			request.setAttribute("msg", "관계자는 예약하실 수 없습니다. 예약내역을 환불하여 주세요.");
@@ -35,22 +52,24 @@ public class UpupReg implements MvcAction {
 			request.setAttribute("goUrl", "Appbss");
 		}else {
 		
-		if(request.getParameter("grade").equals("M")) {
+		if(mm.getParameter("grade").equals("M")) {
 			
-			dto.setBnum(Integer.parseInt(request.getParameter("bnum")));
-			dto.setGrade(request.getParameter("grade"));
-		}else if(request.getParameter("grade").equals("A")) {
+			dto.setBnum(Integer.parseInt(mm.getParameter("bnum")));
+			dto.setGrade(mm.getParameter("grade"));
+		}else if(mm.getParameter("grade").equals("A")) {
 			
-			dto.setCrn(request.getParameter("crn"));
-			dto.setGrade(request.getParameter("grade"));
-			dto.setAir_name(request.getParameter("air_name"));
-			dto.setAir_codecom(request.getParameter("air_codecom"));
+			dto.setCrn(mm.getParameter("crn"));
+			dto.setGrade(mm.getParameter("grade"));
+			dto.setAir_name(mm.getParameter("air_name"));
+			dto.setAir_codecom(mm.getParameter("air_codecom"));
+			dto.setImg(mm.getFilesystemName("img"));
 		}else{
 			
-			dto.setCrn(request.getParameter("crn"));
-			dto.setGrade(request.getParameter("grade"));
-			dto.setHname(request.getParameter("hname"));
-			dto.setHinfo(request.getParameter("hinfo"));
+			dto.setCrn(mm.getParameter("crn"));
+			dto.setGrade(mm.getParameter("grade"));
+			dto.setHname(mm.getParameter("hname"));
+			dto.setHinfo(mm.getParameter("hinfo"));
+			dto.setHimg(mm.getFilesystemName("himg"));
 		}
 		
 		new SignUpDAO().upupGrade(dto);
@@ -58,6 +77,10 @@ public class UpupReg implements MvcAction {
 		request.setAttribute("mainUrl", "greensc/alert.jsp");
 		request.setAttribute("goUrl", "Appbss");
 		}
+	      } catch (IOException e) {
+	          // TODO Auto-generated catch block
+	          e.printStackTrace();
+	       }
 		return null;
 	}
 

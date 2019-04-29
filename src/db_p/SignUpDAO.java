@@ -155,8 +155,8 @@ public class SignUpDAO {
 		}else if(dto.getGrade().equals("A")) {
 			
 			sql = "insert into air_temp "
-					+ "(id, crn, air_name, grade, time, air_codecom) values "
-					+ "(?,?,?,?,sysdate(),?)";
+					+ "(id, crn, air_name, grade, time, air_codecom, img) values "
+					+ "(?,?,?,?,sysdate(),?,?)";
 			
 			try {
 				ptmt = con.prepareStatement(sql);
@@ -165,6 +165,7 @@ public class SignUpDAO {
 				ptmt.setString(3, dto.getAir_name());
 				ptmt.setString(4, dto.getGrade());
 				ptmt.setString(5, dto.getAir_codecom());
+				ptmt.setString(7, dto.getImg());
 				ptmt.executeUpdate();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -173,9 +174,9 @@ public class SignUpDAO {
 			
 		}else {
 			
-			sql = "insert into hot_temp(id, crn, country, city, hname, hinfo, grade, time) values " + 
+			sql = "insert into hot_temp(id, crn, country, city, hname, hinfo, grade, time, himg) values " + 
 					"(?, ?, (select country from member where id = ?), "
-					+ "(select city from member where id = ?), ?, ?, ?, sysdate())";
+					+ "(select city from member where id = ?), ?, ?, ?, sysdate(),?)";
 			
 			try {
 				ptmt = con.prepareStatement(sql);
@@ -186,6 +187,7 @@ public class SignUpDAO {
 				ptmt.setString(5, dto.getHname());
 				ptmt.setString(6, dto.getHinfo());
 				ptmt.setString(7, dto.getGrade());
+				ptmt.setString(8, dto.getHimg());
 				ptmt.executeUpdate();
 
 			} catch (SQLException e) {

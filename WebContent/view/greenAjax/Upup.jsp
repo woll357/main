@@ -7,7 +7,7 @@
 
 	<c:when test="${param.grade=='M' }">
 
-		<form action="UpupReg" method="post">
+		<form action="UpupReg" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="grade" value="M" />
 			<table>
 				<tr>
@@ -30,7 +30,7 @@
 	<c:when test="${param.grade=='A' }">
 
 
-		<form action="UpupReg" method="post">
+		<form action="UpupReg" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="grade" value="A" />
 			<table>
 				<tr>
@@ -63,7 +63,7 @@
 	</c:when>
 	<c:otherwise>
 
-		<form action="UpupReg" method="post">
+		<form action="UpupReg" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="grade" value="H" />
 
 			<table border="">
