@@ -18,9 +18,7 @@ public class ModifyBstatusByhcode {
 		ArrayList<Room_itemDTO> ridtos = (ArrayList<Room_itemDTO>) new Hot_tempDAO().roomlist(ridto);
 		
 		System.out.println("Room_itemDTO size"+ridtos.size());
-		
-		
-		
+
 		for (Room_itemDTO rr : ridtos) {
 			String bstatus= "m";
 			BasketItemDTO bidto = new BasketItemDTO();
