@@ -20,6 +20,8 @@ public class ModifyBstatusByAir_code {
 		for (Air_itemDTO aa : aidtos) {
 			BasketItemDTO bidto = new BasketItemDTO();
 			bidto.setRcode(aa.getCcode());
+			bidto.setBstatus(bstatus);
+			
 			ArrayList<BasketItemDTO> bidtos = new BasketItemDAO().basketIDListByRcode(bidto);
 			
 			for (BasketItemDTO bb : bidtos) {
