@@ -436,6 +436,30 @@ public class SignUpDAO {
 		}
 		return res;
 	}
+	
+	public boolean chkBlack(SignUpDTO dto) {
+		
+		sql = "select * from member where id = ?";
+		boolean res = true;
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getId());
+			rs = ptmt.executeQuery();
+
+			rs.next();
+			
+			if(rs.getString("black").equals("블랙리스트")) {
+				res=false;
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return res;
+	}
 
 	public Object gradeUpMgList() {
 

@@ -25,6 +25,11 @@
     </tr>
     
     <c:forEach var="dto" items="${dto}" varStatus="no">
+    	<form action="Hdetail" method="post">
+    	<input type="hidden" name="hcode" value="${dto.hcode }"/>
+    	<input type="hidden" name="startDay" value="${param.startDay }"/>
+    	<input type="hidden" name="endDay" value="${param.endDay }"/>
+    		<table border="">
 		<tr>
 		
 		<td>${no.index+1 }</td>
@@ -38,7 +43,7 @@
 
 		<c:choose>
 		<c:when test="${mem.id!=null && mem.id!=''}">
-		<td><a href="Hdetail?hcode=${dto.hcode }&startDay=${param.startDay }&endDay=${param.endDay }">상세조회</a></td>
+		<td><input type="submit" value="상세조회"/></td>
 		</c:when>
 		<c:otherwise>
 		<td><input type="button" value="상세조회" class="btn"/></td>
@@ -47,6 +52,10 @@
 		
 		
 		</tr>
+		
+		</table>
+    	</form>
+		
 		
 		</c:forEach>
     
