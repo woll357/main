@@ -34,7 +34,7 @@
 		<td colspan="3">${dto.addDetail }</td>
 	</tr>
 	<tr>
-	<td align="left" colspan="3"><a href="Hdetail?hcode=${dto.hcode }">관리자상세조회</a></td>
+	<td align="left" colspan="3"><a href="Hdetail?hcode=${dto.hcode }&partner=in">관리자상세조회</a></td>
 	</tr>
 
 
