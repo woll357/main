@@ -66,13 +66,16 @@ public class Air_itemDAO {
 				ptmt.executeUpdate();
 				
 				
-				System.out.println("daklsdjlasjldjk");
+				
+				
+				sql = "update air_item set ccode =  concat( ?  , '-' , ? ,'-' , no )  where no = " + 
+						"(select asd from ( select Max(no) as asd from air_item ) tt);";
+				
 				ptmt = con.prepareStatement(sql);
 				
-				sql = "update air_item set ccode = concat( air_code , '-' , ap_code,'-' , no ) where no =  LAST_INSERT_ID() ";
 				
-				
-				System.out.println(sql);
+				ptmt.setString(1, dto.getAir_code());
+				ptmt.setString(2, dto.getAp_code());
 				
 				ptmt.executeUpdate();
 			

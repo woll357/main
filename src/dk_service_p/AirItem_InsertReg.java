@@ -32,10 +32,11 @@ public class AirItem_InsertReg implements MvcAction {
 		String ddate = request.getParameter("ddate");
 		String carea = request.getParameter("carea");
 		
-		System.out.println("askdjklajsdjasdkljalskdjklasjdklajsdljaskldklasjdklajsdlk"+((SignUpDTO) session.getAttribute("mem")).getAir_code());
-		System.out.println("askdjklajsdjasdkljalskdjklasjdklajsdljaskldklasjdklajsdlk"+((SignUpDTO) session.getAttribute("mem")).getAir_code());
-		System.out.println("askdjklajsdjasdkljalskdjklasjdklajsdljaskldklasjdklajsdlk"+((SignUpDTO) session.getAttribute("mem")).getAir_code());
-		System.out.println("askdjklajsdjasdkljalskdjklasjdklajsdljaskldklasjdklajsdlk"+((SignUpDTO) session.getAttribute("mem")).getAir_code());
+	
+		
+		System.out.println("equest.getParameter(\"ddate\")equest.getParameter(\"ddate\")equest.getParameter(\"ddate\")equest.getParameter(\"ddate\")"+request.getParameter("ddate"));
+		
+		
 		
 		dto.setAp_code(request.getParameter("ap_code"));
 		dto.setDdateStr(ddate);

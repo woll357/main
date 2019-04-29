@@ -12,7 +12,7 @@ public class Air_itemDTO {
 	int money ,seatcnt , totseatcnt;
 	
 	
-	
+	SimpleDateFormat asd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
 	public String getAir_name() {
 		return air_name;
@@ -156,6 +156,6 @@ public class Air_itemDTO {
 		this.seatcnt = seatcnt;
 	}
 	
-	SimpleDateFormat asd = new SimpleDateFormat("yyyy-MM-dd");
+
 	
 }
