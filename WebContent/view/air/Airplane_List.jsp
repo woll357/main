@@ -18,7 +18,8 @@
 	</tr>
 <c:forEach var="dto" items="${data }" varStatus="no" >
 	<tr>
-	<td>${dto.ap_code }</td><td><a href="Airplane_Delete?ap_code=${dto.ap_code }"><input type="button" value="삭제"></a></td>
+	<td><a href="Airplaneitem_List?ap_code=${dto.ap_code }">${dto.ap_code }</a>
+	<td><a href="Airplane_Delete?ap_code=${dto.ap_code }"><input type="button" value="삭제"></a></td>
 	</tr>
 	</c:forEach>
 	<tr>

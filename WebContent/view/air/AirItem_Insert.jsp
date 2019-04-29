@@ -21,7 +21,7 @@
 				<td>출발지</td>
 				<td>
 				<select name="darea">                                 
-				<option value="일반">인천</option>
+				<option value="인천">인천</option>
 				<option value="도쿄">도쿄</option>
 				<option value="오사카">오사카</option>
 				<option value="상해">상해</option>
@@ -39,7 +39,7 @@
 			<td>도착지</td>
 				<td>
 				<select name="carea">                               
-				<option value="일반">인천</option>
+				<option value="인천">인천</option>
 				<option value="도쿄">도쿄</option>
 				<option value="오사카">오사카</option>
 				<option value="상해">상해</option>

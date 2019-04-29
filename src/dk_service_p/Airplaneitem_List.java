@@ -1,4 +1,4 @@
-package manager_p;
+package dk_service_p;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

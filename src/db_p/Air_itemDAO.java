@@ -42,9 +42,10 @@ public class Air_itemDAO {
 	public void insert(Air_itemDTO dto) {
 			
 			
+		
 		try {
-			sql = "insert into air_item (ap_code, ddate, darea, img , air_code , carea , money, totseatcnt, flightclass , air_p ,ccode )" 
-			+ " values (                   ?   ,    ?  ,   ? ,   ? , ?, ? ,    ? ,       ? ,       ? ,      'jd100' ,'상품코드' )";
+			sql = "insert into air_item (ap_code, ddate, darea, img , air_code , carea , money, totseatcnt, flightclass , air_p ,ccode ,a_time )" 
+			+ " values (                   ?   ,    ?  ,   ? ,   ? , ?, ? ,    ? ,       ? ,       ? ,      'jd100' , '..' ,? )";
 				//                        비행기코드
 				
 				
@@ -58,18 +59,35 @@ public class Air_itemDAO {
 				ptmt.setInt(7, dto.getMoney());
 				ptmt.setInt(8, dto.getTotseatcnt());
 				ptmt.setString(9, dto.getFlightclass());
+				ptmt.setString(10, dto.getA_timeStr());
 			//	ptmt.setString(8, dto.getAir_p());
 //				ptmt.setString(9, dto.getCcode());
 				
 				ptmt.executeUpdate();
 				
 				
-				sql = "update air_item set ccode = concat( air_code , '-' , ap_code,'-' , no ) where no =  LAST_INSERT_ID() ";
-			
-						
+				System.out.println("daklsdjlasjldjk");
 				ptmt = con.prepareStatement(sql);
 				
-		
+				sql = "update air_item set ccode = concat( air_code , '-' , ap_code,'-' , no ) where no =  LAST_INSERT_ID() ";
+				
+				
+				System.out.println(sql);
+				
+				ptmt.executeUpdate();
+			
+				System.out.println("마지막ㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱ");
+				
+				
+			/*
+			 * ptmt = con.prepareStatement(sql); sql =
+			 * "select leadtime from locationinfo where darea = ? and carea = ? " ;
+			 * 
+			 * ptmt.setString(1, dto.getDarea()); ptmt.setString(2, dto.getCarea());
+			 * 
+			 * ptmt.executeUpdate();
+			 */
+				
 				
 				
 			} catch (SQLException e) {
@@ -84,6 +102,89 @@ public class Air_itemDAO {
 	
 	
 	
+
+	
+	//도착시간 DAO
+	
+	public LocationinfoDTO makea_time(LocationinfoDTO dto) {
+		
+		LocationinfoDTO res = null;
+		
+		System.out.println("등어왘ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ");
+	
+		try {
+			sql = "select leadtime from locationinfo where darea = ? and carea = ? " ;	
+			
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getDarea());
+			ptmt.setString(2, dto.getCarea());
+			
+			rs = ptmt.executeQuery();
+			
+			if(rs.next()) {
+				res = new LocationinfoDTO();
+				res.setLeadtime(rs.getInt("leadtime"));
+				System.out.println("rs.getInt(\"leadtime\")rs.getInt(\"leadtime\")rs.getInt(\"leadtime\"):"+rs.getInt("leadtime"));
+				
+			}
+			
+			
+			
+					
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		
+		}finally {
+		   close();
+	  }
+		       
+		return res;
+	}
+
+	//도착시간 UPDATE
+	public void update_Atime(Air_itemDTO dto) {
+		
+		
+		try {
+			
+			sql = "update air_item set ap_code = ? , " + 
+					"ddate = ? , " + 
+					"darea = ? , " + 
+					"carea = ? , " + 
+					"money = ? , " + 
+					"totseatcnt = ? , " + 
+					"flightclass = ? " + 
+					"where ccode =  ? ";
+			
+			
+			ptmt = con.prepareStatement(sql);
+			
+			ptmt.setString(1, dto.getAp_code());
+			ptmt.setString(2, dto.getDdateStr());
+			ptmt.setString(3, dto.getDarea());
+			ptmt.setString(4, dto.getCarea());
+			ptmt.setInt(5, dto.getMoney());
+			ptmt.setInt(6, dto.getTotseatcnt());
+			ptmt.setString(7, dto.getFlightclass());
+			ptmt.setString(8, dto.getCcode());
+			
+	
+			
+			//res = ptmt.executeUpdate() > 0; //익스큐트 없데이트가 1건 이상이여야 하기때문에 0이상이 되야 삭제됨 초기값은  false
+			
+			 ptmt.executeUpdate();
+			 
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+			close();
+		}
+		
+	
+	}
 	
 	
 	
@@ -687,7 +788,7 @@ public Object mair_planeitemlist(String ap_code ) {
 
 
 
-public Object mair_pitemlist(String air_p ) {
+	public Object mair_pitemlist(String air_p ) {
 	
 	ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 
@@ -783,7 +884,7 @@ public Object mair_pitemlist(String air_p ) {
 		
 		ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 		
-		sql = "select air_name , ap_code  from air_com, air_item where air_com.air_code=air_item.air_code order by air_name ";
+		sql = "select distinct air_name , ap_code  from air_com, air_item where air_com.air_code=air_item.air_code order by air_name ";
 		
 		try {
 			ptmt = con.prepareStatement(sql);
@@ -816,7 +917,7 @@ public Object mair_pitemlist(String air_p ) {
 		
 		ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 		
-		sql = "select air_name , ap_code  from air_com, air_item where air_com.air_code=air_item.air_code and air_name = ? order by air_name; ";
+		sql = "select distinct air_name , ap_code  from air_com, air_item where air_com.air_code=air_item.air_code and air_name = ? order by air_name ";
 		
 		try {
 			ptmt = con.prepareStatement(sql);
