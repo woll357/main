@@ -887,7 +887,7 @@ public Object mair_planeitemlist(String ap_code ) {
 		
 		ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 		
-		sql = "select distinct air_name , ap_code  from air_com, air_item where air_com.air_code=air_item.air_code order by air_name ";
+		sql = "select distinct air_name , air_item.ap_code  from air_com, air_item , air_plane where air_com.air_code=air_item.air_code and air_item.air_code = air_plane.air_code order by air_name  ";
 		
 		try {
 			ptmt = con.prepareStatement(sql);

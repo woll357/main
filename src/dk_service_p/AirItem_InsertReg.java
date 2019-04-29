@@ -23,8 +23,6 @@ public class AirItem_InsertReg implements MvcAction {
 		
 		HttpSession session = request.getSession();
 		
-		
-		
 		//항공편 등록 INSERT
 		Air_itemDTO dto = new Air_itemDTO();
 		
@@ -33,11 +31,6 @@ public class AirItem_InsertReg implements MvcAction {
 		String carea = request.getParameter("carea");
 		
 	
-		
-		System.out.println("equest.getParameter(\"ddate\")equest.getParameter(\"ddate\")equest.getParameter(\"ddate\")equest.getParameter(\"ddate\")"+request.getParameter("ddate"));
-		
-		
-		
 		dto.setAp_code(request.getParameter("ap_code"));
 		dto.setDdateStr(ddate);
 		dto.setDarea(darea);
@@ -57,12 +50,8 @@ public class AirItem_InsertReg implements MvcAction {
 		ldto.setDarea(darea);
 		
 		
-		System.out.println(carea);
-		System.out.println(darea);
-		
+	
 		ldto = new Air_itemDAO().makea_time(ldto);
-		
-		System.out.println("시간ㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴ"+ldto.getLeadtime());
 		
 	
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
