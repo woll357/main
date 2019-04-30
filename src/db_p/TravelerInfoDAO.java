@@ -90,7 +90,7 @@ public class TravelerInfoDAO {
 				dto.setCph2(rs.getString("cph2"));
 				dto.setCph3(rs.getString("cph3"));
 				dto.setCemail1(rs.getString("cemail1"));
-				dto.setCemail1(rs.getString("cemail2"));
+				dto.setCemail2(rs.getString("cemail2"));
 				dto.setBasketID(rs.getString("basketID"));
 								
 				res.add(dto);

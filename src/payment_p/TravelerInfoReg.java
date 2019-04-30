@@ -64,15 +64,23 @@ public class TravelerInfoReg implements MvcAction {
 		System.out.println(id);
 		
 		for (int i = 0; i < airBaskets.length; i++) {
-			TravelerInfoDTO dto = new TravelerInfoDTO();
 			
+			BasketDTO bdto = new BasketDTO();
+			bdto.setBasketID(airBaskets[i]);
+			bdto = new BasketDAO().detail(bdto);
+			
+			
+			
+			TravelerInfoDTO dto = new TravelerInfoDTO();
 			System.out.println("비행기 장바구니"+airBaskets[i]);
 			dto.setBasketID(airBaskets[i]);		
 			
 			
 			//다시해야한다
 			
-			for (int j = i*2; j < request.getParameterValues("passport").length; j++) {	
+			int index = 0;
+			
+			for (int j = index; j < index + bdto.getPsn(); j++) {	
 				
 				dto.setMainEngLastName(mainEngLastName);
 				dto.setMainEngFirstName(mainEngFirstName);
@@ -91,6 +99,8 @@ public class TravelerInfoReg implements MvcAction {
 				
 				new TravelerInfoDAO().insert(dto);
 			};
+			
+			index += bdto.getPsn();
 		};
 		
 		int totalPrice = 0;
