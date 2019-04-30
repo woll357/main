@@ -1,9 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <script type="text/javascript">
+    function maxLengthCheck(object) {
+    	if (object.value.length > object.maxLength) {
+    		object.value = object.value.slice(0, object.maxLength);
+    	}
+    }
+    
+    </script>
 <form action="HroomwriteReg" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="hcode" value="${mem.hcode }"  />
 
 	<table border="">
+			<!-- <a href=""><input type="button" value=""/></a> -->
 		<tr>
 			<td>방종류</td>
 			<td><select name="rkind">
@@ -12,14 +21,15 @@
 			</select></td>
 		</tr>
 		<tr>
-			<td>방갯수</td>
-			<td><select name="rcnt">
+			<td>방갯수 (1~99)</td>
+<!-- 			<td><select name="rcnt">
 				<option value=1>1</option>
 				<option value=2>2</option>
 				<option value=3>3</option>
 				<option value=4>4</option>
 				<option value=5>5</option>
-			</select></td>
+			</select></td> -->
+			<td><input type="number" name="rcnt" maxlength="2" oninput="maxLengthCheck(this)"></td>
 		</tr>
 		<tr>
 			<td>방인원</td>

@@ -3,11 +3,32 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <h3>방수정</h3>
     <script>    	
+    
+    	var chk = true;
+    	
+    	
     	function fileDelete() {
     		roommod.action = "FileDelete2";
     		roommod.submit();
     	}
-    
+        function maxLengthCheck(object) {
+        	if (object.value.length > object.maxLength) {
+        		object.value = object.value.slice(0, object.maxLength);
+        	}
+        }
+        $(document).ready(function(){       	
+        	$('.modimodi').on({
+         	'click':function(){           
+          	  if($('#rcnt').val()<0 || $('#money').val()<0 || $('#wmoney').val()<0){
+          			alert("값이 잘못되었습니다.");
+           	 }else{
+               		roommod.submit();
+           		 }
+        	 }      
+      		})
+      	  })
+        
+        
     </script>
 
  <form name = "roommod" action="HroommodiReg" method="post" enctype="multipart/form-data">
@@ -23,14 +44,17 @@
 		</tr>
 		<tr>
 			<td>방갯수</td>
-			<td><select name="rcnt">
+			<td>
+<%-- 			<select name="rcnt">
 				<option value="${dto.rcnt }">${dto.rcnt }</option>
 				<option value=1>1</option>
 				<option value=2>2</option>
 				<option value=3>3</option>
 				<option value=4>4</option>
 				<option value=5>5</option>
-			</select></td>
+			</select> --%>
+				<input type="number" name="rcnt" maxlength="2" oninput="maxLengthCheck(this)" value="${dto.rcnt }" id="rcnt">
+			</td>
 		</tr>
 		<tr>
 			<td>방인원</td>
@@ -56,11 +80,11 @@
 		</tr>
 		<tr>
 			<td>금액</td>
-			<td><input type="number" name="money" value="${dto.money }" /></td>
+			<td><input type="number" name="money" value="${dto.money }"  id="money"/></td>
 		</tr>
 				<tr>
 			<td>주말금액</td>
-			<td><input type="number" name="wmoney" value="${dto.wmoney }" /></td>
+			<td><input type="number" name="wmoney" value="${dto.wmoney }" id="wmoney"/></td>
 		</tr>		
 		<tr>
 			<td>wifi여부</td>
@@ -80,7 +104,7 @@
 		</tr>
 		   <tr>
 			<td colspan="2" align="right">
-			<input type="submit" value="수정" />
+			<input type="button" value="수정" class="modimodi"/>
     	</td>
     	</tr>
  	

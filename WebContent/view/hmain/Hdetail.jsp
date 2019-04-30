@@ -37,12 +37,12 @@
 		<c:if test="${data.rkind=='D' }">
 		<td>디럭스룸</td>
 		</c:if>
-		<td><a href="HroommodiForm?rcode=${data.rcode }&partner=in">방수정</a></td>
+		<td><a href="HroommodiForm?rcode=${data.rcode }&hotcont=in">방수정</a></td>
 	</tr>
 	<tr>
 		<td>방갯수</td>
 		<td>${data.rcnt }</td>
-		<td><a href="HnoresDatewriteForm?rcode=${data.rcode }&partner=in">예약불가날짜선정</a></td>
+		<td><a href="HnoresDatewriteForm?rcode=${data.rcode }&hotcont=in">예약불가날짜선정</a></td>
 	</tr>
 	<tr>
 		<td>방인원</td>
