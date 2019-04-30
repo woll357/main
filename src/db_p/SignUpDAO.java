@@ -427,6 +427,28 @@ public class SignUpDAO {
 			rs = ptmt.executeQuery();
 
 			res=rs.next();
+			
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return res;
+	}
+	
+	public boolean chkPhone(SignUpDTO dto) {
+		
+		sql = "select * from member where phone = ?";
+		boolean res = false;
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getPhone());
+			rs = ptmt.executeQuery();
+
+			res=rs.next();
+			
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

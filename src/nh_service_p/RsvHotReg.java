@@ -48,7 +48,18 @@ public class RsvHotReg implements MvcAction {
 		
 	    HttpSession session = request.getSession();
 		
+	    if(session.getAttribute("mem")==null){
+	    	SearchDTO2 dto = new SearchDTO2();
+			dto.setCity(request.getParameter("city"));
+			dto.setPcnt(Integer.parseInt(request.getParameter("pcnt")));
+			dto.setStartDay(request.getParameter("startDay"));
+			dto.setEndDay(request.getParameter("endDay"));
+			dto.setRkind(request.getParameter("rkind"));
 		
+			request.setAttribute("dto", new SearchDAO().searchHot(dto));
+	    	
+	    	
+	    }else{
 		SignUpDTO chk = new SignUpDTO();
 
 		chk.setId(((SignUpDTO) session.getAttribute("mem")).getId());
@@ -73,6 +84,7 @@ public class RsvHotReg implements MvcAction {
 	        request.setAttribute("mainUrl", "greensc/alert.jsp");
 			
 		}
+	    }
 
 		return null;
 	}

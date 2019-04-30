@@ -14,14 +14,30 @@ public class DupTest implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		System.out.println(request.getParameter("id"));
-		System.out.println(request.getParameter("phone"));
+		
 		
 		SignUpDTO dto = new SignUpDTO();
 		dto.setId(request.getParameter("id"));
+		dto.setPhone(request.getParameter("phone"));
+		System.out.println(request.getParameter("id")+"???");
 		
+		int cc=0;
 		
-		new SignUpDAO().chkMem(dto);
+		if(new SignUpDAO().chkMem(dto)) {
+			request.setAttribute("msg", "아이디");
+		}
+		if(new SignUpDAO().chkPhone(dto)) {
+			request.setAttribute("msg", "핸드폰");
+		}
+		if(request.getParameter("id")=="" || request.getParameter("phone")=="--") {
+			request.setAttribute("msg", "공란");
+		}
+		if(!new SignUpDAO().chkMem(dto) && request.getParameter("id")!=null) {
+			request.setAttribute("msg1", "id체크");
+		}
+		if(!new SignUpDAO().chkPhone(dto)) {
+			request.setAttribute("msg2", "pp체크");
+		}
 		
 		
 		return null;

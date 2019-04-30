@@ -35,10 +35,35 @@ public class RsvAirReg implements MvcAction {
 		
 		SignUpDTO dto = new SignUpDTO();
 
+		
+		
+		if(session.getAttribute("mem")==null) {
+			String ddate1 = request.getParameter("ddate1");
+			SearchDTO dto1 = new SearchDTO();
+			dto1.setDdate(ddate1);
+			dto1.setDarea(request.getParameter("darea"));
+			dto1.setCarea(request.getParameter("carea"));
+			dto1.setSeatcnt(Integer.parseInt(request.getParameter("seatcnt")));
+			dto1.setFlightclass(request.getParameter("flightclass"));
+			request.setAttribute("dto1", new SearchDAO().searchAir(dto1));
+			request.setAttribute("way", "awp");
+			
+			SearchDTO dto2 = new SearchDTO();
+			if(request.getParameter("ddate2")!=null && request.getParameter("ddate2")!="") {
+			String ddate2 = request.getParameter("ddate2");		
+			dto2.setDdate(ddate2);
+			dto2.setDarea(request.getParameter("carea"));
+			dto2.setCarea(request.getParameter("darea"));
+			dto2.setSeatcnt(Integer.parseInt(request.getParameter("seatcnt")));
+			dto2.setFlightclass(request.getParameter("flightclass"));
+			request.setAttribute("dto2", new SearchDAO().searchAir(dto2));
+			System.out.println("여긴 왕복");
+			request.setAttribute("way", "rtp");
+			}
+		}else {
         dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
 
 		
-		System.out.println(new SignUpDAO().chkBlack(dto));
 		if(new SignUpDAO().chkBlack(dto)) {
 			
 		
@@ -73,7 +98,7 @@ public class RsvAirReg implements MvcAction {
 	        request.setAttribute("mainUrl", "greensc/alert.jsp");
 			
 		}
-
+		}
 		
 		return null;
 	}
