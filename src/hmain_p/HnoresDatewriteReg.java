@@ -35,8 +35,8 @@ public class HnoresDatewriteReg implements MvcAction {
 		
 		new Hot_tempDAO().noreswrite(dto);
 		
-
-		String goUrl ="Hdetail";
+					   
+		String goUrl ="Hdetail?hotcont=in";
 		request.setAttribute("goUrl", goUrl);
 		request.setAttribute("mainUrl", "hmain/alert.jsp");
 		

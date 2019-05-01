@@ -29,7 +29,7 @@ public class HroomDeleteReg implements MvcAction {
 		String goUrl = "";
 		new Hot_tempDAO().roomdelete(dto);
 
-		goUrl = "Hdetail";
+		goUrl = "Hdetail?hotcont=in";
 
 
 		

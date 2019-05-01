@@ -18,6 +18,8 @@ public class HlistSearch implements MvcAction {
 		dto.setHcode(request.getParameter("hcode"));
 		
 		request.setAttribute("data", new Hot_tempDAO().hotelsearch(dto));
+		
+
 
 		System.out.println("방검색!");
 		

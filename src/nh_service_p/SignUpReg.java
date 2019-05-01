@@ -22,6 +22,13 @@ public class SignUpReg implements MvcAction {
 			e.printStackTrace();
 		}
 		
+		String arr [] = request.getParameterValues("phone");
+		String phone =arr[0]+"-"+arr[1]+"-"+arr[2];
+		
+		
+		String arr2 [] = request.getParameterValues("email");
+		String email =arr2[0]+"@"+arr2[1];
+		
 		
 		SignUpDTO dto = new SignUpDTO();
 		dto.setGrade("C");
@@ -29,8 +36,8 @@ public class SignUpReg implements MvcAction {
 		dto.setPw(request.getParameter("pw"));
 		dto.setPname(request.getParameter("pname"));
 		dto.setBirth(request.getParameter("birth"));
-		dto.setEmail(request.getParameter("email"));
-		dto.setPhone(request.getParameter("phone"));
+		dto.setEmail(email);
+		dto.setPhone(phone);
 		dto.setCountry(request.getParameter("country"));
 		dto.setCity(request.getParameter("city"));
 		dto.setAddDetail(request.getParameter("addDetail"));

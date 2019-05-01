@@ -27,16 +27,25 @@ public class ModifyMemReg implements MvcAction {
 			e.printStackTrace();
 		}
 		
+		
+		String arr [] = request.getParameterValues("phone");
+		String phone =arr[0]+"-"+arr[1]+"-"+arr[2];
+		
+		
+		String arr2 [] = request.getParameterValues("email");
+		String email =arr2[0]+"@"+arr2[1];
 	
 		SignUpDTO dto = new SignUpDTO();
 		dto.setId(request.getParameter("id"));
 		dto.setPw(request.getParameter("pw"));
-		dto.setEmail(request.getParameter("email"));
-		dto.setPhone(request.getParameter("phone"));
+		dto.setEmail(email);
+		dto.setPhone(phone);
 		dto.setCountry(request.getParameter("country"));
 		dto.setCity(request.getParameter("city"));
 		dto.setAddDetail(request.getParameter("addDetail"));
 		dto.setGrade(((SignUpDTO) session.getAttribute("mem")).getGrade());
+		
+		System.out.println(((SignUpDTO) session.getAttribute("mem")).getGrade());
 		
 		
 

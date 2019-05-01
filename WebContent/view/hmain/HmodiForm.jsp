@@ -69,7 +69,7 @@
     		<tr>
 
 			<td colspan="2" align="right">
-			<input type="submit" value="수정" class="hotmodimodi"/>
+			<input type="button" value="수정" class="hotmodimodi"/>
     	</td>
     	</tr>
     </table>

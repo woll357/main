@@ -7,13 +7,55 @@ import java.util.Date;
 public class SignUpDTO {
 	String grade, id, pw, pname, birth, gender, email, phone, black,
 			preason, emg, country, city, addDetail,  crn, img,
-			air_name, himg, hinfo, air_code, hcode, hname, air_codecom,bnum;
+			air_name, himg, hinfo, air_code, hcode, hname, air_codecom,bnum, phone1, phone2, phone3, email1, email2;
 	Integer no, num;
 	Date time;
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
 	
 	
+	
+	
+	public String getEmail1() {
+		return email1;
+	}
+
+	public void setEmail1(String email1) {
+		this.email1 = email1;
+	}
+
+	public String getEmail2() {
+		return email2;
+	}
+
+	public void setEmail2(String email2) {
+		this.email2 = email2;
+	}
+
+	public String getPhone1() {
+		return phone1;
+	}
+
+	public void setPhone1(String phone1) {
+		this.phone1 = phone1;
+	}
+
+	public String getPhone2() {
+		return phone2;
+	}
+
+	public void setPhone2(String phone2) {
+		this.phone2 = phone2;
+	}
+
+	public String getPhone3() {
+		return phone3;
+	}
+
+	public void setPhone3(String phone3) {
+		this.phone3 = phone3;
+	}
+
 	public String getAir_codecom() {
 		return air_codecom;
 	}

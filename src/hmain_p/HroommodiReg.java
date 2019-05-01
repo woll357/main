@@ -59,7 +59,7 @@ public class HroommodiReg implements MvcAction {
 			
 			
 			new Hot_tempDAO().roommodify(dto);
-			goUrl = "Hdetail";
+			goUrl = "Hdetail?hotcont=in";
 			
 			/*
 			 * if((mm.getParameter("rimg")==null)){ File ff = new
