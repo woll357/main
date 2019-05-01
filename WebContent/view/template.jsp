@@ -18,7 +18,7 @@
 		<td height="50px"><jsp:include page="inc/subMenu.jsp" /></td>
 	</tr>
 	<tr>
-		<td height="500px"><jsp:include page="${mainUrl }" /></td>
+		<td height="800px"><jsp:include page="${mainUrl }" /></td>
 	</tr>
 		<tr>
 		<td height="50px"><jsp:include page="inc/bottom.jsp" /></td>

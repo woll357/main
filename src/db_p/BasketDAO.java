@@ -54,7 +54,8 @@ public class BasketDAO {
 				dto.setPsn(rs.getInt("psn"));
 				dto.setNo(rs.getInt("no"));
 				dto.setId(rs.getString("id"));
-
+				dto.setCode(rs.getString("code"));
+				
 				res.add(dto);
 			}
 	
@@ -76,8 +77,8 @@ public class BasketDAO {
 		try {
 
 			sql = "insert into basket "
-					+ "(cNum, id, psn, ddate, fdate, cType, no, totalPrice, location1, location2, cName, itemName) "
-					+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+					+ "(cNum, id, psn, ddate, fdate, cType, no, totalPrice, location1, location2, cName, itemName, code) "
+					+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			System.out.println(sql);
 			
 			ptmt = con.prepareStatement(sql);
@@ -93,6 +94,7 @@ public class BasketDAO {
 			ptmt.setString(10, dto.getLocation2());
 			ptmt.setString(11, dto.getcName());
 			ptmt.setString(12, dto.getItemName());
+			ptmt.setString(13, dto.getCode());
 			
 			ptmt.executeUpdate();
 			
@@ -146,6 +148,7 @@ public class BasketDAO {
 			res.setPsn(rs.getInt("psn"));
 			res.setNo(rs.getInt("no"));
 			res.setId(rs.getString("id"));
+			res.setCode(rs.getString("code"));
 			
 			}
 		} catch (SQLException e1) {
@@ -188,6 +191,7 @@ public class BasketDAO {
 			dto.setPsn(rs.getInt("psn"));
 			dto.setNo(rs.getInt("no"));
 			dto.setId(rs.getString("id"));
+			dto.setCode(rs.getString("code"));
 			
 			res.add(dto);
 			}
@@ -241,7 +245,8 @@ public class BasketDAO {
 				res.setPsn(rs.getInt("psn"));
 				res.setNo(rs.getInt("no"));
 				res.setId(rs.getString("id"));
-
+				res.setCode(rs.getString("code"));
+				
 				}
 			
 			

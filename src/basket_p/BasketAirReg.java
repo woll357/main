@@ -14,6 +14,7 @@ import db_p.BasketDAO;
 import db_p.BasketDTO;
 import db_p.BasketItemDAO;
 import db_p.BasketItemDTO;
+import db_p.BasketpaidDTO;
 import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
@@ -43,14 +44,20 @@ public class BasketAirReg implements MvcAction {
 			bdto.setId(id);
 			bdto.setcType(cType);
 			
+			
+			
+			
 			ArrayList<BasketDTO> myAirBasketList = new BasketDAO().myList(bdto);
-			AAA: for (BasketDTO myAirBasket : myAirBasketList) {
+			
+			
+			
+			AAA: for (BasketDTO myAirBasket : myAirBasketList) { //내 장바구니에 있는 항공권의 장바구니 목록들
 				BasketItemDTO bidto = new BasketItemDTO();
 				bidto.setBasketID(myAirBasket.getBasketID());
-				bidto = new BasketItemDAO().rcodeByBasketID(bidto);
+				bidto = new BasketItemDAO().rcodeAirByBasketID(bidto);
 				for (String code : cCodes) {
 					if(code.equals(bidto.getRcode())) {
-						request.setAttribute("msg", "동일한 상품이 존재합니다.");
+						request.setAttribute("msg", "동일한 상품이 장바구니에 존재합니다.");
 						break AAA;
 					}
 				}
@@ -84,7 +91,7 @@ public class BasketAirReg implements MvcAction {
 
 					int no = new BasketDAO().itemCNT(dto).size();
 					dto.setNo(no);
-
+					dto.setCode(cCodes[i]);
 					dto.setDdate(airdto.getDdate());
 					dto.setFdate(airdto.getA_time());
 					dto.setTotalPrice(airdto.getMoney());

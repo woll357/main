@@ -129,16 +129,42 @@ public class BasketItemDAO {
 		
 	}
 	
-	public BasketItemDTO rcodeByBasketID(BasketItemDTO dto) {	
+	public BasketItemDTO rcodeAirByBasketID(BasketItemDTO dto) {	
 		
 		BasketItemDTO res = new BasketItemDTO();
 			
-			sql = "select distinct rcode from basketitem where basketID = ? ";
+			sql = "select distinct rcode from basketitem where basketID = ? and bstatus = 'b'";
 			try {
 				
 				ptmt = con.prepareStatement(sql);
 				
 				ptmt.setString(1, dto.getBasketID());
+	
+				rs = ptmt.executeQuery();
+				
+				if(rs.next()) {				
+				res.setRcode(rs.getString("rcode"));
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}finally {
+				close();
+			}
+			return res;
+		}
+	
+	public BasketItemDTO rcodeHotByBasketID(BasketItemDTO dto) {	
+		
+		BasketItemDTO res = new BasketItemDTO();
+			
+			sql = "select distinct rcode from basketitem where basketID = ? and ddate = ? and bstatus = 'b'";
+			try {
+				
+				ptmt = con.prepareStatement(sql);
+				
+				ptmt.setString(1, dto.getBasketID());
+				ptmt.setString(2, dto.getDdateStr());
 	
 				rs = ptmt.executeQuery();
 				

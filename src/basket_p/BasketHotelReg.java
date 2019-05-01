@@ -1,6 +1,7 @@
 package basket_p;
 
 import java.io.UnsupportedEncodingException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -35,59 +36,62 @@ public class BasketHotelReg implements MvcAction {
 		}
 
 		String id = ((SignUpDTO) (request.getSession().getAttribute("mem"))).getId();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
+		if (request.getParameter("rcode") != null) {
 
-
-		if (request.getParameter("rcode")!= null) {
-			
 			String rcode = request.getParameter("rcode");
-			
-			
-			String cType = rcode.substring(0, 1);
-
-			BasketDTO bdto = new BasketDTO();
-			bdto.setId(id);
-			bdto.setcType(cType);
-			
-			
-			ArrayList<BasketDTO> myAirBasketList = new BasketDAO().myList(bdto);
-			AAA: for (BasketDTO myAirBasket : myAirBasketList) {
-				BasketItemDTO bidto = new BasketItemDTO();
-				bidto.setBasketID(myAirBasket.getBasketID());
-				bidto = new BasketItemDAO().rcodeByBasketID(bidto);
-			}
-			
-			Hot_comDTO hdto = new Hot_comDTO();
-			Room_itemDTO rdto = new Room_itemDTO();
-			rdto.setRcode(rcode);
-
-			rdto = new Hot_tempDAO().roomDetailByrcode(rdto);
-			hdto.setHcode(rdto.getHcode());
-
-			hdto = new Hot_tempDAO().hotelDetailByhcode(hdto);
-
-			// 총액,
-			BasketDTO dto = new BasketDTO();
-
-			dto.setcType(cType);// 상품종류
-			dto.setId(id);// 아이디
-			dto.setcName(hdto.getHname());// 회사명
-			dto.setLocation1(hdto.getCountry());// 위치값1
-			dto.setLocation2(hdto.getCity());// 위치값2
-			dto.setItemName(rdto.getRkind()); // 방종류
-			dto.setPsn(rdto.getPcnt()); // 인원수
-
-			int no = new BasketDAO().itemCNT(dto).size();
-			dto.setNo(no); // 몇번째 장바구니 항목,
-
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
-			int dateCNT = 0;
 
 			try {
 				Date startDay = sdf.parse(request.getParameter("startDay"));
 				Date endDay = sdf.parse(request.getParameter("endDay"));
+
+				String cType = rcode.substring(0, 1);
+
+				BasketDTO bdto = new BasketDTO();
+				bdto.setId(id);
+				bdto.setcType(cType);
 				
+				ArrayList<BasketDTO> myHotBasketList = new BasketDAO().myList(bdto); // Basket에있는 나의 호텔 목록들
+
+				AAA: for (BasketDTO myHotBasket : myHotBasketList) {
+					BasketItemDTO bidto = new BasketItemDTO();
+					bidto.setBasketID(myHotBasket.getBasketID());
+					bidto.setDdate(startDay);
+					bidto = new BasketItemDAO().rcodeHotByBasketID(bidto);
+
+					if (rcode.equals(bidto.getRcode())) {
+						request.setAttribute("msg", "동일한 상품이 장바구니에 존재합니다.");
+						break AAA;
+					}
+
+				}
+
+				Hot_comDTO hdto = new Hot_comDTO();
+				Room_itemDTO rdto = new Room_itemDTO();
+				rdto.setRcode(rcode);
+
+				rdto = new Hot_tempDAO().roomDetailByrcode(rdto);
+				hdto.setHcode(rdto.getHcode());
+
+				hdto = new Hot_tempDAO().hotelDetailByhcode(hdto);
+
+				// 총액,
+				BasketDTO dto = new BasketDTO();
+				dto.setCode(rcode);
+				dto.setcType(cType);// 상품종류
+				dto.setId(id);// 아이디
+				dto.setcName(hdto.getHname());// 회사명
+				dto.setLocation1(hdto.getCountry());// 위치값1
+				dto.setLocation2(hdto.getCity());// 위치값2
+				dto.setItemName(rdto.getRkind()); // 방종류
+				dto.setPsn(rdto.getPcnt()); // 인원수
+
+				int no = new BasketDAO().itemCNT(dto).size();
+				dto.setNo(no); // 몇번째 장바구니 항목,
+
+				int dateCNT = 0;
+
 				dateCNT = (int) (endDay.getTime() - startDay.getTime()) / (1000 * 60 * 60 * 24);
 
 				dto.setcNum(dateCNT);// 상품코드 갯수
