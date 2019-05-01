@@ -129,6 +129,32 @@ public class BasketItemDAO {
 		
 	}
 	
+	public BasketItemDTO rcodeByBasketID(BasketItemDTO dto) {	
+		
+		BasketItemDTO res = new BasketItemDTO();
+			
+			sql = "select distinct rcode from basketitem where basketID = ? ";
+			try {
+				
+				ptmt = con.prepareStatement(sql);
+				
+				ptmt.setString(1, dto.getBasketID());
+	
+				rs = ptmt.executeQuery();
+				
+				if(rs.next()) {				
+				res.setRcode(rs.getString("rcode"));
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}finally {
+				close();
+			}
+			return res;
+		}
+	
+	
 	public ArrayList<BasketItemDTO> basketIDListByBstatus(BasketItemDTO dt){ //예약내역 찾기
 		ArrayList<BasketItemDTO> res = new ArrayList<BasketItemDTO>();
 		try {

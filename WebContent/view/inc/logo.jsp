@@ -5,8 +5,8 @@
 <html>
 <style type="text/css">
 img{
-	width: 210px;
-	height: 180px;
+
+	height: 200px;
 }
 
 </style>
@@ -16,5 +16,5 @@ img{
 <title>Insert title here</title>
 </head>
 <body>
-<div style="height: 180px"><img src="../img/bn.jpg" ><img src="../img/bn.jpg" ><img src="../img/bn.jpg" ><img src="../img/bn.jpg" ><img src="../img/bn.jpg" ><img src="../img/bn.jpg" ><img src="../img/bn.jpg" ></div>
+<div style="height: 200px"><img src="../img/logo.jpg" ></div>
 </html>

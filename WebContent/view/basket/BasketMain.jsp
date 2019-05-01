@@ -2,7 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%request.setCharacterEncoding("utf-8"); %>
-<form action="BasketReg">
+<script>
+if("${msg}"!=""){
+	alert("${msg}");
+}
+
+</script>
+<form  name = "basket" action="BasketReg" method="post">
 	<table border="" >
 		<tr>
 			<td>상태</td>
@@ -47,7 +53,7 @@
 		
 		<c:forEach var="hdto" items="${hdtos }" >
 		<tr>
-			<td><input name="basketIDs" type="checkbox" value="${hdto.basketID }" /></td>
+			<td><input class="chk" name="basketIDs" type="checkbox" value="${hdto.basketID }" /></td>
 			<td>${hdto.cName }</td>
 			<td>${hdto.itemName }</td>
 			<td>${hdto.ddateStr }</td>
@@ -62,7 +68,33 @@
 	</table>
 	<table>
 	<tr>
-	<td><input type="submit" value="결제하기" /></td>
+	<td><input id="basketPay" type="button" value="결제하기" /></td>
 	</tr>
 	</table>
 </form>
+
+<script>
+
+	$(document).ready(function(){
+		var chkchked = 0;
+		
+		$('#basketPay').on({
+
+			'click':function(){
+				
+				$('.chk').each(function(){
+					if($(this).is(':checked')){
+						chkchked++;
+					}
+				});
+				if(chkchked==0){
+					alert("장바구니 항목을 선택해주세요");
+				}
+				else{
+					basket.submit();
+				}
+			}
+		})
+	})
+	/* div두개로 나눠서 스크롤로 뽑기 */
+</script>
