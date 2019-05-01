@@ -8,7 +8,7 @@ public class SignUpDTO {
 	String grade, id, pw, pname, birth, gender, email, phone, black,
 			preason, emg, country, city, addDetail,  crn, img,
 			air_name, himg, hinfo, air_code, hcode, hname, air_codecom,bnum, phone1, phone2, phone3, email1, email2;
-	Integer no, num;
+	Integer no, num, memNum;
 	Date time;
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
@@ -16,6 +16,14 @@ public class SignUpDTO {
 	
 	
 	
+	public Integer getMemNum() {
+		return memNum;
+	}
+
+	public void setMemNum(Integer memNum) {
+		this.memNum = memNum;
+	}
+
 	public String getEmail1() {
 		return email1;
 	}

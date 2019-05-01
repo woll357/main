@@ -164,8 +164,7 @@
 		}
 		
 		
-		if(idPat.test($('#email1').val()) && engPat.test($('#email1').val())
-				&& emailPat.test($('#email2').val())){
+		if(idPat.test($('#email1').val()) && emailPat.test($('#email2').val()) && $('#email1').val().length>0 && $('#email2').val().length>0){
 			$('#emTag').html("정상입력");
 			 chk5=true;
 
@@ -228,6 +227,8 @@
 		
 		if(chk1 && chk2 && chk3 && chk4 && chk5 && chk6 && chk7 && chk8){
 			chk=true;
+		}else{
+			chk=false;
 		}
 		
 	}
@@ -266,6 +267,8 @@
 		}
 		if(chk1 && chk2 && chk3 && chk4 && chk5 && chk6 && chk7 && chk8){
 			chk=true;
+		}else{
+			chk=false;
 		}
 	}
 	

@@ -20,8 +20,10 @@
 	<c:when test="${param.mgpage=='in'}">
 		<table border="">
 			<tr>
-				<td><a href="../greensc/MgPage?mgpage=in">회원 검색</a></td>
+				<td><a href="../greensc/MgPage?mgpage=in">회원 관리</a></td>
+				<td><a href="../greensc/BlackList?mgpage=in">블랙리스트 관리</a></td>
 				<td><a href="../greensc/MgGradeUp?mgpage=in">등업 관리</a></td>
+				<td></td>
 			</tr>
 		</table>
 	</c:when>

@@ -8,15 +8,22 @@ import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
-public class MgPage implements MvcAction {
+public class FindDetail implements MvcAction {
 
 	@Override
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub.
+		// TODO Auto-generated method stub
 		
 		
 		SignUpDTO dto = new SignUpDTO();
-		request.setAttribute("memNum", new SignUpDAO().memNum(dto));
+		dto.setId(request.getParameter("id"));
+		System.out.println(request.getParameter("id"));
+		
+		request.setAttribute("dto", new SignUpDAO().detailMem(dto));
+		
+		
+        
+		
 		
 		return null;
 	}
