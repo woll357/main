@@ -32,8 +32,9 @@ public class BasketpaidDAO {
 		
 		try {
 			
-			sql = "select * from basketpaid where id = ? and bstatus= 'p' and bstatus = 'n' ";
+			sql = "select * from basketpaid where id = ? and bstatus= 'p' or bstatus = 'n' ";
 			ptmt = con.prepareStatement(sql);
+			System.out.println(sql);
 			
 			ptmt.setString(1, dto.getId());
 	

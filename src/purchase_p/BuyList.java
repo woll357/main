@@ -23,6 +23,9 @@ public class BuyList implements MvcAction {
 		bpdto.setId(id);
 		
 		ArrayList<BasketpaidDTO> blists =  new BasketpaidDAO().myList(bpdto);
+		
+		System.out.println("myList진입하니?"+blists.size()+"널일까?");
+		
 		ArrayList<BasketpaidDTO> adtos =  new ArrayList<BasketpaidDTO>();
 		ArrayList<BasketpaidDTO> hdtos =  new ArrayList<BasketpaidDTO>();
 		
