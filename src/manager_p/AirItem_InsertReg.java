@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import db_p.Air_itemDAO;
 import db_p.Air_itemDTO;
+import db_p.Airp_detailsDAO;
 import db_p.LocationinfoDTO;
 import db_p.SignUpDTO;
 import di.MvcAction;
@@ -73,6 +74,8 @@ public class AirItem_InsertReg implements MvcAction {
 		}
 		
 		new Air_itemDAO().insert(dto);
+		
+	//	new Airp_detailsDAO().airConvert();
 		
 		request.setAttribute("msg", "작성되었습니다");
 		request.setAttribute("goUrl", "AirLine_List?partner=in");

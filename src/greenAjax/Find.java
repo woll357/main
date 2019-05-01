@@ -1,5 +1,7 @@
 package greenAjax;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -17,27 +19,78 @@ public class Find implements MvcAction {
 
 	
 			SignUpDTO dto = new SignUpDTO();
-			dto.setId(request.getParameter("id"));
 			
 			HttpSession session = request.getSession();
 			
-			
-			if(new SignUpDAO().chkMem(dto) && !dto.getId().equals(((SignUpDTO) session.getAttribute("mem")).getId())) {
-				request.setAttribute("dto", new SignUpDAO().detailMem(dto));
+			if(request.getParameter("black")==null) {
+			if(request.getParameter("id")!=null) {
+				dto.setId(request.getParameter("id"));
+				if(new SignUpDAO().chkMem(dto)) {
+					request.setAttribute("data", new SignUpDAO().memList(dto));
+					
+				}else if(!new SignUpDAO().chkMem(dto)){
+					request.setAttribute("msg", "No");
+				}		
+			}else if(request.getParameter("phone")!=null) {
+				dto.setPhone(request.getParameter("phone"));
+				if(new SignUpDAO().chkMem(dto)) {
+					request.setAttribute("data", new SignUpDAO().memList(dto));
 				
 				}else if(!new SignUpDAO().chkMem(dto)){
-					request.setAttribute("goUrl", "../greensc/MgPage?mgpage=in");
-					request.setAttribute("msg", "No1");
-					request.setAttribute("mainUrl", "greensc/alert.jsp");
-				}else if(dto.getId().equals(((SignUpDTO) session.getAttribute("mem")).getId())) {
-					request.setAttribute("goUrl", "../greensc/ModifyMem?mypage=in");
-					request.setAttribute("msg", "No2");
-					request.setAttribute("mainUrl", "greensc/alert.jsp");
+					request.setAttribute("msg", "No");
+				}		
+			}else if(request.getParameter("pname")!=null) {
+				dto.setPname(request.getParameter("pname"));
+				if(new SignUpDAO().chkMem(dto)) {
+					request.setAttribute("data", new SignUpDAO().memList(dto));
+				
+				}else if(!new SignUpDAO().chkMem(dto)){
+					request.setAttribute("msg", "No");
+				}		
+			}
+			}else {
+				dto.setBlack(request.getParameter("black"));
+				if(request.getParameter("id")!=null) {
+					dto.setId(request.getParameter("id"));
+					if(new SignUpDAO().chkMem(dto)) {
+						request.setAttribute("data", new SignUpDAO().memList(dto));
+						
+					}else if(!new SignUpDAO().chkMem(dto)){
+						request.setAttribute("msg", "No");
+					}else if(((ArrayList<SignUpDTO>)new SignUpDAO().memList(dto)).size()==0){
+						request.setAttribute("msg", "No");
+					}		
+				}else if(request.getParameter("phone")!=null) {
+					dto.setPhone(request.getParameter("phone"));
+					if(new SignUpDAO().chkMem(dto)) {
+						request.setAttribute("data", new SignUpDAO().memList(dto));
+					
+					}else if(!new SignUpDAO().chkMem(dto)){
+						request.setAttribute("msg", "No");
+					}else if(((ArrayList<SignUpDTO>)new SignUpDAO().memList(dto)).size()==0){
+						request.setAttribute("msg", "No");
+					}		
+				}else if(request.getParameter("pname")!=null) {
+					dto.setPname(request.getParameter("pname"));
+					if(new SignUpDAO().chkMem(dto)) {
+						request.setAttribute("data", new SignUpDAO().memList(dto));
+					
+					}else if(!new SignUpDAO().chkMem(dto)){
+						request.setAttribute("msg", "No");
+					}else if(((ArrayList<SignUpDTO>)new SignUpDAO().memList(dto)).size()==0){
+						request.setAttribute("msg", "No");
+					}
+				}else if(request.getParameter("preason")!=null) {
+					
+					dto.setPreason(request.getParameter("preason"));
+					request.setAttribute("data", new SignUpDAO().memList(dto));
+					System.out.println();
+					if(((ArrayList<SignUpDTO>)new SignUpDAO().memList(dto)).size()==0){
+						request.setAttribute("msg", "No");
+					}		
 				}
-
+			}
 			
-
-			//response.getWriter().append("Served at: ").append(""+new SignUpDAO().detailMem(dto));
 
 		
 		return null;

@@ -1,9 +1,57 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<script src="../js/jquery-3.3.1.min.js"></script>
 
+
+
+
+
+<table>
+
+	<tr>
+	<td colspan="7">
+	
+	<c:choose>
+	<c:when test="${msg=='No' }">
+	자료가 없습니다.
+	</c:when>
+	
+	
+	
+	<c:otherwise>
+	
+	
+	<c:forEach var="dto" items="${data}" varStatus="no">
+
+		<form action="FindDetail" method="post">
+			<input type="hidden" value="${dto.id }" name="id" />
+			<table>
+				<tr>
+					<td>${no.index }</td>
+					<td>${dto.id }</td>
+					<td>${dto.pname }</td>
+					<td>${dto.phone1 }-****-${dto.phone3 }</td>
+					<td>${dto.black }</td>
+					<td>${dto.preason }</td>
+
+					<td><input type="submit" value="검색" /></td>
+				</tr>
+			</table>
+		</form>
+
+	</c:forEach>
+	</c:otherwise>
+	</c:choose>
+	
+	
+	</td>
+	</tr>
+
+</table>
+
+
+<!-- 
 <script>
 
 $(document).ready(function(){
@@ -97,4 +145,4 @@ location.href="${goUrl}";
 
 	</table>
 </form>
-
+ -->

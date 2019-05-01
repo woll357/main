@@ -35,48 +35,7 @@ public class Air_comDAO {
 		
 	}
 	
-	
-//	public Object Air_comlist(int a) {
-//		ArrayList<Air_comDTO> res = new ArrayList<Air_comDTO>();
-//		
-//		
-//		
-//		try {
-//			sql = "select * from board order by gid desc , seq limit ? , ?";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
-//			//limit 0, 3  - > 3개만 가져옴
-//			ptmt = con.prepareStatement(sql);
-//			
-//			ptmt.setInt(1, page);
-//			ptmt.setInt(2, limit);
-//			
-//			rs = ptmt.executeQuery();
-//			
-//			while(rs.next()) {
-//				Air_comDTO dto = new Air_comDTO();
-//				dto.setBid(rs.getInt("bid"));
-//				dto.setGid(rs.getInt("gid"));
-//				dto.setSeq(rs.getInt("seq"));
-//				dto.setLevel(rs.getInt("level"));
-//				dto.setNo(rs.getInt("no"));
-//				dto.setTitle(rs.getString("title"));
-//				dto.setPname(rs.getString("pname"));
-//				dto.setRegdate(rs.getTimestamp("regdate"));
-//				
-//				res.add(dto);
-//			}
-//			
-//			
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}finally {
-//			
-//			close();
-//		}
-//		
-//		
-//		return res;
-//	}
+
 	
 	
 	
@@ -115,6 +74,42 @@ public Object comdetail(Air_comDTO dto) {
 		
 	}
 
+public Air_comDTO fileDelete(Air_comDTO dto) {
+	Air_comDTO res = null;
+	
+	sql = "select * from air_com where  air_code = ? ";
+	
+	try {
+		ptmt = con.prepareStatement(sql);
+		ptmt.setString(1, dto.air_code);
+		rs = ptmt.executeQuery();
+		
+		if(rs.next()) {
+			res = new Air_comDTO();
+		
+			res.setImg(rs.getString("img"));
+		
+			
+			sql = "update board set img = null where air_code = ?";  //이 부분은 파일이 삭제 되었을때 파일 삭제된것이 DB에 업데이트해야하기때문에 .
+			
+			ptmt = con.prepareStatement(sql);
+			
+			ptmt.setString(1, dto.getAir_code());
+			
+			ptmt.executeUpdate(); 
+		}
+				
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally {
+		
+		close();
+	}
+
+	return res;
+}
+
 
 	public boolean aircommodify(Air_comDTO dto) {
 		
@@ -122,18 +117,15 @@ public Object comdetail(Air_comDTO dto) {
 		
 		try {
 			
-			sql = "update air_com set crn = ? ," + 
-					"air_name = ? ," + 
+			sql = "update air_com set " + 			
 					"img = ? " + 
 					"where id = ? ";
 			
 			
 			ptmt = con.prepareStatement(sql);
 			
-			ptmt.setString(1, dto.getCrn());
-			ptmt.setString(2, dto.getAir_name());
-			ptmt.setString(3, dto.getImg());
-			ptmt.setString(4, dto.getId());
+			ptmt.setString(1, dto.getImg());
+			ptmt.setString(2, dto.getId());
 				
 			res = ptmt.executeUpdate() > 0; //익스큐트 없데이트가 1건 이상이여야 하기때문에 0이상이 되야 삭제됨 초기값은  false
 			

@@ -62,7 +62,17 @@
 		      }
 		   });
 		  
-		  
+		  $('#blackBtn').on({
+				'click':function(){
+					
+					
+					if($('#black').val()!=null && $('#black').val()!=""){
+						$('#black').val("");
+					}else{
+						$('#black').val("블랙리스트");
+					}
+				}
+			})
 		  
 		  $('#idBtn').on({
 		      'click':function(){
@@ -108,6 +118,7 @@
 				if("${dto.phone1}"==$('#phone1').val() && "${dto.phone2}"==$('#phone2').val() && "${dto.phone3}"==$('#phone3').val()){
 					ppchk=true;
 				}
+				
 				if(chk && ppchk){
 					frm.submit();
 				}else{
@@ -143,10 +154,8 @@
 		
 	
 		
-		
 		if(idPat.test($('#email1').val()) && emailPat.test($('#email2').val()) && $('#email1').val().length>0 && $('#email2').val().length>0){
-			
-			
+		
 			 chk2=true;
 
 		}else{
@@ -155,8 +164,7 @@
 			msg = "이메일 확인 부탁드립니다.";
 		
 			}
-		console.log(chk2);
-		
+		console.log(chk2+"222");
 		if(!/[.!@#$%^&*A-Za-z]/.test($('#addDetail').val()) && $('#addDetail').val().length>0 && $('#addDetail').val()!="상세주소"){
 			
 			chk3=true;
@@ -197,8 +205,7 @@
 		}else{
 			chk=false;
 		}
-		
-	}
+		}
 	
 	function butPat(){
 		
@@ -237,17 +244,17 @@
 	<table border="">
 		<tr>
     			<td>ID</td>
-    			<td colspan="2">${mem.id }</td>
+    			<td colspan="2">${dto.id }</td>
     		</tr>
 		<tr>
 			<td align="center">pw</td>
-			<td colspan="2"><input name="pw" type="password" maxlength="16" id="pw" onkeyup="chkPat()"/>
+			<td colspan="2"><input name="pw" type="password" maxlength="16" id="pw" onkeyup="chkPat()" value="${dto.pw }"/>
 			<div id="pwTag">8 ~ 16자, 특수문자, 한글 제외</div>		
 			</td>
 		</tr>
 		<tr>
 			<td align="center">pw 확인</td>
-			<td colspan="2"><input name="pw2" type="password" maxlength="16" id="pw2" onkeyup="chkPat()"/>
+			<td colspan="2"><input name="pw2" type="password" maxlength="16" id="pw2" onkeyup="chkPat()" value="${dto.pw }"/>
 			<div id="pw2Tag">pw와 동일하게 입력</div>
 			</td>
 			
@@ -435,7 +442,47 @@
 			</td>
 		</tr>
 		<tr>
-			<td colspan="3" align="center"><input type="button" value="수정" id="subBtn"/>
+			<td>블랙리스트</td>
+			<td colspan="2"><input id="black" readonly="readonly" type="text"
+				name="black" value="${dto.black }" /></td>
+		</tr>
+		<tr>
+			<td>블랙리스트 사유</td>
+			<td colspan="2">
+			<select name="preason" id="preason">
+					<c:choose>
+					<c:when test="${dto.preason=='강성고객'}">
+					<option value="강성고객">강성고객</option>
+					<option value="경범죄">경범죄</option>
+					<option value="중범죄">중범죄</option>
+					</c:when>
+					<c:when test="${dto.preason=='경범죄'}">
+					<option value="경범죄">경범죄</option>
+					<option value="강성고객">강성고객</option>
+					<option value="중범죄">중범죄</option>
+					</c:when>
+					<c:when test="${dto.preason=='중범죄'}">
+					<option value="중범죄">중범죄</option>
+					<option value="경범죄">경범죄</option>
+					<option value="강성고객">강성고객</option>
+					
+					</c:when>
+					<c:otherwise>
+					<option value=""></option>
+					<option value="강성고객">강성고객</option>
+					<option value="경범죄">경범죄</option>
+					<option value="중범죄">중범죄</option>
+					</c:otherwise>
+					</c:choose>
+					
+			</select>
+			
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" align="center">
+			<input type="button" value="수정" id="subBtn"/>
+			<input type="button" value="블랙리스트 추가하기" id="blackBtn" />
 				<input type="reset" value="초기화" /></td>
 		</tr>
 	</table>

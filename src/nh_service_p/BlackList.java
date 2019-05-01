@@ -8,16 +8,14 @@ import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
-public class MgPage implements MvcAction {
+public class BlackList implements MvcAction {
 
 	@Override
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub.
-		
-		
+		// TODO Auto-generated method stub
 		SignUpDTO dto = new SignUpDTO();
+		dto.setBlack("black");
 		request.setAttribute("memNum", new SignUpDAO().memNum(dto));
-		
 		return null;
 	}
 

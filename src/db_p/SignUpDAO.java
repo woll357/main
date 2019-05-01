@@ -429,17 +429,332 @@ public class SignUpDAO {
 		}
 		return res;
 	}
+	
+	public int memNum(SignUpDTO dto) {
+		
+		
+		
+		int res = 0;
+		try {
+			
+			
+			if(dto.getBlack()==null) {
+			sql = "select count(*) from member";
+			ptmt = con.prepareStatement(sql);
+			rs = ptmt.executeQuery();
+
+			if (rs.next()) {
+				res=rs.getInt(1);
+			}
+			}else{
+				sql = "select count(*) from member where black = '블랙리스트'";
+				ptmt = con.prepareStatement(sql);
+				rs = ptmt.executeQuery();
+
+				if (rs.next()) {
+					res=rs.getInt(1);
+				}
+				}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return res;
+	}
+	
+	public ArrayList<SignUpDTO> memList(SignUpDTO dto) {
+		
+		
+		ArrayList<SignUpDTO> res = new ArrayList<SignUpDTO>();
+		SignUpDTO dto2 = null;
+		try {
+			
+			if(dto.getBlack()==null) {
+			if(dto.getId()!=null) {
+				
+				sql = "select * from member where id =?";
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, dto.getId());
+				rs = ptmt.executeQuery();
+
+				while(rs.next()) {
+					dto2 = new SignUpDTO();
+				dto2.setId(rs.getString("id"));
+				dto2.setPw(rs.getString("pw"));
+				dto2.setEmail(rs.getString("email"));
+				dto2.setPhone(rs.getString("phone"));
+				dto2.setCountry(rs.getString("country"));
+				dto2.setCity(rs.getString("city"));
+				dto2.setAddDetail(rs.getString("addDetail"));
+				dto2.setBlack(rs.getString("black"));
+				dto2.setPreason(rs.getString("preason"));
+				dto2.setGender(rs.getString("gender"));
+				dto2.setAddDetail(rs.getString("addDetail"));
+				dto2.setPname(rs.getString("pname"));
+				dto2.setBirth(rs.getString("birth"));
+				
+				String pp[]=rs.getString("phone").split("-");
+				dto2.setPhone1(pp[0]);
+				dto2.setPhone2(pp[1]);
+				dto2.setPhone3(pp[2]);
+				String ee[]=rs.getString("email").split("@");
+				dto2.setEmail1(ee[0]);
+				dto2.setEmail2(ee[1]);
+				
+				res.add(dto2);
+				}
+
+			}else if(dto.getPname()!=null) {
+				
+				sql = "select * from member where pname =?";
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, dto.getPname());
+				rs = ptmt.executeQuery();
+
+				while(rs.next()) {
+					dto2 = new SignUpDTO();
+				dto2.setId(rs.getString("id"));
+				dto2.setPw(rs.getString("pw"));
+				dto2.setEmail(rs.getString("email"));
+				dto2.setPhone(rs.getString("phone"));
+				dto2.setCountry(rs.getString("country"));
+				dto2.setCity(rs.getString("city"));
+				dto2.setAddDetail(rs.getString("addDetail"));
+				dto2.setBlack(rs.getString("black"));
+				dto2.setPreason(rs.getString("preason"));
+				dto2.setGender(rs.getString("gender"));
+				dto2.setAddDetail(rs.getString("addDetail"));
+				dto2.setPname(rs.getString("pname"));
+				dto2.setBirth(rs.getString("birth"));
+				
+				String pp[]=rs.getString("phone").split("-");
+				dto2.setPhone1(pp[0]);
+				dto2.setPhone2(pp[1]);
+				dto2.setPhone3(pp[2]);
+				String ee[]=rs.getString("email").split("@");
+				dto2.setEmail1(ee[0]);
+				dto2.setEmail2(ee[1]);
+				
+				res.add(dto2);
+				}
+			}else if(dto.getPhone()!=null) {
+				
+				sql = "select * from member where phone like ?";
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, "%-"+dto.getPhone());
+				rs = ptmt.executeQuery();
+
+				while(rs.next()) {
+					dto2 = new SignUpDTO();
+				dto2.setId(rs.getString("id"));
+				dto2.setPw(rs.getString("pw"));
+				dto2.setEmail(rs.getString("email"));
+				dto2.setPhone(rs.getString("phone"));
+				dto2.setCountry(rs.getString("country"));
+				dto2.setCity(rs.getString("city"));
+				dto2.setAddDetail(rs.getString("addDetail"));
+				dto2.setBlack(rs.getString("black"));
+				dto2.setPreason(rs.getString("preason"));
+				dto2.setGender(rs.getString("gender"));
+				dto2.setAddDetail(rs.getString("addDetail"));
+				dto2.setPname(rs.getString("pname"));
+				dto2.setBirth(rs.getString("birth"));
+				
+				String pp[]=rs.getString("phone").split("-");
+				dto2.setPhone1(pp[0]);
+				dto2.setPhone2(pp[1]);
+				dto2.setPhone3(pp[2]);
+				String ee[]=rs.getString("email").split("@");
+				dto2.setEmail1(ee[0]);
+				dto2.setEmail2(ee[1]);
+				
+				res.add(dto2);
+				}
+			}
+			}else {
+				if(dto.getId()!=null) {
+					
+					sql = "select * from member where id =? and black='블랙리스트'";
+					ptmt = con.prepareStatement(sql);
+					ptmt.setString(1, dto.getId());
+					rs = ptmt.executeQuery();
+
+					while(rs.next()) {
+						dto2 = new SignUpDTO();
+					dto2.setId(rs.getString("id"));
+					dto2.setPw(rs.getString("pw"));
+					dto2.setEmail(rs.getString("email"));
+					dto2.setPhone(rs.getString("phone"));
+					dto2.setCountry(rs.getString("country"));
+					dto2.setCity(rs.getString("city"));
+					dto2.setAddDetail(rs.getString("addDetail"));
+					dto2.setBlack(rs.getString("black"));
+					dto2.setPreason(rs.getString("preason"));
+					dto2.setGender(rs.getString("gender"));
+					dto2.setAddDetail(rs.getString("addDetail"));
+					dto2.setPname(rs.getString("pname"));
+					dto2.setBirth(rs.getString("birth"));
+					
+					String pp[]=rs.getString("phone").split("-");
+					dto2.setPhone1(pp[0]);
+					dto2.setPhone2(pp[1]);
+					dto2.setPhone3(pp[2]);
+					String ee[]=rs.getString("email").split("@");
+					dto2.setEmail1(ee[0]);
+					dto2.setEmail2(ee[1]);
+					
+					res.add(dto2);
+					}
+
+				}else if(dto.getPname()!=null) {
+					
+					sql = "select * from member where pname =? and black='블랙리스트'";
+					ptmt = con.prepareStatement(sql);
+					ptmt.setString(1, dto.getPname());
+					rs = ptmt.executeQuery();
+
+					while(rs.next()) {
+						dto2 = new SignUpDTO();
+					dto2.setId(rs.getString("id"));
+					dto2.setPw(rs.getString("pw"));
+					dto2.setEmail(rs.getString("email"));
+					dto2.setPhone(rs.getString("phone"));
+					dto2.setCountry(rs.getString("country"));
+					dto2.setCity(rs.getString("city"));
+					dto2.setAddDetail(rs.getString("addDetail"));
+					dto2.setBlack(rs.getString("black"));
+					dto2.setPreason(rs.getString("preason"));
+					dto2.setGender(rs.getString("gender"));
+					dto2.setAddDetail(rs.getString("addDetail"));
+					dto2.setPname(rs.getString("pname"));
+					dto2.setBirth(rs.getString("birth"));
+					
+					String pp[]=rs.getString("phone").split("-");
+					dto2.setPhone1(pp[0]);
+					dto2.setPhone2(pp[1]);
+					dto2.setPhone3(pp[2]);
+					String ee[]=rs.getString("email").split("@");
+					dto2.setEmail1(ee[0]);
+					dto2.setEmail2(ee[1]);
+					
+					res.add(dto2);
+					}
+				}else if(dto.getPhone()!=null) {
+					
+					sql = "select * from member where phone like ? and black='블랙리스트'";
+					ptmt = con.prepareStatement(sql);
+					ptmt.setString(1, "%-"+dto.getPhone());
+					rs = ptmt.executeQuery();
+
+					while(rs.next()) {
+						dto2 = new SignUpDTO();
+					dto2.setId(rs.getString("id"));
+					dto2.setPw(rs.getString("pw"));
+					dto2.setEmail(rs.getString("email"));
+					dto2.setPhone(rs.getString("phone"));
+					dto2.setCountry(rs.getString("country"));
+					dto2.setCity(rs.getString("city"));
+					dto2.setAddDetail(rs.getString("addDetail"));
+					dto2.setBlack(rs.getString("black"));
+					dto2.setPreason(rs.getString("preason"));
+					dto2.setGender(rs.getString("gender"));
+					dto2.setAddDetail(rs.getString("addDetail"));
+					dto2.setPname(rs.getString("pname"));
+					dto2.setBirth(rs.getString("birth"));
+					
+					String pp[]=rs.getString("phone").split("-");
+					dto2.setPhone1(pp[0]);
+					dto2.setPhone2(pp[1]);
+					dto2.setPhone3(pp[2]);
+					String ee[]=rs.getString("email").split("@");
+					dto2.setEmail1(ee[0]);
+					dto2.setEmail2(ee[1]);
+					
+					res.add(dto2);
+					}
+				}else if(dto.getPreason()!=null) {
+					
+					sql = "select * from member where preason= ? and black='블랙리스트'";
+					ptmt = con.prepareStatement(sql);
+					ptmt.setString(1, dto.getPreason());
+					rs = ptmt.executeQuery();
+
+					while(rs.next()) {
+						dto2 = new SignUpDTO();
+					dto2.setId(rs.getString("id"));
+					dto2.setPw(rs.getString("pw"));
+					dto2.setEmail(rs.getString("email"));
+					dto2.setPhone(rs.getString("phone"));
+					dto2.setCountry(rs.getString("country"));
+					dto2.setCity(rs.getString("city"));
+					dto2.setAddDetail(rs.getString("addDetail"));
+					dto2.setBlack(rs.getString("black"));
+					dto2.setPreason(rs.getString("preason"));
+					dto2.setGender(rs.getString("gender"));
+					dto2.setAddDetail(rs.getString("addDetail"));
+					dto2.setPname(rs.getString("pname"));
+					dto2.setBirth(rs.getString("birth"));
+					
+					String pp[]=rs.getString("phone").split("-");
+					dto2.setPhone1(pp[0]);
+					dto2.setPhone2(pp[1]);
+					dto2.setPhone3(pp[2]);
+					String ee[]=rs.getString("email").split("@");
+					dto2.setEmail1(ee[0]);
+					dto2.setEmail2(ee[1]);
+					
+					res.add(dto2);
+					}
+				}
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return res;
+	}
+	
+	
 
 	public boolean chkMem(SignUpDTO dto) {
 		
-		sql = "select * from member where id = ?";
+
 		boolean res = false;
 		try {
-			ptmt = con.prepareStatement(sql);
-			ptmt.setString(1, dto.getId());
-			rs = ptmt.executeQuery();
+			
+			
+			if(dto.getId()!=null) {
+				
+				sql = "select * from member where id =?";
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, dto.getId());
+				rs = ptmt.executeQuery();
 
-			res=rs.next();
+				res=rs.next();
+			}else if(dto.getPname()!=null) {
+				
+				sql = "select * from member where pname =?";
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, dto.getPname());
+				rs = ptmt.executeQuery();
+
+				res=rs.next();
+			}else if(dto.getPhone()!=null) {
+				
+				sql = "select * from member where phone like ?";
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, "%-"+dto.getPhone());
+				rs = ptmt.executeQuery();
+
+				res=rs.next();
+			}
+			
+			
 			
 
 		} catch (SQLException e) {
