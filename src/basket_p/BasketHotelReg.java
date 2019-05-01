@@ -55,6 +55,7 @@ public class BasketHotelReg implements MvcAction {
 				ArrayList<BasketDTO> myHotBasketList = new BasketDAO().myList(bdto); // Basket에있는 나의 호텔 목록들
 
 				AAA: for (BasketDTO myHotBasket : myHotBasketList) {
+					
 					BasketItemDTO bidto = new BasketItemDTO();
 					bidto.setBasketID(myHotBasket.getBasketID());
 					bidto.setDdate(startDay);

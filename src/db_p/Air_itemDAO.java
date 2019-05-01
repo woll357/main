@@ -35,17 +35,7 @@ public class Air_itemDAO {
 	//select air_name, air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code;
 	
 	//관리자
-	
-	
-	
-	
 
-	
-	
-	
-	
-	
-	
 	public void insert(Air_itemDTO dto) {
 			
 			
@@ -1113,6 +1103,32 @@ public Object mair_planeitemlist(String ap_code ) {
 		return res;
 	}
 	
+	   public void seatcnt(Air_itemDTO dto) {
+      
+		      try {
+		         
+		         sql = "update air_item set seatcnt = ?  " 
+		         + "where ccode =  ? ";
+		         
+		         
+		         ptmt = con.prepareStatement(sql);
+		         
+		         ptmt.setInt(1, dto.getSeatcnt());
+		         ptmt.setString(2, dto.getCcode());
+		      
+		         
+		         ptmt.executeUpdate();
+		          
+		          
+		         
+		      } catch (SQLException e) {
+		         // TODO Auto-generated catch block
+		         e.printStackTrace();
+		      }finally {
+		         
+		         close();
+		      }
+	   }
 	public void close() {
 		if(rs!=null) try {rs.close();} catch (SQLException e) {	}
 		if(ptmt!=null) try {ptmt.close();} catch (SQLException e) {	}
