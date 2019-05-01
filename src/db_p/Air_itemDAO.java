@@ -39,17 +39,25 @@ public class Air_itemDAO {
 	
 	
 	
+
+	
+	
+	
+	
+	
+	
 	public void insert(Air_itemDTO dto) {
 			
 			
 		
 		try {
-			sql = "insert into air_item (ap_code, ddate, darea, img , air_code , carea , money, totseatcnt, flightclass , air_p ,ccode ,a_time )" 
-			+ " values (                   ?   ,    ?  ,   ? ,   ? , ?, ? ,    ? ,       ? ,       ? ,      'jd100' , '..' ,? )";
+			sql = "insert into air_item (ap_code, ddate, darea, img , air_code , carea , money,  a_time ,  air_p)" 
+			                + " values (    ?   ,   ?  ,   ? ,   ? ,     ?,       ? ,       ? ,     ? ,      ?  )";
 				//                        비행기코드
 				
 				
 				ptmt = con.prepareStatement(sql);
+				
 				ptmt.setString(1, dto.getAp_code());
 				ptmt.setString(2, dto.getDdateStr());
 				ptmt.setString(3, dto.getDarea());
@@ -57,11 +65,11 @@ public class Air_itemDAO {
 				ptmt.setString(5, dto.getAir_code());
 				ptmt.setString(6, dto.getCarea());
 				ptmt.setInt(7, dto.getMoney());
-				ptmt.setInt(8, dto.getTotseatcnt());
-				ptmt.setString(9, dto.getFlightclass());
-				ptmt.setString(10, dto.getA_timeStr());
-			//	ptmt.setString(8, dto.getAir_p());
-//				ptmt.setString(9, dto.getCcode());
+				ptmt.setString(8, dto.getA_timeStr());
+				ptmt.setString(9, dto.getAir_p());
+//				ptmt.setInt(8, dto.getTotseatcnt());
+				//	ptmt.setString(9, dto.getFlightclass());
+
 				
 				ptmt.executeUpdate();
 				
@@ -79,18 +87,6 @@ public class Air_itemDAO {
 				
 				ptmt.executeUpdate();
 			
-				System.out.println("마지막ㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱ");
-				
-				
-			/*
-			 * ptmt = con.prepareStatement(sql); sql =
-			 * "select leadtime from locationinfo where darea = ? and carea = ? " ;
-			 * 
-			 * ptmt.setString(1, dto.getDarea()); ptmt.setString(2, dto.getCarea());
-			 * 
-			 * ptmt.executeUpdate();
-			 */
-				
 				
 				
 			} catch (SQLException e) {
@@ -103,83 +99,12 @@ public class Air_itemDAO {
 	
 		}
 	
-	//관리자 inert 필요없음
-//public void minsert(Air_itemDTO dto) {
-//			
-//			
-//		
-//		try {
-//			sql = "insert into air_item ( ap_code, ddate, darea, img , air_code , carea , money, totseatcnt, flightclass , air_p ,ccode ,a_time )" 
-//			+ " values (                   ?   ,    ?  ,     ? ,  ? ,       ?,         ? ,    ? ,       ? ,       ? ,      'jd100' , '..' ,? )";
-//				//                        비행기코드
-//				
-//				
-//				ptmt = con.prepareStatement(sql);
-//				ptmt.setString(1, dto.getAp_code());
-//				ptmt.setString(2, dto.getDdateStr());
-//				ptmt.setString(3, dto.getDarea());
-//				ptmt.setString(4, dto.getImg());
-//				ptmt.setString(5, dto.getAir_code());
-//				ptmt.setString(6, dto.getCarea());
-//				ptmt.setInt(7, dto.getMoney());
-//				ptmt.setInt(8, dto.getTotseatcnt());
-//				ptmt.setString(9, dto.getFlightclass());
-//				ptmt.setString(10, dto.getA_timeStr());
-//			//	ptmt.setString(8, dto.getAir_p());
-////				ptmt.setString(9, dto.getCcode());
-//				
-//				ptmt.executeUpdate();
-//				
-//				
-//				
-//				
-//				sql = "update air_item set ccode =  concat( ?  , '-' , ? ,'-' , no )  where no = " + 
-//						"(select asd from ( select Max(no) as asd from air_item ) tt);";
-//				
-//				ptmt = con.prepareStatement(sql);
-//				
-//				
-//				ptmt.setString(1, dto.getAir_code());
-//				ptmt.setString(2, dto.getAp_code());
-//				
-//				ptmt.executeUpdate();
-//			
-//				System.out.println("마지막ㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱ");
-//				
-//				
-//			/*
-//			 * ptmt = con.prepareStatement(sql); sql =
-//			 * "select leadtime from locationinfo where darea = ? and carea = ? " ;
-//			 * 
-//			 * ptmt.setString(1, dto.getDarea()); ptmt.setString(2, dto.getCarea());
-//			 * 
-//			 * ptmt.executeUpdate();
-//			 */
-//				
-//				
-//				
-//			} catch (SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}finally {
-//				
-//				close();
-//			}
-//	
-//		}
-	
-	
-	
-
-	
-	//도착시간 DAO
-	
+	//도착시간 DAO	
 	public LocationinfoDTO makea_time(LocationinfoDTO dto) {
 		
 		LocationinfoDTO res = null;
 		
-		System.out.println("등어왘ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ");
-	
+
 		try {
 			sql = "select leadtime from locationinfo where darea = ? and carea = ? " ;	
 			
@@ -192,11 +117,9 @@ public class Air_itemDAO {
 			if(rs.next()) {
 				res = new LocationinfoDTO();
 				res.setLeadtime(rs.getInt("leadtime"));
-				System.out.println("rs.getInt(\"leadtime\")rs.getInt(\"leadtime\")rs.getInt(\"leadtime\"):"+rs.getInt("leadtime"));
+				
 				
 			}
-			
-			
 			
 					
 		} catch (SQLException e) {
@@ -236,13 +159,12 @@ public class Air_itemDAO {
 			ptmt.setInt(6, dto.getTotseatcnt());
 			ptmt.setString(7, dto.getFlightclass());
 			ptmt.setString(8, dto.getCcode());
-			
-	
-			
-			//res = ptmt.executeUpdate() > 0; //익스큐트 없데이트가 1건 이상이여야 하기때문에 0이상이 되야 삭제됨 초기값은  false
+		
 			
 			 ptmt.executeUpdate();
 			 
+			 
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -255,6 +177,105 @@ public class Air_itemDAO {
 	}
 	
 	
+	
+	//항공편코드 DAO	
+		public LocationinfoDTO makeair_p(LocationinfoDTO dto) {
+			
+			LocationinfoDTO res = null;
+			
+
+			try {
+				sql = "select air_p from locationinfo where darea = ? and carea = ? " ;	
+				
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, dto.getDarea());
+				ptmt.setString(2, dto.getCarea());
+				
+				rs = ptmt.executeQuery();
+				
+				if(rs.next()) {
+					res = new LocationinfoDTO();
+					res.setAir_p(rs.getString("air_p"));					
+				}
+				
+						
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			
+			}finally {
+			   close();
+		  }
+			       
+			return res;
+		}
+	
+		
+		//이미지 DAO		
+		public Air_itemDTO makeimg(Air_itemDTO dto) {
+			
+			Air_itemDTO res = null;
+			
+
+			try {
+				sql = "select img from air_com where air_code = ? " ;	
+				
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, dto.getAir_code());
+
+				
+				rs = ptmt.executeQuery();
+				
+				if(rs.next()) {
+					res = new Air_itemDTO();
+					res.setImg(rs.getString("img"));					
+				}
+								
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			
+			}finally {
+			   close();
+		  }
+			       
+			return res;
+		}
+		
+		
+		
+		
+		
+		
+		public void updatair_p(Air_itemDTO dto) {
+			
+			
+			try {
+				
+				sql = "update air_item set air_p = ?  " + 
+						"where ccode =  ? ";
+				
+				
+				ptmt = con.prepareStatement(sql);
+				
+				ptmt.setString(1, dto.getAir_p());
+				ptmt.setString(2, dto.getCcode());
+			
+				
+				 ptmt.executeUpdate();
+				 
+				 
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				
+				close();
+			}
+			
+		
+		}
 	
 	
 	public Air_itemDTO detail(String day , String darea , String carea , String ap_code ) {
@@ -375,7 +396,7 @@ public class Air_itemDAO {
 	
 	
 		
-	
+	//상품 수정 DAO select no from air_item where ccode = 'A1000-a103-1041' ;
 		public void modify(Air_itemDTO dto) {
 		
 			
@@ -387,8 +408,7 @@ public class Air_itemDAO {
 					"darea = ? , " + 
 					"carea = ? , " + 
 					"money = ? , " + 
-					"totseatcnt = ? , " + 
-					"flightclass = ? " + 
+					"a_time = ?  " + 
 					"where ccode =  ? ";
 			
 			
@@ -399,15 +419,14 @@ public class Air_itemDAO {
 			ptmt.setString(3, dto.getDarea());
 			ptmt.setString(4, dto.getCarea());
 			ptmt.setInt(5, dto.getMoney());
-			ptmt.setInt(6, dto.getTotseatcnt());
-			ptmt.setString(7, dto.getFlightclass());
-			ptmt.setString(8, dto.getCcode());
+			ptmt.setString(6, dto.getA_timeStr());
+			ptmt.setString(7, dto.getCcode());
 			
 	
-			
-			//res = ptmt.executeUpdate() > 0; //익스큐트 없데이트가 1건 이상이여야 하기때문에 0이상이 되야 삭제됨 초기값은  false
-			
 			 ptmt.executeUpdate();
+			 
+			 
+		
 			 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -419,6 +438,41 @@ public class Air_itemDAO {
 		
 	
 	}
+		
+		//상품 수정 후 업데이트
+		public void modifyupdate(Air_itemDTO dto) {
+			
+			
+			
+			try {
+				
+			
+				sql = "update air_item set ccode =  concat( ? , '-' , ? ,'-' , no )  where  ccode =  ? ";
+					// select no from air_item where ccode = 'A1000-a103-1041'
+				//update air_item set ccode =  concat( 'A1000' , '-' , 'a104' ,'-' , no )  where  ccode = 'A1000-a103-1041';
+				ptmt = con.prepareStatement(sql);
+					
+					
+				ptmt.setString(1, dto.getAir_code());
+				ptmt.setString(2, dto.getAp_code());
+				ptmt.setString(3, dto.getCcode());	
+				
+				ptmt.executeUpdate();
+				
+				 
+				 
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				
+				close();
+			}
+			
+		
+		}
+			
+		
 		
 		
 		public Object itemlist(String air_code) {
@@ -902,6 +956,8 @@ public Object mair_planeitemlist(String ap_code ) {
 	
 	return res;
 }
+	
+	
 	
 	
 	

@@ -5,31 +5,23 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import db_p.Air_comDAO;
 import db_p.Air_comDTO;
-import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
-public class AirLine_ModifyFm implements MvcAction {
+public class FileDelete implements MvcAction {
 
 	@Override
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		HttpSession session = request.getSession();
-		
-	System.out.println(" AirLine_ModifyFm 페이지 진입");
-	System.out.println(" 항공사가 수정이 되는 페이지");
-		
 		String path = request.getRealPath("/img");
 		path = "C:\\apache-tomcat-8.5.38\\webapps\\mainProj\\img";
-		
 		
 		try {
 			MultipartRequest mm = new MultipartRequest(
@@ -39,39 +31,34 @@ public class AirLine_ModifyFm implements MvcAction {
 					"utf-8",
 					new DefaultFileRenamePolicy()
 					);
-		      
-		      Air_comDTO dto = new Air_comDTO();
-		      
-		 
-		    
-		   
+	
+			
+			Air_comDTO dto = new Air_comDTO();
 			
 			
-			if(mm.getParameter("img")!=null) {
-				
-				  dto.setImg(mm.getParameter("img"));
-			}else {
-				dto.setImg(mm.getFilesystemName("img"));
-			}
-			
-			dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
-			
+			dto.setAir_code(mm.getParameter("air_code"));
+		
+		
 			String msg = "";
-			String goUrl = "aircom_detail";
 			
+			Air_comDTO dto2 = new Air_comDAO().fileDelete(dto);
 			
-			if(new Air_comDAO().aircommodify(dto)) {
-				msg = "수정되었습니다.";
-				goUrl = "AirLine_Detail?id="+dto.getId();
+			if(dto2!=null) {
 				
-			}else if((mm.getParameter("img")==null)){
-				File ff = new File(path+"\\"+dto.getImg());
+				///파일삭제
+				File ff = new File(path+"\\"+dto2.getImg());
 				ff.delete();
+				msg = "파일이 삭제되었습니다.";
+				
+			}else {
+				dto.setImg(mm.getParameter("img"));
 			}
 			
+			
+			request.setAttribute("dto", dto);			
 			request.setAttribute("msg", msg);
-			request.setAttribute("goUrl", goUrl);
-			request.setAttribute("mainUrl", "air/alert.jsp");
+			request.setAttribute("goUrl", "AirLine_Detail?aotcont=in");		
+			request.setAttribute("mainUrl", "air/ModifyForm.jsp");
 			
 			
 		} catch (IOException e) {
@@ -80,9 +67,8 @@ public class AirLine_ModifyFm implements MvcAction {
 		}
 		
 		
-		return null;
-
 		
+		return null;
 	}
 
 }

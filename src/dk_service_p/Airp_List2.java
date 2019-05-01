@@ -29,7 +29,7 @@ public class Airp_List2 implements MvcAction {
 	      request.setAttribute("dto", dao.air_pitemlist3(request.getParameter("air_p"), ((SignUpDTO) session.getAttribute("mem")).getAir_code()));      
 	     
 	      
-	      System.out.println("항공편 리스트 진입");
+	   
 	      
 		return null;
 	}

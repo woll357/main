@@ -10,6 +10,8 @@ import javax.servlet.http.HttpSession;
 
 import db_p.Air_itemDAO;
 import db_p.Air_itemDTO;
+import db_p.Air_planeDAO;
+import db_p.Airp_detailsDAO;
 import db_p.LocationinfoDTO;
 import db_p.SignUpDTO;
 import di.MvcAction;
@@ -27,31 +29,44 @@ public class AirItem_InsertReg implements MvcAction {
 		Air_itemDTO dto = new Air_itemDTO();
 		
 		String darea = request.getParameter("darea");
-		String ddate = request.getParameter("ddate");
+		String ddate = request.getParameter("ddate")+" "+request.getParameter("h")+":"+request.getParameter("m")+":"+request.getParameter("s");
 		String carea = request.getParameter("carea");
+		String air_code = ((SignUpDTO) session.getAttribute("mem")).getAir_code();
+		String ap_code = request.getParameter("ap_code");
+		String msg = "";
+		String goUrl = "";
 		
-	
-		dto.setAp_code(request.getParameter("ap_code"));
+		Air_itemDTO dto2 = new Air_itemDTO();
+		dto2.setAir_code(air_code);
+		
+		dto2 = new Air_itemDAO().makeimg(dto2);
+		
+		dto.setAp_code(ap_code);
 		dto.setDdateStr(ddate);
 		dto.setDarea(darea);
-		dto.setImg("..");
-		dto.setAir_code(((SignUpDTO) session.getAttribute("mem")).getAir_code());
+		dto.setImg(dto2.getImg());
+		dto.setAir_code(air_code);
 		dto.setCarea(carea);
 		dto.setMoney(Integer.parseInt(request.getParameter("money")));
-		dto.setTotseatcnt(Integer.parseInt(request.getParameter("totseatcnt")));
-		dto.setFlightclass(request.getParameter("flightclass"));
 		
 		
 		
 		
-		 LocationinfoDTO ldto = new LocationinfoDTO();
+		LocationinfoDTO ldto = new LocationinfoDTO();
 		
 		ldto.setCarea(carea);
 		ldto.setDarea(darea);
 		
 		
-	
 		ldto = new Air_itemDAO().makea_time(ldto);
+		
+		LocationinfoDTO pdto = new LocationinfoDTO();
+		pdto.setDarea(darea);
+		pdto.setCarea(carea);
+		
+		pdto = new Air_itemDAO().makeair_p(pdto);
+		
+		dto.setAir_p(pdto.getAir_p());
 		
 	
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -61,6 +76,7 @@ public class AirItem_InsertReg implements MvcAction {
 		try {
 			a_time = sdf.parse(ddate);
 			
+		
 			
 			a_time.setMinutes(a_time.getMinutes()+ldto.getLeadtime());
 			
@@ -71,11 +87,27 @@ public class AirItem_InsertReg implements MvcAction {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if(new Air_planeDAO().apvalidity(ap_code)) {			
+			msg = "추가되었습니다.";
+			goUrl = "AirItem_List?aotcont=in";
+			
+			
+			
+			
+			new Air_itemDAO().insert(dto);
+			new Airp_detailsDAO().airConvert();
+			
+		}else {
+			
+			msg = "없는 비행기입니다.";
+			goUrl = "AirItem_Insert";
+		}
 		
-		new Air_itemDAO().insert(dto);
 		
-		request.setAttribute("msg", "작성되었습니다");
-		request.setAttribute("goUrl", "AirHomeMain");
+	
+		
+		request.setAttribute("msg", msg);
+		request.setAttribute("goUrl", goUrl);
 		request.setAttribute("mainUrl", "air/alert.jsp");
 		
 		

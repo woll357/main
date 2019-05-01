@@ -75,13 +75,14 @@ public class Air_planeDAO {
 	
 	public void airplaneinsert(Air_planeDTO dto) {
 		
-		sql = "insert into air_plane (air_code , ap_code ) values"
-				+ "(? , ?)";
+		sql = "insert into air_plane (air_code , ap_code , air_ty ) values"
+				+ "(? , ? , ? )";
 		
 		try {
 			ptmt = con.prepareStatement(sql);
 			ptmt.setString(1, dto.air_code);
 			ptmt.setString(2, dto.ap_code);
+			ptmt.setString(3, dto.air_ty);
 			
 			ptmt.executeUpdate();
 			
@@ -124,9 +125,36 @@ public class Air_planeDAO {
 		
 		
 	}
-	
-	
-	
+	//비향기 유효성
+	public boolean apvalidity(String ap_code) {
+			
+		boolean res = false;
+			
+			sql = "select ap_code from air_plane where ap_code = ? ";
+			
+			try {
+				
+				ptmt = con.prepareStatement(sql);
+				
+				ptmt.setString(1, ap_code);
+				
+				rs = ptmt.executeQuery();
+				
+				
+				res = rs.next();
+					
+				
+					
+				
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return res;
+			
+		}
 	
 	
 	
