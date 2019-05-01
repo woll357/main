@@ -72,6 +72,7 @@ public class SignUpDAO {
 				res = new SignUpDTO();
 				res.setId(rs.getString("id"));
 				res.setGrade(rs.getString("grade"));
+				res.setPname(rs.getString("pname"));
 			}
 
 		} catch (SQLException e) {
@@ -407,6 +408,18 @@ public class SignUpDAO {
 			res.setAddDetail(rs.getString("addDetail"));
 			res.setBlack(rs.getString("black"));
 			res.setPreason(rs.getString("preason"));
+			res.setGender(rs.getString("gender"));
+			res.setAddDetail(rs.getString("addDetail"));
+			res.setPname(rs.getString("pname"));
+			res.setBirth(rs.getString("birth"));
+			
+			String pp[]=rs.getString("phone").split("-");
+			res.setPhone1(pp[0]);
+			res.setPhone2(pp[1]);
+			res.setPhone3(pp[2]);
+			String ee[]=rs.getString("email").split("@");
+			res.setEmail1(ee[0]);
+			res.setEmail2(ee[1]);
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

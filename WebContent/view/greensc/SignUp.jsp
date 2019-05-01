@@ -140,12 +140,14 @@
 	
 	function chkPat(){
 		
-		var numPat = /[0-9]/;
+		var numPat = /^\d*$/;
 		var korPat = /^[가-힣]*$/;
-		var spPat = /[.!@#$%^&*-]/;
-		var engPat = /[A-z]/;
+		var spPat = /[+.!@#$%^&*-]/;
+		var engPat = /^[A-Za-z]*$/;
 		var emailPat = /(\w+)[.](\w+)$/
-		var idPat =/[0-9A-z]/;
+		var idPat =/^[0-9A-Za-z]*$/;
+		
+		
 		
 		var lastDay = ( new Date(eval($('#birth').val().slice(0,4))+1900, 
 				eval($('#birth').val().slice(4,6))+2, 0)).getDate();
@@ -162,7 +164,7 @@
 		}
 		
 		
-		if(!spPat.test($('#email1').val()) && engPat.test($('#email1').val())
+		if(idPat.test($('#email1').val()) && engPat.test($('#email1').val())
 				&& emailPat.test($('#email2').val())){
 			$('#emTag').html("정상입력");
 			 chk5=true;
@@ -173,7 +175,7 @@
 			msg = "이메일 확인 부탁드립니다.";
 		
 			}
-		if(!/[.!@#$%^&*A-z]/.test($('#addDetail').val()) && $('#addDetail').val().length>0 && $('#addDetail').val()!="상세주소"){
+		if(!/[.!@#$%^&*A-Za-z]/.test($('#addDetail').val()) && $('#addDetail').val().length>0 && $('#addDetail').val()!="상세주소"){
 			$('#addTag').html("정상입력");
 			chk8=true;
 		}else{
@@ -202,7 +204,7 @@
 			msg = "이름 확인 부탁드립니다.";
 			$('#nameTag').html("한글이름");
 		}
-		if(!spPat.test($('#pw').val()) && $('#pw').val().length>7 && $('#pw').val().length<17){		
+		if(idPat.test($('#pw').val()) && $('#pw').val().length>7 && $('#pw').val().length<17){		
 			$('#pwTag').html("정상입력");
 			chk1=true;
 		}else{
@@ -232,11 +234,11 @@
 	
 	function butPat(){
 		
-		var numPat = /[0-9]/;
-		var idPat =/[0-9A-z]/;
-		var spPat = /[.!@#$%^&*-]/;
+		var numPat = /^\d*$/;
+		var idPat =/^[0-9A-Za-z]*$/;
 		
-		if(!spPat.test($('#id').val()) && (idPat.test($('#id').val()))
+		
+		if( (idPat.test($('#id').val()))
 			&& $('#id').val().length>3 && $('#id').val().length<9){
 			chk6=true;
 			$('#idTag').html("정상입력");
@@ -262,11 +264,11 @@
 			$('#phoneBtn').attr("disabled","disabled");
 
 		}
-		
+		if(chk1 && chk2 && chk3 && chk4 && chk5 && chk6 && chk7 && chk8){
+			chk=true;
+		}
 	}
-	if(chk1 && chk2 && chk3 && chk4 && chk5 && chk6 && chk7 && chk8){
-		chk=true;
-	}
+	
 	
 	</script>
 	
