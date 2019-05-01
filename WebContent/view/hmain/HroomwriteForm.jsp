@@ -6,9 +6,44 @@
     		object.value = object.value.slice(0, object.maxLength);
     	}
     }
+    $(document).ready(function(){       	
+    	$('.roomsignup').on({
+     	'click':function(){  
+	
+     		var img = $('#rimg').val();
+     		console.log(img);
+     		
+     		if($('#rcnt').val()=='' || $('#money').val()=='' || $('#wmoney').val()=='' || $('#rimg').val()=='') {
+     			alert("기입이 완료되지않았습니다.")
+     			rmsign.button();
+     		}
+     		
+     		if(img!=null) {
+        		var ssimg = img.substring(img.lastIndexOf(".")+1);
+        		console.log(ssimg);
+         		if($('#rcnt').val()<0 || $('#money').val()<0 || $('#wmoney').val()<0 || ssimg=='txt' 
+         				|| ssimg=='doc' || ssimg=='hwp' || ssimg=='ppt' || ssimg=='xls' || ssimg=='pptx'
+         				|| ssimg=='xlsx' || ssimg=='docx' || ssimg=='mp3' || ssimg=='wma' || ssimg=='wav'){
+          			alert("값이 잘못되었습니다.");
+     			}
+         		else{
+               		rmsign.submit();
+           		 }
+       		 }
+     		else {
+     			if(($('#rcnt').val()<0 || $('#money').val()<0 || $('#wmoney').val()<0) ){
+     				alert("값이 잘못되었습니다.")
+     			}else{
+     			rmsign.submit();
+     			}
+     		}
+    	 }      
+  		})
+  	  })
+	    
     
     </script>
-<form action="HroomwriteReg" method="post" enctype="multipart/form-data">
+<form name="rmsign" action="HroomwriteReg" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="hcode" value="${mem.hcode }"  />
 
 	<table border="">
@@ -29,7 +64,7 @@
 				<option value=4>4</option>
 				<option value=5>5</option>
 			</select></td> -->
-			<td><input type="number" name="rcnt" maxlength="2" oninput="maxLengthCheck(this)"></td>
+			<td><input type="number" name="rcnt" maxlength="2" oninput="maxLengthCheck(this)" id="rcnt"></td>
 		</tr>
 		<tr>
 			<td>방인원</td>
@@ -40,15 +75,15 @@
 		</tr>
 		<tr>
 			<td>방이미지</td>
-			<td><input type="file" name="rimg" /></td>
+			<td><input type="file" name="rimg" id="rimg"/></td>
 		</tr>
 		<tr>
 			<td>금액</td>
-			<td><input type="number" name="money" /></td>
+			<td><input type="number" name="money" id="money"/></td>
 		</tr>
 		<tr>
 			<td>주말금액</td>
-			<td><input type="number" name="wmoney" /></td>
+			<td><input type="number" name="wmoney" id="wmoney" /></td>
 		</tr>
 		<tr>
 			<td>wifi여부</td>
@@ -66,7 +101,7 @@
 		</tr>
 		<tr>
 			<td colspan="2" align="right">
-			<input type="submit" value="작성" />
+			<input type="button" value="작성" class="roomsignup"/>
 			<input type="reset" value="초기화" />
 			</td>
 		</tr>

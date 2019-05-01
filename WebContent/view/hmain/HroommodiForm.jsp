@@ -4,7 +4,7 @@
 <h3>방수정</h3>
     <script>    	
     
-    	var chk = true;
+    	
     	
     	
     	function fileDelete() {
@@ -16,18 +16,41 @@
         		object.value = object.value.slice(0, object.maxLength);
         	}
         }
-        $(document).ready(function(){       	
+         $(document).ready(function(){       	
         	$('.modimodi').on({
-         	'click':function(){           
-          	  if($('#rcnt').val()<0 || $('#money').val()<0 || $('#wmoney').val()<0){
-          			alert("값이 잘못되었습니다.");
-           	 }else{
-               		roommod.submit();
+         	'click':function(){  
+		
+         		var img = $('#rimg').val();
+         		console.log(img);
+         		
+         		if($('#rcnt').val()=='' || $('#money').val()=='' || $('#wmoney').val()=='' || $('#rimg').val()=='') {
+         			alert("기입이 완료되지않았습니다.")
+         			roommod.button();
+         		}
+         		
+         		if(img!=null) {
+            		var ssimg = img.substring(img.lastIndexOf(".")+1);
+            		console.log(ssimg);
+             		if($('#rcnt').val()<0 || $('#money').val()<0 || $('#wmoney').val()<0 || ssimg=='txt' 
+             				|| ssimg=='doc' || ssimg=='hwp' || ssimg=='ppt' || ssimg=='xls' || ssimg=='pptx'
+             				|| ssimg=='xlsx' || ssimg=='docx' || ssimg=='mp3' || ssimg=='wma' || ssimg=='wav'){
+              			alert("값이 잘못되었습니다.");
+         			}
+             		else{
+                   		roommod.submit();
+               		 }
            		 }
+         		else {
+         			if(($('#rcnt').val()<0 || $('#money').val()<0 || $('#wmoney').val()<0) ){
+         				alert("값이 잘못되었습니다.")
+         			}else{
+         			roommod.submit();
+         			}
+         		}
         	 }      
       		})
       	  })
-        
+         
         
     </script>
 
@@ -70,10 +93,10 @@
 			<c:choose>
 				<c:when test="${dto.rimg!=null }">
 					${dto.rimg }<input type="button" value="파일삭제" onclick="fileDelete()"/>	
-					<input type="hidden" name="rimg" value="${dto.rimg }"  />
+					<input type="hidden" name="rimg" value="${dto.rimg }"  id="rimg" />
 				</c:when>
 				<c:otherwise>
-					<input type="file" name="rimg" />	
+					<input type="file" name="rimg" id="rimg" />	
 				</c:otherwise>			
 			</c:choose>		
 			</td>
