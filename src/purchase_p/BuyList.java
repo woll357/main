@@ -17,12 +17,10 @@ public class BuyList implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		String id = ((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
-		String bstatus = "p";
 		
 		BasketpaidDTO bpdto = new BasketpaidDTO();
 		
 		bpdto.setId(id);
-		bpdto.setBstatus(bstatus);
 		
 		ArrayList<BasketpaidDTO> blists =  new BasketpaidDAO().myList(bpdto);
 		ArrayList<BasketpaidDTO> adtos =  new ArrayList<BasketpaidDTO>();
