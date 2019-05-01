@@ -36,7 +36,7 @@
 		<c:if test="${data.rkind=='D' }">
 		<td>디럭스룸</td>
 		</c:if>
-		<td><a href="HroomModiForm?rcode=${data.rcode }">방수정</a></td>
+		<td><a href="HroomModiForm?rcode=${data.rcode }&partner=in">방수정</a></td>
 	</tr>
 	<tr>
 		<td>방갯수</td>

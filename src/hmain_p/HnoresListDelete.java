@@ -28,7 +28,7 @@ public class HnoresListDelete implements MvcAction {
 		System.out.println("넌 어떻게나오니"+request.getParameter("rcode"));
 		String goUrl = "";
 		new Hot_tempDAO().holddelete(dto);
-		goUrl = "Hdetail";
+		goUrl = "Hdetail?hotcont=in";
 		request.setAttribute("goUrl", goUrl);
 		request.setAttribute("mainUrl", "hmain/alert.jsp");
 		

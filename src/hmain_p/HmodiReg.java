@@ -48,7 +48,7 @@ public class HmodiReg implements MvcAction {
 			String goUrl = ""; 
 			
 			new Hot_tempDAO().hotmodify(dto);
-			goUrl="Hmain";
+			goUrl="Hdetail?hotcont=in";
 
 					
 			request.setAttribute("goUrl", goUrl);

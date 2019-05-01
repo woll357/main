@@ -55,7 +55,7 @@ public class HroomwriteReg implements MvcAction {
 			
 			new Hot_tempDAO().roomwrite(dto);
 			
-			String goUrl ="Hmain";
+			String goUrl ="Hdetail?hotcont=in";
 			request.setAttribute("goUrl", goUrl);
 			request.setAttribute("mainUrl", "hmain/alert.jsp");
 			

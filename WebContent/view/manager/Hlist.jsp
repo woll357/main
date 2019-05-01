@@ -3,17 +3,25 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <h2>관리자호텔리스트보기</h2>
 
-<form action="HlistSearch?partner=in">
+<form action="HlistSearch?partner=in" method="post">
 	<table border="">
 		<tr>
-			<td>호텔코드로검색</td>
+			<td>코드검색</td>
 			<td><input type="text" name="hcode" /></td>
 			<td><input type="submit" value="검색" /></td>
 		</tr>
 	</table>
-
 </form>
-
+<form>
+	<table border="">
+		<tr>
+			<td>나라검색</td>
+			<td><input type="text" name="country" /></td>
+			<td><input type="submit" value="검색" /></td>
+		</tr>
+	</table>
+</form>
+<br><br>
 <table border="">
 <c:forEach var="dto" items="${data }" varStatus="no">	
 	<tr>
