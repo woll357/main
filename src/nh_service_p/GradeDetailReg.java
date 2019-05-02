@@ -43,6 +43,7 @@ public class GradeDetailReg implements MvcAction {
 			dto.setAir_name(request.getParameter("air_name"));
 			dto.setGrade(request.getParameter("grade"));
 			dto.setImg(request.getParameter("img"));
+			dto.setSalesPercent(request.getParameter("salesPercent"));
 			dao.gradeAirUpup(dto);
 			
 			
@@ -57,6 +58,7 @@ public class GradeDetailReg implements MvcAction {
 			dto.setGrade(request.getParameter("grade"));
 			dto.setHcode("H"+request.getParameter("no"));
 			dto.setHimg(request.getParameter("himg"));
+			dto.setSalesPercent(request.getParameter("salesPercent"));
 			dao.gradeHotUpup(dto);
 		}
 		
