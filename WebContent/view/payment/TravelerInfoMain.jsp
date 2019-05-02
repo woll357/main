@@ -4,14 +4,22 @@
 <%request.setCharacterEncoding("utf-8"); %>
 
 <h1>여행객 정보 입력 페이지</h1>
-<form action="../payment/TravelerInfoReg" method="post">
+<form name="frm" action="../payment/TravelerInfoReg" method="post">
 
-<input type="hidden" name="id" value="1111"/>
 <c:forEach var="l" items="${basketIDs }" >
 
 <input type="hidden" name="basketIDs" value="${l }"  />
 
 </c:forEach>
+
+<c:choose>
+<c:when test="${airBaskets.size()==0 }">
+	
+	<script>
+		frm.submit();
+	</script>
+</c:when>
+</c:choose>
 
 	<c:forEach var="i" items="${airBaskets }" >
 	

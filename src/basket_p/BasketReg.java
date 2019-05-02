@@ -47,7 +47,6 @@ public class BasketReg implements MvcAction {
 				
 			}
 		}
-		
 		request.setAttribute("airBaskets", airBaskets);
 		request.setAttribute("basketIDs", basketIDs);
 		request.setAttribute("mainUrl", "payment/TravelerInfoMain.jsp");
