@@ -107,6 +107,9 @@ public class BasketAirReg implements MvcAction {
 		}
 		new BasketGo(id, request, response);
 
+		request.setAttribute("goUrl", "BasketMain");
+		request.setAttribute("mainUrl", "basket/alert.jsp");
+		
 		// 장바구니에 보여줄 내용
 		// 항공사명- 비행기코드, 출발날짜, 도착날짜, 출발도시, 도착도시, 예약인원, 총액,
 		//
