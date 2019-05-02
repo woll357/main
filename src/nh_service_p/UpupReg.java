@@ -28,6 +28,12 @@ public class UpupReg implements MvcAction {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+		
+		
+		
+		
 
 		String path = request.getRealPath("/img");
 		path = new Common().getPath();
@@ -41,6 +47,8 @@ public class UpupReg implements MvcAction {
 			dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
 			dto.setGrade(mm.getParameter("grade"));
 
+			
+			System.out.println("중복체크 합니다."+new SignUpDAO().chkApply(dto));
 			if (new SignUpDAO().chkApply(dto)) {
 				request.setAttribute("msg", "이미 신청하셨습니다.");
 				request.setAttribute("mainUrl", "greensc/alert.jsp");
@@ -64,6 +72,8 @@ public class UpupReg implements MvcAction {
 						dto.setAir_name(mm.getParameter("air_name"));
 						dto.setAir_codecom(mm.getParameter("air_codecom"));
 						dto.setImg(mm.getFilesystemName("img"));
+						dto.setSalesPercent(mm.getParameter("salesPercent"));
+						
 					} else {
 
 						dto.setCrn(mm.getParameter("crn"));
@@ -71,6 +81,7 @@ public class UpupReg implements MvcAction {
 						dto.setHname(mm.getParameter("hname"));
 						dto.setHinfo(mm.getParameter("hinfo"));
 						dto.setHimg(mm.getFilesystemName("himg"));
+						dto.setSalesPercent(mm.getParameter("salesPercent"));
 					}
 
 					new SignUpDAO().upupGrade(dto);

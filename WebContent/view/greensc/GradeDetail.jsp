@@ -2,11 +2,35 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<script src="../js/jquery-3.3.1.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+	
+	 
+	   $('#ok').on({
+	      'click':function(){
+	    	  $('#ff').attr('action','GradeDetailReg');
+	    	  frm.submit();
+	      }
+	   });
+	   $('#no').on({
+		      'click':function(){
+		    	  $('#ff').attr('action','RejectUp');
+		    	  frm.submit();
+		      }
+		   });
+});
+</script>
+
+
+
 
 <c:choose>
 
 <c:when test="${param.rq=='mg' }">
-    <form action="GradeDetailReg" method="post">
+    <form action="GradeDetailReg" method="post" name="frm" id="ff">
     <input type="hidden" name="id" value="${dto.id }"/>
     <input type="hidden" name="bnum" value="${dto.bnum }"/>
     <input type="hidden" name="grade" value="${dto.grade }"/>
@@ -29,7 +53,10 @@
     			<td>${dto.time }</td>
     		</tr>
     		<tr>
-    			<td colspan="2"><input type="submit" value="승인"/></td>
+    			<td colspan="2">
+    			<input type="button" value="승인" id="ok"/>
+    			<input type="button" value="거절" id="no"/>
+    			</td>
     		</tr>
     	</table>
     </form>
@@ -37,7 +64,7 @@
 </c:when>
 
 <c:when test="${param.rq=='air' }">
-    <form action="GradeDetailReg" method="post">
+    <form action="GradeDetailReg" method="post" name="frm" id="ff">
     <input type="hidden" name="no" value="${dto.no }"/>
     <input type="hidden" name="id" value="${dto.id }"/>
     <input type="hidden" name="crn" value="${dto.crn }"/>
@@ -45,6 +72,7 @@
     <input type="hidden" name="grade" value="${dto.grade }"/>
     <input type="hidden" name="air_codecom" value="${dto.air_codecom }"/>
     <input type="hidden" name="img" value="${dto.img }"/>
+    <input type="hidden" name="salesPercent" value="${dto.salesPercent }"/>
     	<table border="">
     		<tr>
     			<td>요청 등급</td>
@@ -63,6 +91,10 @@
     			<td>${dto.air_name }</td>
     		</tr>
     		<tr>
+    			<td>요청 수익률</td>
+    			<td>${dto.salesPercent }%</td>
+    		</tr>
+    		<tr>
     			<td>항공사 사진</td>
     			<td><img alt="" src="../img/${dto.img }"> </td>
     		</tr>
@@ -71,7 +103,8 @@
     			<td>${dto.time }</td>
     		</tr>
     		<tr>
-    			<td colspan="2"><input type="submit" value="승인"/></td>
+    			<td colspan="2"><input type="button" value="승인" id="ok"/>
+    			<input type="button" value="거절" id="no"/></td>
     		</tr>
     	</table>
     </form>
@@ -82,7 +115,7 @@
 
 <c:otherwise>
 
-<form action="GradeDetailReg" method="post">
+<form action="GradeDetailReg" method="post" name="frm" id="ff">
     <input type="hidden" name="no" value="${dto.no }"/>
     <input type="hidden" name="id" value="${dto.id }"/>
     <input type="hidden" name="crn" value="${dto.crn }"/>
@@ -92,6 +125,7 @@
     <input type="hidden" name="hinfo" value="${dto.hinfo }"/>
     <input type="hidden" name="grade" value="${dto.grade }"/>
     <input type="hidden" name="himg" value="${dto.himg }"/>
+    <input type="hidden" name="salesPercent" value="${dto.salesPercent }"/>
     	<table border="">
     	<tr>
     			<td>요청 등급</td>
@@ -110,6 +144,10 @@
     			<td>${dto.hname }</td>
     		</tr>
     		<tr>
+    			<td>요청 수익률</td>
+    			<td>${dto.salesPercent }%</td>
+    		</tr>
+    		<tr>
     			<td>호텔 사진</td>
     			<td><img alt="" src="../img/${dto.himg }"></td>
     		</tr>
@@ -119,7 +157,8 @@
     			<td>${dto.time }</td>
     		</tr>
     		<tr>
-    			<td colspan="2"><input type="submit" value="승인"/></td>
+    			<td colspan="2"><input type="button" value="승인" id="ok"/>
+    			<input type="button" value="거절" id="no"/></td>
     		</tr>
     	</table>
     </form>

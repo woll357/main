@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <script src="../js/jquery-3.3.1.min.js"></script>
 
+	
 <script>
 
 $(document).ready(function(){
@@ -52,6 +53,8 @@ $(document).ready(function(){
 		<td colspan="2">신청 양식</td>
 	</tr>
 	<tr>
-		<td colspan="2" id="contents"></td>
+		<td colspan="2" id="contents">
+		
+		</td>
 	</tr>
 </table>

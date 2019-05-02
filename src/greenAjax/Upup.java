@@ -12,7 +12,7 @@ public class Upup implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		System.out.println("ajaj");
+		
 		return null;
 	}
 

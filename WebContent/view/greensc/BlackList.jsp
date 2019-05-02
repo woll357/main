@@ -64,7 +64,7 @@ $(document).ready(function(){
 		$.ajax(url,
                 {
                    success:function(dd){	                       
-                	   $("#contents").html(dd);
+                	   alert("??");
                       
                    },
                    error:function(){

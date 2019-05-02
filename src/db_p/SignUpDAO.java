@@ -130,37 +130,37 @@ public class SignUpDAO {
 
 	public boolean chkApply(SignUpDTO dto) {
 		boolean res = false;
-		boolean cc = true;
 		try {
 
-			if (cc) {
-				sql = "select * from hot_temp where id=?";
+			
+				sql = "select * from air_temp,air_com,hot_com,hot_temp,manager,manager_temp where " + 
+						"air_temp.id=? or air_com.id=? or hot_com.id=? or hot_temp.id=? or manager.id=? or manager_temp.id=? " + 
+						"or air_temp.crn=? or air_com.crn=? or hot_com.crn=? or hot_temp.crn=? or " + 
+						"manager.bnum=? or manager_temp.bnum=?";
 
 				ptmt = con.prepareStatement(sql);
+				
 				ptmt.setString(1, dto.getId());
+				ptmt.setString(2, dto.getId());
+				ptmt.setString(3, dto.getId());
+				ptmt.setString(4, dto.getId());
+				ptmt.setString(5, dto.getId());
+				ptmt.setString(6, dto.getId());
+				ptmt.setString(7, dto.getCrn());
+				ptmt.setString(8, dto.getCrn());				
+				ptmt.setString(9, dto.getCrn());
+				ptmt.setString(10, dto.getCrn());
+				ptmt.setString(11, dto.getBnum());
+				ptmt.setString(12, dto.getBnum());
+				
 				rs = ptmt.executeQuery();
 
 				res = rs.next();
-				cc=false;
+				
 
-			} else if (cc) {
-				sql = "select * from air_temp where id=?";
-
-				ptmt = con.prepareStatement(sql);
-				ptmt.setString(1, dto.getId());
-				rs = ptmt.executeQuery();
-
-				res = rs.next();
-				cc=false;
-			} else if (cc) {
-				sql = "select * from manager_temp where id=?";
-
-				ptmt = con.prepareStatement(sql);
-				ptmt.setString(1, dto.getId());
-				rs = ptmt.executeQuery();
-
-				res = rs.next();
-			}
+			
+			
+			
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -190,8 +190,8 @@ public class SignUpDAO {
 
 		} else if (dto.getGrade().equals("A")) {
 
-			sql = "insert into air_temp " + "(id, crn, air_name, grade, time, air_codecom, img) values "
-					+ "(?,?,?,?,sysdate(),?,?)";
+			sql = "insert into air_temp " + "(id, crn, air_name, grade, time, air_codecom, img, salesPercent) values "
+					+ "(?,?,?,?,sysdate(),?,?,?)";
 
 			try {
 				ptmt = con.prepareStatement(sql);
@@ -201,6 +201,7 @@ public class SignUpDAO {
 				ptmt.setString(4, dto.getGrade());
 				ptmt.setString(5, dto.getAir_codecom());
 				ptmt.setString(6, dto.getImg());
+				ptmt.setString(7, dto.getSalesPercent());
 				ptmt.executeUpdate();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -209,9 +210,9 @@ public class SignUpDAO {
 
 		} else {
 
-			sql = "insert into hot_temp(id, crn, country, city, hname, hinfo, grade, time, himg) values "
+			sql = "insert into hot_temp(id, crn, country, city, hname, hinfo, grade, time, himg, salesPercent) values "
 					+ "(?, ?, (select country from member where id = ?), "
-					+ "(select city from member where id = ?), ?, ?, ?, sysdate(),?)";
+					+ "(select city from member where id = ?), ?, ?, ?, sysdate(),?,?)";
 
 			try {
 				ptmt = con.prepareStatement(sql);
@@ -223,6 +224,7 @@ public class SignUpDAO {
 				ptmt.setString(6, dto.getHinfo());
 				ptmt.setString(7, dto.getGrade());
 				ptmt.setString(8, dto.getHimg());
+				ptmt.setString(9, dto.getSalesPercent());
 				ptmt.executeUpdate();
 
 			} catch (SQLException e) {
@@ -269,6 +271,35 @@ public class SignUpDAO {
 		}
 
 	}
+	
+	
+	public void rejectUp(SignUpDTO dto) {
+
+		try {
+			sql = "DELETE from air_temp where id=?";
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getId());
+			ptmt.executeUpdate();
+			sql = "DELETE from hot_temp where id=?";
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getId());
+			ptmt.executeUpdate();
+			sql = "DELETE from manager_temp where id=?";
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getId());
+			ptmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+
+	}
+	
+	
+	
 
 	public String chkCode(SignUpDTO dto) {
 		String res = null;
@@ -950,6 +981,7 @@ public class SignUpDAO {
 				res.setGrade(rs.getString("grade"));
 				res.setTime(rs.getDate("time"));
 				res.setAir_codecom(rs.getString("air_codecom"));
+				res.setSalesPercent(rs.getString("salesPercent"));
 
 			}
 		} catch (SQLException e) {
@@ -982,6 +1014,7 @@ public class SignUpDAO {
 				res.setGrade(rs.getString("grade"));
 				res.setTime(rs.getDate("time"));
 				res.setHname(rs.getString("hname"));
+				res.setSalesPercent(rs.getString("salesPercent"));
 
 			}
 		} catch (SQLException e) {
@@ -1142,6 +1175,11 @@ public class SignUpDAO {
 		}
 		return res;
 	}
+	
+	
+	
+	
+	
 
 	public void close() {
 		if (rs != null)

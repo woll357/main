@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class SignUpDTO {
 	String grade, id, pw, pname, birth, gender, email, phone, black,
-			preason, emg, country, city, addDetail,  crn, img,
+			preason, emg, country, city, addDetail,  crn, img,salesPercent,
 			air_name, himg, hinfo, air_code, hcode, hname, air_codecom,bnum, phone1, phone2, phone3, email1, email2;
 	Integer no, num, memNum;
 	Date time;
@@ -16,6 +16,14 @@ public class SignUpDTO {
 	
 	
 	
+	public String getSalesPercent() {
+		return salesPercent;
+	}
+
+	public void setSalesPercent(String salesPercent) {
+		this.salesPercent = salesPercent;
+	}
+
 	public Integer getMemNum() {
 		return memNum;
 	}

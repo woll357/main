@@ -9,7 +9,9 @@
 				<td><a href="../greensc/ModifyMem?mypage=in">회원 정보 수정</a></td>
 				<c:if test="${mem.grade=='C' || mem.grade=='M'}">
 					<td><a href="../greensc/DeleteMySign?mypage=in">탈퇴 신청</a></td>
+					<c:if test="${mem.grade=='C'}">
 					<td><a href="../greensc/Appbss?mypage=in">등업 신청</a></td>
+					</c:if>
 					<td><a href="../purchase/DetailReserveInfo?mypage=in">예약내역조회</a></td>
 					<td><a href="../purchase/BuyList?mypage=in">구매내역조회</a></td>
 					<td><a href="../purchase/RefundList?mypage=in">환불내역조회</a></td>
