@@ -49,23 +49,22 @@ public class BasketHotelReg implements MvcAction {
 				String cType = rcode.substring(0, 1);
 
 				BasketDTO bdto = new BasketDTO();
-				bdto.setId(id);
-				bdto.setcType(cType);
 				
-				ArrayList<BasketDTO> myHotBasketList = new BasketDAO().myList(bdto); // Basket에있는 나의 호텔 목록들
+				int dateCNT = 0;
 
-				AAA: for (BasketDTO myHotBasket : myHotBasketList) {
-					
-					BasketItemDTO bidto = new BasketItemDTO();
-					bidto.setBasketID(myHotBasket.getBasketID());
-					bidto.setDdate(startDay);
-					bidto = new BasketItemDAO().rcodeHotByBasketID(bidto);
+				dateCNT = (int) (endDay.getTime() - startDay.getTime()) / (1000 * 60 * 60 * 24);
 
-					if (rcode.equals(bidto.getRcode())) {
-						request.setAttribute("msg", "동일한 상품이 장바구니에 존재합니다.");
-						break AAA;
-					}
-
+				startDay.setHours(17);
+				endDay.setHours(12);
+				
+				bdto.setId(id);
+				bdto.setDdate(startDay);
+				bdto.setFdate(endDay);
+				bdto.setCode(rcode);
+				
+				
+				if(new BasketDAO().myHotBasketNum(bdto)>0) {
+					request.setAttribute("msg", "동일한 상품이 장바구니에 존재합니다.");
 				}
 
 				Hot_comDTO hdto = new Hot_comDTO();
@@ -89,16 +88,11 @@ public class BasketHotelReg implements MvcAction {
 				dto.setPsn(rdto.getPcnt()); // 인원수
 
 				int no = new BasketDAO().itemCNT(dto).size();
-				dto.setNo(no); // 몇번째 장바구니 항목,
-
-				int dateCNT = 0;
-
-				dateCNT = (int) (endDay.getTime() - startDay.getTime()) / (1000 * 60 * 60 * 24);
-
+				dto.setNo(no); // 몇번째 장바구니 항목
+				
 				dto.setcNum(dateCNT);// 상품코드 갯수
 
-				startDay.setHours(17);
-				endDay.setHours(12);
+			
 				dto.setDdate(startDay);// 시작날짜
 				dto.setFdate(endDay);// 끝날짜
 
@@ -147,6 +141,9 @@ public class BasketHotelReg implements MvcAction {
 
 		new BasketGo(id, request, response);
 
+		request.setAttribute("goUrl", "BasketMain");
+		request.setAttribute("mainUrl", "basket/alert.jsp");
+		
 		// BasketID 의 초기값이 97이 나오는 이유를 알아야한다.
 
 		// 장바구니에 보여줄 내용

@@ -161,40 +161,69 @@ public class BasketDAO {
 		return res;
 	}
 	
-	public ArrayList<BasketDTO> myList(BasketDTO dto) {	
+//	public ArrayList<BasketDTO> myList(BasketDTO dto) {	
+//		
+//		ArrayList<BasketDTO> res = new ArrayList<BasketDTO>();
+//		
+//		sql = "select * from basket where id = ? and cType = ?";
+//		try {
+//			
+//			ptmt = con.prepareStatement(sql);
+//			
+//			ptmt.setString(1, dto.getId());
+//			ptmt.setString(2, dto.getcType());
+//
+//			
+//			rs = ptmt.executeQuery();
+//			
+//			while(rs.next()) {
+//			
+//			dto.setBasketID(rs.getString("basketID"));
+//			dto.setcType(rs.getString("cType"));
+//			dto.setcNum(rs.getInt("cNum"));
+//			dto.setcName(rs.getString("cName"));
+//			dto.setItemName(rs.getString("itemName"));
+//			dto.setDdate(rs.getTimestamp("ddate"));
+//			dto.setFdate(rs.getTimestamp("fdate"));
+//			dto.setLocation1(rs.getString("location1"));
+//			dto.setLocation2(rs.getString("location2"));
+//			dto.setTotalPrice(rs.getInt("totalPrice"));
+//			dto.setPsn(rs.getInt("psn"));
+//			dto.setNo(rs.getInt("no"));
+//			dto.setId(rs.getString("id"));
+//			dto.setCode(rs.getString("code"));
+//			
+//			res.add(dto);
+//			}
+//		} catch (SQLException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}finally {
+//			close();
+//		}
+//		
+//		return res;
+//	}
+	
+	public int myHotBasketNum(BasketDTO dto) {	
 		
-		ArrayList<BasketDTO> res = new ArrayList<BasketDTO>();
+		int res = 0;
 		
-		sql = "select * from basket where id = ? and cType = ?";
+		sql = "select count(*) from basket where id = ? and code= ? and ddate= ? fdate = ? ";
 		try {
 			
 			ptmt = con.prepareStatement(sql);
 			
 			ptmt.setString(1, dto.getId());
-			ptmt.setString(2, dto.getcType());
+			ptmt.setString(2, dto.getCode());
+			ptmt.setString(3, dto.getDdateStr());
+			ptmt.setString(4, dto.getFdateStr());
 
-			
 			rs = ptmt.executeQuery();
 			
-			while(rs.next()) {
-			
-			dto.setBasketID(rs.getString("basketID"));
-			dto.setcType(rs.getString("cType"));
-			dto.setcNum(rs.getInt("cNum"));
-			dto.setcName(rs.getString("cName"));
-			dto.setItemName(rs.getString("itemName"));
-			dto.setDdate(rs.getTimestamp("ddate"));
-			dto.setFdate(rs.getTimestamp("fdate"));
-			dto.setLocation1(rs.getString("location1"));
-			dto.setLocation2(rs.getString("location2"));
-			dto.setTotalPrice(rs.getInt("totalPrice"));
-			dto.setPsn(rs.getInt("psn"));
-			dto.setNo(rs.getInt("no"));
-			dto.setId(rs.getString("id"));
-			dto.setCode(rs.getString("code"));
-			
-			res.add(dto);
-			}
+			rs.next();
+			res = rs.getInt(1);
+
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -205,6 +234,32 @@ public class BasketDAO {
 		return res;
 	}
 	
+	public int myAirBasketNum(BasketDTO dto) {	
+		
+		int res = 0;
+		
+		sql = "select count(*) from basket where id = ? and code= ?";
+		try {
+			
+			ptmt = con.prepareStatement(sql);
+			
+			ptmt.setString(1, dto.getId());
+			ptmt.setString(2, dto.getCode());
+
+			rs = ptmt.executeQuery();
+			
+			rs.next();
+			res = rs.getInt(1);
+
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return res;
+	}
 	
 //	basketID
 	public BasketDTO findBasketID(BasketDTO dto) {	//basketID찾기

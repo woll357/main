@@ -40,29 +40,17 @@ public class BasketAirReg implements MvcAction {
 
 			String cType = cCodes[0].substring(0, 1);
 
-			BasketDTO bdto = new BasketDTO();
-			bdto.setId(id);
-			bdto.setcType(cType);
-			
-			ArrayList<BasketDTO> myAirBasketList = new BasketDAO().myList(bdto);
-			
-			
-			
-			AAA: for (BasketDTO myAirBasket : myAirBasketList) { //내 장바구니에 있는 항공권의 장바구니 목록들
-				
-				BasketItemDTO bidto = new BasketItemDTO();
-				
-				bidto.setBasketID(myAirBasket.getBasketID());
-				
-				bidto = new BasketItemDAO().rcodeAirByBasketID(bidto);
-				for (String code : cCodes) {
-					if(code.equals(bidto.getRcode())) {
-						request.setAttribute("msg", "동일한 상품이 장바구니에 존재합니다.");
-						break AAA;
-					}
+		
+			AAA: for (String cc : cCodes) {
+				BasketDTO bdto = new BasketDTO();
+				bdto.setId(id);
+				bdto.setCode(cc);
+				if(new BasketDAO().myAirBasketNum(bdto)>0) {
+					request.setAttribute("msg", "동일한 상품이 장바구니에 존재합니다.");
+					break AAA;
 				}
 			}
-				
+							
 				int psn = Integer.parseInt(request.getParameter("seatcnt")); // 좌석수로 받고 psn으로 넣는다.
 
 				for (int i = 0; i < cCodes.length; i++) {

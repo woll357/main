@@ -29,6 +29,7 @@ public class BasketMain implements MvcAction {
 		String id = ((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
 
 		new BasketGo(id, request, response);
+		request.setAttribute("mainUrl", "basket/BasketMain.jsp");
 
 		return null;
 	}

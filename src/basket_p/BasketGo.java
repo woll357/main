@@ -44,7 +44,6 @@ public class BasketGo {
 		
 		request.setAttribute("adtos", adtos);
 		request.setAttribute("hdtos", hdtos);
-		request.setAttribute("mainUrl", "basket/BasketMain.jsp");
 		
 	}
 }

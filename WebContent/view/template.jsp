@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<table border="" width = 1000px >
+<table celspacing="0" width = 1000px >
 	<tr>
 		<td  height="50px"><jsp:include page="inc/top.jsp" /></td> 
 	</tr>

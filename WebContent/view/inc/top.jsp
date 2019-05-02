@@ -5,18 +5,19 @@
 <script src="../js/jquery-3.3.1.min.js"></script>
 
 
-<table>
+<table cellspacing = "0px" >
 	<tr>
 		
 	<c:choose>
 
 			<c:when test="${mem.grade=='C' }">
-
+			
+		
+			<td><a href="../greensc/Home"><img style="width:50px; height:50px;" src="http://localhost:8080/mainProj/img/logo2.png" alt="" /></a></td>	
 			<td><a href="../greensc/LogOut">로그아웃</a></td>
 			<td><a href="../greensc/ModifyMem?mypage=in">마이페이지</a></td>
 			<td><a href="../greensc/NoticeList?center=in">고객센터</a></td>
 			<td><a href="../Basket/BasketMain">장바구니</a></td>
-			<td><a href="../greensc/Home">홈</a></td>
 			
 			</c:when>
 			
@@ -51,11 +52,10 @@
 			</c:when>
 			
 			<c:otherwise>
-
+			<td><a href="../greensc/Home"><img style="width:50px; height:50px;" src="http://localhost:8080/mainProj/img/logo2.png" alt="" /></a></td>	
 			<td><a href="../greensc/Login">로그인</a></td>
 			<td><a href="../greensc/SignUp?">회원가입</a></td>
 			<td><a href="../greensc/NoticeList?center=in">고객센터</a></td>
-			<td><a href="../greensc/Home">홈</a></td>
 
 			</c:otherwise>
 		</c:choose>
