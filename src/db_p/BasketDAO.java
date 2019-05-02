@@ -209,7 +209,7 @@ public class BasketDAO {
 		
 		int res = 0;
 		
-		sql = "select count(*) from basket where id = ? and code= ? and ddate= ? fdate = ? ";
+		sql = "select count(*) from basket where id = ? and code= ? and ddate= ? and fdate = ? ";
 		try {
 			
 			ptmt = con.prepareStatement(sql);

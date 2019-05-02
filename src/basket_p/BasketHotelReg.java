@@ -62,8 +62,10 @@ public class BasketHotelReg implements MvcAction {
 				bdto.setFdate(endDay);
 				bdto.setCode(rcode);
 				
-				
+				System.out.println("잘 나오지?");
+				System.out.println(new BasketDAO().myHotBasketNum(bdto)+"갯수가 없니?");
 				if(new BasketDAO().myHotBasketNum(bdto)>0) {
+					System.out.println("들어올까요오오오오오1111111111111111");
 					request.setAttribute("msg", "동일한 상품이 장바구니에 존재합니다.");
 				}
 

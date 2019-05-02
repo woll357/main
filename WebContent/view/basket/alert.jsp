@@ -10,6 +10,9 @@ session.setAttribute("grade", request.getAttribute("grade"));
 }
 %>
 <script>
+if("${msg}"!=""){
+alert("${msg}");
+}
 location.href="${goUrl}";
 
 </script>

@@ -45,6 +45,11 @@ public class BasketItemDeleteReg implements MvcAction {
 		}
 		
 		new BasketGo(id, request, response);
+		
+		request.setAttribute("msg", "삭제완료");
+		request.setAttribute("goUrl", "BasketMain");
+		request.setAttribute("mainUrl", "basket/alert.jsp");
+		
 		return null;
 	}
 

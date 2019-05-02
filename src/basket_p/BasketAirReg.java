@@ -46,6 +46,7 @@ public class BasketAirReg implements MvcAction {
 				bdto.setId(id);
 				bdto.setCode(cc);
 				if(new BasketDAO().myAirBasketNum(bdto)>0) {
+					System.out.println("들어오니?");
 					request.setAttribute("msg", "동일한 상품이 장바구니에 존재합니다.");
 					break AAA;
 				}
