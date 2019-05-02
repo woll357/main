@@ -16,7 +16,8 @@ public class HnoresList implements MvcAction {
 		// TODO Auto-generated method stub
 		Hold_tableDTO dto = new Hold_tableDTO();
 		
-		dto.setRcode(request.getParameter("rcode"));
+		 dto.setRcode(request.getParameter("rcode")); 
+		/* dto.setNo(Integer.parseInt(request.getParameter("no"))); */
 		
 		
 		request.setAttribute("data", new Hot_tempDAO().noreslist(dto));

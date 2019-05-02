@@ -6,10 +6,18 @@ import java.util.Date;
 
 public class Hold_tableDTO {
 	String rcode, reason;
-	Integer norescnt;
+	Integer norescnt,no;
 	Date noresdate;
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	
+	public Integer getNo() {
+		return no;
+	}
+
+	public void setNo(Integer no) {
+		this.no = no;
+	}
 
 	public String getRcode() {
 		return rcode;

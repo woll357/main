@@ -5,6 +5,7 @@ import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import db_p.Hold_tableDTO;
 import db_p.Hot_tempDAO;
 import db_p.Room_itemDTO;
 import di.MvcAction;
@@ -22,10 +23,12 @@ public class HnoresListDelete implements MvcAction {
 			e.printStackTrace();
 		}
 		
-		Room_itemDTO dto = new Room_itemDTO();
+		//Room_itemDTO dto = new Room_itemDTO();
 		
-		dto.setRcode(request.getParameter("rcode"));
-		System.out.println("넌 어떻게나오니"+request.getParameter("rcode"));
+		//dto.setRcode(request.getParameter("rcode"));
+		//System.out.println("넌 어떻게나오니"+request.getParameter("rcode"));
+		Hold_tableDTO dto = new Hold_tableDTO();
+		dto.setNo(Integer.parseInt(request.getParameter("no")));
 		String goUrl = "";
 		new Hot_tempDAO().holddelete(dto);
 		goUrl = "Hdetail?hotcont=in";

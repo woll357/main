@@ -16,9 +16,7 @@
 					alert("기입이 완료되지않았습니다.")
 					nono.button();
 				}
-				
-				
-				if($('#norescnt').val()<0 || $('#hiddenrcnt').val()<$('#norescnt').val()) {
+				if(eval($('#norescnt').val())<0 || eval($('#hiddenrcnt').val())<eval($('#norescnt').val())) {
 					alert("값이 잘못 입력되었습니다.")
 				}
 				else {
@@ -55,3 +53,13 @@
 		</tr>
      </table>
 </form>    
+
+<%-- 		<c:choose>
+		<c:when test="${mem.id!=null && mem.id!=''}">
+		<td><input type="submit" value="상세조회"/></td>
+		</c:when>
+		<c:otherwise>
+		<td><input type="button" value="상세조회" class="btn"/></td>
+		</c:otherwise>
+		</c:choose> --%>
+

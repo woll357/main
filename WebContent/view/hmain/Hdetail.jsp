@@ -5,7 +5,7 @@
 
 <table border="">
 	<tr>
-		<td rowspan="3"><img src="../img/${dto.himg }" alt="" /></td>
+		<td rowspan="3"><img width="300" src="../img/${dto.himg }" alt="" /></td>
 		<td>${dto.country }</td>
 		<td>${dto.city }</td>
 	</tr>

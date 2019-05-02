@@ -23,6 +23,9 @@ public class HroomDeleteReg implements MvcAction {
 		
 		Room_itemDTO dto = new Room_itemDTO();
 		
+		
+		
+		
 		dto.setRcode(request.getParameter("rcode"));
 		System.out.println("넌뭐냐 "+request.getParameter("rcode"));
 		

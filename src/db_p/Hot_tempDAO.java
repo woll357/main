@@ -48,11 +48,11 @@ public void roomdelete(Room_itemDTO dto) {
 		}
 		
 	}
-public void holddelete(Room_itemDTO dto) {
-	sql = "delete from hold_table where rcode = ?";
+public void holddelete(Hold_tableDTO dto) {
+	sql = "delete from hold_table where no = ?";
 	try {
 		ptmt = con.prepareStatement(sql);
-		ptmt.setString(1, dto.getRcode());
+		ptmt.setInt(1, dto.getNo());
 		ptmt.executeUpdate();
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
@@ -316,6 +316,7 @@ public void holddelete(Room_itemDTO dto) {
 			rs = ptmt.executeQuery();
 			while(rs.next()) {
 				Hold_tableDTO dto = new Hold_tableDTO();
+				dto.setNo(rs.getInt("no"));
 				dto.setNorescnt(rs.getInt("norescnt"));
 				dto.setNoresdate(rs.getDate("noresdate"));
 				dto.setReason(rs.getString("reason"));
