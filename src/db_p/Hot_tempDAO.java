@@ -94,6 +94,44 @@ public void holddelete(Room_itemDTO dto) {
 		return res;
 	}
 	
+	
+	public ArrayList<Hot_comDTO> countrysearch(Hot_comDTO rr, int page, int limit) {
+		ArrayList<Hot_comDTO> res = new ArrayList<Hot_comDTO>();
+		
+		sql = "select * from hot_com where country = ? order by no limit ?, ?";	
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, rr.country);
+			ptmt.setInt(2, page);
+			ptmt.setInt(3, limit);
+			rs = ptmt.executeQuery();
+			while(rs.next()) {
+				Hot_comDTO dto = new Hot_comDTO();
+				dto.setId(rs.getString("id"));
+				dto.setHname(rs.getString("hname"));
+				dto.setCrn(rs.getString("crn"));
+				dto.setHimg(rs.getString("himg"));
+				dto.setCountry(rs.getString("country"));
+				dto.setCity(rs.getString("city"));
+				dto.setGrade(rs.getString("grade"));
+				dto.setHinfo(rs.getString("hinfo"));
+				dto.setAddDetail(rs.getString("adddetail"));
+				dto.setHcode(rs.getString("hcode"));
+				res.add(dto);			
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			close();
+		}
+		return res;
+	}
+
+	
+	
+	
 	public Object hotelsearch(Hot_comDTO rr) {
 		ArrayList<Hot_comDTO> res = new ArrayList<Hot_comDTO>();
 		
@@ -385,7 +423,22 @@ public void holddelete(Room_itemDTO dto) {
 		}	
 		return res;
 	}
-	
+	public int total2(Hot_comDTO dto) {
+		int res = 0;
+		
+		sql = "select count(*) from hot_com where country=?";
+			try {
+				ptmt=con.prepareStatement(sql);
+				ptmt.setString(1, dto.country);
+				rs = ptmt.executeQuery();
+				rs.next();
+				res = rs.getInt(1);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+		return res;
+	}
 	
 	public Hot_comDTO detail(Hot_comDTO dto) {
 		Hot_comDTO res = null;

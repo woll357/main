@@ -11,23 +11,37 @@
 		</tr>
 	</table>
 </form>
+<form action="HlistCountrySearch?partner=in" method="post">
+	<table border="">
+		<tr>
+			<td>나라검색</td>
+			<td><select name="country">
+				<option value="일본">일본</option>
+				<option value="중국">중국</option>
+				<option value="필리핀">필리핀</option>
+				<option value="태국">태국</option>
+			</select></td>
+			<td><input type="submit" value="검색" /></td>
+		</tr>
+	</table>
+</form>
+
 
 <c:choose>
 
 	<c:when test="${data.size()==0 }">
 		<h1>검색결과가 없습니다.</h1>
 	</c:when>
-
 </c:choose>
-
+<br><br>
 <c:forEach var="dto" items="${data }" varStatus="no">	
 <table border="">
 	<tr>
 		<td>호텔코드</td>
-		<td colspan="2">${dto.hcode }</td>
+		<td colspan="2" width="200">${dto.hcode }</td>
 	</tr>
 	<tr>
-		<td rowspan="3"><img src="../img/${dto.himg }" alt="" /></td>
+		<td rowspan="3" width="220"><img src="../img/${dto.himg }" alt="" /></td>
 		<td>${dto.country }</td>
 		<td>${dto.city }</td>
 	</tr>
