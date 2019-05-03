@@ -139,9 +139,20 @@
   
         for ( i=1; i<=lastDay; i++){ //해당 월의 달력 출력  
             if(eDate.getFullYear()==nYear&&eDate.getMonth()==nMonth&&i==nDate){ //오늘이면 today 스타일로 표시  
-                calendarStr += "<td class=today onClick=datePicker("+year+","+month+","+i+",'"+id+"')>"+i+"</td>"   
+                calendarStr += "<td class=today>"+i+"</td>"   
             }
-            else {  
+            else if(eDate.getFullYear()<nYear ||  (eDate.getFullYear()==nYear && eDate.getMonth()<nMonth)
+            		|| (eDate.getFullYear()==nYear && eDate.getMonth()==nMonth && i<(nDate+2))){
+            	if(col==0){//일요일 
+                    calendarStr += "<td class=sunday>"+i+"</td>"  
+                }
+                else if(1<=col&&col<=5){//평일  
+                    calendarStr += "<td class=workday>"+i+"</td>"   
+                }
+                else if(col==6){ //토요일  
+                    calendarStr += "<td class=satday>"+i+"</td>"   
+                }
+            }else{  
                 if(col==0){//일요일 
                     calendarStr += "<td class=sunday onClick=datePicker("+year+","+month+","+i+",'"+id+"')>"+i+"</td>"  
                 }
@@ -177,8 +188,14 @@
  function datePicker(yy,mm,dd,id){
 	 
 	 console.log(yy+"년 "+(mm+1)+"월"+dd+"일"+id);
+	 if((mm+1)<10){
+		 mm="0"+(mm+1);
+	 }
+	 if((dd)<10){
+		 dd="0"+(dd);
+	 }
 	 
-	 var idd = "#"+id;
+	 var idd = "."+id;
 	 $(idd).val(yy+"-"+mm+"-"+dd);
 	 
 	 
@@ -384,10 +401,10 @@
 				</tr>
 				<tr>
 					<td class="start">
-					<input type="text" name="ddate1" id="ddate1"/><input type="button" value="날짜검색" id="ssdate1">
+					<input type="text" name="ddate1" class="ssdate1"/><input type="button" value="날짜검색" id="ssdate1">
 					</td>
 					<td class="return"><div id="dd">
-					<input type="text" name="ddate2" id="ddate2"/><input type="button" value="날짜검색" id="ssdate2"/>
+					<input type="text" name="ddate2" class="ssdate2"/><input type="button" value="날짜검색" id="ssdate2"/>
 					</div></td>
 				</tr>
 				<tr>
