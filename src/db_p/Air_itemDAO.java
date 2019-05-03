@@ -303,7 +303,58 @@ public class Air_itemDAO {
 			
 		
 		}
-	
+		//비행기 지난상품 리스트
+		//select * from air_item where date(ddate)<=date(sysdate())  and air_code = 'A1000'; 
+		public Object yitemdetail(String air_code ) {
+			
+			ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
+			
+			sql = "select * from air_item where date(ddate)<=date(sysdate())  and air_code = ? ";
+			
+			try {
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, air_code);
+
+
+				
+				rs = ptmt.executeQuery();
+				
+				while(rs.next()) {
+					
+					
+					
+					Air_itemDTO dto = new Air_itemDTO();
+
+					dto.setDdate(rs.getTimestamp("ddate"));
+					dto.setDarea(rs.getString("darea"));
+					dto.setCarea(rs.getString("carea"));
+					dto.setAp_code(rs.getString("ap_code"));
+					dto.setCcode(rs.getString("ccode"));
+					dto.setMoney(rs.getInt("money"));
+					dto.setA_time(rs.getTimestamp("a_time"));
+					dto.setSeatcnt(rs.getInt("seatcnt"));
+					dto.setFlightclass(rs.getString("flightclass"));	
+					dto.setTotseatcnt(rs.getInt("totseatcnt"));
+
+					res.add(dto);
+					
+					
+				
+				}
+						
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			
+			}finally {
+			   close();
+		  }
+			       
+			return res;
+		}
+		
+		
+		
 	
 	public Air_itemDTO detail(String day , String darea , String carea , String ap_code ) {
 		
@@ -329,7 +380,7 @@ public class Air_itemDAO {
 				res.setAp_code(rs.getString("ap_code"));
 				res.setCcode(rs.getString("ccode"));
 				res.setMoney(rs.getInt("money"));
-				res.setA_time(rs.getTimestamp("money"));
+				res.setA_time(rs.getTimestamp("a_time"));
 				res.setSeatcnt(rs.getInt("seatcnt"));
 				res.setFlightclass(rs.getString("flightclass"));
 			}
@@ -587,8 +638,8 @@ public class Air_itemDAO {
 			
 			
 			try {
-				sql = "select * from air_item ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
-				//limit 0, 3  - > 3개만 가져옴
+				sql = "select * from air_item ";         
+				
 				ptmt = con.prepareStatement(sql);
 				
 				
@@ -629,48 +680,7 @@ public class Air_itemDAO {
 		
 		
 		
-//		public Object air_pitemlist(Air_itemDTO dto) {
-//			
-//			ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
-//			
-//			
-//			try {
-//				sql = "select distinct air_p , darea , carea from air_item where air_code = ? ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
-//				//limit 0, 3  - > 3개만 가져옴
-//				ptmt = con.prepareStatement(sql);
-//				
-//				ptmt.setString(1, dto.getAir_code());
-//		
-//				
-//				rs = ptmt.executeQuery();
-//				
-//				while(rs.next()) {
-//					
-//				dto = new Air_itemDTO();
-//				
-//				
-//				dto.setAir_p(rs.getString("air_p"));	
-//				dto.setDarea(rs.getString("darea"));
-//				dto.setCarea(rs.getString("carea"));		
-//					
-//					
-//							
-//					res.add(dto);
-//				}
-//				
-//				
-//			} catch (SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}finally {
-//				
-//				close();
-//			}
-//			
-//			
-//			return res;
-//		}
-//		
+
 		
 		
 	public Object air_pitemlist() {
