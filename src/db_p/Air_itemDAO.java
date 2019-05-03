@@ -35,7 +35,44 @@ public class Air_itemDAO {
 	//select air_name, air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code;
 	
 	//관리자
-
+	
+	
+	
+	
+	//협력업체 비행기 삭제
+	//select distinct seatcnt from air_plane , air_item where air_plane.ap_code = air_item.ap_code and air_item.ap_code = "a106" and air_item.air_code = 'A1000';
+	public boolean airplaneseatcnt(Air_itemDTO dto ) {
+		
+		boolean res = true;
+		
+		sql = "select seatcnt from air_plane , air_item where air_plane.ap_code = air_item.ap_code and air_item.ap_code = ? ";
+		
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getAp_code());
+			
+		
+			rs = ptmt.executeQuery();
+			
+			res = rs.next();
+			//뭐라도 있으면 false
+					
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		
+		}finally {
+		   close();
+	  }
+		       
+		return res;
+	}
+	
+	
+	
+	
+	
+	
 	public void insert(Air_itemDTO dto) {
 			
 			
@@ -166,7 +203,7 @@ public class Air_itemDAO {
 	
 	}
 	
-	
+
 	
 	//항공편코드 DAO	
 		public LocationinfoDTO makeair_p(LocationinfoDTO dto) {
@@ -308,8 +345,35 @@ public class Air_itemDAO {
 		return res;
 	}
 
+	//예약 상품 확인
+	public boolean airseatcntdetail(Air_itemDTO dto ) {
+		
+		boolean res = true;
+		
+		sql = "select seatcnt from air_item where  ccode= ? ";
+		
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getCcode());
+		
+			rs = ptmt.executeQuery();
+			
+			res = rs.next();
+			//뭐라도 있으면 false
+					
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		
+		}finally {
+		   close();
+	  }
+		       
+		return res;
+	}
+
 	
-	
+		//항공 상품 삭제
 		public void delete(Air_itemDTO dto) {
 				
 			
@@ -713,8 +777,8 @@ public class Air_itemDAO {
 		
 		
 		try {
-			sql = "	select air_name, air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code and air_item.air_code = ? ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
-			//limit 0, 3  - > 3개만 가져옴
+			sql = "	select distinct air_name, air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code and air_item.air_code = ? ";        
+			
 			ptmt = con.prepareStatement(sql);
 			
 			ptmt.setString(1, a);
@@ -1103,32 +1167,6 @@ public Object mair_planeitemlist(String ap_code ) {
 		return res;
 	}
 	
-	   public void seatcnt(Air_itemDTO dto) {
-      
-		      try {
-		         
-		         sql = "update air_item set seatcnt = ?  " 
-		         + "where ccode =  ? ";
-		         
-		         
-		         ptmt = con.prepareStatement(sql);
-		         
-		         ptmt.setInt(1, dto.getSeatcnt());
-		         ptmt.setString(2, dto.getCcode());
-		      
-		         
-		         ptmt.executeUpdate();
-		          
-		          
-		         
-		      } catch (SQLException e) {
-		         // TODO Auto-generated catch block
-		         e.printStackTrace();
-		      }finally {
-		         
-		         close();
-		      }
-	   }
 	public void close() {
 		if(rs!=null) try {rs.close();} catch (SQLException e) {	}
 		if(ptmt!=null) try {ptmt.close();} catch (SQLException e) {	}
