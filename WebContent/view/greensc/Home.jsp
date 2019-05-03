@@ -23,32 +23,6 @@
 		 }
 	 })
 	 
-	 $('#findCity1').on({
-		 'click':function(){
-			 $('#cityTT1').css({
-				 'visibility': 'visible'
-			 })
-		 }
-	 })
-	 
-	 $('#findCity2').on({
-		 'click':function(){
-			 $('#cityTT2').css({
-				 'visibility': 'visible'
-			 })
-		 }
-	 })
-	 
-	 $('#findCity3').on({
-		 'click':function(){
-			 $('#hotTT').css({
-				 'visibility': 'visible'
-			 })
-		 }
-	 })
-
-	 
-	 
 	 
 	 
 	$('.start').on({
@@ -78,9 +52,40 @@
 			
 		}
 	})
+	$('#ssdate2').on({
+		'click':function(){
+			var cal = new Date();
+			var yy = cal.getYear()+1900;
+			var mm = cal.getMonth();
+			
+			calendar(yy,mm, $(this).attr("id"));
+			
+			
+		}
+	})
 	
-	
-	
+	$('#startDay').on({
+		'click':function(){
+			var cal = new Date();
+			var yy = cal.getYear()+1900;
+			var mm = cal.getMonth();
+			
+			calendar(yy,mm, $(this).attr("id"));
+			
+			
+		}
+	})
+	$('#endDay').on({
+		'click':function(){
+			var cal = new Date();
+			var yy = cal.getYear()+1900;
+			var mm = cal.getMonth();
+			
+			calendar(yy,mm, $(this).attr("id"));
+			
+			
+		}
+	})
 	
 	 
  })
@@ -90,13 +95,36 @@
  
  function calendar(year,month, id){ //달력 함수  
         //내장 객체
-        var nowDate = new Date(); //오늘 날짜 객체 선언  
-        var nYear = nowDate.getFullYear(); //오늘의 년도  
-        var nMonth = nowDate.getMonth(); //오늘의 월 ※ 0월부터 시작  
-        var nDate = nowDate.getDate(); //오늘의 날  
-        var nNumday = nowDate.getDay(); //오늘의 요일 0=일요일...6=토요일  
-        var endDay=new Array(31,28,31,30,31,30,31,31,30,31,30,31); //각달의 마지막 날짜  
-        var dayName=new Array("일", "월", "화", "수", "목", "금", "토"); // 숫자 요일을 문자 요일 바꿀 함수  
+        console.log(id);
+        if(id=='ssdate1' || id=='startDay'){
+	        var nowDate = new Date(); //오늘 날짜 객체 선언  
+	        var nYear = nowDate.getFullYear(); //오늘의 년도  
+	        var nMonth = nowDate.getMonth(); //오늘의 월 ※ 0월부터 시작  
+	        var nDate = nowDate.getDate(); //오늘의 날  
+	        var nNumday = nowDate.getDay(); //오늘의 요일 0=일요일...6=토요일  
+	        var endDay=new Array(31,28,31,30,31,30,31,31,30,31,30,31); //각달의 마지막 날짜  
+	        var dayName=new Array("일", "월", "화", "수", "목", "금", "토"); // 숫자 요일을 문자 요일 바꿀 함수  
+        }else if(id=='ssdate2'){
+        	var std = $('.ssdate1').val();
+        	var stdArr = std.split('-');
+        	var nowDate = new Date(stdArr[0], eval(stdArr[1])-1, stdArr[2]);
+        	var nYear = nowDate.getFullYear(); //오늘의 년도  
+ 	        var nMonth = nowDate.getMonth(); //오늘의 월 ※ 0월부터 시작  
+ 	        var nDate = nowDate.getDate(); //오늘의 날  
+            var nNumday = nowDate.getDay(); //오늘의 요일 0=일요일...6=토요일  
+            var endDay=new Array(31,28,31,30,31,30,31,31,30,31,30,31); //각달의 마지막 날짜  
+            var dayName=new Array("일", "월", "화", "수", "목", "금", "토"); // 숫자 요일을 문자 요일 바꿀 함수  
+        }else if(id=='endDay'){
+        	var std = $('.startDay').val();
+        	var stdArr = std.split('-');
+        	var nowDate = new Date(stdArr[0], eval(stdArr[1])-1, stdArr[2]);
+        	var nYear = nowDate.getFullYear(); //오늘의 년도  
+ 	        var nMonth = nowDate.getMonth(); //오늘의 월 ※ 0월부터 시작  
+ 	        var nDate = nowDate.getDate(); //오늘의 날  
+            var nNumday = nowDate.getDay(); //오늘의 요일 0=일요일...6=토요일  
+            var endDay=new Array(31,28,31,30,31,30,31,31,30,31,30,31); //각달의 마지막 날짜  
+            var dayName=new Array("일", "월", "화", "수", "목", "금", "토"); // 숫자 요일을 문자 요일 바꿀 함수  
+        }
         var col=0; //나중에 앞뒤 빈 날짜칸 계산   
         if (year==null){ //null 일경우, 처음 페이지의 년도는 현재 년도를 가져옴   
             year=nYear;
@@ -206,167 +234,11 @@
  </script>
  
  
- 
- 
- 
- 
- 
- 
- 
-
-
-<div id="cityTT1" style="visibility: hidden;">
-
-<table>
-	<tr>
-		<td colspan="2">도시를 선택하세요</td>
-	</tr>
-	<tr>
-		<td colspan="2">중국</td>
-	</tr>
-	<tr>
-		<td id="상해" class="start">상해</td>
-		<td id="베이징" class="start">베이징</td>
-	</tr>
-	<tr>
-		<td colspan="2">일본</td>
-	</tr>
-	<tr>
-		<td id="도쿄" class="start">도쿄</td>
-		<td id="오사카" class="start">오사카</td>
-	</tr>
-	<tr>
-		<td colspan="2">필리핀</td>
-	</tr>
-	<tr>
-		<td id="마닐라" class="start">마닐라</td>
-		<td id="보라카이" class="start">보라카이</td>
-	</tr>
-	<tr>
-		<td colspan="2" class="start">태국</td>
-	</tr>
-	<tr>
-		<td id="세부" class="start">세부</td>
-		<td id="푸켓" class="start">푸켓</td>
-	</tr>
-	
-</table>
-</div>
-
-<div id="cityTT2" style="visibility: hidden;">
-
-<table>
-	<tr>
-		<td colspan="2">도시를 선택하세요</td>
-	</tr>
-	<tr>
-		<td colspan="2">중국</td>
-	</tr>
-	<tr>
-		<td id="상해" class="arrive">상해</td>
-		<td id="베이징" class="arrive">베이징</td>
-	</tr>
-	<tr>
-		<td colspan="2">일본</td>
-	</tr>
-	<tr>
-		<td id="도쿄" class="arrive">도쿄</td>
-		<td id="오사카" class="arrive">오사카</td>
-	</tr>
-	<tr>
-		<td colspan="2">필리핀</td>
-	</tr>
-	<tr>
-		<td id="마닐라" class="arrive">마닐라</td>
-		<td id="보라카이" class="arrive">보라카이</td>
-	</tr>
-	<tr>
-		<td colspan="2">태국</td>
-	</tr>
-	<tr>
-		<td id="세부" class="arrive">세부</td>
-		<td id="푸켓" class="arrive">푸켓</td>
-	</tr>
-	
-</table>
-
-</div>
-
-<div id="hotTT" style="visibility: hidden;">
-
-<table>
-	<tr>
-		<td colspan="2">도시를 선택하세요</td>
-	</tr>
-	<tr>
-		<td colspan="2">중국</td>
-	</tr>
-	<tr>
-		<td id="상해" class="hotdd">상해</td>
-		<td id="베이징" class="hotdd">베이징</td>
-	</tr>
-	<tr>
-		<td colspan="2">일본</td>
-	</tr>
-	<tr>
-		<td id="도쿄" class="hotdd">도쿄</td>
-		<td id="오사카" class="hotdd">오사카</td>
-	</tr>
-	<tr>
-		<td colspan="2">필리핀</td>
-	</tr>
-	<tr>
-		<td id="마닐라" class="hotdd">마닐라</td>
-		<td id="보라카이" class="hotdd">보라카이</td>
-	</tr>
-	<tr>
-		<td colspan="2">태국</td>
-	</tr>
-	<tr>
-		<td id="세부" class="hotdd">세부</td>
-		<td id="푸켓" class="hotdd">푸켓</td>
-	</tr>
-	
-</table>
-
-</div>
-
 
 <div id="ddateCal1" style="visibility: hidden;" >
 
 </div>
 
-<div id="ddateCal2" style="visibility: hidden;">
-
-
-
-
-
-
-</div>
-
-<div id="startDayCal" style="visibility: hidden;">
-
-
-
-
-
-
-</div>
-
-<div id="endDayCal" style="visibility: hidden;">
-
-
-
-
-
-
-</div>
-
-
-
-<div id="cal1"></div>
-<div id="cal2"></div>
 
 <table>
 	<tr>
@@ -392,8 +264,30 @@
 					<td>도착도시</td>
 				</tr>
 				<tr>
-					<td><input type="text" name="darea" readonly="readonly" id="startCity"/><input type="button" value="도시찾기" id="findCity1"/></td>
-					<td><input type="text" name="carea" readonly="readonly" id="arriveCity"/><input type="button" value="도시찾기" id="findCity2"/></td>
+					<td>
+					<select name="darea">
+					<option value="상해">상해</option>
+					<option value="베이징">베이징</option>
+					<option value="도쿄">도쿄</option>
+					<option value="오사카">오사카</option>
+					<option value="마닐라">마닐라</option>
+					<option value="보라카이">보라카이</option>
+					<option value="세부">세부</option>
+					<option value="푸켓">푸켓</option>
+					</select>
+					</td>
+					<td>
+					<select name="carea">
+					<option value="상해">상해</option>
+					<option value="베이징">베이징</option>
+					<option value="도쿄">도쿄</option>
+					<option value="오사카">오사카</option>
+					<option value="마닐라">마닐라</option>
+					<option value="보라카이">보라카이</option>
+					<option value="세부">세부</option>
+					<option value="푸켓">푸켓</option>
+					</select>
+					</td>
 				</tr>
 				<tr>
 					<td class="start">출발날짜</td>
@@ -439,19 +333,30 @@
 				<td>목적지</td>
 			</tr>
 			<tr>
-				<td><input type="text" name="city" id="hotDir" readonly="readonly"/><input type="button" value="도시찾기" id="findCity3"/></td>
-			</tr>
+				<td>
+					<select name="city">
+					<option value="상해">상해</option>
+					<option value="베이징">베이징</option>
+					<option value="도쿄">도쿄</option>
+					<option value="오사카">오사카</option>
+					<option value="마닐라">마닐라</option>
+					<option value="보라카이">보라카이</option>
+					<option value="세부">세부</option>
+					<option value="푸켓">푸켓</option>
+					</select>
+					</td>
+					</tr>
 			<tr>
 				<td>체크인</td>
 			</tr>
 			<tr>
-				<td><input type="text" name="startDay" id="startDay"/></td>
+				<td><input type="text" name="startDay" class="startDay"/><input type="button" value="날짜검색" id="startDay"></td>
 			</tr>
 			<tr>
 				<td>체크아웃</td>
 			</tr>
 			<tr>
-				<td><input type="text" name="endDay" id="endDay"/></td>
+				<td><input type="text" name="endDay" class="endDay"/><input type="button" value="날짜검색" id="endDay"></td>
 			</tr>
 			<tr>
 				<td>인원</td>

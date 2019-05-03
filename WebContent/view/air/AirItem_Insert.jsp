@@ -203,8 +203,8 @@ function datePicker(yy,mm,dd,id){
 	 dd="0"+(dd);
  }
  
- var idd = "."+id;
- $(idd).val(yy+"-"+mm+"-"+dd);
+
+ $('#ddate').val(yy+"-"+mm+"-"+dd);
  
  
 }
