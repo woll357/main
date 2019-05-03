@@ -309,7 +309,7 @@ public class Air_itemDAO {
 			
 			ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 			
-			sql = "select * from air_item where date(ddate)<=date(sysdate())  and air_code = ? ";
+			sql = "select * from air_item where date(ddate)<=date(sysdate())  and air_code = ? order by ddate ";
 			
 			try {
 				ptmt = con.prepareStatement(sql);
@@ -399,19 +399,21 @@ public class Air_itemDAO {
 	//예약 상품 확인
 	public boolean airseatcntdetail(Air_itemDTO dto ) {
 		
-		boolean res = true;
+		boolean res = false;
 		
-		sql = "select seatcnt from air_item where  ccode= ? ";
+		sql = "select * from air_item where  ccode= ? and seatcnt>0 ";
 		
 		try {
+			
 			ptmt = con.prepareStatement(sql);
 			ptmt.setString(1, dto.getCcode());
 		
 			rs = ptmt.executeQuery();
 			
 			res = rs.next();
-			//뭐라도 있으면 false
-					
+
+		
+		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -587,7 +589,7 @@ public class Air_itemDAO {
 			
 			
 			try {
-				sql = "select * from air_item where air_code = ? ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
+				sql = "select * from air_item where date(ddate)>=date(sysdate())  and air_code  = ? order by ddate ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
 				//limit 0, 3  - > 3개만 가져옴
 				ptmt = con.prepareStatement(sql);
 				

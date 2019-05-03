@@ -52,7 +52,7 @@ function calendar(year,month, id){ //달력 함수
             calendarStr += "<td class=today>"+i+"</td>"   
         }
         else if(eDate.getFullYear()<nYear ||  (eDate.getFullYear()==nYear && eDate.getMonth()<nMonth)
-        		|| (eDate.getFullYear()==nYear && eDate.getMonth()==nMonth && i<(nDate+15))){     //nDate+15 몇일까지 막을것인지
+        		|| (eDate.getFullYear()==nYear && eDate.getMonth()==nMonth && i<(nDate+7))){     //nDate+15 몇일까지 막을것인지
         	if(col==0){//일요일 
                 calendarStr += "<td class=sunday>"+i+"</td>"  
             }

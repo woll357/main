@@ -29,7 +29,7 @@ public class AirLine_ModifyFm implements MvcAction {
 	System.out.println(" 항공사가 수정이 되는 페이지");
 		
 		String path = request.getRealPath("/img");
-		//path = "C:\\apache-tomcat-8.5.38\\webapps\\mainProj\\img";
+	
 		path = new Common().getPath();
 		
 		try {
@@ -53,6 +53,7 @@ public class AirLine_ModifyFm implements MvcAction {
 			}
 			
 			dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
+			dto.setAir_code(((SignUpDTO) session.getAttribute("mem")).getAir_code());
 			
 			String msg = "";
 			String goUrl = "aircom_detail";

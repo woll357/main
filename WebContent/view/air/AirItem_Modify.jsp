@@ -1,100 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상품 수정</title>
+<title>상품 등록</title>
 </head>
-<body>
-<h3>상품 수정</h3>
+<body onload="calendar()">
 <script src="../js/jquery-3.3.1.min.js"></script>   
-
-<script>
-$(document).ready(function(){	
-	
-     $('.darea').on({
-         'change':function(){
-               
-            var cc = $('.darea').val();
-            var dd = $('.carea').val();
-            
-            if(cc==dd){
-            	
-            alert("중복");  
-            
-            $('select').find('option').removeAttr('selected');
-            
-            $('select').find('option:first').attr('selected', 'selected');
-            
-            
-            ////document.getElementById('carea').options.length = 0;
-            
-            }
-         }
-      });
-	 
-     
-     $('.carea').on({
-         'change':function(){
-               
-            var cc = $('.darea').val();
-            var dd = $('.carea').val();
-            
-            if(cc==dd){
-            	
-            	   alert("중복되었습니다.");  
-            	   
-            	   $('select').find('option').removeAttr('selected');
-            	
-            	   $('select').find('option:first').attr('selected', 'selected');
-
-            }
-         }
-      });
-     
-     
-    
- 	$('.modifygo').on({
-		'click':function(){
-			
-			if($('.darea').val()=='출발지' || $('.carea').val()=='도착지' || $('.ap_code').val()=='' || $('.ddate').val()=='' || 
-					$('.ss').val()=='초' || $('.mm').val()=='분' || $('.hh').val()=='시'  ){
-				
-				alert("기입이완료되지않았습니다.")
-				
-			}else{
-				
-				insert.submit();
-			}
-		}
-	})
-     
-         
-});
-
-function inNumber(){
-	  if(event.keyCode<48 || event.keyCode>57){
-	     event.returnValue=false;
-	  }
-	}
+<script src="../js/odk/item_Modifyday.js"></script> 
+<script src="../js/odk/textnum.js"></script> 
+<script src="../js/odk/item_insert.js"></script> 
 
 
-</script>
-<form name="insert" action="AirItem_InsertReg">
+<form name="AirItem_InsertReg" action="AirItem_InsertReg">
 	<table border="">
 		<tr>
-			<td>비행기코드</td>
-			<td><input type="text" class="ap_code"  name="ap_code" value="${dto.ap_code}"/></td>
+			<td colspan="2">비행기코드</td>
+			<td><input type="text" name="ap_code"  class="ap_code" value="${dto.ap_code }"/></td>
 		</tr>
 		<tr>
 			<td>출발날짜</td>
-			<td><input type="text" class="ddate" name="ddate" value="${fn:substring(dto.ddate,0,10)}" /></td>
+			<td><input readonly="readonly" type="text" id="ddate" name="ddate" class="ddate"/></td>
+			<td><div id="ddateCal1"></div></td>  
+
 		</tr>
 		<tr>
-			<td>출발시간</td>
+			<td colspan="2">출발시간</td>
 			<td>
 				<select class="hh" name="h">		                         
 				<option value="시">시</option>
@@ -263,7 +196,7 @@ function inNumber(){
 				
 		</tr>
 		<tr>
-				<td>출발지</td>
+				<td colspan="2">출발지</td>
 				<td>
 				<select class="darea"  name="darea">
 				<option value="출발지">출발지</option>                                  
@@ -283,7 +216,7 @@ function inNumber(){
 		</tr>
 		<tr>
 		<tr>
-			<td>도착지</td>
+			<td colspan="2">도착지</td>
 				<td>
 				<select class="carea" name="carea">   
 				<option value="도착지">도착지</option>      				                    
@@ -303,17 +236,24 @@ function inNumber(){
 
 		</tr>
 		<tr>
-			<td>가격</td>
-			<td><input type="text" name="money" onkeypress="inNumber();" value="${dto.money }"/></td>
+			<td colspan="2">가격</td>
+			<td><input type="text" name="money" class="money" onkeypress="inNumber();" value="${dto.money }"/></td>
 		</tr>
 
 				<tr>
-				<td colspan="2" align="right">
-				<input class="modifygo" type="button" value="작성" />
+				<td colspan="3" align="right">
+				<input type="button" value="작성" class="airgo" />
 				<input type="reset" value="초기화" />
 			</td>
 		</tr>
 	</table>
 </form>
 </body>
-</html>
+</html> 
+
+
+
+
+
+
+

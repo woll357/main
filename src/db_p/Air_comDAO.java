@@ -76,7 +76,7 @@ public Object comdetail(Air_comDTO dto) {
 
 public Air_comDTO fileDelete(Air_comDTO dto) {
 	Air_comDTO res = null;
-	System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!"+dto.getAir_code());
+
 	
 	sql = "select * from air_com where  air_code = ? ";
 	
@@ -87,13 +87,23 @@ public Air_comDTO fileDelete(Air_comDTO dto) {
 		
 		if(rs.next()) {
 			
-			System.out.println("에어컴 진입입ㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂ");
+		
 			res = new Air_comDTO();
 		
 			res.setImg(rs.getString("img"));
 		
 			
 			sql = "update air_com set img = null where air_code = ?" ;  //이 부분은 파일이 삭제 되었을때 파일 삭제된것이 DB에 업데이트해야하기때문에 .
+			
+			ptmt = con.prepareStatement(sql);
+			
+			ptmt.setString(1, dto.getAir_code());
+			
+			ptmt.executeUpdate(); 
+			
+			
+			
+			sql = "update air_item set img = null where air_code = ?" ;  //이 부분은 파일이 삭제 되었을때 파일 삭제된것이 DB에 업데이트해야하기때문에 .
 			
 			ptmt = con.prepareStatement(sql);
 			
@@ -132,6 +142,19 @@ public Air_comDTO fileDelete(Air_comDTO dto) {
 				
 			res = ptmt.executeUpdate() > 0; //익스큐트 없데이트가 1건 이상이여야 하기때문에 0이상이 되야 삭제됨 초기값은  false
 			
+			
+			sql = "update air_item set " + 			
+					"img = ? " + 
+					"where air_code = ? ";
+			
+			
+			ptmt = con.prepareStatement(sql);
+			
+			ptmt.setString(1, dto.getImg());
+			ptmt.setString(2, dto.getAir_code());
+				
+			res = ptmt.executeUpdate() > 0;
+			
 			 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -145,51 +168,7 @@ public Air_comDTO fileDelete(Air_comDTO dto) {
 	
 	
 	
-//	public Object air_pdetail(String a) {
-//		
-//		ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
-//			//air_itemDTO res = null;
-//			
-//			sql = "select * from air_item where air_p = ? " ;
-//			
-//			try {
-//				ptmt = con.prepareStatement(sql);
-//				ptmt.setString(1, a);
-//	
-//				rs = ptmt.executeQuery();
-//				
-//				while(rs.next()) {
-//					
-//					Air_itemDTO dto = new Air_itemDTO();
-//					
-//					dto.setDdate(rs.getTimestamp("ddate"));
-//					dto.setDarea(rs.getString("darea"));
-//					dto.setCarea(rs.getString("carea"));
-//					dto.setAp_code(rs.getString("ap_code"));
-//					dto.setCcode(rs.getString("ccode"));
-//					dto.setMoney(rs.getInt("money"));
-//					dto.setA_time(rs.getTimestamp("a_time"));
-//					dto.setSeatcnt(rs.getInt("seatcnt"));
-//					dto.setFlightclass(rs.getString("flightclass"));	
-//					dto.setTotseatcnt(rs.getInt("totseatcnt"));
-//				
-//					
-//					res.add(dto);
-//					
-//					
-//				}
-//						
-//			} catch (SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			
-//			}finally {
-//			   close();
-//		  }
-//			       
-//			return res;
-//		}
-	
+
 public Object air_pdetaill(String a) {
 		
 		ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();

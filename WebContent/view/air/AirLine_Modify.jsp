@@ -1,47 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <script>    	
-    	function fileDelete() {
-    		airmod.action = "FileDelete";
-    		airmod.submit();
-    	}
-    	
-     	$(document).ready(function(){
-    		$('.airmodimodi').on({
-    			'click':function() {
-    				var img = $('#img').val();
-    				
-    				if($('#img').val()=='') {
-    					alert("기입이완료되지않았습니다.");
-    					hotmod.button();
-    				}
-             		if(img!=null) {
-                		var ssimg = img.substring(img.lastIndexOf(".")+1);
-                		console.log(ssimg);
-                 		if(ssimg=='txt' || ssimg=='doc' || ssimg=='hwp' || ssimg=='ppt' || ssimg=='xls' || ssimg=='pptx'
-                 				|| ssimg=='xlsx' || ssimg=='docx' || ssimg=='mp3' || ssimg=='wma' || ssimg=='wav'){
-                  			alert("값이 잘못되었습니다.");
-             			}
-                 		else{
-                       		airmod.submit();
-                   		 }
-               		 }
-    				
-    			}
-    			
-    		})
-    		
-    	}) 
-    
-    </script>
+
 
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>항공사 수정</title>
 </head>
 <body>
+<script src="../js/odk/AirLine_Modify.js"></script>
 <form name="airmod" action="AirLine_ModifyFm" method="post"  enctype="multipart/form-data">
 <table border="">
 	<input type="hidden" name="id" value="${mem.id }">

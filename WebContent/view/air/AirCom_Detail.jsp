@@ -27,7 +27,7 @@
 	</tr>
 <c:forEach var="dto" items="${data }" varStatus="no">	
 	<tr>
-	<td><%-- <a href="AirItem_Detail?ccode=${dto.ccode }">${dto.ccode }</a> --%><a href="Airp_List2?air_p=${dto.air_p }&air_code=${air_code }">${dto.air_p }</a></td>	
+	<td><a href="Airp_List2?air_p=${dto.air_p }&air_code=${air_code }">${dto.air_p }</a></td>	
 		<td>${dto.air_name }</td>
 		<td>${dto.darea }</td>
 		<td>${dto.carea }</td>
@@ -38,29 +38,5 @@
 
 </form>
 
-
-<%-- <form action="aircom_modify" method="post" >
-<table border="">
-	<input type="hidden" name="id" value="${id }">
-	<tr>
-		<td>이미지<input type="file"></td>
-		<td>사업자등록증</td>
-		<td>회사명</td>
-	</tr>
-	<tr>
-		<td><img alt=""src="../img/${dto.img }" width="200px" height="200px"></td>
-		<td><input type="text" name="crn" value="${dto.crn }"></td>
-		<td><input type="text" name=air_name value="${dto.air_name }"></td>
-	</tr>
-	<tr align="right">
-	<td colspan="3"><input type="submit" value="수정" ></td>
-	</tr>
-
-<c:if test="${dto.seq==0 }">
-		<td>파일</td><td>${dto.upfile }</td>
-	</tr><tr>
-</c:if>
-	</table>
-	</form> --%>
 </body>
 </html>

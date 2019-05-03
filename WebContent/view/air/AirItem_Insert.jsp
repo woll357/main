@@ -11,87 +11,9 @@
 <script src="../js/jquery-3.3.1.min.js"></script>   
 <script src="../js/odk/item_insertday.js"></script> 
 <script src="../js/odk/textnum.js"></script> 
-
-<script>
-$(document).ready(function(){	
-	
-     $('.darea').on({
-         'change':function(){
-               
-            var cc = $('.darea').val();
-            var dd = $('.carea').val();
-            
-            if(cc==dd){
-            	
-            alert("중복");  
-            
-            $('select').find('option').removeAttr('selected');
-            
-            $('select').find('option:first').attr('selected', 'selected');
-            
-  
-            
-            }
-         }
-      });
-	 
-     
-     $('.carea').on({
-         'change':function(){
-               
-            var cc = $('.darea').val();
-            var dd = $('.carea').val();
-            
-            if(cc==dd){
-            	
-            	   alert("중복되었습니다.");  
-            	   
-            	   $('select').find('option').removeAttr('selected');
-            	
-            	   $('select').find('option:first').attr('selected', 'selected');
-
-            }
-         }
-      });
-     
-     
-     
-     $(document).ready(function(){
-    		$('.airgo').on({
-    			'click':function() {
-    			
-    				
-    				if($('.ap_code').val()=='' || $('.ddate').val()=='' || $('.hh').val()=='시' || $('.mm').val()=='분' ||
-    						$('.ss').val()=='초' || $('.darea').val()=='' ||  $('.carea').val()=='') {
-    					
-    					alert("기입이완료되지않았습니다.");
-    				
-    				}	else{
-    					AirItem_InsertReg.submit();
-    	           		 }
-    	       		 }
-    				
-    			
-    		})
-     
-	});
-    
-     
-     
-     
-     
-
-     
-     
-     
-     
-});
+<script src="../js/odk/item_insert.js"></script> 
 
 
-
-
-
-</script>
 <form name="AirItem_InsertReg" action="AirItem_InsertReg">
 	<table border="">
 		<tr>
@@ -108,7 +30,7 @@ $(document).ready(function(){
 			<td colspan="2">출발시간</td>
 			<td>
 				<select class="hh" name="h">		                         
-				<option>시</option>
+				<option value="시"> 시</option>
 				<option value="00">00</option>
 				<option value="01">01</option>
 				<option value="02">02</option>
@@ -138,7 +60,7 @@ $(document).ready(function(){
 				
 				
 				<select class="mm"  name="m">		                         
-				<option >분</option>
+				<option value="분">분</option>
 				<option value="00">00</option>
 				<option value="01">01</option>
 				<option value="02">02</option>
@@ -204,7 +126,7 @@ $(document).ready(function(){
 				</select>
 				
 				<select class="ss"  name="s">		                         
-				<option >초</option>
+				<option value="초">초</option>
 				<option value="00">00</option>
 				<option value="01">01</option>
 				<option value="02">02</option>
@@ -277,7 +199,7 @@ $(document).ready(function(){
 				<td colspan="2">출발지</td>
 				<td>
 				<select class="darea"  name="darea">
-				<option >출발지</option>                                  
+				<option value="출발지">출발지</option>                                  
 				<option value="인천">인천</option>
 				<option value="도쿄">도쿄</option>
 				<option value="오사카">오사카</option>
@@ -297,7 +219,7 @@ $(document).ready(function(){
 			<td colspan="2">도착지</td>
 				<td>
 				<select class="carea" name="carea">   
-				<option >도착지</option>      				                    
+				<option value="도착지">도착지</option>      				                    
 				<option value="인천">인천</option>
 				<option value="도쿄">도쿄</option>
 				<option value="오사카">오사카</option>
@@ -315,7 +237,7 @@ $(document).ready(function(){
 		</tr>
 		<tr>
 			<td colspan="2">가격</td>
-			<td><input type="text" name="money" onkeypress="inNumber();"/></td>
+			<td><input type="text" class="money" value="" name="money" onkeypress="inNumber();" /></td>
 		</tr>
 
 				<tr>
