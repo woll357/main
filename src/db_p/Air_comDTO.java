@@ -27,8 +27,13 @@ public class Air_comDTO { //항공사 테이블
 	public void setCrn(String crn) {
 		this.crn = crn;
 	}
-
+	
 	public String getImg() {
+	
+		if(img==null ) {
+			
+			img="";
+		}
 		return img;
 	}
 

@@ -8,6 +8,7 @@
 <title>비행기 검색</title>
 </head>
 <body>
+<form action="Airplane_List2">
 <input type="hidden" name="air_code" value="${dd }">
 <table border="">
 	<tr>
@@ -55,5 +56,6 @@
 	<td colspan="2" align="right" ><a href="Airplane_Insert?air_code=${dto.air_code }"><input type="button" value="등록"></a></td>
 	</tr>
 </table>
+</form>
 </body>
 </html>

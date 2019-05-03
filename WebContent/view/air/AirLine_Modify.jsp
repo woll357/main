@@ -1,18 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:if test="${msg != null}">
-<script>
-alert("${msg}");
-</script>
-</c:if>
-<script>
-function fileDelete(){
-	frm.action = "FileDelete";
-	frm.submit();
-}
-</script>
+    <script>    	
+    	function fileDelete() {
+    		airmod.action = "FileDelete";
+    		airmod.submit();
+    	}
+    	
+     	$(document).ready(function(){
+    		$('.airmodimodi').on({
+    			'click':function() {
+    				var img = $('#img').val();
+    				
+    				if($('#img').val()=='') {
+    					alert("기입이완료되지않았습니다.");
+    					hotmod.button();
+    				}
+             		if(img!=null) {
+                		var ssimg = img.substring(img.lastIndexOf(".")+1);
+                		console.log(ssimg);
+                 		if(ssimg=='txt' || ssimg=='doc' || ssimg=='hwp' || ssimg=='ppt' || ssimg=='xls' || ssimg=='pptx'
+                 				|| ssimg=='xlsx' || ssimg=='docx' || ssimg=='mp3' || ssimg=='wma' || ssimg=='wav'){
+                  			alert("값이 잘못되었습니다.");
+             			}
+                 		else{
+                       		airmod.submit();
+                   		 }
+               		 }
+    				
+    			}
+    			
+    		})
+    		
+    	}) 
     
+    </script>
 
 <html>
 <head>
@@ -20,7 +42,7 @@ function fileDelete(){
 <title>Insert title here</title>
 </head>
 <body>
-<form action="AirLine_ModifyFm" method="post"  enctype="multipart/form-data">
+<form name="airmod" action="AirLine_ModifyFm" method="post"  enctype="multipart/form-data">
 <table border="">
 	<input type="hidden" name="id" value="${mem.id }">
 	<tr>
@@ -35,20 +57,18 @@ function fileDelete(){
 	</tr>
 	<tr>
 		<c:choose>
-		<c:when test="${dto.img!=null }">${dto.img }<input type="button" value="파일삭제" onclick="fileDelete()"/>		
+		<c:when test="${dto.img!='' }">${dto.img }<input type="button" value="파일삭제" onclick="fileDelete()"/>		
 			<input type="hidden" name="img" value="${dto.img }">
 		</c:when>
 		<c:otherwise>
-			<input type="file" name="img">
+			<input type="file" name="img" id="img">
 		</c:otherwise>
 		</c:choose>			
 	</tr>
 	
 
-
-
 	<tr align="right">
-	<td colspan="3"><input type="submit" value="수정" ></td>
+	<td colspan="3"><input type="button" class="airmodimodi"  value="수정" ></td>
 	</tr>
 	</table>
 	</form>

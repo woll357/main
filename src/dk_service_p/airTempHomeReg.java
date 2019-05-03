@@ -27,6 +27,7 @@ public class airTempHomeReg implements MvcAction {
 		System.out.println("진입");
 		
 		String path = request.getRealPath("/img");
+		
 		path = new Common().getPath();
 		
 		try {

@@ -19,15 +19,15 @@
 			<td align="center"><input type="submit" value="선택  " /></td>
 		</tr>
 	<tr>
-		<td>상품코드</td>
-		<td>비행기코드</td>
+		<td width="40">상품코드</td>
+		<td width="30">비행기코드</td>
 		<td>출발시간</td>
 		<td>출발지</td>
 		<td>도착지</td>
 		<td>가격</td>
 		<td>도착시간</td>
-		<td>예약된좌석</td>
-		<td>총좌석</td>	
+		<td width="50" >예약된좌석</td>
+		<td width="35">총좌석</td>	
 		<td>좌석등급</td>
 	</tr>
 

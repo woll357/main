@@ -76,21 +76,24 @@ public Object comdetail(Air_comDTO dto) {
 
 public Air_comDTO fileDelete(Air_comDTO dto) {
 	Air_comDTO res = null;
+	System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!"+dto.getAir_code());
 	
 	sql = "select * from air_com where  air_code = ? ";
 	
 	try {
 		ptmt = con.prepareStatement(sql);
-		ptmt.setString(1, dto.air_code);
+		ptmt.setString(1, dto.getAir_code());
 		rs = ptmt.executeQuery();
 		
 		if(rs.next()) {
+			
+			System.out.println("에어컴 진입입ㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂ");
 			res = new Air_comDTO();
 		
 			res.setImg(rs.getString("img"));
 		
 			
-			sql = "update board set img = null where air_code = ?";  //이 부분은 파일이 삭제 되었을때 파일 삭제된것이 DB에 업데이트해야하기때문에 .
+			sql = "update air_com set img = null where air_code = ?" ;  //이 부분은 파일이 삭제 되었을때 파일 삭제된것이 DB에 업데이트해야하기때문에 .
 			
 			ptmt = con.prepareStatement(sql);
 			

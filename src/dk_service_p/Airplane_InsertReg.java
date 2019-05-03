@@ -23,12 +23,13 @@ public class Airplane_InsertReg implements MvcAction {
 		
 		String msg= "";
 		String goUrl = "";
+		String air_code = ((SignUpDTO) session.getAttribute("mem")).getAir_code();		
 		
 		Air_planeDTO dto = new Air_planeDTO();
 		
 		
 		
-		dto.setAir_code(((SignUpDTO) session.getAttribute("mem")).getAir_code());
+		dto.setAir_code(air_code);
 		dto.setAp_code(request.getParameter("ap_code"));
 		dto.setAir_ty(request.getParameter("air_ty"));
 		
@@ -37,7 +38,7 @@ public class Airplane_InsertReg implements MvcAction {
 		
 		
 		
-		if(new Air_planeDAO().apvalidity(request.getParameter("ap_code"))) {		
+		if(new Air_planeDAO().apvalidity2(request.getParameter("ap_code"))) {		
 			
 			
 			msg = "있는 비행기입니다.";

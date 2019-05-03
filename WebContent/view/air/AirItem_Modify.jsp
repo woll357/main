@@ -54,6 +54,24 @@ $(document).ready(function(){
             }
          }
       });
+     
+     
+    
+ 	$('.modifygo').on({
+		'click':function(){
+			
+			if($('.darea').val()=='출발지' || $('.carea').val()=='도착지' || $('.ap_code').val()=='' || $('.ddate').val()=='' || 
+					$('.ss').val()=='초' || $('.mm').val()=='분' || $('.hh').val()=='시'  ){
+				
+				alert("기입이완료되지않았습니다.")
+				
+			}else{
+				
+				insert.submit();
+			}
+		}
+	})
+     
          
 });
 
@@ -65,21 +83,21 @@ function inNumber(){
 
 
 </script>
-<form action="AirItem_InsertReg">
+<form name="insert" action="AirItem_InsertReg">
 	<table border="">
 		<tr>
 			<td>비행기코드</td>
-			<td><input type="text"  name="ap_code" value="${dto.ap_code}"/></td>
+			<td><input type="text" class="ap_code"  name="ap_code" value="${dto.ap_code}"/></td>
 		</tr>
 		<tr>
 			<td>출발날짜</td>
-			<td><input type="text" name="ddate" value="${fn:substring(dto.ddate,0,10)}" /></td>
+			<td><input type="text" class="ddate" name="ddate" value="${fn:substring(dto.ddate,0,10)}" /></td>
 		</tr>
 		<tr>
 			<td>출발시간</td>
 			<td>
 				<select class="hh" name="h">		                         
-				<option>시</option>
+				<option value="시">시</option>
 				<option value="00">00</option>
 				<option value="01">01</option>
 				<option value="02">02</option>
@@ -108,8 +126,8 @@ function inNumber(){
 				</select>
 				
 				
-				<select   name="m">		                         
-				<option value="00">분</option>
+				<select class="mm"  name="m">		                         
+				<option value="분">분</option>
 				<option value="00">00</option>
 				<option value="01">01</option>
 				<option value="02">02</option>
@@ -174,8 +192,8 @@ function inNumber(){
 				
 				</select>
 				
-				<select  name="s">		                         
-				<option value="00">초</option>
+				<select class="ss"  name="s">		                         
+				<option value="초">초</option>
 				<option value="00">00</option>
 				<option value="01">01</option>
 				<option value="02">02</option>
@@ -248,7 +266,7 @@ function inNumber(){
 				<td>출발지</td>
 				<td>
 				<select class="darea"  name="darea">
-				<option >출발지</option>                                  
+				<option value="출발지">출발지</option>                                  
 				<option value="인천">인천</option>
 				<option value="도쿄">도쿄</option>
 				<option value="오사카">오사카</option>
@@ -268,7 +286,7 @@ function inNumber(){
 			<td>도착지</td>
 				<td>
 				<select class="carea" name="carea">   
-				<option >도착지</option>      				                    
+				<option value="도착지">도착지</option>      				                    
 				<option value="인천">인천</option>
 				<option value="도쿄">도쿄</option>
 				<option value="오사카">오사카</option>
@@ -291,7 +309,7 @@ function inNumber(){
 
 				<tr>
 				<td colspan="2" align="right">
-				<input type="submit" value="작성" />
+				<input class="modifygo" type="button" value="작성" />
 				<input type="reset" value="초기화" />
 			</td>
 		</tr>

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import aacommon_p.Common;
 import db_p.Air_comDAO;
 import db_p.Air_comDTO;
 import db_p.SignUpDTO;
@@ -28,8 +29,8 @@ public class AirLine_ModifyFm implements MvcAction {
 	System.out.println(" 항공사가 수정이 되는 페이지");
 		
 		String path = request.getRealPath("/img");
-		path = "C:\\apache-tomcat-8.5.38\\webapps\\mainProj\\img";
-		
+		//path = "C:\\apache-tomcat-8.5.38\\webapps\\mainProj\\img";
+		path = new Common().getPath();
 		
 		try {
 			MultipartRequest mm = new MultipartRequest(
@@ -42,10 +43,7 @@ public class AirLine_ModifyFm implements MvcAction {
 		      
 		      Air_comDTO dto = new Air_comDTO();
 		      
-		 
-		    
-		   
-			
+
 			
 			if(mm.getParameter("img")!=null) {
 				
@@ -64,10 +62,11 @@ public class AirLine_ModifyFm implements MvcAction {
 				msg = "수정되었습니다.";
 				goUrl = "AirLine_Detail?id="+dto.getId();
 				
-			}else if((mm.getParameter("img")==null)){
-				File ff = new File(path+"\\"+dto.getImg());
-				ff.delete();
 			}
+//			else if((mm.getParameter("img")==null)){
+//				File ff = new File(path+"\\"+dto.getImg());
+//				ff.delete();
+//			}
 			
 			request.setAttribute("msg", msg);
 			request.setAttribute("goUrl", goUrl);

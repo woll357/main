@@ -13,8 +13,8 @@
 <input type="hidden" name="air_code" value="${mem.air_code }"> 
 <table border="">
 	<tr>
-		<td colspan="13">비행기 검색</td>
-		<td><input type="text" name="ap_code"><input type="submit" value="선택"></td>
+		<td colspan="11">비행기 검색</td>
+		<td colspan="3"><input type="text" name="ap_code"><input type="submit" value="선택"></td>
 	</tr>
 	<tr >
 		<td>비행기 코드</td>
@@ -30,6 +30,7 @@
 		<td>최대 고도</td>
 		<td>최대운항거리</td>
 		<td colspan="2">좌석종류</td>
+		
 		
 		
 	</tr>

@@ -125,25 +125,25 @@ public class Air_planeDAO {
 		
 		
 	}
-	//비향기 유효성
-	public boolean apvalidity(String ap_code) {
+	//비향기 아이템 유효성
+	public boolean apvalidity(String air_code , String ap_code) {
 			
 		boolean res = false;
 			
-			sql = "select ap_code from air_plane where ap_code = ? ";
+			sql = "select ap_code from air_plane where air_code = ? and ap_code = ? ";
 			
 			try {
 				
 				ptmt = con.prepareStatement(sql);
 				
-				ptmt.setString(1, ap_code);
+				ptmt.setString(1, air_code);
+				ptmt.setString(2, ap_code);
+				
 				
 				rs = ptmt.executeQuery();
 				
 				
 				res = rs.next();
-					
-				
 					
 				
 				
@@ -156,6 +156,37 @@ public class Air_planeDAO {
 			
 		}
 	
+	//비행기 추가 유효성
+	
+	public boolean apvalidity2(String ap_code) {
+		
+		boolean res = false;
+			
+			sql = "select ap_code from air_plane where ap_code = ? ";
+			
+			try {
+				
+				ptmt = con.prepareStatement(sql);
+				
+			
+				ptmt.setString(1, ap_code);
+				
+				
+				rs = ptmt.executeQuery();
+				
+				
+				res = rs.next();
+					
+				
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return res;
+			
+		}
 	
 	
 	public void close() {

@@ -87,11 +87,12 @@ public class AirItem_InsertReg implements MvcAction {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(new Air_planeDAO().apvalidity(ap_code)) {			
+	
+		 
+		if(new Air_planeDAO().apvalidity(air_code,ap_code)) {		
+			
 			msg = "추가되었습니다.";
 			goUrl = "AirItem_List?aotcont=in";
-			
-			
 			
 			
 			new Air_itemDAO().insert(dto);
