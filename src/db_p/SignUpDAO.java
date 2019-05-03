@@ -130,32 +130,93 @@ public class SignUpDAO {
 
 	public boolean chkApply(SignUpDTO dto) {
 		boolean res = false;
+		boolean cc = true;
 		try {
 
-			
-				sql = "select * from air_temp,air_com,hot_com,hot_temp,manager,manager_temp where " + 
-						"air_temp.id=? or air_com.id=? or hot_com.id=? or hot_temp.id=? or manager.id=? or manager_temp.id=? " + 
-						"or air_temp.crn=? or air_com.crn=? or hot_com.crn=? or hot_temp.crn=? or " + 
-						"manager.bnum=? or manager_temp.bnum=?";
+							
+				if(!dto.grade.equals("M")) {
+				if(cc) {
+					sql = "select * from air_temp where id=? or crn=?";
 
-				ptmt = con.prepareStatement(sql);
-				
-				ptmt.setString(1, dto.getId());
-				ptmt.setString(2, dto.getId());
-				ptmt.setString(3, dto.getId());
-				ptmt.setString(4, dto.getId());
-				ptmt.setString(5, dto.getId());
-				ptmt.setString(6, dto.getId());
-				ptmt.setString(7, dto.getCrn());
-				ptmt.setString(8, dto.getCrn());				
-				ptmt.setString(9, dto.getCrn());
-				ptmt.setString(10, dto.getCrn());
-				ptmt.setString(11, dto.getBnum());
-				ptmt.setString(12, dto.getBnum());
-				
-				rs = ptmt.executeQuery();
+					ptmt = con.prepareStatement(sql);					
+					
+					ptmt.setString(1, dto.getId());
+					ptmt.setString(2, dto.getCrn());
+					
+					rs = ptmt.executeQuery();
+					res = rs.next();
+					if(res) {
+						cc=false;
+					}
+				}else if(cc) {
+					sql = "select * from air_com where id=? or crn=?";
 
-				res = rs.next();
+					ptmt = con.prepareStatement(sql);					
+					
+					ptmt.setString(1, dto.getId());
+					ptmt.setString(2, dto.getCrn());
+					
+					rs = ptmt.executeQuery();
+					res = rs.next();
+					if(res) {
+						cc=false;
+					}
+				}else if(cc) {
+					sql = "select * from hot_temp where id=? or crn=?";
+
+					ptmt = con.prepareStatement(sql);					
+					
+					ptmt.setString(1, dto.getId());
+					ptmt.setString(2, dto.getCrn());
+					
+					rs = ptmt.executeQuery();
+					res = rs.next();
+					if(res) {
+						cc=false;
+					}
+				}else if(cc) {
+					sql = "select * from hot_com where id=? or crn=?";
+
+					ptmt = con.prepareStatement(sql);					
+					
+					ptmt.setString(1, dto.getId());
+					ptmt.setString(2, dto.getCrn());
+					
+					rs = ptmt.executeQuery();
+					res = rs.next();
+					if(res) {
+						cc=false;
+					}
+				}
+				}else {
+					if(cc) {
+						sql = "select * from manager where id=? or bnum=?";
+
+						ptmt = con.prepareStatement(sql);					
+						
+						ptmt.setString(1, dto.getId());
+						ptmt.setString(2, dto.getBnum());
+						
+						rs = ptmt.executeQuery();
+						res = rs.next();
+						if(res) {
+							cc=false;
+						}
+					}else if(cc) {
+						sql = "select * from manager_temp where id=? or bnum=?";
+
+						ptmt = con.prepareStatement(sql);					
+						
+						ptmt.setString(1, dto.getId());
+						ptmt.setString(2, dto.getBnum());
+						
+						rs = ptmt.executeQuery();
+						res = rs.next();
+						if(res) {
+							cc=false;
+						}
+					}
+				}
 				
 
 			

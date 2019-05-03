@@ -23,7 +23,7 @@
 			var td = tr.children();
 			
 			$('#awpNo').html(td.eq(0).text());
-			$('#awpName').html(td.eq(1).text());
+			$('#awpName').html(td.eq(1).html());
 			$('#awpDdate').html(td.eq(2).text());
 			$('#awpCdate').html(td.eq(3).text()); 
 			$('#awpDarea').html(td.eq(4).text());
@@ -46,7 +46,7 @@
 			var td2 = tr2.children();
 			
 			$('#rtpNo').html(td2.eq(0).text());
-			$('#rtpName').html(td2.eq(1).text());
+			$('#rtpName').html(td2.eq(1).html());
 			$('#rtpDdate').html(td2.eq(2).text());
 			$('#rtpCdate').html(td2.eq(3).text()); 
 			$('#rtpDarea').html(td2.eq(4).text());
