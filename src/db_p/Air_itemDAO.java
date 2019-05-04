@@ -746,17 +746,19 @@ public class Air_itemDAO {
 
 		
 		
-	public Object air_pitemlist() {
+	public Object air_pitemlist(int page , int limit) {
 			
 			ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 			
 			
 			
 			try {
-				sql = "select distinct air_name, air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code ";         
+				sql = "select distinct air_name, air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code and air_item.no limit ? ,? ";         
 				
 				ptmt = con.prepareStatement(sql);
 				
+				ptmt.setInt(1, page);
+				ptmt.setInt(2, limit);
 				
 				
 				rs = ptmt.executeQuery();
@@ -843,18 +845,20 @@ public class Air_itemDAO {
 	}
 	
 	
-	public Object air_pitemlistt(String a) {
+	public Object air_pitemlistt(String a , int page , int limit) {
 		
 		ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 		
 		
 		
 		try {
-			sql = "	select distinct air_name, air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code and air_item.air_code = ? ";        
+			sql = "	select distinct air_name, air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code and air_item.air_code = ? and air_item.no limit ? , ? ";        
 			
 			ptmt = con.prepareStatement(sql);
 			
 			ptmt.setString(1, a);
+			ptmt.setInt(2, page);
+			ptmt.setInt(3, limit);
 			
 			rs = ptmt.executeQuery();
 			
@@ -936,17 +940,19 @@ public class Air_itemDAO {
 			return res;
 		}
 		
-public Object air_pitemlist3(String air_p , String air_code) {
+public Object air_pitemlist3(String air_p , String air_code ,  int page , int limit) {
 			
 			ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 	
 			try {
-				sql = "select * from air_item where air_p = ? and air_code = ? ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
+				sql = "select * from air_item where air_p = ? and air_code = ? and no limit ? , ? ";          
 
 				ptmt = con.prepareStatement(sql);
 				
 				ptmt.setString(1, air_p);
 				ptmt.setString(2, air_code);
+				ptmt.setInt(3, page);
+				ptmt.setInt(4, limit);
 				
 				rs = ptmt.executeQuery();
 				
@@ -1037,17 +1043,18 @@ public Object mair_planeitemlist(String ap_code ) {
 
 
 
-	public Object mair_pitemlist(String air_p ) {
+	public Object mair_pitemlist(String air_p , int page , int limit ) {
 	
 	ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 
 	try {
 		
-		sql = "select * from air_item where air_p = ? ";        
+		sql = "select * from air_item where air_p = ? and no limit ?, ? ";        
 		ptmt = con.prepareStatement(sql);
 		
 		ptmt.setString(1, air_p);
-	
+		ptmt.setInt(2, page);
+		ptmt.setInt(3, limit);
 		
 		rs = ptmt.executeQuery();
 		

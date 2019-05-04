@@ -1,14 +1,18 @@
 package manager_p;
 
+import java.io.File;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import aacommon_p.Common;
 import db_p.Air_comDAO;
 import db_p.Air_comDTO;
 import db_p.Air_dereDAO;
 import db_p.Air_dereDTO;
 import db_p.Hot_comDTO;
 import db_p.Hot_tempDAO;
+import db_p.Room_itemDTO;
 import db_p.SignUpDAO;
 import db_p.SignUpDTO;
 import di.MvcAction;
@@ -38,10 +42,19 @@ public class Air_DeleteRequestDelete implements MvcAction {
 			Hot_comDTO hdto = new Hot_comDTO();
 			hdto.setHcode(code);
 			hdto = new Hot_tempDAO().detail2(hdto);
+			String path = request.getRealPath("/img"); 
+			path = new Common().getPath();
+			Hot_comDTO dto2 = new Hot_tempDAO().fileDelete22(hdto);
+			
+			if(dto2!=null && dto2.getHimg()!=null) {			
+				File ff = new File(path+"\\"+dto2.getHimg());
+				ff.delete();			
+			}		
 			SignUpDTO sdto = new SignUpDTO();
 			sdto.setId(hdto.getId());
 			sdto.setGrade("H");
 			new SignUpDAO().deleteId(sdto);
+
 			
 		}
 		else if(code.substring(0, 1).equals("A")) {

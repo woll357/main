@@ -14,9 +14,9 @@
 <input type="hidden" name="air_code" value="${dd }">
 <table border="">
 	<tr>
-	<td>회사명</td>
-	<td><input type="text" name="air_name"></td>
-	<td  align="center"><input type="submit" value="검색" ></td>
+	<td style="background: #D4F4FA" >회사명</td>
+	<td style="background: #D4F4FA" ><input type="text" name="air_name"></td>
+	<td style="background: #D4F4FA"   align="center"><input type="submit" value="검색" ></td>
 	</tr>
 	<tr>
 	<!-- <td>비행기코드</td>

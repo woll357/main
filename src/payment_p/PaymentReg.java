@@ -157,7 +157,9 @@ public class PaymentReg implements MvcAction {
 				request.setAttribute("totalPrice", totalPrice);
 				request.setAttribute("hdtos",hdtos);
 				request.setAttribute("adtos",adtos);
-				request.setAttribute("mainUrl", "payment/JustBuyDetail.jsp");
+				
+				request.setAttribute("goUrl", "JustBuyDetail");
+				request.setAttribute("mainUrl", "payment/alert.jsp");
 			}
 			
 		 catch (UnsupportedEncodingException e) {

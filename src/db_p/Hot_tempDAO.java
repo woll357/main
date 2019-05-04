@@ -574,6 +574,51 @@ public void holddelete(Hold_tableDTO dto) {
 		return res;
 	}
 	
+	public Hot_comDTO fileDelete22(Hot_comDTO dto) {
+		Hot_comDTO res = null;
+		
+		sql = "select * from hot_com where  hcode = ?";
+		
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.hcode);
+			rs = ptmt.executeQuery();
+			if(rs.next()) {
+				res = new Hot_comDTO();
+				res.setId(rs.getString("id"));
+				res.setHname(rs.getString("hname"));
+				res.setCrn(rs.getString("crn"));
+				res.setHimg(rs.getString("himg"));
+				res.setCountry(rs.getString("country"));
+				res.setCity(rs.getString("city"));
+				res.setGrade(rs.getString("grade"));
+				res.setHinfo(rs.getString("hinfo"));
+				res.setAddDetail(rs.getString("adddetail"));
+				
+				sql = "update hot_com set himg = null where hcode = ?";
+				
+				ptmt = con.prepareStatement(sql);
+				
+
+				ptmt.setString(1, dto.getId());
+
+				
+				ptmt.executeUpdate();
+				
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			close();
+		}
+		
+		return res;
+	}
+	
+	
 	public Room_itemDTO filedelete2(Room_itemDTO dto) {
 		Room_itemDTO res = null;
 		

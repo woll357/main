@@ -10,9 +10,9 @@
 <body>
 	<table width=100% border="" >	
 		<tr>
-			<td colspan="8">상품 코드</td>
-			<td><input type="text" name="ccode" /></td>
-			<td align="center"><input type="submit" value="선택  " /></td>
+			<td style="background: #D4F4FA"  colspan="8">상품 코드</td>
+			<td style="background: #D4F4FA" ><input type="text" name="ccode" /></td>
+			<td style="background: #D4F4FA"  align="center"><input type="submit" value="선택  " /></td>
 		</tr>
 	<tr>
 		<td>상품코드</td>
