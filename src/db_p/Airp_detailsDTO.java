@@ -4,11 +4,18 @@ public class Airp_detailsDTO {
 	String name , air_ty ,aircraft_type , linear_content , wings_width , numberof_sea , max_two ;
 	String engine_type , tail_velocity , maximum_altitude , maximum_od , air_code , ap_code ,flightclass;
 	
+	String air_name;
 	
 	
 	
 	
 	
+	public String getAir_name() {
+		return air_name;
+	}
+	public void setAir_name(String air_name) {
+		this.air_name = air_name;
+	}
 	public String getFlightclass() {
 		return flightclass;
 	}

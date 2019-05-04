@@ -11,7 +11,7 @@
 <body>
 <script src="../js/odk/AirLine_Modify.js"></script>
 <form name="airmod" action="AirLine_ModifyFm" method="post"  enctype="multipart/form-data">
-<table border="">
+<table width=100% border="">
 	<input type="hidden" name="id" value="${mem.id }">
 	<tr>
 		

@@ -12,25 +12,10 @@
 </head>
 <body>
 <script src="../js/jquery-3.3.1.min.js"></script>   
-<script type="text/javascript">
-
-$(document).ready(function(){
-	$('.planego').on({
-		'click':function(){
-			
-			if($('.ap').val()==''){
-				alert("기입이완료되지않았습니다.")
-			}else{
-				airinre.submit();
-			}
-		}
-	})
-})
-
-</script>
+<script type="../js/odk/Airplane_insert"></script>
 <h2>비행기등록</h2>
 <form name="airinre" action="Airplane_InsertReg">
-<table border="">
+<table width=100% border="">
 	<tr >
 		<td>비행기 코드</td><td><input type="text" class="ap"  name="ap_code"></td>
 	</tr>

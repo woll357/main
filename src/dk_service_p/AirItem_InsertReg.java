@@ -88,8 +88,13 @@ public class AirItem_InsertReg implements MvcAction {
 			e.printStackTrace();
 		}
 	
-		 
-		if(new Air_planeDAO().apvalidity(air_code,ap_code)) {		
+		
+		if(	new Air_itemDAO().itemtimedetail(dto)) {		
+
+			msg="같은날 상품이 있습니다.";
+			goUrl = "AirItem_List?aotcont=in";
+		
+		}else if(new Air_planeDAO().apvalidity(air_code,ap_code)) {
 			
 			msg = "추가되었습니다.";
 			goUrl = "AirItem_List?aotcont=in";
@@ -98,7 +103,12 @@ public class AirItem_InsertReg implements MvcAction {
 			new Air_itemDAO().insert(dto);
 			new Airp_detailsDAO().airConvert();
 			
-		}else {
+			
+			
+		}
+		
+		
+		else {
 			
 			msg = "없는 비행기입니다.";
 			goUrl = "AirItem_Insert";

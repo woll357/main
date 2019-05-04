@@ -10,7 +10,7 @@
 <body>
 <form action="Airplane_List2">
 <input type="hidden" name="air_code" value="${dd }">
-<table border="">
+<table width=100% border="">
 	<tr>
 		<td colspan="13">비행기 검색</td>
 		<td><input type="text" name="ap_code"><input type="submit" value="선택"></td>

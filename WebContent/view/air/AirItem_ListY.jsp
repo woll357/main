@@ -12,7 +12,7 @@
 <body>
 <h1>지난상품 목록</h1>
 <form action="AirItem_Detail">
-	<table border="" >	
+	<table width=100% border="" >	
 		<tr>
 			<td colspan="8">상품 코드</td>
 			<td><input type="text" name="ccode" /></td>

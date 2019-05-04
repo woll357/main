@@ -69,10 +69,40 @@ public class Air_itemDAO {
 	}
 	
 	
+	//상품등록 전 불린
+	public boolean itemtimedetail(Air_itemDTO dto) {
+		
+		boolean res = false;
+		
+		sql = "select * from air_item where date(ddate)=date( ? ) and air_code = ? and ap_code = ? ";
+		
+
+			try {
+				
+				
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, dto.getDdateStr());
+				ptmt.setString(2, dto.getAir_code());
+				ptmt.setString(3, dto.getAp_code());
+			
+				rs = ptmt.executeQuery();
+				
+				res = rs.next();
+						
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			
+			}finally {
+			   close();
+		  }
+			       
+			return res;
+		}
+
 	
 	
-	
-	
+	//상품등록
 	public void insert(Air_itemDTO dto) {
 			
 			
@@ -692,8 +722,8 @@ public class Air_itemDAO {
 			
 			
 			try {
-				sql = "	select air_name, air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
-				//limit 0, 3  - > 3개만 가져옴
+				sql = "select distinct air_name, air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code ";         
+				
 				ptmt = con.prepareStatement(sql);
 				
 				
@@ -1072,9 +1102,9 @@ public Object mair_planeitemlist(String ap_code ) {
 	//관리자 비행기 리스트
 	public Object airplanlistm() {
 		
-		ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
+		ArrayList<Airp_detailsDTO> res = new ArrayList<Airp_detailsDTO>();
 		
-		sql = "select distinct air_name , air_plane.ap_code  from air_com, air_item , air_plane where air_com.air_code=air_item.air_code and air_item.air_code = air_plane.air_code order by air_name  ";
+		sql = "select distinct  ap_code ,air_code  , airp_details.air_ty , aircraft_type , linear_content , wings_width , numberof_sea , max_two , engine_type , tail_velocity , maximum_altitude , maximum_od ,flightclass from air_plane , airp_details where air_plane.air_ty =  airp_details.air_ty  ";
 		
 		try {
 			ptmt = con.prepareStatement(sql);
@@ -1083,10 +1113,23 @@ public Object mair_planeitemlist(String ap_code ) {
 			
 			while(rs.next()) {
 				
-				Air_itemDTO dto = new Air_itemDTO();
+				Airp_detailsDTO dto = new Airp_detailsDTO();
 				
-				dto.setAir_name(rs.getString("air_name"));
-				dto.setAp_code(rs.getString("ap_code"));
+				
+				 dto.setAir_code(rs.getString("air_code"));
+				 dto.setAp_code(rs.getString("ap_code"));
+				 dto.setAir_ty(rs.getString("air_ty"));
+				 dto.setAircraft_type(rs.getString("aircraft_type"));
+				 dto.setLinear_content(rs.getString("linear_content"));
+				 dto.setWings_width(rs.getString("wings_width"));
+				 dto.setNumberof_sea(rs.getString("numberof_sea"));	 
+				 dto.setMax_two(rs.getString("max_two"));
+				 dto.setEngine_type(rs.getString("engine_type"));
+				 dto.setTail_velocity(rs.getString("tail_velocity"));
+				 dto.setMaximum_altitude(rs.getString("maximum_altitude"));
+				 dto.setMaximum_od(rs.getString("maximum_od"));
+				 dto.setFlightclass(rs.getString("flightclass"));
+				 
 				
 				res.add(dto) ;
 				}

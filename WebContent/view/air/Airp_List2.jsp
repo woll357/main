@@ -9,7 +9,7 @@
 </head>
 <body>
 <form action="Airp_Detail">
-	<table border="" >	
+	<table width=100% border="" >	
 		<tr>
 			<td colspan="4">항공편 코드</td>
 			<td><input type="text" name="air_p" /></td>

@@ -43,16 +43,16 @@
 			</c:when>
 			
 			<c:when test="${mem.grade=='A' }">
-
+			<td><a href="../greensc/Home"><img style="width:50px; height:50px;" src="http://localhost:8080/mainProj/img/logo2.png" alt="" /></a></td>	
 			<td><a href="../greensc/LogOut">로그아웃</a></td>
 			<td><a href="../greensc/ModifyMem?mypage=in">마이페이지</a></td>
 			<td><a href="../airgreen/AirHomeMain?aotcont=in">항공관리</a></td>
-			<td><a href="../airgreen/AirHomeMain?aotcont=in">홈</a></td>
+			
 			
 			</c:when>
 			
 			<c:otherwise>
-
+			
 			<td><a href="../greensc/Login">로그인</a></td>
 			<td><a href="../greensc/SignUp?">회원가입</a></td>
 			<td><a href="../greensc/NoticeList?center=in">고객센터</a></td>

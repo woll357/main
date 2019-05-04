@@ -10,14 +10,14 @@
 
 <form action="AirLine_Modify?id=${mem.id }" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="id" value="${mem.id }">
-	<table border="">
+	<table  width=100%  border="">
 		<tr>
 			<td>이미지</td>
 			<td>사업자등록증</td>
 			<td>회사명</td>
 		</tr>
 		<tr>
-			<td><img alt=""src="../img/${dto.img }" width="200px" height="200px"></td>
+			<td><img alt=""src="../img/${dto.img }" ></td>
 			<td>${dto.crn }</td>
 			<td>${dto.air_name }</td>
 		</tr>

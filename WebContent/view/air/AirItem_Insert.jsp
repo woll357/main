@@ -15,7 +15,7 @@
 
 
 <form name="AirItem_InsertReg" action="AirItem_InsertReg">
-	<table border="">
+	<table width=100% border="">
 		<tr>
 			<td colspan="2">비행기코드</td>
 			<td><input type="text" name="ap_code"  class="ap_code"/></td>

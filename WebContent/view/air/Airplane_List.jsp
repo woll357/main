@@ -5,13 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>비향기 목록</title>
+<title>비행기 목록</title>
 </head>
 <body>
 <h3>비행기 목록</h3>
 <form action="Airplane_List2">
 <input type="hidden" name="air_code" value="${mem.air_code }"> 
-<table border="">
+<table width=100% border="">
 	<tr>
 		<td colspan="11">비행기 검색</td>
 		<td colspan="3"><input type="text" name="ap_code"><input type="submit" value="선택"></td>

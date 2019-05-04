@@ -43,11 +43,10 @@
 			</c:when>
 			
 			<c:when test="${mem.grade=='A' }">
-
+			<td><a href="../airgreen/AirHomeMain?aotcont=in"><img style="width:50px; height:50px;" src="http://localhost:8080/mainProj/img/logo2.png" alt="" /></a></td>	
 			<td><a href="../greensc/LogOut">로그아웃</a></td>
 			<td><a href="../greensc/ModifyMem?mypage=in">마이페이지</a></td>
-			<td><a href="../airgreen/AirHomeMain?aotcont=in">항공관리</a></td>
-			<td><a href="../airgreen/AirHomeMain?aotcont=in">홈</a></td>
+			
 			
 			</c:when>
 			
