@@ -143,12 +143,18 @@ public class SignUpDAO {
 					ptmt.setString(1, dto.getId());
 					ptmt.setString(2, dto.getCrn());
 					
+					
+					System.out.println(dto.getId());
+					System.out.println(dto.getCrn());
+					
 					rs = ptmt.executeQuery();
 					res = rs.next();
 					if(res) {
 						cc=false;
 					}
-				}else if(cc) {
+					System.out.println(cc);
+				}
+				if(cc) {
 					sql = "select * from air_com where id=? or crn=?";
 
 					ptmt = con.prepareStatement(sql);					
@@ -161,7 +167,9 @@ public class SignUpDAO {
 					if(res) {
 						cc=false;
 					}
-				}else if(cc) {
+					System.out.println(cc);
+				}
+				if(cc) {
 					sql = "select * from hot_temp where id=? or crn=?";
 
 					ptmt = con.prepareStatement(sql);					
@@ -174,7 +182,8 @@ public class SignUpDAO {
 					if(res) {
 						cc=false;
 					}
-				}else if(cc) {
+				}
+				if(cc) {
 					sql = "select * from hot_com where id=? or crn=?";
 
 					ptmt = con.prepareStatement(sql);					
@@ -202,7 +211,8 @@ public class SignUpDAO {
 						if(res) {
 							cc=false;
 						}
-					}else if(cc) {
+					}
+					if(cc) {
 						sql = "select * from manager_temp where id=? or bnum=?";
 
 						ptmt = con.prepareStatement(sql);					

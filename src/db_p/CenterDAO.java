@@ -28,14 +28,104 @@ public class CenterDAO {
 		}
 	}
 	
+	public int total(String table) {
+		int res = 0;
+		
+		try {
+			
+			sql = "select count(*) from "+table; 
+			//limit : a번부터 b번까지
+			
+			ptmt = con.prepareStatement(sql);
+			
+			rs = ptmt.executeQuery();
+			
+			rs.next();
+			
+			res = rs.getInt(1);
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
 	
-	public Object noticeList() {
+	
+	public ArrayList<Integer> qnaCnt(CenterDTO dto) {
+		ArrayList<Integer> res = null;
+		
+		try {
+			
+			sql="select count(*) from qna where id=?";
+			
+			
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.id);
+			rs = ptmt.executeQuery();
+			
+			rs.next();
+			res=new ArrayList<Integer>();
+			res.add(rs.getInt(1));
+
+			if(dto.grade.equals("M")) {
+			sql="select count(*) from qna where answer='완료'";
+			ptmt = con.prepareStatement(sql);
+			
+			rs = ptmt.executeQuery();
+			}else {
+				sql="select count(*) from qna where answer='완료' and id =?";
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, dto.id);
+				rs = ptmt.executeQuery();
+			}
+			
+			
+			
+			
+			rs.next();
+			
+			res.add(rs.getInt(1));
+
+			if(dto.grade.equals("M")) {
+				sql="select count(*) from qna where answer='대기'";
+				ptmt = con.prepareStatement(sql);
+				
+				rs = ptmt.executeQuery();
+				}else {
+					sql="select count(*) from qna where answer='대기' and id =?";
+					ptmt = con.prepareStatement(sql);
+					ptmt.setString(1, dto.id);
+					rs = ptmt.executeQuery();
+				}
+			
+			
+			
+			
+			
+			rs.next();
+			res.add(rs.getInt(1));
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
+	
+	public Object noticeList(int page, int limit) {
 		
 		ArrayList<CenterDTO> res = new ArrayList<CenterDTO>();
 		try {
 			
-			sql = "select * from notice"; 
+			sql = "select * from notice order by time desc limit ?, ?"; 
 			ptmt = con.prepareStatement(sql);
+			ptmt.setInt(1, page);
+			ptmt.setInt(2, limit);
 			rs = ptmt.executeQuery();
 			
 			while(rs.next()) {
@@ -69,13 +159,14 @@ public class CenterDAO {
 		try {
 			
 			sql = "insert into notice "
-			+ "(title, id, content, time, view ) values "
-			+ "(? ,  ? , ? ,sysdate(), -1 )";
+			+ "(title, id, content, time, view ,img) values "
+			+ "(? ,  ? , ? ,sysdate(), -1,? )";
 			
 			ptmt = con.prepareStatement(sql);
 			ptmt.setString(1, dto.getTitle());
 			ptmt.setString(2, dto.getId());
 			ptmt.setString(3, dto.getContent());
+			ptmt.setString(4, dto.getImg());
 			ptmt.executeUpdate();
 			
 			sql = "select max(num) from notice";
@@ -129,6 +220,7 @@ public class CenterDAO {
 				res.setContent(rs.getString("content"));
 				res.setTime(rs.getTimestamp("time"));
 				res.setView(rs.getInt("view"));
+				res.setImg(rs.getString("img"));
 			}
 					
 		} catch (SQLException e) {
@@ -140,13 +232,15 @@ public class CenterDAO {
 		return res;
 	}
 	
-	public Object fnqList() {
+	public Object fnqList(int page, int limit) {
 		
 		ArrayList<CenterDTO> res = new ArrayList<CenterDTO>();
 		try {
 			
-			sql = "select * from fnq"; 
+			sql = "select * from fnq order by time desc limit ?, ?"; 
 			ptmt = con.prepareStatement(sql);
+			ptmt.setInt(1, page);
+			ptmt.setInt(2, limit);
 			rs = ptmt.executeQuery();
 			
 			while(rs.next()) {
@@ -180,13 +274,14 @@ public class CenterDAO {
 		try {
 			
 			sql = "insert into fnq "
-			+ "(title, id, content, time, view ) values "
-			+ "(? ,  ? , ? ,sysdate(), -1 )";
+			+ "(title, id, content, time, view ,img) values "
+			+ "(? ,  ? , ? ,sysdate(), -1 ,?)";
 			
 			ptmt = con.prepareStatement(sql);
 			ptmt.setString(1, dto.getTitle());
 			ptmt.setString(2, dto.getId());
 			ptmt.setString(3, dto.getContent());
+			ptmt.setString(4, dto.getImg());
 			ptmt.executeUpdate();
 			
 			sql = "select max(num) from fnq";
@@ -240,6 +335,7 @@ public class CenterDAO {
 				res.setContent(rs.getString("content"));
 				res.setTime(rs.getTimestamp("time"));
 				res.setView(rs.getInt("view"));
+				res.setImg(rs.getString("img"));
 			}
 					
 		} catch (SQLException e) {
@@ -252,19 +348,23 @@ public class CenterDAO {
 	}
 	
 	
-	public Object qnaList(CenterDTO dto) {
+	public Object qnaList(CenterDTO dto, int page, int limit) {
 		
 		ArrayList<CenterDTO> res = new ArrayList<CenterDTO>();
 		CenterDTO dto2 =null;
 		try {
 			if(dto.grade.equals("M")) {
-				sql = "select * from qna where qnum is null";
+				sql = "select * from qna order by  answer asc, time desc limit ?, ?";
 				ptmt = con.prepareStatement(sql);
+				ptmt.setInt(1, page);
+				ptmt.setInt(2, limit);
 				rs = ptmt.executeQuery();
 			}else {
-				sql = "select * from qna where id=?";
+				sql = "select * from qna where id=? order by time desc limit ?, ?";
 				ptmt = con.prepareStatement(sql);
 				ptmt.setString(1, dto.id);
+				ptmt.setInt(2, page);
+				ptmt.setInt(3, limit);
 				rs = ptmt.executeQuery();
 			}
 
@@ -315,6 +415,7 @@ public class CenterDAO {
 				res.setContent(rs.getString("content"));
 				res.setTime(rs.getTimestamp("time"));
 				res.setAnswer(rs.getString("answer"));
+				res.setImg(rs.getString("img"));
 			}
 					
 		} catch (SQLException e) {
@@ -333,13 +434,14 @@ public class CenterDAO {
 		try {
 			
 			sql = "insert into qna "
-			+ "(title, id, content, time, answer ) values "
-			+ "(? ,  ? , ? ,sysdate(), '대기' )";
+			+ "(title, id, content, time, answer, img ) values "
+			+ "(? ,  ? , ? ,sysdate(), '대기' ,?)";
 			
 			ptmt = con.prepareStatement(sql);
 			ptmt.setString(1, dto.getTitle());
 			ptmt.setString(2, dto.getId());
 			ptmt.setString(3, dto.getContent());
+			ptmt.setString(4, dto.getImg());
 			ptmt.executeUpdate();
 			
 			sql = "select max(num) from qna";
@@ -367,14 +469,15 @@ public class CenterDAO {
 		try {
 			
 			sql = "insert into qna "
-			+ "(title, id, content, time, answer, qnum ) values "
-			+ "(? ,  ? , ? ,sysdate(), '완료', ? )";
+			+ "(title, id, content, time, answer, qnum ,img) values "
+			+ "(? ,  ? , ? ,sysdate(), '완료', ? ,?)";
 			
 			ptmt = con.prepareStatement(sql);
 			ptmt.setString(1, dto.getTitle());
 			ptmt.setString(2, dto.getId());
 			ptmt.setString(3, dto.getContent());
 			ptmt.setInt(4, dto.getQnum());
+			ptmt.setString(5, dto.getImg());
 			ptmt.executeUpdate();
 			
 			sql = "update qna set answer = '완료' where num = ?";
