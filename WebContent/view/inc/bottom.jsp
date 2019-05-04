@@ -3,9 +3,12 @@
 <style type="text/css">
 a{
 text-decoration:none;
-color:green;
+color:#4374D9;
 margin-left: 10px;
 margin-right: 10p
+}
+button{
+color : #4374D9;
 }
 </style>
 

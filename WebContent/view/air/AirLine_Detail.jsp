@@ -12,9 +12,9 @@
 	<input type="hidden" name="id" value="${mem.id }">
 	<table  width=100%  border="">
 		<tr>
-			<td>이미지</td>
-			<td>사업자등록증</td>
-			<td>회사명</td>
+			<td style="background: #D4F4FA">이미지</td>
+			<td style="background: #D4F4FA">사업자등록증</td>
+			<td style="background: #D4F4FA">회사명</td>
 		</tr>
 		<tr>
 			<td><img alt=""src="../img/${dto.img }" ></td>

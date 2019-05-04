@@ -71,7 +71,7 @@
 		</table>
 	</c:when>
 	<c:when test="${param.partner=='in' }">
-		<table border="">
+		<table width=100% >
 			<tr>
 				<td><a href="../Manager/AirLine_List?partner=in">항공사 목록</a></td>
 				<td><a href="../airgreen/AirItem_ListY?aotcont=in">지난상품목록조회</a></td>

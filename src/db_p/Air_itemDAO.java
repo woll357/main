@@ -31,6 +31,34 @@ public class Air_itemDAO {
 		}
 	
 	}
+	
+	//총 게시글 구하기
+	public int total() {
+		
+		int res = 0;
+		
+		
+		try {
+			sql = "select count(*) from air_item";        //총 게시물이 몇개냐
+			
+			ptmt = con.prepareStatement(sql);		
+			
+			rs = ptmt.executeQuery();
+			
+			rs.next() ;
+				
+			res = rs.getInt(1);
+				
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
+	
+	
 
 	//select air_name, air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code;
 	
@@ -335,7 +363,7 @@ public class Air_itemDAO {
 		}
 		//비행기 지난상품 리스트
 		//select * from air_item where date(ddate)<=date(sysdate())  and air_code = 'A1000'; 
-		public Object yitemdetail(String air_code ) {
+		public Object yitemdetail(String air_code , int page , int limit) {
 			
 			ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 			
@@ -344,7 +372,8 @@ public class Air_itemDAO {
 			try {
 				ptmt = con.prepareStatement(sql);
 				ptmt.setString(1, air_code);
-
+				ptmt.setInt(2, page);
+				ptmt.setInt(3, limit);
 
 				
 				rs = ptmt.executeQuery();
@@ -612,19 +641,20 @@ public class Air_itemDAO {
 		
 		
 		
-		public Object itemlist(String air_code) {
+		public Object itemlist(String air_code , int page , int limit) {
 			
 			ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 			
 			
 			
 			try {
-				sql = "select * from air_item where date(ddate)>=date(sysdate())  and air_code  = ? order by ddate ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
+				sql = "select * from air_item where date(ddate)>=date(sysdate())  and air_code  = ? order by ddate , no limit ? , ? ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
 				//limit 0, 3  - > 3개만 가져옴
 				ptmt = con.prepareStatement(sql);
 				
 				ptmt.setString(1, air_code);
-		
+				ptmt.setInt(2, page);
+				ptmt.setInt(3, limit);
 				
 				rs = ptmt.executeQuery();
 				
