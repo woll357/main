@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
+<h1>호텔상세</h1>
 <table border="">
 	<tr>
 		<td rowspan="3"><img width="300" src="../img/${dto.himg }" alt="" /></td>
@@ -24,12 +24,12 @@
 	</tr>
 </table>
 <br>
-협력방목록   
+<h2>방목록</h2>   
 <c:forEach var="data" items="${roomdata }" varStatus="no">
 <table border="">
 	<tr>
 		<tr>
-		<td rowspan="7"><img src="../img/${data.rimg }" alt="" /></td>
+		<td rowspan="7"><img width="280" src="../img/${data.rimg }" alt="" /></td>
 		<td>방종류</td>
 		<c:if test="${data.rkind=='S' }">
 		<td>스탠다드</td>

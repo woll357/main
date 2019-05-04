@@ -644,7 +644,9 @@ public void holddelete(Hold_tableDTO dto) {
 			e.printStackTrace();
 		}
 
-		
+		finally {
+			close();
+		}
 		
 		
 		return res;
