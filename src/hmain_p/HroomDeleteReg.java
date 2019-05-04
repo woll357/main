@@ -27,6 +27,13 @@ public class HroomDeleteReg implements MvcAction {
 		System.out.println("넌뭐냐 "+request.getParameter("rcode"));
 		
 		String goUrl = "";
+
+		Room_itemDTO dto2 = new Hot_tempDAO().filedelete2(dto);
+		
+		if(dto2!=null && dto2.getRimg()!=null) {			
+			File ff = new File(path+"\\"+dto2.getRimg());
+			ff.delete();			
+		}
 		new Hot_tempDAO().roomdelete(dto);
 
 		goUrl = "Hdetail?hotcont=in";
