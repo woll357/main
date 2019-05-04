@@ -1184,24 +1184,36 @@ public Object mair_planeitemlist(String ap_code ) {
 	}
 	
 	//관리자 비행기 찾기
-	public Object airplanedetailm(String air_name) {
+	public Object airplanedetailm(String ap_code) {
 		
-		ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
+		ArrayList<Airp_detailsDTO> res = new ArrayList<Airp_detailsDTO>();
 		
-		sql = "select distinct air_name , air_plane.ap_code  from air_com, air_item ,air_plane where air_com.air_code = air_item.air_code and  air_item.air_code = air_plane.air_code and air_name = ? order by air_name  ";
+		sql = "select distinct air_name, air_plane.ap_code  , air_item.air_code  , airp_details.air_ty , aircraft_type , linear_content , wings_width , numberof_sea , max_two , engine_type , tail_velocity , maximum_altitude , maximum_od ,air_item.flightclass   from airp_details ,air_com, air_item ,air_plane where air_com.air_code = air_item.air_code and  air_item.air_code = air_plane.air_code and air_plane.ap_code = ? order by air_name  ";
 		
 		try {
 			ptmt = con.prepareStatement(sql);
-			ptmt.setString(1, air_name);
+			ptmt.setString(1, ap_code);
 		
 			rs = ptmt.executeQuery();
 			
 			while(rs.next()) {
-				Air_itemDTO dto = new Air_itemDTO();
+				Airp_detailsDTO dto = new Airp_detailsDTO();
 			
-				dto.setAir_name(rs.getString("air_name"));
-				dto.setAp_code(rs.getString("ap_code"));
-				
+				 dto.setAir_name(rs.getString("air_name"));
+				 dto.setAir_code(rs.getString("air_code"));
+				 dto.setAp_code(rs.getString("ap_code"));
+				 dto.setAir_ty(rs.getString("air_ty"));
+				 dto.setAircraft_type(rs.getString("aircraft_type"));
+				 dto.setLinear_content(rs.getString("linear_content"));
+				 dto.setWings_width(rs.getString("wings_width"));
+				 dto.setNumberof_sea(rs.getString("numberof_sea"));	 
+				 dto.setMax_two(rs.getString("max_two"));
+				 dto.setEngine_type(rs.getString("engine_type"));
+				 dto.setTail_velocity(rs.getString("tail_velocity"));
+				 dto.setMaximum_altitude(rs.getString("maximum_altitude"));
+				 dto.setMaximum_od(rs.getString("maximum_od"));
+				 dto.setFlightclass(rs.getString("flightclass"));
+				 
 				res.add(dto);
 			}
 					

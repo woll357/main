@@ -17,22 +17,16 @@ public class Airplane_List2 implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-	//	HttpSession session = request.getSession();
+	
 		
 		System.out.println("비행기 찾기 목록 진입");
 		
-		/*
-		 * Air_itemDTO dto = new Air_itemDTO();
-		 * dto.setAir_name(request.getParameter("air_name"));
-		 */
-		
-		//System.out.println(((SignUpDTO) session.getAttribute("mem")).getAir_code());
+	
 		
 		request.setAttribute("data", new Air_itemDAO().airplanedetailm(request.getParameter("air_name")));
 		
 		
-		 // request.setAttribute("dd", ((SignUpDTO) session.getAttribute("mem")).getAir_code());
-		
+	
 		return null;
 	}
 

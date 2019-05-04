@@ -11,7 +11,6 @@
 <body>
 <h3>비행기 목록</h3>
 <form action="Airplane_List2">
-<input type="hidden" name="air_code" value="${mem.air_code }"> 
 <table width=100% border="">
 	<tr>
 		<td style="background: #D4F4FA"  colspan="11">비행기 검색</td>
@@ -50,7 +49,7 @@
 	<td>${dto.maximum_altitude }</td>
 	<td>${dto.maximum_od }</td>
 	<td>${dto.flightclass }</td>
-	<td>${dto.ap_code }</td><td><a href="Airplane_Delete?ap_code=${dto.ap_code }"><input type="button" value="삭제"></a></td>
+	<td><a href="Airplane_Delete?ap_code=${dto.ap_code }"><input type="button" value="삭제"></a></td>
 	</tr>
 </c:forEach>
 </table>

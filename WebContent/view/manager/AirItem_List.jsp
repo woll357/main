@@ -50,11 +50,6 @@
 		
 	</tr>
 	</c:forEach>
-<tr>
-<td colspan="12" align="right">
-	<a href=AirItem_Insert><input type="button" value="등록"></a>
-</td>
-</tr>
 	<tr>
 		<td colspan="11" align="center">
 		<c:if test="${startpage>1 }">       <!-- 스타트 페이지가 1보다클때만 나와라 -->
