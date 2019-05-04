@@ -1,38 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <script src="../js/jquery-3.3.1.min.js"></script>
+<script src = "../js/nh/UpupGradeChk.js"></script>
 
-	
-<script>
-
-$(document).ready(function(){
-	
-	 
-	   $('#grade').on({
-	      'click':function(){
-	    	  dataGet("../greenAjax/Upup?grade="+$('#grade').val());
-	      }
-	   });
-	   
-	   
-	function dataGet(url){
-		$.ajax(url,
-                {
-                   success:function(dd){	                       
-                	   $("#contents").html(dd);
-                      
-                   },
-                   error:function(){
-                      alert("실패다 실패");
-                   },
-                }
-             );
-	}
-	
-	
-})
-
-</script>
 
 <table border="">
 

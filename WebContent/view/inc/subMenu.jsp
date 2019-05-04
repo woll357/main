@@ -4,7 +4,7 @@
 
 <c:choose>
 	<c:when test="${param.mypage=='in'}">
-		<table border="">
+		<table  width=100%>
 			<tr>
 				<td><a href="../greensc/ModifyMem?mypage=in">회원 정보 수정</a></td>
 				<c:if test="${mem.grade=='C' || mem.grade=='M'}">
@@ -20,18 +20,17 @@
 		</table>
 	</c:when>
 	<c:when test="${param.mgpage=='in'}">
-		<table border="">
+		<table  width=100%>
 			<tr>
 				<td><a href="../greensc/MgPage?mgpage=in">회원 관리</a></td>
 				<td><a href="../greensc/BlackList?mgpage=in">블랙리스트 관리</a></td>
 				<td><a href="../greensc/MgGradeUp?mgpage=in">등업 관리</a></td>
-				<td></td>
 			</tr>
 		</table>
 	</c:when>
 
 	<c:when test="${param.center=='in'}">
-		<table border="">
+		<table  width=100%>
 			<tr>
 				<td><a href="../greensc/NoticeList?center=in">공지</a></td>
 				<td><a href="../greensc/FnqList?center=in">자주묻는질문</a></td>
@@ -43,7 +42,7 @@
 	</c:when>
 
 	<c:when test="${param.hotcont=='in' }">
-		<table border="">
+		<table  width=100%>
 			<tr>
 				<td><a href="../hmain/Hdetail?hotcont=in">호텔상세</a></td>
 				<td><a href="../hmain/HmodiForm?hotcont=in">호텔수정</a></td>
@@ -57,7 +56,7 @@
 	</c:when>
 
 	<c:when test="${param.aotcont=='in' }">
-		<table border="">
+		<table  width=100%>
 			<tr>
 				<td><a href="../airgreen/AirLine_Detail?aotcont=in">항공사 수정 및 삭제</a></td>
 				<td><a href="../airgreen/AirItem_ListY?aotcont=in">지난상품목록조회</a></td>
@@ -86,7 +85,7 @@
 
 
 	<c:when test="${param.sales=='in' }">
-		<table border="">
+		<table  width=100%>
 			<tr>
 
 				<td><a href="../Manager/ManagerSellList?sales=in&bstatus=m">예약내역조회</a></td>

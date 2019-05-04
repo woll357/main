@@ -53,7 +53,7 @@
 	</tr>
 	</c:forEach>
 	<tr>
-	<td colspan="2" align="right" ><a href="Airplane_Insert?air_code=${dto.air_code }"><input type="button" value="등록"></a></td>
+	<td colspan="15" align="right" ><a href="Airplane_Insert?air_code=${dto.air_code }"><input type="button" value="등록"></a></td>
 	</tr>
 </table>
 </form>

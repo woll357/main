@@ -3,27 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <script src="../js/jquery-3.3.1.min.js"></script>
-
-<script>
-
-$(document).ready(function(){
-	
-	 
-	   $('#ok').on({
-	      'click':function(){
-	    	  $('#ff').attr('action','GradeDetailReg');
-	    	  frm.submit();
-	      }
-	   });
-	   $('#no').on({
-		      'click':function(){
-		    	  $('#ff').attr('action','RejectUp');
-		    	  frm.submit();
-		      }
-		   });
-});
-</script>
-
+<script src = "../js/nh/GradeUpRg.js"></script>
 
 
 

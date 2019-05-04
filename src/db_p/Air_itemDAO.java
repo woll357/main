@@ -693,17 +693,18 @@ public class Air_itemDAO {
 		
 		//관리자
 
-		public Object itemlistm() {
+		public Object itemlistm(int page , int limit) {
 			
 			ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 			
 			
 			
 			try {
-				sql = "select * from air_item ";         
+				sql = "select * from air_item where date(ddate)>=date(sysdate())  order by ddate , no limit ? , ?";         
 				
 				ptmt = con.prepareStatement(sql);
-				
+				ptmt.setInt(1, page);
+				ptmt.setInt(2, limit);
 				
 				rs = ptmt.executeQuery();
 				

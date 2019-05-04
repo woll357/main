@@ -17,7 +17,7 @@
 	</tr><tr>
 		<td>조회수</td><td>${dto.view }</td>
 	</tr><tr>
-		<td>내용</td><td>${dto.contentBr }</td>
+		<td>내용</td><td><c:if test="${dto.img!=null}"><img alt="" src="../img/${dto.img}"></c:if>${dto.contentBr }</td>
 	</tr><tr>
 		<td colspan="2" align="right">
 			<a href="../greensc/FnqList?center=in">목록으로</a>

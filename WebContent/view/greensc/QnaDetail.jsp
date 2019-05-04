@@ -20,7 +20,9 @@
 	</tr>
 	<tr>
 		<td>내용</td>
-		<td>${dto.contentBr }</td>
+		<td>
+		<c:if test="${dto.img!=null}"><img alt="" src="../img/${dto.img}"></c:if>
+		${dto.contentBr }</td>
 	</tr>
 	<tr>
 		<td colspan="2" align="right"><c:if test="${dto.answer=='대기' }">
@@ -68,7 +70,9 @@
 		</tr>
 		<tr>
 			<td>내용</td>
-			<td>${dto2.contentBr }</td>
+			<td>
+			<c:if test="${dto2.img!=null}"><img alt="" src="../img/${dto2.img}"></c:if>
+			${dto2.contentBr }</td>
 		</tr>
 		<tr>
 			<td colspan="2" align="right"><a href="QnaList?center=in">목록으로</a></td>

@@ -1,11 +1,16 @@
 package nh_service_p;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+import aacommon_p.Common;
 import db_p.CenterDAO;
 import db_p.CenterDTO;
 import db_p.SignUpDTO;
@@ -30,20 +35,37 @@ public class ReplyQnaWriteReg implements MvcAction {
 			HttpSession session = request.getSession();
 			
 		
-	         CenterDTO dto = new CenterDTO();
-	         dto.setTitle(request.getParameter("title"));
-	         dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
-	         dto.setContent(request.getParameter("content"));
-	         dto.setQnum(Integer.parseInt(request.getParameter("qnum")));
-	         dto.setNum(Integer.parseInt(request.getParameter("num")));
-
-	       
-	         int num = new CenterDAO().qnaReplyWrite(dto);
 	         
-	        request.setAttribute("msg", "작성되었습니다.");
-	        request.setAttribute("goUrl", "QnaDetail?num="+num+"&center=in");
-	        request.setAttribute("mainUrl", "greensc/alert.jsp");
-		
+
+
+
+			String path = request.getRealPath("/img");
+			path = new Common().getPath();
+			
+			try {
+				MultipartRequest mm = new MultipartRequest(request, path, 10 * 1024 * 1024, "utf-8",
+						new DefaultFileRenamePolicy());
+				
+				CenterDTO dto = new CenterDTO();
+		         dto.setTitle(mm.getParameter("title"));
+		         dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
+		         dto.setContent(mm.getParameter("content"));
+		         dto.setQnum(Integer.parseInt(mm.getParameter("qnum")));
+		         dto.setNum(Integer.parseInt(mm.getParameter("num")));
+		         dto.setImg(mm.getFilesystemName("img"));
+
+
+				 int num = new CenterDAO().qnaReplyWrite(dto);
+		         
+			        request.setAttribute("msg", "작성되었습니다.");
+			        request.setAttribute("goUrl", "QnaDetail?num="+num+"&center=in");
+			        request.setAttribute("mainUrl", "greensc/alert.jsp");
+				
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		return null;
 	}
 

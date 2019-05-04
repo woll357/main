@@ -8,17 +8,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-<table border="">
+<table width=100% border="">
 	<tr>
-		<td></td>
-		<td>항공사 코드</td>
-		<td>아아디</td>
-		<td>사업자등록번호</td>
-		<td colspan="2">회사이름</td>
+		<td style="background: #D4F4FA" width="250" ></td>
+		<td style="background: #D4F4FA" >항공사 코드</td>
+		<td style="background: #D4F4FA" >아아디</td>
+		<td style="background: #D4F4FA" >사업자등록번호</td>
+		<td style="background: #D4F4FA"  colspan="2">회사이름</td>
 	</tr>
 	<c:forEach var="dto" items="${data }" varStatus="no">
 	<tr>
-		<td><img src="../img/${dto.img }" width="100px" height="100px"></td>
+		<td><img src="../img/${dto.img }" width="250px" height="100px"></td>
 		<td>${dto.air_code }</td>
 		<td>${dto.id }</td>
 		<td>${dto.crn }</td>
