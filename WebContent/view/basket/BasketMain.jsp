@@ -18,7 +18,7 @@
 		</tr>
 		<c:forEach var="adto" items="${adtos }"   >
 		<tr>
-			<td><input name="basketIDs" type="checkbox" value="${adto.basketID }" /></td>
+			<td><input class="chk" name="basketIDs" type="checkbox" value="${adto.basketID }" /></td>
 			<td>${adto.cName }</td>
 			<td>${adto.itemName }</td>
 			<td>${adto.ddateStr }</td>

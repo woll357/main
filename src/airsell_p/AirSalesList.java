@@ -18,7 +18,7 @@ public class AirSalesList implements MvcAction {
 		
 		new ShowAirSalesList(request, response, air_code, bstatus);
 		
-		
+		request.setAttribute("mainUrl", "airsell/AirSalesList.jsp");
 		return null;
 	}
 

@@ -46,6 +46,6 @@ public class ShowAirReserveList {
 		}
 		
 		request.setAttribute("reserveList",reserveList);
-		request.setAttribute("mainUrl", "airsell/AirReserveList.jsp");
+
 	}
 }

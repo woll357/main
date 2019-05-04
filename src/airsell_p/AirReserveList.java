@@ -37,7 +37,7 @@ public class AirReserveList implements MvcAction {
 		//예약내역 확인할꺼야
 		
 		new ShowAirReserveList(request, response, air_code, bstatus);
-		
+		request.setAttribute("mainUrl", "airsell/AirReserveList.jsp");
 		
 		return null;
 	}
