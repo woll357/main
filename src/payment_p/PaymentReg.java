@@ -41,19 +41,21 @@ public class PaymentReg implements MvcAction {
 			PaymentDTO dto = new PaymentDTO();
 
 		
-			String cNum = "";
-			for (String cn : request.getParameterValues("cNum")) {
-				cNum+=cn;
-			};
-		
-			String exDate = "";
-			for (String ed : request.getParameterValues("exDate")) {
-				exDate+=ed;
-			};
+			String cNum1 = request.getParameter("cNum1");
+			String cNum2 = request.getParameter("cNum2");
+			String cNum3 = request.getParameter("cNum3");
+			String cNum4 = request.getParameter("cNum4");		
+			String exDateMonth = request.getParameter("exDateMonth");
+			String exDateYear = request.getParameter("exDateYear");
 			
 			String cPw = request.getParameter("cPw");
 			String cvc = request.getParameter("cvc");
-
+			
+			for (int i = 0; i < basketIDs.length; i++) {
+				
+				
+			}
+			
 			
 			for (int i = 0; i < basketIDs.length; i++) {
 				System.out.println("==============================="+basketIDs[i]);
@@ -80,8 +82,12 @@ public class PaymentReg implements MvcAction {
 				
 				dto.setBcode(bdto.getBcode());
 				dto.setcComName(cComName);
-				dto.setcNum(cNum);
-				dto.setExDate(exDate);
+				dto.setcNum1(cNum1);
+				dto.setcNum2(cNum2);
+				dto.setcNum3(cNum3);
+				dto.setcNum4(cNum4);
+				dto.setExDateMonth(exDateMonth);
+				dto.setExDateYear(exDateYear);
 				dto.setcPw(cPw);
 				dto.setCvc(cvc);
 				dto.setId(id);
@@ -158,6 +164,9 @@ public class PaymentReg implements MvcAction {
 				request.setAttribute("hdtos",hdtos);
 				request.setAttribute("adtos",adtos);
 				
+				
+				request.getSession().setAttribute("basketIDs", basketIDs);
+				request.setAttribute("msg", "결제 완료되었습니다.");
 				request.setAttribute("goUrl", "JustBuyDetail");
 				request.setAttribute("mainUrl", "payment/alert.jsp");
 			}

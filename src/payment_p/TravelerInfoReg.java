@@ -97,7 +97,7 @@ public class TravelerInfoReg implements MvcAction {
 				dto.setCemail1(request.getParameterValues("cemail1")[j]);
 				dto.setCemail2(request.getParameterValues("cemail2")[j]);
 				
-				new TravelerInfoDAO().insert(dto);
+				new TravelerInfoDAO().insert(dto); //커밋 사용해보기!!
 			};
 			
 			index += bdto.getPsn();
@@ -135,7 +135,7 @@ public class TravelerInfoReg implements MvcAction {
 				totalPrice+=dto.getTotalPrice();
 			}
 			
-			request.setAttribute("totalPrice", totalPrice);
+			request.getSession().setAttribute("totalPrice", totalPrice);
 			request.setAttribute("basketIDs", basketIDs);
 			request.setAttribute("mainUrl", "payment/PaymentMain.jsp");
 			

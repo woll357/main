@@ -56,7 +56,7 @@
 				</c:forEach>
 		</c:forEach>	
 		<tr>
-		<td>
+		<td colspan="10" align="right">
 		<input style="width:75px" type="button" value="제출" onclick="chkPat()" />
 		</td>
 		</tr>
@@ -64,8 +64,8 @@
 </form>
 <script>
 
-	var no=0;
 	var chk = false;
+	
 	var chk1=false;
 	var chk2=false;
 	var chk3=false;
@@ -111,6 +111,8 @@
 			alert("잘못된 입력값이 존재합니다.");
 		}
 	}
+	
+	
 	
 	$(document).ready(function(){
 		

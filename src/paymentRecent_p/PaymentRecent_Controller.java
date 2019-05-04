@@ -1,6 +1,8 @@
 package paymentRecent_p;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import di.MvcAction;
+import di.MvcForward;
 
 /**
  * Servlet implementation class PaymentRecent_Controller
@@ -35,13 +38,25 @@ public class PaymentRecent_Controller extends HttpServlet {
 		
 		try {
 			MvcAction action = (MvcAction)Class.forName("paymentRecent_p."+service).newInstance();
+			MvcForward forward=action.execute(request, response);
 			
-			action.execute(request, response);
-			
-		} catch (Exception e) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/view/PaymentRecent/"+service+".jsp");
+			dispatcher.forward(request, response);
+		}catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+//		try {
+//			MvcAction action = (MvcAction)Class.forName("paymentRecent_p."+service).newInstance();
+//			
+//			action.execute(request, response);
+//			
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 
 	/**

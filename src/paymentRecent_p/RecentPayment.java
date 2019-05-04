@@ -26,19 +26,20 @@ public class RecentPayment implements MvcAction {
 			e.printStackTrace();
 		}
 		
+		PaymentDTO pdto = new PaymentDTO();
 		
-		PaymentDTO dto = new PaymentDTO();
-		
-		dto.setId(id);
-		
-		dto = new PaymentDAO().detail(dto);
-		
+		pdto.setId(id);
+		pdto = new PaymentDAO().detail(pdto);
 		try {
-			response.getWriter().append("<div>"+dto+"</div>");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			if(pdto.getcNum1()!=null) {
+				request.setAttribute("pdto", pdto);
+				}
+		} catch (Exception e) {
+			request.setAttribute("msg", "최근 이용 내역이 없습니다.");
+			request.setAttribute("goUrl", "../payment/PaymentMain");
 		}
+		
+		
 		
 		return null;
 	}
