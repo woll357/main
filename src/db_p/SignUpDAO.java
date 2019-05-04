@@ -1099,7 +1099,7 @@ public class SignUpDAO {
 
 	public void gradeMgUpup(SignUpDTO dto) {
 
-		sql = "insert into manager " + " (id, bnum, grade) values " + " (?, ?, ?, ?)";
+		sql = "insert into manager " + " (id, bnum, grade) values " + " (?, ?, ?)";
 
 		try {
 

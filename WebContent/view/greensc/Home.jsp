@@ -5,16 +5,52 @@
  <script src = "../js/nh/calendar.js"></script>
 <script src = "../js/nh/homeBtnAct.js"></script>
 <script src = "../js/nh/searchCombo.js"></script>
- 
-<div id="ddateCal1" style="visibility: hidden;" >
 
-</div>
+<style>
+
+.today{
+	text-align: center;
+	background-color: yellow;
+	border-radius: 10px;
+}
+.sunday{
+	text-align: center;
+	color: red;
+}
+.workday{
+	text-align: center
+}
+.satday{
+	text-align: center;
+	color: blue;
+}
+.week{
+	text-align: center;
+	font-size: 20px;
+	background-color: #eff9f9;
+	border-radius: 10px;
+}
+.tt{
+	text-align: center;
+	font-size: 30px;
+}
+.preNext{
+	text-align: center;
+	font-size: 30px;
+}
+#ddateCal1{
+	width: 600px;
+	height: 200px;
+}
+
+</style>
+
 
 
 <table>
 	<tr>
-		<td>항공</td>
-		<td>숙박</td>
+		<td class="kindd">항공</td>
+		<td class="kindd">숙박</td>
 	</tr>
 	<tr>
 		<td>
@@ -162,3 +198,5 @@
 		</td>
 	</tr>
 </table>
+
+<div id="ddateCal1" style="visibility: hidden;" ></div>

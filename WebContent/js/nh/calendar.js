@@ -1,6 +1,6 @@
  function calendar(year,month, id){ //달력 함수  
         //내장 객체
-        console.log( id);
+        
         if( id=='ssdate1' ||  id=='startDay'){
 	        var nowDate = new Date(); //오늘 날짜 객체 선언  
 	        var nYear = nowDate.getFullYear(); //오늘의 년도  
@@ -59,17 +59,29 @@
             lastDay=29;
         }   
  		
-        console.log( id);
+       
         calendarStr  = "<table>"  
         calendarStr += "<tr align=center><td valign=middle>"  
+	
+        if(nYear==(eDate.getYear()+1900) && nMonth==eDate.getMonth()){
+        	calendarStr += "<a href=javascript:calendar("+year+","+(month-1)+",'"+id+"') class=preNext></a>"
+        }else{
         calendarStr += "<a href=javascript:calendar("+year+","+(month-1)+",'"+id+"') class=preNext><</a>" //월을 넘길때 빼기 -1을 해서 넘긴다(년도는 자동 계산)  
-        calendarStr += "</td><td colspan=5 >"  
-        calendarStr += "<font size=3 color=black><b>"+eDate.getFullYear()+"년 "+(eDate.getMonth()+1)+"월</b></font> "//해당하는 년도와 월 표시  
+        }
+        
+        calendarStr += "</td><td colspan=5 class='tt'>"  
+        calendarStr += "<b>"+eDate.getFullYear()+"년 "+(eDate.getMonth()+1)+"월</b>"//해당하는 년도와 월 표시  
         calendarStr += "</td><td valign=middle>"  
         calendarStr += "<a href=javascript:calendar("+year+","+(month+1)+",'"+id+"') class=preNext>></a>" //월을 넘길때 더하기 +1을 해서 넘긴다(년도는 자동 계산)  
         calendarStr += "</td></tr><tr>"  
-        for (i=0;i<dayName.length;i++){            
-            calendarStr += "<td class=week>"+dayName[i] + "</td>" //숫자 요일을 날짜로 입력  
+        for (i=0;i<dayName.length;i++){  
+        	if(dayName[i]=='일'){
+        		calendarStr += "<td class=week width='100px' ><font color='red'>"+dayName[i] + "</font></td>" //숫자 요일을 날짜로 입력 
+        	}else if(dayName[i]=='토'){
+        		calendarStr += "<td class=week width='100px'><font color='blue'>"+dayName[i] + "</font></td>" //숫자 요일을 날짜로 입력 
+        	}else{
+        		calendarStr += "<td class=week width='100px'>"+dayName[i] + "</td>" //숫자 요일을 날짜로 입력 
+        	}
         }  
   
         calendarStr += "</tr><tr align=center>"  
@@ -84,7 +96,7 @@
                 calendarStr += "<td class=today>"+i+"</td>"   
             }
             else if(eDate.getFullYear()<nYear ||  (eDate.getFullYear()==nYear && eDate.getMonth()<nMonth)
-            		|| (eDate.getFullYear()==nYear && eDate.getMonth()==nMonth && i<(nDate+2))){
+            		|| (eDate.getFullYear()==nYear && eDate.getMonth()==nMonth && i<(nDate+1))){
             	if(col==0){//일요일 
                     calendarStr += "<td class=sunday>"+i+"</td>"  
                 }
@@ -128,8 +140,7 @@
  
  
  function datePicker(yy,mm,dd,id){
-	 
-	 console.log(yy+"년 "+(mm+1)+"월"+dd+"일"+id);
+
 	 if((mm+1)<10){
 		 mm="0"+(mm+1);
 	 }else{
@@ -142,5 +153,7 @@
 	 var idd = "."+id;
 	 $(idd).val(yy+"-"+mm+"-"+dd);
 	 
-	 
+	 $('#ddateCal1').css({
+		 'visibility': 'hidden'
+	 })
  }
