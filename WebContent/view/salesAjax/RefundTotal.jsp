@@ -9,7 +9,6 @@
 			<td>상품명</td>
 			<td>시작날짜</td>
 			<td>끝날짜</td>
-			<td>환불날짜</td>
 			<td>고객id</td>
 		</tr>
 		<c:forEach var="i" items="${refundLists }">
@@ -19,7 +18,6 @@
 			<td>${i.itemName }</td>
 			<td>${i.ddateStr }</td>
 			<td>${i.fdateStr }</td>
-			<td>${i.bdateStr }</td>
 			<td>${i.id }</td>
 		</tr>
 		</c:forEach>

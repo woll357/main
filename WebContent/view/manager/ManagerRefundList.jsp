@@ -5,6 +5,7 @@
 <script src="../js/jquery-3.3.1.min.js"></script>
 	<table>
 		<tr>
+		<td>전체<input type="radio" id="total" name ="type" /></td>
 		<td>회사별<input type="radio" id="company" name ="type" /></td>
 		<td>월별<input type="radio" id="yearMonth" name ="type" /></td>
 		</tr>
@@ -14,6 +15,23 @@
 	</div>
 <script>
 	$(document).ready(function(){
+		$("#total").on({
+			click:function(){
+				$.ajax("../Sales/RefundTotal",
+			            {
+		               success:function(dd){
+		            	   $("#serachEngine").html(dd)
+		            	 
+		               },
+		               error:function(){
+		              
+		               },
+		            }
+		         );
+			}
+		});
+		
+		
 		$("#company").on({
 					click:function(){
 						$.ajax("../Sales/RefundCompany",
