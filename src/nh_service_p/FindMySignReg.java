@@ -14,15 +14,31 @@ public class FindMySignReg implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
+		String arr [] = request.getParameterValues("phone");
+		String phone =arr[0]+"-"+arr[1]+"-"+arr[2];
+		
 		SignUpDTO dto = new SignUpDTO();
 		dto.setId(request.getParameter("id"));
-		dto.setPhone(request.getParameter("phone"));
+		dto.setPhone(phone);
+		
+		
+		
+		
 		String me = null;
+		
+		
 		if(request.getParameter("id")!=null) {
-			me="PW : "+(String)new SignUpDAO().findPw(dto)+" 입니다.";
+			if(new SignUpDAO().findPw(dto)!=null) {
+				me="PW : "+(String)new SignUpDAO().findPw(dto)+" 입니다.";
+			}else {
+				me="존재하지 않는 계정 입니다.";
+			}
 		}else {
-			
+			if(new SignUpDAO().findId(dto)!=null) {
 			me="ID : "+(String)new SignUpDAO().findId(dto)+" 입니다.";
+			}else {
+				me="존재하지 않는 계정 입니다.";
+			}
 		}
 		
 		

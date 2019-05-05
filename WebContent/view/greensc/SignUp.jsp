@@ -52,20 +52,24 @@ select{
 	font-size: 15px;
 	width: 100px;
 }
-
+.btn{
+height: 30px;
+	font-size: 20px;
+	width: 150px;
+}
 
 </style>
 
 <div id="back"><div id="in">
 
 <form action="SignUpReg" method="post" name="frm">
-	<table style="width: 100%" border="">
+	<table style="width: 100%">
 	<tr>
 	<td colspan="3"><font size="70px"><b>회원가입</b></font><hr color="#dcefef" size="1px"></td>
 	</tr>
 		<tr>
 			<td align="center" width="100" class="tt">id</td>
-			<td>
+			<td width="400px;">
 			<input name="id" type="text" id="id" maxlength="8"  onkeyup="butPat()" class="inin"/>
 			<div id="idTag">4~16자, 특수문자, 한글 제외</div>
 			</td><td>
