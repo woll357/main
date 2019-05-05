@@ -313,6 +313,39 @@ public class BasketpaidDAO {
 		}
 
 		}
+		
+		public ArrayList<BasketpaidDTO> comRefundList(BasketpaidDTO dto) {		//회사 환불 갯수?
+			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
+			
+			try {
+				
+				sql = "select basketpaid.cName, basketpaid.itemName, buy.bdate, basketpaid.id from basketpaid, buy "
+						+ "where basketpaid.bcode = buy.bcode and basketpaid.cName = ? and basketpaid.bstatus = 'r'";
+				ptmt = con.prepareStatement(sql);
+				
+				ptmt.setString(1, dto.getcName());
+		
+				rs = ptmt.executeQuery();
+				
+				while(rs.next()) {
+					dto = new BasketpaidDTO();
+					dto.setcName(rs.getString(1));
+					dto.setItemName(rs.getString(2));
+					dto.setBdateStr(rs.getString(3));
+					dto.setId(rs.getString(4));
+					res.add(dto);
+				}
+		
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				
+				close();
+			}
+			
+			return res;
+		}
 	
 	public void close() {
 		if(rs!=null) try {rs.close();} catch (SQLException e) {	}

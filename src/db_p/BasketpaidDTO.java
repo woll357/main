@@ -7,9 +7,30 @@ import java.util.Date;
 public class BasketpaidDTO {
 	int pno, cNum, totalPrice, psn;
 	String basketID, cType, cName, itemName, location1, location2, bcode, id, bstatus;
-	Date ddate, fdate;
+	Date ddate, fdate, bdate;
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+	public String getBdateStr() {
+		return sdf.format(bdate);
+	}
+
+	public void setBdateStr(String bdateStr) {
+		try {
+			this.bdate = sdf.parse(bdateStr);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public Date getBdate() {
+		return bdate;
+	}
+
+	public void setBdate(Date bdate) {
+		this.bdate = bdate;
+	}
 
 	public String getBstatus() {
 		return bstatus;

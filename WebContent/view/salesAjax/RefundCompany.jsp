@@ -25,10 +25,10 @@
 	$(document).ready(function(){
 		$("#search").on({
 					click:function(){
-						$.ajax("../Sales/RefundCompanyList?comcode=$('#comName').val()",
+						$.ajax("../Sales/RefundCompanyList?comcode="+$('#comName').val(),
 					            {
-				               success:function(aa){
-				            	alert(aa);
+				               success:function(ll){
+				            	   $("#refundListByCom").html(ll)
 				    
 				               },
 				               error:function(){
