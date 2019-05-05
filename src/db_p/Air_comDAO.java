@@ -35,8 +35,38 @@ public class Air_comDAO {
 		
 	}
 	
-
-	
+	public Object air_comList() {
+		
+		ArrayList<Air_comDTO> res = new ArrayList<Air_comDTO>();
+		
+		sql = "select * from air_com";
+		
+		try {
+			ptmt = con.prepareStatement(sql);
+			
+			rs = ptmt.executeQuery();
+			
+			while(rs.next()) {
+				Air_comDTO dto = new Air_comDTO();
+				dto.setAir_code(rs.getString("air_code"));
+				dto.setId(rs.getString("id"));
+				dto.setCrn(rs.getString("crn"));
+				dto.setImg(rs.getString("img"));
+				dto.setAir_name(rs.getString("air_name"));
+				dto.setSalesPercent(rs.getDouble("salesPercent"));
+				
+				res.add(dto);	
+			
+			}			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		
+		}finally {
+		   close();
+	  }	       
+		return res;
+	}
 	
 	
 	

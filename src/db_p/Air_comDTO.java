@@ -3,6 +3,16 @@ package db_p;
 public class Air_comDTO { //항공사 테이블
 	
 	String air_code , id , crn , img , air_name;
+	double salesPercent;
+
+	
+	public double getSalesPercent() {
+		return salesPercent;
+	}
+
+	public void setSalesPercent(double salesPercent) {
+		this.salesPercent = salesPercent;
+	}
 
 	public String getAir_code() {
 		return air_code;
