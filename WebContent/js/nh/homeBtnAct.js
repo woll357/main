@@ -5,6 +5,12 @@ $(document).ready(function(){
 			 $('.dd').css({
 				 'visibility': 'hidden'
 			 })
+			 $('#awp').css({
+				 'background-color': '#dcefef'
+			 })
+			 $('#rtp').css({
+				 'background-color': 'white'
+			 })
 
 		 }
 	 })
@@ -12,6 +18,12 @@ $(document).ready(function(){
 		 'click' : function(){
 			 $('.dd').css({
 				 'visibility': 'visible'
+			 })
+			 $('#rtp').css({
+				 'background-color': '#dcefef'
+			 })
+			 $('#awp').css({
+				 'background-color': 'white'
 			 })
 
 		 }
@@ -42,7 +54,7 @@ $(document).ready(function(){
 			var mm = cal.getMonth();
 			var id=$(this).attr("id");
 			calendar(yy,mm, id);
-			
+			$('.ssdate2').val("");
 			
 		}
 	})
@@ -59,6 +71,7 @@ $(document).ready(function(){
 				alert("출발 날짜를 선택해 주세요.");
 			}
 			
+			
 		}
 	})
 	
@@ -69,7 +82,7 @@ $(document).ready(function(){
 			var mm = cal.getMonth();
 			var id=$(this).attr("id");
 			calendar(yy,mm, id);
-			
+			$('.endDay').val("");
 			
 		}
 	})

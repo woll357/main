@@ -125,29 +125,44 @@
 	width: 30px;
 	height: 30px;
 }
+table{
+width: 1000px;
+}
+.gogoTr{
+	background-color: #d4f5fc;
+}
+.rrTr{
+	background-color: #d8fcd4;
+}
+.tt{
+	padding: 30px 20px 10px 10px;
+	font-size: 30px;
+
+}
+
 </style>
 
 
-<table border="">
+<table>
 	<tr>
-		<td colspan="9">
+		<td colspan="9" class="tt">
 			가는 편
 		</td>
 	</tr>
-	<tr>
-		<td colspan="2">항공사</td>
-		<td>출발일</td>
-		<td>도착일</td>
-		<td>출발도시</td>
-		<td>도착도시</td>
-		<td>잔여석</td>
-		<td>가격</td>
-		<td>선택</td>
+	<tr class="gogoTr">
+		<td colspan="2" width="180px">항공사</td>
+				<td width="220px">출발일</td>
+				<td width="220px">도착일</td>
+				<td width="80px">출발도시</td>
+				<td width="80px">도착도시</td>
+				<td width="70px">잔여석</td>
+				<td width="80px">가격</td>
+				<td width="50px">선택</td>
 		</tr>
 		<c:forEach var="dto" items="${dto1}" varStatus="no">
 		<tr>
 		
-		<td>${no.index+1 }</td>
+		<td width="15px">${no.index+1 }</td>
 		<td>
 		<img id="airImg" alt="" src="../img/${dto.img }">
 		${dto.air_name }
@@ -166,12 +181,12 @@
 		
 		<c:if test="${way=='rtp' }">
 		<tr>
-			<td colspan="9">
+			<td colspan="9" class="tt">
 				오는 편
 			</td>
 		</tr>
 		
-		<tr>
+		<tr class="rrTr">
 		<td colspan="2">항공사</td>
 		<td>출발일</td>
 		<td>도착일</td>
@@ -200,28 +215,31 @@
 		
 		</c:if>
 		
-		<form action="../Basket/BasketAirReg" method="post" name="frm">
+		
+		
+		<form action="../Basket/BasketAirReg" method="post" name="frm" >
 		<input type="hidden" name="seatcnt" value="${param.seatcnt }"/>
-		<table border="">
+		<table>
 			<tr>
-				<td colspan="9">
-				<input type="text" id="ccode1" name="ccode">
-				가는 편
+				<td colspan="9" class="tt">
+				<input type="hidden" id="ccode1" name="ccode">
+				<hr color="blue" size="1px">
+				선택하신 가는 편
 				</td>
 			</tr>
-			<tr>
-				<td colspan="2">항공사</td>
-				<td>출발일</td>
-				<td>도착일</td>
-				<td>출발도시</td>
-				<td>도착도시</td>
-				<td>잔여석</td>
-				<td>가격</td>
-				<td>취소</td>
+			<tr class="gogoTr">
+				<td colspan="2" width="180px">항공사</td>
+				<td width="220px">출발일</td>
+				<td width="220px">도착일</td>
+				<td width="80px">출발도시</td>
+				<td width="80px">도착도시</td>
+				<td width="70px">잔여석</td>
+				<td width="80px">가격</td>
+				<td width="50px">취소</td>
 			</tr>
 			
 			<tr>
-				<td id="awpNo"></td>
+				<td id="awpNo" width="15px"></td>
 				<td id="awpName"></td>
 				<td id="awpDdate"></td>
 				<td id="awpCdate"></td>
@@ -241,12 +259,21 @@
 		<c:if test="${way=='rtp' }">
 		
 			<tr>
-			<td colspan="9">
-			<input type="text" id="ccode2" name="ccode">
-				오는 편
+			<td colspan="9" class="tt">
+			<input type="hidden" id="ccode2" name="ccode">
+				선택하신 오는 편
 			</td>
 			</tr>
-			
+			<tr class="rrTr">
+				<td colspan="2">항공사</td>
+				<td>출발일</td>
+				<td>도착일</td>
+				<td>출발도시</td>
+				<td>도착도시</td>
+				<td>잔여석</td>
+				<td>가격</td>
+				<td>취소</td>
+			</tr>
 			<tr>
 				<td id="rtpNo"></td>
 				<td id="rtpName"></td>
@@ -262,8 +289,8 @@
 		
 		
 		<tr>
-		<td colspan="9">
-		<input type="button" value="장바구니" id="btn"/>
+		<td colspan="9" align="right"style="padding: 20px;">
+		<input type="button" value="장바구니" id="btn" style="width: 100px; height: 50px;"/>
 		</td>
 		</tr>
 		</table>

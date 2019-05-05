@@ -5,58 +5,112 @@
 <script src = "../js/nh/countryCombo.js"></script>
 <script src = "../js/nh/signUpChk.js"></script>
 
-	
+<style>
+#back{
+	position: absolute;
+	width: 800px;
+	height: 700px;
+	background-color: #dcefef;
+	left: 100px;
+	top: 350px;
+}
+#in{
+	position: absolute;
+	width: 780px;
+	height: 680px;
+	background-color: white;
+	left: 10px;
+	top: 10px;
+}
+.tt{
+	height: 55px;
+	font-size: 25px;
+	width: 150px;
+}
+.inin{
+	height: 25px;
+	font-size: 15px;
+	width: 250px;
+}
+.ppin{
+	height: 25px;
+	font-size: 15px;
+	width: 100px;
+}
+#addDetail{
+	height: 25px;
+	font-size: 15px;
+	width: 250px;
+}
+.ee{
+	height: 25px;
+	font-size: 15px;
+	width: 180px;
+}
+select{
+	height: 30px;
+	font-size: 15px;
+	width: 100px;
+}
+
+
+</style>
+
+<div id="back"><div id="in">
 
 <form action="SignUpReg" method="post" name="frm">
-	<table border="">
+	<table style="width: 100%" border="">
+	<tr>
+	<td colspan="3"><font size="70px"><b>회원가입</b></font><hr color="#dcefef" size="1px"></td>
+	</tr>
 		<tr>
-			<td align="center" width="100">id</td>
+			<td align="center" width="100" class="tt">id</td>
 			<td>
-			<input name="id" type="text" id="id" maxlength="8"  onkeyup="butPat()"/>
+			<input name="id" type="text" id="id" maxlength="8"  onkeyup="butPat()" class="inin"/>
 			<div id="idTag">4~16자, 특수문자, 한글 제외</div>
 			</td><td>
 			<input type="button" value="중복확인" class="btn" id="idBtn" disabled="disabled"/>
 			</td>
 		</tr>
 		<tr>
-			<td align="center">pw</td>
-			<td colspan="2"><input name="pw" type="password" maxlength="16" id="pw" onkeyup="chkPat()"/>
+			<td align="center" class="tt">pw</td>
+			<td colspan="2"><input name="pw" type="password" maxlength="16" id="pw" onkeyup="chkPat()"  class="inin"/>
 			<div id="pwTag">8 ~ 16자, 특수문자 제외</div>		
 			</td>
 		</tr>
 		<tr>
-			<td align="center">pw 확인</td>
-			<td colspan="2"><input name="pw2" type="password" maxlength="16" id="pw2" onkeyup="chkPat()"/>
+			<td align="center" class="tt">pw 확인</td>
+			<td colspan="2"><input name="pw2" type="password" maxlength="16" id="pw2" onkeyup="chkPat()"  class="inin"/>
 			<div id="pw2Tag">pw와 동일하게 입력</div>
 			</td>
 			
 		</tr>
 		<tr>
-			<td align="center">이름</td>
-			<td colspan="2"><input name="pname" type="text" id="pname" onkeyup="chkPat()"/>
+			<td align="center" class="tt">이름</td>
+			<td colspan="2"><input name="pname" type="text" id="pname" onkeyup="chkPat()"  class="inin"/>
 			<div id="nameTag">한글이름</div>
 			</td>
 		</tr>
 		<tr>
-			<td align="center">연락처</td>
+			<td align="center" class="tt">연락처</td>
 			<td>
-			<input name="phone" type="text" id="phone1"  maxlength="3" onkeyup="butPat()" style="width: 50px"/> -
-			<input name="phone" type="text" id="phone2"  maxlength="4" onkeyup="butPat()" style="width: 50px"/> -
-			<input name="phone" type="text" id="phone3" maxlength="4" onkeyup="butPat()" style="width: 50px"/>
+			<input name="phone" type="text" id="phone1"  maxlength="3" onkeyup="butPat()"  class="ppin"/> -
+			<input name="phone" type="text" id="phone2"  maxlength="4" onkeyup="butPat()"  class="ppin"/> -
+			<input name="phone" type="text" id="phone3" maxlength="4" onkeyup="butPat()"  class="ppin"/>
 			<div id="ppTag"></div>
 			</td><td>
 			<input type="button" value="중복확인" class="btn" id="phoneBtn" disabled="disabled"/>
 			</td>
 		</tr>
 		<tr>
-			<td align="center">생년월일</td>
-			<td colspan="2"><input name="birth" type="text" maxlength="8" id="birth" onkeyup="chkPat()"/>
+			<td align="center" class="tt">생년월일</td>
+			<td colspan="2"><input name="birth" type="text" maxlength="8" id="birth" onkeyup="chkPat()"  class="inin"/>
 			<div id="bbTag">예) 19000101</div>
 			</td>
 			
 		</tr>
 		<tr>
-			<td align="center">성별</td>
+			<td align="center" class="tt">성별</td>
 			<td colspan="2">
 			<input type="radio" name=gender value="1" checked="checked"/>남자
 			<input type="radio" name=gender value="2"/>여자
@@ -67,7 +121,7 @@
 		</tr>
 
 		<tr>
-			<td align="center">주소</td>
+			<td align="center" class="tt">주소</td>
 			<td id="address" colspan="2">
 			<select name="country" id="country">
 					<option value="한국">한국</option>
@@ -86,16 +140,18 @@
 		</tr>
 
 		<tr>
-			<td align="center">Email</td>
+			<td align="center" class="tt">Email</td>
 			<td colspan="2">
-			<input type="text" name="email" id="email1" onkeyup="chkPat()"/>@
-			<input type="text" name="email" id="email2" onkeyup="chkPat()"/>
+			<input type="text" name="email" id="email1" onkeyup="chkPat()" class="ee"/> @
+			<input type="text" name="email" id="email2" onkeyup="chkPat()" class="ee"/>
 			<div id="emTag"></div>
 			</td>
 		</tr>
 		<tr>
-			<td colspan="3" align="center"><input type="button" value="가입" id="subBtn"/>
+			<td colspan="3" align="center" class="tt"><input type="button" value="가입" id="subBtn"/>
 				<input type="reset" value="초기화" /></td>
 		</tr>
 	</table>
 </form>
+
+</div></div>

@@ -1,51 +1,55 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <script src="../js/jquery-3.3.1.min.js"></script>
-<script>
-
-$(document).ready(function(){
-	
-	$('#btn').on({
-		'click':function(){
-			var idPat =/^[0-9A-Za-z]*$/;
-			
-			if(!idPat.test($('#pw').val()) || !idPat.test($('#id').val())){
-				alert('아이디 형식을 확인해주세요');
-			}else{
-				frm.submit();
-			}
-		}
-	})
-	
-	
-})
+<script src = "../js/nh/loginChk.js"></script>
 
 
-</script>
+<style>
+.lgtd{
+	height: 50px;
+	font-size: 30px;
+}
+input{
+	height: 30px;
+}
+#id{
+	width: 250px;
+}
+#pw{
+	width: 250px;
+}
+#btn{
+	width: 100px;
+}
+#loglog{
+	position: absolute;
+	left: 350px;
+	top: 550px;
+	
+}
+
+</style>
 
 
 
 <body>
-
+<div id="loglog">
 <form action="LoginReg" method="post" name="frm">
 
-
-
-
-<table border="">
+<table>
 	<tr>
-		<td colspan="2">로그인 하세요</td>
+		<td colspan="2"><font size="20px">로그인 하세요</font></td>
 	</tr>
 	<tr>
-		<td>ID</td>
+		<td class="lgtd">ID</td>
 		<td><input type="text" name="id" id="id"/></td>
 	</tr>
 	<tr>
-		<td>PW</td>
+		<td class="lgtd">PW</td>
 		<td><input type="password" name="pw" id="pw"/></td>
 	</tr>
 	<tr>
-		<td colspan="2">
+		<td colspan="2" class="lgtd">
 		
 		<input type="button" value="로그인" id="btn"/>
 		<a href="SignUp"><input type="button" value="회원가입"/></a>
@@ -58,7 +62,7 @@ $(document).ready(function(){
 
 </form>
 
-
+</div>
 
 </body>
 </html>
