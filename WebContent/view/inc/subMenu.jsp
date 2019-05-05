@@ -88,10 +88,10 @@
 		<table  width=100%>
 			<tr>
 
-				<td><a href="../Manager/ManagerSellList?sales=in&bstatus=m">예약내역조회</a></td>
-				<td><a href="../Manager/ManagerSellList?sales=in&bstatus=p">구매내역
+				<td><a href="../Manager/ManagerReserveList?sales=in">예약내역조회</a></td>
+				<td><a href="../Manager/ManagerSellList?sales=in">구매내역
 						조회</a></td>
-				<td><a href="../Manager/ManagerSellList?sales=in&bstatus=r">환불내역
+				<td><a href="../Manager/ManagerRefundList?sales=in">환불내역
 						조회</a></td>
 
 

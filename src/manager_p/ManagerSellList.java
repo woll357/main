@@ -18,9 +18,8 @@ public class ManagerSellList implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		String bstatus = request.getParameter("bstatus");
+		String bstatus = "p";
 
-		
 		ArrayList<BasketpaidDTO> managerSellList = new ArrayList<BasketpaidDTO>();
 		
 		BasketItemDTO bidto = new BasketItemDTO();

@@ -33,7 +33,7 @@ public class DetailReserveGo {
 		
 		request.setAttribute("adtos",adtos);
 		request.setAttribute("hdtos",hdtos);
-		request.setAttribute("mainUrl", "purchase/DetailReserveInfo.jsp");
+
 		
 	}
 

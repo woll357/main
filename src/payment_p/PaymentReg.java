@@ -159,7 +159,17 @@ public class PaymentReg implements MvcAction {
 					BasketDTO tt = new BasketDTO();
 					tt.setBasketID(basketIDs[i]);
 					tt = new BasketDAO().detail(tt);
-
+					
+					if(tt.getcType().equals("A")) { //항공편이면, seatcnt 업데이트 시켜주기
+						System.out.println("");
+						
+						Air_itemDTO aidto = new Air_itemDTO();
+						aidto.setCcode(tt.getCode());
+						aidto = new Air_itemDAO().itemdetail(aidto);
+						aidto.setSeatcnt(aidto.getSeatcnt()+tt.getcNum());
+						new Air_itemDAO().update_seatcnt(aidto);
+					}
+					
 					BuyDTO bdto = new BuyDTO();
 
 					bdto.setBasketID(basketIDs[i]); // bnum

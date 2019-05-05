@@ -37,6 +37,9 @@ public class RefundReg implements MvcAction {
 		new ChangeBstatus(basketID, bstatus);
 		
 		new DetailReserveGo(id, request, response);
+		request.setAttribute("msg", "환불완료");
+		request.setAttribute("goUrl", "DetailReserveInfo");
+		request.setAttribute("mainUrl", "purchase/alert.jsp");
 		
 		return null;
 	}
