@@ -210,6 +210,32 @@ public class BasketItemDAO {
 		
 	}
 	
+	public int countNumByDdateRcode(BasketItemDTO dto) {	
+		
+		int res = 0;
+		
+			sql = "select count(pno) from basketitem where rcode = ? and ddate = ? and bstatus = 'm'";
+			try {
+				
+				ptmt = con.prepareStatement(sql);
+				
+				ptmt.setString(1, dto.getRcode());
+				ptmt.setString(2, dto.getDdateStr());
+	
+				rs = ptmt.executeQuery();
+				
+				if(rs.next()) {				
+				res=rs.getInt(1);
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}finally {
+				close();
+			}
+			return res;
+		}
+	
 	public void close() {
 		if(rs!=null) try {rs.close();} catch (SQLException e) {	}
 		if(ptmt!=null) try {ptmt.close();} catch (SQLException e) {	}

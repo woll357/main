@@ -37,6 +37,19 @@ if("${msg}"!=""){
 		</tr>
 		<tr>
 			<td style="width: 120px">카드비밀번호</td>
-			<td style="width: 50px"><input style="width: 50px"  type="password" maxlength="2" name="pw" /></td><td style="width: 10px">**</td>
+			<td style="width: 50px"><input style="width: 50px"  type="password" maxlength="2" id="pw" name="pw" /></td><td style="width: 10px">**</td>
 		</tr>
 		</table>
+<script>
+
+	$('#pw').focusout(function(){
+		if(pwPat.test($(this).val())){
+			chk6=true;
+		}
+		else{
+			chk6=false;
+			 alert("유효하지 않은 pw 입니다.");
+		}
+	})
+
+</script>

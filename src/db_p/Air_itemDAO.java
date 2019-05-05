@@ -940,7 +940,7 @@ public class Air_itemDAO {
 			return res;
 		}
 		
-public Object air_pitemlist3(String air_p , String air_code ,  int page , int limit) {
+		public Object air_pitemlist3(String air_p , String air_code ,  int page , int limit) {
 			
 			ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 	
@@ -1270,6 +1270,27 @@ public Object mair_planeitemlist(String ap_code ) {
 		}
 
 		return res;
+	}
+	
+	public void update_seatcnt(Air_itemDTO dto) {
+		
+		try {
+			
+			sql = "update air_item set seatcnt = ? where ccode = ? ";
+			
+			ptmt = con.prepareStatement(sql);
+			
+			ptmt.setInt(1, dto.getSeatcnt());
+			ptmt.setString(2, dto.getCcode());
+	
+			ptmt.executeUpdate();
+	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
 	}
 	
 	public void close() {

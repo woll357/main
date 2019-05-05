@@ -129,11 +129,14 @@ public class BasketDAO {
 			ptmt = con.prepareStatement(sql);
 			
 			ptmt.setString(1, dto.getBasketID());
-
+			
+			System.out.println(sql);
 			
 			rs = ptmt.executeQuery();
 			
 			if(rs.next()) {
+			System.out.println("들어는 왔니?");
+			
 			
 			res.setBasketID(rs.getString("basketID"));
 			res.setcType(rs.getString("cType"));
@@ -149,6 +152,8 @@ public class BasketDAO {
 			res.setNo(rs.getInt("no"));
 			res.setId(rs.getString("id"));
 			res.setCode(rs.getString("code"));
+			
+			System.out.println("값은 있니?"+res.getDdateStr());
 			
 			}
 		} catch (SQLException e1) {

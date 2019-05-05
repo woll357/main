@@ -776,6 +776,36 @@ public void holddelete(Hold_tableDTO dto) {
 			//System.out.println(res.getHnation()+res.getHarea());
 			return res;
 		}
+		
+		public Hold_tableDTO detailHoldByDdateRcode(Hold_tableDTO dto) {	
+			
+			Hold_tableDTO res = new Hold_tableDTO();
+			
+				sql = "select * from hold_table where rcode = ? and noresdate = date(?) ";
+				try {
+					
+					ptmt = con.prepareStatement(sql);
+					
+					ptmt.setString(1, dto.getRcode());
+					ptmt.setString(2, dto.getNoresdateStr());
+		
+					rs = ptmt.executeQuery();
+					
+					if(rs.next()) {				
+					res.setRcode(rs.getString("rcode"));
+					res.setNorescnt(rs.getInt("norescnt"));
+					res.setNoresdateStr(rs.getString("noresdate"));
+					res.setReason(rs.getString("reason"));
+					res.setNo(rs.getInt("no"));
+					}
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}finally {
+					close();
+				}
+				return res;
+			}
 	
 	public void close() {
 		if(rs!=null)

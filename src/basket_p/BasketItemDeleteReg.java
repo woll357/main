@@ -28,21 +28,18 @@ public class BasketItemDeleteReg implements MvcAction {
 		}
 		
 		String id = ((SignUpDTO)(request.getSession().getAttribute("mem"))).getId();
-		
 		String basketID = request.getParameter("basketID");
 		
 		BasketDTO dto = new BasketDTO();
 		BasketItemDTO basketItemDto = new BasketItemDTO();
-		
 		dto.setBasketID(basketID);
-		
 		dto = new BasketDAO().detail(dto);
 		
 		basketItemDto.setBasketID(basketID);
 		
-		if(new BasketDAO().delete(dto)) {
-			new BasketItemDAO().delete(basketItemDto);
-		}
+		new BasketDAO().delete(dto);
+		new BasketItemDAO().delete(basketItemDto);
+		
 		
 		new BasketGo(id, request, response);
 		

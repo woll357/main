@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%request.setCharacterEncoding("utf-8"); %>
-
+<script src="../js/jquery-3.3.1.min.js"></script>
 <h1>결제화면</h1>
 
 <form name="frm" action="PaymentReg" method="post">
@@ -105,7 +105,7 @@
 			</td>
 		</tr>	
 		<tr>
-			<td><input type="button" onclick="chkPat()" value="결제하기"/></td>
+			<td><input id="btn" type="button" value="결제하기"/></td>
 		</tr>
 	</table>
 
@@ -144,6 +144,21 @@
 	}
 	
 	$(document).ready(function(){
+		
+		  $('#btn').on({
+		      'click':function(){
+		    		if(chk1 && chk2 && chk3 && chk4 && chk5 && chk6){
+		    			chk=true;
+		    			frm.submit();
+		    		}
+		    		else if($('input:checkbox[id="check"]').is(":checked") == true && chk5){
+		    			frm.submit();			
+		    		}
+		    		else{
+		    			alert("잘못된 입력값이 존재합니다.");
+		    		}
+		      }
+		   });
 		
 		$('#cNum1').focusout(function(){
 			if(cNum1Pat.test($(this).val())){
@@ -199,7 +214,7 @@
 			}
 			else{
 				chk6=false;
-				 alert("유효하지 않은 cvc 입니다.");
+				 alert("유효하지 않은 pw 입니다.");
 			}
 		})
 		
