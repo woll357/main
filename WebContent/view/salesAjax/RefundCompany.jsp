@@ -3,18 +3,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%request.setCharacterEncoding("utf-8"); %>
 <script src="../js/jquery-3.3.1.min.js"></script>
-	<table>
-		<tr>
-		<td>회사별<input type="radio" id="company" name ="type" /></td>
-		<td>월별<input type="radio" id="month" name ="type" /></td>
-		</tr>
-	</table>
-	<div>
+<table>
+	<tr>
+	<td>
+	<select style="width: 50px" id="comName" name="comName">
+	<c:forEach var="" items="">
+	<option  value="국민">국민</option>
+	</c:forEach>
+	</select>
 	
-	</div>
-	
-	
-<!-- 	<table>
+	</td>
+	</tr>
+</table>
+
+
+<table>
 	<tr>
 	</tr>
 		<tr>
@@ -23,7 +26,7 @@
 			<td>상품명</td>
 			<td>환불날짜</td>
 			<td>고객id</td>
-		</tr> -->
+		</tr>
 <%-- 		<c:forEach var="i" items="${managerSellList }" >
 		<tr>	
 			<td>${i.cName }</td>
@@ -34,31 +37,10 @@
 			<td>${i.totalPrice }</td>
 		</tr>
 		</c:forEach> --%>
-
-
-<!-- 		<tr>
+		<tr>
 		<td></td>
 		<td></td>
 		<td></td>
 		<td></td>
 		</tr>
-	</table> -->
-<script>
-	$(document).ready(function(){
-		$("#company").on({
-					click:function(){
-						$.ajax("../Sales/RefundCompany",
-					            {
-				               success:function(dd){
-				            	   $("#contents").html(dd)
-				            	 
-				               },
-				               error:function(){
-				              
-				               },
-				            }
-				         );
-					}
-			});
-	});
-</script>
+	</table>

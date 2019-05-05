@@ -1,4 +1,4 @@
-package hotelsell_p;
+package hs_cont;
 
 import java.io.IOException;
 
@@ -12,16 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import di.MvcAction;
 
 /**
- * Servlet implementation class Hotelsell_Controller
+ * Servlet implementation class Basket_Controller
  */
-@WebServlet("/hotelsell/*")
-public class Hotelsell_Controller extends HttpServlet {
+@WebServlet("/Basket/*")
+public class Basket_Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Hotelsell_Controller() {
+    public Basket_Controller() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,14 +31,12 @@ public class Hotelsell_Controller extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String service = request.getRequestURI().substring("/mainProj/hotelsell/".length());
+		String service = request.getRequestURI().substring("/mainProj/basket/".length());
 		
-		request.setAttribute("mainUrl","hotelsell/"+service+".jsp");
-
-		System.out.println(request.getAttribute("mainUrl"));
+		request.setAttribute("mainUrl","basket/"+service+".jsp");
 		
 		try {
-			MvcAction action = (MvcAction)Class.forName("hotelsell_p."+service).newInstance();
+			MvcAction action = (MvcAction)Class.forName("basket_p."+service).newInstance();
 			
 			action.execute(request, response);
 			

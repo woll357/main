@@ -1,4 +1,4 @@
-package basket_p;
+package hs_cont;
 
 import java.io.IOException;
 
@@ -10,18 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import di.MvcAction;
+import di.MvcForward;
 
 /**
- * Servlet implementation class Basket_Controller
+ * Servlet implementation class Payment_Controller
  */
-@WebServlet("/Basket/*")
-public class Basket_Controller extends HttpServlet {
+@WebServlet("/payment/*")
+public class Payment_Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Basket_Controller() {
+    public Payment_Controller() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,18 +32,19 @@ public class Basket_Controller extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String service = request.getRequestURI().substring("/mainProj/basket/".length());
 		
-		request.setAttribute("mainUrl","basket/"+service+".jsp");
+		String service = request.getRequestURI().substring("/mainProj/payment/".length());
+		
+		request.setAttribute("mainUrl","payment/"+service+".jsp");
+		
 		
 		try {
-			MvcAction action = (MvcAction)Class.forName("basket_p."+service).newInstance();
+			MvcAction action = (MvcAction)Class.forName("payment_p."+service).newInstance();
 			
 			action.execute(request, response);
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/view/template.jsp");
 			dispatcher.forward(request, response);
-			
 			
 			
 		} catch (Exception e) {

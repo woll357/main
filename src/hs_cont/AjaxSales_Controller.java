@@ -1,4 +1,4 @@
-package paymentRecent_p;
+package hs_cont;
 
 import java.io.IOException;
 
@@ -13,16 +13,16 @@ import di.MvcAction;
 import di.MvcForward;
 
 /**
- * Servlet implementation class PaymentRecent_Controller
+ * Servlet implementation class AjaxSales_Controller
  */
-@WebServlet("/PaymentRecent/*")
-public class PaymentRecent_Controller extends HttpServlet {
+@WebServlet("/Sales/*")
+public class AjaxSales_Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PaymentRecent_Controller() {
+    public AjaxSales_Controller() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,31 +32,20 @@ public class PaymentRecent_Controller extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String service = request.getRequestURI().substring("/mainProj/PaymentRecent/".length());
+		String service = request.getRequestURI().substring("/mainProj/Sales/".length());
 		
 		System.out.println(service);
 		
 		try {
-			MvcAction action = (MvcAction)Class.forName("paymentRecent_p."+service).newInstance();
+			MvcAction action = (MvcAction)Class.forName("salesAjax_p."+service).newInstance();
 			MvcForward forward=action.execute(request, response);
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/view/PaymentRecent/"+service+".jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/view/salesAjax/"+service+".jsp");
 			dispatcher.forward(request, response);
 		}catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-//		try {
-//			MvcAction action = (MvcAction)Class.forName("paymentRecent_p."+service).newInstance();
-//			
-//			action.execute(request, response);
-//			
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
 	}
 
 	/**
