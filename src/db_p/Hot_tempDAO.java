@@ -30,7 +30,7 @@ public class Hot_tempDAO {
 		
 	}
 	
-public void roomdelete(Room_itemDTO dto) {
+	public void roomdelete(Room_itemDTO dto) {
 		
 
 		try {
@@ -807,6 +807,39 @@ public void holddelete(Hold_tableDTO dto) {
 				return res;
 			}
 	
+		public ArrayList<Hot_comDTO> hotelList() {
+			ArrayList<Hot_comDTO> res = new ArrayList<Hot_comDTO>();
+			
+			sql = "select * from hot_com";	
+			try {
+				ptmt = con.prepareStatement(sql);
+				rs = ptmt.executeQuery();
+				while(rs.next()) {
+					Hot_comDTO dto = new Hot_comDTO();
+					dto.setId(rs.getString("id"));
+					dto.setHname(rs.getString("hname"));
+					dto.setCrn(rs.getString("crn"));
+					dto.setHimg(rs.getString("himg"));
+					dto.setCountry(rs.getString("country"));
+					dto.setCity(rs.getString("city"));
+					dto.setGrade(rs.getString("grade"));
+					dto.setHinfo(rs.getString("hinfo"));
+					dto.setAddDetail(rs.getString("adddetail"));
+					dto.setHcode(rs.getString("hcode"));
+					dto.setSalesPercent(rs.getDouble("salesPercent"));
+					res.add(dto);			
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			finally {
+				close();
+			}
+			return res;
+		}
+
+		
 	public void close() {
 		if(rs!=null)
 			try {

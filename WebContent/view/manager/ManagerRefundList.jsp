@@ -9,7 +9,7 @@
 		<td>월별<input type="radio" id="month" name ="type" /></td>
 		</tr>
 	</table>
-	<div>
+	<div id="serachEngine">
 	
 	</div>
 	
@@ -50,7 +50,7 @@
 						$.ajax("../Sales/RefundCompany",
 					            {
 				               success:function(dd){
-				            	   $("#contents").html(dd)
+				            	   $("#serachEngine").html(dd)
 				            	 
 				               },
 				               error:function(){

@@ -35,7 +35,7 @@ public class Air_comDAO {
 		
 	}
 	
-	public Object air_comList() {
+	public ArrayList<Air_comDTO> air_comList() {
 		
 		ArrayList<Air_comDTO> res = new ArrayList<Air_comDTO>();
 		

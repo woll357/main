@@ -5,9 +5,14 @@ package db_p;
 public class Hot_comDTO {
 	Integer no;
 	String id,crn,hname,hinfo,grade,himg,country,city,addDetail,hcode;
+	double salesPercent;
 	
-	
-	
+	public double getSalesPercent() {
+		return salesPercent;
+	}
+	public void setSalesPercent(double salesPercent) {
+		this.salesPercent = salesPercent;
+	}
 	public Integer getNo() {
 		return no;
 	}
