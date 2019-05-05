@@ -6,6 +6,8 @@
 		<tr>
 			<td>회사명</td>
 			<td>상품명</td>
+			<td>시작날짜</td>
+			<td>끝날짜</td>
 			<td>환불날짜</td>
 			<td>고객id</td>
 		</tr>
@@ -13,6 +15,8 @@
 		<tr>
 			<td>${i.cName }</td>
 			<td>${i.itemName }</td>
+			<td>${i.ddateStr }</td>
+			<td>${i.fdateStr }</td>
 			<td>${i.bdateStr }</td>
 			<td>${i.id }</td>
 		</tr>

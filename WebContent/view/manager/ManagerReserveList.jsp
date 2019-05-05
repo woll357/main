@@ -2,35 +2,65 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%request.setCharacterEncoding("utf-8"); %>
-<form action="">
-	<table>
+<script src="../js/jquery-3.3.1.min.js"></script>
+
+<table>
 		<tr>
-			<td>회사명</td>
-			<td>상품종류</td>
-			<td>상품명</td>
-			<td>시작날짜</td>
-			<td>끝날짜</td>
-			<td>고객id</td>
-			<td>가격</td>
-			<td>가격</td>
-		</tr>
-		<c:forEach var="i" items="${managerSellList }" >
-		<tr>	
-			<td>${i.cName }</td>
-			<td>${i.cType }</td>
-			<td>${i.itemName }</td>
-			<td>${i.ddate }</td>
-			<td>${i.fdate }</td>
-			<td>${i.id }</td>
-			<td>${i.totalPrice }</td>
-			<td>${i.totalPrice }</td>
-		</tr>
-		</c:forEach>
-		<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td>전체<input type="radio" id="total" name ="type" /></td>
+		<td>회사별<input type="radio" id="company" name ="type" /></td>
+		<td>날짜별<input type="radio" id="yearMonth" name ="type" /></td>
 		</tr>
 	</table>
-</form>
+	<div id="serachEngine">
+	
+	</div>
+<script>
+	$(document).ready(function(){
+		$("#total").on({
+			click:function(){
+				$.ajax("../Sales/ReserveTotal",
+			            {
+		               success:function(dd){
+		            	   $("#serachEngine").html(dd)
+		            	 
+		               },
+		               error:function(){
+		              
+		               },
+		            }
+		         );
+			}
+		});
+		
+		$("#company").on({
+					click:function(){
+						$.ajax("../Sales/ReserveCompany",
+					            {
+				               success:function(dd){
+				            	   $("#serachEngine").html(dd)
+				            	 
+				               },
+				               error:function(){
+				              
+				               },
+				            }
+				         );
+					}
+			});
+		$("#yearMonth").on({
+			click:function(){
+				$.ajax("../Sales/RefundDate",
+			            {
+		               success:function(dd){
+		            	   $("#serachEngine").html(dd)
+		            	 
+		               },
+		               error:function(){
+		              
+		               },
+		            }
+		         );
+			}
+		});
+	});
+</script>

@@ -319,7 +319,7 @@ public class BasketpaidDAO {
 			
 			try {
 				
-				sql = "select basketpaid.cName, basketpaid.itemName, buy.bdate, basketpaid.id from basketpaid, buy "
+				sql = "select basketpaid.cName, basketpaid.itemName, basketpaid.ddate, basketpaid.fdate , buy.bdate, basketpaid.id from basketpaid, buy "
 						+ "where basketpaid.bcode = buy.bcode and basketpaid.cName = ? and basketpaid.bstatus = 'r'";
 				ptmt = con.prepareStatement(sql);
 				
@@ -331,8 +331,10 @@ public class BasketpaidDAO {
 					dto = new BasketpaidDTO();
 					dto.setcName(rs.getString(1));
 					dto.setItemName(rs.getString(2));
-					dto.setBdateStr(rs.getString(3));
-					dto.setId(rs.getString(4));
+					dto.setDdateStr(rs.getString(3));
+					dto.setFdateStr(rs.getString(4));
+					dto.setBdateStr(rs.getString(5));
+					dto.setId(rs.getString(6));
 					res.add(dto);
 				}
 		
@@ -346,15 +348,15 @@ public class BasketpaidDAO {
 			
 			return res;
 		}
-	
+		
 		public ArrayList<BasketpaidDTO> dateRefundList(String start, String end) {		//회사 환불 갯수?
 			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
 			
 			try {
 				
 				
-				sql = "select basketpaid.cName, basketpaid.itemName, buy.bdate, basketpaid.id from basketpaid, buy "
-						+ "where basketpaid.bcode = buy.bcode and date(ddate) between '"+start+"' and '"+end+"' and "
+				sql = "select basketpaid.cName, basketpaid.itemName,basketpaid.ddate, basketpaid.fdate , buy.bdate, basketpaid.id from basketpaid, buy "
+						+ "where basketpaid.bcode = buy.bcode and date(bdate) between '"+start+"' and '"+end+"' and "
 								+ "basketpaid.bstatus = 'r'";
 				ptmt = con.prepareStatement(sql);
 		
@@ -364,8 +366,45 @@ public class BasketpaidDAO {
 					BasketpaidDTO dto = new BasketpaidDTO();
 					dto.setcName(rs.getString(1));
 					dto.setItemName(rs.getString(2));
-					dto.setBdateStr(rs.getString(3));
-					dto.setId(rs.getString(4));
+					dto.setDdateStr(rs.getString(3));
+					dto.setFdateStr(rs.getString(4));
+					dto.setBdateStr(rs.getString(5));
+					dto.setId(rs.getString(6));
+					res.add(dto);
+				}
+		
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				
+				close();
+			}
+			
+			return res;
+		}
+		
+		public ArrayList<BasketpaidDTO> comReserveList(BasketpaidDTO dto) {		//회사 환불 갯수?
+			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
+			
+			try {
+				
+				sql = "select basketpaid.cName, basketpaid.itemName, basketpaid.ddate, basketpaid.fdate , basketpaid.id, basketpaid.psn from basketpaid, buy "
+						+ "where basketpaid.bcode = buy.bcode and basketpaid.cName = ? and basketpaid.bstatus = 'm'";
+				ptmt = con.prepareStatement(sql);
+				
+				ptmt.setString(1, dto.getcName());
+		
+				rs = ptmt.executeQuery();
+				
+				while(rs.next()) {
+					dto = new BasketpaidDTO();
+					dto.setcName(rs.getString(1));
+					dto.setItemName(rs.getString(2));
+					dto.setDdateStr(rs.getString(3));
+					dto.setFdateStr(rs.getString(4));
+					dto.setId(rs.getString(5));
+					dto.setPsn(rs.getInt(6));
 					res.add(dto);
 				}
 		
