@@ -19,7 +19,7 @@ public class QnaList implements MvcAction {
 		// TODO Auto-generated method stub
 		 int page = 1;
 	      
-	      int limit = 3; //한 페이지 당 게시물 수
+	      int limit = 10; //한 페이지 당 게시물 수
 	      
 	      int pageLimit = 4 ; //리스트 하단에 보여질 페이지 번호 갯수
 	      
@@ -38,8 +38,12 @@ public class QnaList implements MvcAction {
 	      int total = dao.total("qna");
 	      ArrayList<Integer> cc = dao.qnaCnt(dto);
 	      //천체페이지수
-	      int totalPage = total/limit; // 21/3 = 7
-	      
+	      int totalPage=0;
+	      if(dto.getGrade().equals("M")) {
+	    	  totalPage = total/limit; // 21/3 = 7
+	      }else {
+	    	  totalPage = cc.get(0)/limit;
+	      }
 	      if(total%limit>0)
 	         totalPage=totalPage+1;
 	      

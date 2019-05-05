@@ -2,41 +2,14 @@
     pageEncoding="UTF-8"%>
  <script src="../js/jquery-3.3.1.min.js"></script>
 <script src = "../js/nh/loginChk.js"></script>
-
-
-<style>
-.lgtd{
-	height: 50px;
-	font-size: 30px;
-}
-input{
-	height: 30px;
-}
-#id{
-	width: 250px;
-}
-#pw{
-	width: 250px;
-}
-#btn{
-	width: 100px;
-}
-#loglog{
-	position: absolute;
-	left: 350px;
-	top: 550px;
-	
-}
-
-</style>
-
+<link rel="stylesheet" href="../css/nh/login.css" type="text/css">
 
 
 <body>
 <div id="loglog">
 <form action="LoginReg" method="post" name="frm">
 
-<table>
+<table style="border : 10px #dcefef solid;" cellspacing="20px">
 	<tr>
 		<td colspan="2"><font size="20px">로그인 하세요</font></td>
 	</tr>

@@ -2,8 +2,11 @@
 	pageEncoding="UTF-8"%>
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src = "../js/nh/UpupGradeChk.js"></script>
+<link rel="stylesheet" href="../css/nh/gradeUp.css" type="text/css">
+<style>
 
-
+</style>
+<div id="back"><div id="in">
 <table border="">
 
 	<tr>
@@ -28,3 +31,4 @@
 		</td>
 	</tr>
 </table>
+</div></div>
