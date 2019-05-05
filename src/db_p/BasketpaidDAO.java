@@ -347,6 +347,39 @@ public class BasketpaidDAO {
 			return res;
 		}
 	
+		public ArrayList<BasketpaidDTO> dateRefundList(String start, String end) {		//회사 환불 갯수?
+			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
+			
+			try {
+				
+				
+				sql = "select basketpaid.cName, basketpaid.itemName, buy.bdate, basketpaid.id from basketpaid, buy "
+						+ "where basketpaid.bcode = buy.bcode and date(ddate) between '"+start+"' and '"+end+"' and "
+								+ "basketpaid.bstatus = 'r'";
+				ptmt = con.prepareStatement(sql);
+		
+				rs = ptmt.executeQuery();
+				
+				while(rs.next()) {
+					BasketpaidDTO dto = new BasketpaidDTO();
+					dto.setcName(rs.getString(1));
+					dto.setItemName(rs.getString(2));
+					dto.setBdateStr(rs.getString(3));
+					dto.setId(rs.getString(4));
+					res.add(dto);
+				}
+		
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				
+				close();
+			}
+			
+			return res;
+		}
+		
 	public void close() {
 		if(rs!=null) try {rs.close();} catch (SQLException e) {	}
 		if(ptmt!=null) try {ptmt.close();} catch (SQLException e) {	}
