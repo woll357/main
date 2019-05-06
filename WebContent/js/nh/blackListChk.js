@@ -57,9 +57,8 @@ $(document).ready(function(){
 	function dataGet(url){
 		$.ajax(url,
                 {
-                   success:function(dd){	                       
-                	   alert("정보가 없습니다.");
-                      
+                   success:function(dd){	    
+                	   $("#contents").html(dd);
                    },
                    error:function(){
                       alert("실패다 실패");

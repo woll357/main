@@ -2,50 +2,48 @@
 	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<link rel="stylesheet" href="../css/nh/mgpage.css" type="text/css">
 
 
 
 
-
-<table>
+<table style="width: 100%">
 
 	<tr>
-	<td colspan="7">
-	
-	<c:choose>
-	<c:when test="${msg=='No' }">
+		<td colspan="7" class="ttt"><c:choose>
+				<c:when test="${msg=='No' }">
 	자료가 없습니다.
 	</c:when>
-	
-	
-	
-	<c:otherwise>
-	
-	
-	<c:forEach var="dto" items="${data}" varStatus="no">
 
-		<form action="FindDetail" method="post">
-			<input type="hidden" value="${dto.id }" name="id" />
-			<table>
-				<tr>
-					<td>${no.index }</td>
-					<td>${dto.id }</td>
-					<td>${dto.pname }</td>
-					<td>${dto.phone1 }-****-${dto.phone3 }</td>
-					<td>${dto.black }</td>
-					<td>${dto.preason }</td>
 
-					<td><input type="submit" value="검색" /></td>
-				</tr>
-			</table>
-		</form>
 
-	</c:forEach>
-	</c:otherwise>
-	</c:choose>
-	
-	
-	</td>
+				<c:otherwise>
+
+
+					<c:forEach var="dto" items="${data}" varStatus="no">
+
+						<form action="FindDetail" method="post">
+							<input type="hidden" value="${dto.id }" name="id" />
+							<table style="width: 100%">
+								<tr>
+									<td class="ttt">${no.index }</td>
+									<td class="ttt">${dto.id }</td>
+									<td class="ttt">${dto.pname }</td>
+									<td class="ttt"><font size="3px;">${dto.phone1 }-****-${dto.phone3 }</font></td>
+									<td class="ttt">${dto.black }</td>
+									<td class="ttt">${dto.preason }</td>
+
+									<td class="ttt"><input type="submit" value="검색" /></td>
+								</tr>
+								<tr>
+									<td colspan="7"><hr color="#dcefef" size="1px"></td>
+								</tr>
+							</table>
+						</form>
+
+					</c:forEach>
+				</c:otherwise>
+			</c:choose></td>
 	</tr>
 
 </table>

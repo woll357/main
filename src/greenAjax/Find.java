@@ -50,6 +50,7 @@ public class Find implements MvcAction {
 			}
 			}else {
 				dto.setBlack(request.getParameter("black"));
+				
 				if(request.getParameter("id")!=null) {
 					dto.setId(request.getParameter("id"));
 					if(new SignUpDAO().chkMem(dto)) {
@@ -62,6 +63,7 @@ public class Find implements MvcAction {
 					}		
 				}else if(request.getParameter("phone")!=null) {
 					dto.setPhone(request.getParameter("phone"));
+					System.out.println("여기");
 					if(new SignUpDAO().chkMem(dto)) {
 						request.setAttribute("data", new SignUpDAO().memList(dto));
 					
@@ -84,7 +86,7 @@ public class Find implements MvcAction {
 					
 					dto.setPreason(request.getParameter("preason"));
 					request.setAttribute("data", new SignUpDAO().memList(dto));
-					System.out.println();
+					
 					if(((ArrayList<SignUpDTO>)new SignUpDAO().memList(dto)).size()==0){
 						request.setAttribute("msg", "No");
 					}		
