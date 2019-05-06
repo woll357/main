@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="../js/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="../css/nh/gradeUp.css" type="text/css">
 <script>
 	var no=0;
 	var chk = false;
@@ -241,7 +242,7 @@ function chkPat2(){
 
 		<form action="UpupReg" method="post" enctype="multipart/form-data" name="frm">
 			<input type="hidden" name="grade" value="M" />
-			<table>
+			<table style="width: 100%" cellpadding="5px;">
 				<tr>
 					<td>아이디</td>
 					<td>${mem.id }</td>
@@ -249,11 +250,11 @@ function chkPat2(){
 				<tr>
 					<td>사번</td>
 					<td><input type="text" name="bnum" id="bnum" onkeyup="chkPat2()">
-						<input type="button" id="bBtn"/>
+						<input type="button" id="bBtn" value="중복검사"/>
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="button" value="제출" id="subBtn" /> 
+					<td colspan="2" class="bbb"><input type="button" value="제출" id="subBtn" /> 
 					<input type="reset" value="초기화"></td>
 				</tr>
 			</table>
@@ -266,7 +267,7 @@ function chkPat2(){
 
 		<form action="UpupReg" method="post" enctype="multipart/form-data" name="frm">
 			<input type="hidden" name="grade" value="A" />
-			<table>
+			<table cellpadding="5px;">
 				<tr>
 					<td>아이디</td>
 					<td>${mem.id }</td>
@@ -274,7 +275,7 @@ function chkPat2(){
 				<tr>
 					<td id="bnum">사업자등록번호</td>
 					<td><input type="text" name="crn" id="crn" onkeyup="chkPat()"/>
-					<input type="button" id="aBtn"/></td>
+					<input type="button" id="aBtn" value="중복검사"/></td>
 				</tr>
 				<tr>
 					<td>파일</td>
@@ -297,7 +298,7 @@ function chkPat2(){
 					<td>0.1~100.0%, 소수점 1자리까지</td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="button" value="제출" id="subBtn" /> 
+					<td colspan="2" class="bbb"><input type="button" value="제출" id="subBtn" /> 
 					<input type="reset" value="초기화"></td>
 				</tr>
 			</table>
@@ -311,7 +312,7 @@ function chkPat2(){
 		<form action="UpupReg" method="post" enctype="multipart/form-data" name="frm">
 			<input type="hidden" name="grade" value="H" />
 
-			<table border="">
+			<table cellpadding="3px;">
 
 
 				<tr>
@@ -322,7 +323,7 @@ function chkPat2(){
 				<tr>
 					<td>사업자등록번호</td>
 					<td><input type="text" name="crn" id="crn" onkeyup="chkPat()"/>
-					<input type="button" id="hBtn"/></td>
+					<input type="button" id="hBtn" value="중복검사"/></td>
 				</tr>
 				<tr>
 					<td>호텔이미지</td>
@@ -346,7 +347,7 @@ function chkPat2(){
 				</tr>
 				<tr>
 
-					<td colspan="2" align="right"><input type="button" value="제출" id="subBtn" />
+					<td colspan="2" align="right" class="bbb"><input type="button" value="제출" id="subBtn" />
 						<input type="reset" value="초기화" /></td>
 				</tr>
 			</table>

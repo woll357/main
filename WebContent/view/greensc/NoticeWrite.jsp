@@ -2,10 +2,14 @@
     pageEncoding="UTF-8"%>
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src = "../js/nh/centerWriteChk.js"></script>      
-    
-    
+ <link rel="stylesheet" href="../css/nh/centerList.css" type="text/css">
+
+
+<div id="back">
+
 <form action="NoticeWriteReg" method="post" enctype="multipart/form-data" name="frm">
-	<table border="" width="100%">
+	<table border="" width="100%" cellpadding="5px;" style="border : 10px #dcefef solid;">   
+
 		<tr>
 			<td>제목</td>
 			<td><input type="text" name="title" id="title"/></td>
@@ -27,3 +31,5 @@
 		</tr>
 	</table>
 </form>
+
+</div>
