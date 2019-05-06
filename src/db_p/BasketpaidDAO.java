@@ -420,6 +420,194 @@ public class BasketpaidDAO {
 			return res;
 		}
 		
+		public ArrayList<BasketpaidDTO> buyListByDate(String startday, String endday) {		//회사 환불 갯수?
+			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
+			
+			try {
+				
+				sql = "select * from basketpaid where bstatus = 'p' and date(ddate) between '"+startday+"' and '"+endday+"' ";
+				ptmt = con.prepareStatement(sql);
+		
+				rs = ptmt.executeQuery();
+				
+				while(rs.next()) {
+					BasketpaidDTO dto = new BasketpaidDTO();
+
+					dto.setPno(rs.getInt("pno"));
+					dto.setBasketID(rs.getString("basketID"));
+					dto.setcType(rs.getString("cType"));
+					dto.setcNum(rs.getInt("cNum"));
+					dto.setcName(rs.getString("cName"));
+					dto.setItemName(rs.getString("itemName"));
+					dto.setDdate(rs.getTimestamp("ddate"));
+					dto.setFdate(rs.getTimestamp("fdate"));
+					dto.setLocation1(rs.getString("location1"));
+					dto.setLocation2(rs.getString("location2"));
+					dto.setTotalPrice(rs.getInt("totalPrice"));
+					dto.setPsn(rs.getInt("psn"));
+					dto.setBcode(rs.getString("bcode"));
+					dto.setId(rs.getString("id"));
+					dto.setBstatus(rs.getString("bstatus"));
+					
+					res.add(dto);
+				}
+		
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				
+				close();
+			}
+			
+			return res;
+		}
+		
+		public BasketpaidDTO giveSalesPercentAir(BasketpaidDTO dto) {	
+			
+			
+			sql = "select air_com.salesPercent "
+					+ "from basketpaid, air_com where basketpaid.cName = air_com.air_name and basketpaid.basketID = ?";
+			
+			System.out.println(sql);
+			
+			try {
+
+				ptmt = con.prepareStatement(sql);
+				
+				ptmt.setString(1, dto.getBasketID());
+	
+				rs = ptmt.executeQuery();
+				
+				if(rs.next()) {
+				
+					dto.setSalesPercent(rs.getDouble(1));
+				
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}finally {
+				close();
+			}
+			
+			return dto;
+		}
+		
+		public BasketpaidDTO giveSalesPercentHot(BasketpaidDTO dto) {	
+			
+			sql =  "select hot_com.salesPercent "
+					+ "from basketpaid, hot_com where basketpaid.cName = hot_com.hname and basketpaid.basketID = ?";
+			
+			System.out.println(sql);
+			
+			try {
+
+				ptmt = con.prepareStatement(sql);
+				
+				ptmt.setString(1, dto.getBasketID());
+	
+				rs = ptmt.executeQuery();
+				
+				if(rs.next()) {
+				
+				dto.setSalesPercent(rs.getDouble(1));
+				System.out.println("호텔에서 얼마나 가지고가?"+dto.getSalesPercent());
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}finally {
+				close();
+			}
+			
+			return dto;
+		}
+		
+		public ArrayList<BasketpaidDTO> buyListByAirComDate(String comcode, String startday, String endday) {		//회사 환불 갯수?
+			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
+			
+			try {
+				
+				sql = "select basketpaid.cName, basketpaid.cType, basketpaid.itemName, basketpaid.ddate, "
+						+ "basketpaid.psn, basketpaid.totalPrice, air_com.salesPercent "
+						+ "from basketpaid, air_com where basketpaid.cName = air_com.air_name and "
+						+ "air_com.air_code = ? and date(basketpaid.ddate) between '"+startday+"' and '"+endday+"' "
+						+ "and basketpaid.bstatus = 'p'";
+				ptmt = con.prepareStatement(sql);
+		
+				ptmt.setString(1, comcode);
+				
+				rs = ptmt.executeQuery();
+				
+				while(rs.next()) {
+					BasketpaidDTO dto = new BasketpaidDTO();
+
+					dto.setcName(rs.getString(1));
+					dto.setcType(rs.getString(2));
+					dto.setItemName(rs.getString(3));
+					dto.setDdateStr(rs.getString(4));
+					dto.setPsn(rs.getInt(5));
+					dto.setTotalPrice(rs.getInt(6));
+					dto.setSalesPercent(rs.getDouble(7));
+					
+					res.add(dto);
+				}
+		
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				
+				close();
+			}
+			
+			return res;
+		}
+		
+		public ArrayList<BasketpaidDTO> buyListByHotComDate(String comcode, String startday, String endday) {		//회사 환불 갯수?
+			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
+			
+			try {
+				
+				sql = "select basketpaid.cName, basketpaid.cType, basketpaid.itemName, basketpaid.ddate, "
+						+ "basketpaid.psn, basketpaid.totalPrice, hot_com.salesPercent "
+						+ "from basketpaid, hot_com where basketpaid.cName = hot_com.hname and "
+						+ "hot_com.hcode = ? and date(basketpaid.ddate) between '"+startday+"' and '"+endday+"' "
+						+ "and basketpaid.bstatus = 'p'";
+				ptmt = con.prepareStatement(sql);
+		
+				ptmt.setString(1, comcode);
+				
+				rs = ptmt.executeQuery();
+				
+				while(rs.next()) {
+					BasketpaidDTO dto = new BasketpaidDTO();
+
+					dto.setcName(rs.getString(1));
+					dto.setcType(rs.getString(2));
+					dto.setItemName(rs.getString(3));
+					dto.setDdateStr(rs.getString(4));
+					dto.setPsn(rs.getInt(5));
+					dto.setTotalPrice(rs.getInt(6));
+					dto.setSalesPercent(rs.getDouble(7));
+					
+					System.out.println("호텔에서 얼마나 가지고가?"+dto.getSalesPercent());
+					
+					res.add(dto);
+				}
+		
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				
+				close();
+			}
+			
+			return res;
+		}
+		
 	public void close() {
 		if(rs!=null) try {rs.close();} catch (SQLException e) {	}
 		if(ptmt!=null) try {ptmt.close();} catch (SQLException e) {	}

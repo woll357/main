@@ -8,13 +8,42 @@ public class BasketpaidDTO {
 	int pno, cNum, totalPrice, psn;
 	String basketID, cType, cName, itemName, location1, location2, bcode, id, bstatus;
 	Date ddate, fdate, bdate;
+	double salesPercent;
+	double managerSales;// 관리자가 먹는 량
+	double comSales; //협력업체가 먹는 양
+	
+	public double getSalesPercent() {
+		return salesPercent;
+	}
+
+	public void setSalesPercent(double salesPercent) {
+		this.salesPercent = salesPercent;
+		this.managerSales = this.totalPrice*(1-salesPercent);
+		this.comSales = this.totalPrice*salesPercent;
+	}
+
+	public double getManagerSales() {
+		return managerSales;
+	}
+	
+	public void setManagerSales(double managerSales) {
+		this.managerSales = managerSales;
+	}
+
+	public void setComSales(double comSales) {
+		this.comSales = comSales;
+	}
+
+	public double getComSales() {
+		return comSales;
+	}
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 	public String getBdateStr() {
 		return sdf.format(bdate);
 	}
-
+	
 	public void setBdateStr(String bdateStr) {
 		try {
 			this.bdate = sdf.parse(bdateStr);
