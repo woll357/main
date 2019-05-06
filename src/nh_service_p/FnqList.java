@@ -53,8 +53,7 @@ public class FnqList implements MvcAction {
 	      request.setAttribute("nowPage", page);
 	      request.setAttribute("startPage", startPage);
 	      request.setAttribute("endPage", endPage);
-	      request.setAttribute("totalpage", totalPage);
-	      request.setAttribute("totalPage",totalPage);     
+	      request.setAttribute("totalpage", totalPage);    
 	      request.setAttribute("data",dao.fnqList(start, limit)); 
 	      request.setAttribute("totcnt", total);
 		

@@ -195,6 +195,33 @@ public class SignUpDAO {
 						cc=false;
 					}
 				}
+				if(cc) {
+					sql = "select * from manager where id=?";
+
+					ptmt = con.prepareStatement(sql);					
+					
+					ptmt.setString(1, dto.getId());
+					
+					rs = ptmt.executeQuery();
+					res = rs.next();
+					if(res) {
+						cc=false;
+					}
+				}
+				if(cc) {
+					sql = "select * from manager_temp where id=?";
+
+					ptmt = con.prepareStatement(sql);					
+					
+					ptmt.setString(1, dto.getId());
+					
+					rs = ptmt.executeQuery();
+					res = rs.next();
+					if(res) {
+						cc=false;
+					}
+				}
+				
 				}else {
 					if(cc) {
 						sql = "select * from manager where id=? or bnum=?";
@@ -217,6 +244,62 @@ public class SignUpDAO {
 						
 						ptmt.setString(1, dto.getId());
 						ptmt.setString(2, dto.getBnum());
+						
+						rs = ptmt.executeQuery();
+						res = rs.next();
+						if(res) {
+							cc=false;
+						}
+					}
+					if(cc) {
+						sql = "select * from air_temp where id=?";
+
+						ptmt = con.prepareStatement(sql);					
+						
+						ptmt.setString(1, dto.getId());
+						
+
+						
+						rs = ptmt.executeQuery();
+						res = rs.next();
+						if(res) {
+							cc=false;
+						}
+
+					}
+					if(cc) {
+						sql = "select * from air_com where id=?";
+
+						ptmt = con.prepareStatement(sql);					
+						
+						ptmt.setString(1, dto.getId());
+						
+						rs = ptmt.executeQuery();
+						res = rs.next();
+						if(res) {
+							cc=false;
+						}
+
+					}
+					if(cc) {
+						sql = "select * from hot_temp where id=?";
+
+						ptmt = con.prepareStatement(sql);					
+						
+						ptmt.setString(1, dto.getId());
+						
+						rs = ptmt.executeQuery();
+						res = rs.next();
+						if(res) {
+							cc=false;
+						}
+					}
+					if(cc) {
+						sql = "select * from hot_com where id=?";
+
+						ptmt = con.prepareStatement(sql);					
+						
+						ptmt.setString(1, dto.getId());
 						
 						rs = ptmt.executeQuery();
 						res = rs.next();
