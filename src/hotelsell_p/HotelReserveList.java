@@ -77,7 +77,6 @@ public class HotelReserveList implements MvcAction {
 		//예약내역 확인할꺼야
 		
 //		new ShowHotelReserveList(request, response, hcode, bstatus);
-//		request.setAttribute("mainUrl", "hotelsell/HotelReserveList.jsp");
 		return null;
 	}
 

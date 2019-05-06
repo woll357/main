@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class BasketpaidDTO {
 	int pno, cNum, totalPrice, psn;
-	String basketID, cType, cName, itemName, location1, location2, bcode, id, bstatus;
+	String basketID, cType, cName, itemName, location1, location2, bcode, id, bstatus, code;
 	Date ddate, fdate, bdate;
 	double salesPercent;
 	double managerSales;// 관리자가 먹는 량
@@ -183,6 +183,14 @@ public class BasketpaidDTO {
 	}
 	public void setFdate(Date fdate) {
 		this.fdate = fdate;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 	
 	

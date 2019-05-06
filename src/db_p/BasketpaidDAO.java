@@ -213,8 +213,8 @@ public class BasketpaidDAO {
 		try {
 
 			sql = "insert into basketpaid "
-					+ "(cNum, id, psn, ddate, fdate, cType, bcode, totalPrice, location1, location2, cName, itemName, basketID) "
-					+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+					+ "(cNum, id, psn, ddate, fdate, cType, bcode, totalPrice, location1, location2, cName, itemName, basketID, code) "
+					+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			System.out.println(sql);
 			
 			System.out.println(dto.getDdateStr());
@@ -233,6 +233,7 @@ public class BasketpaidDAO {
 			ptmt.setString(11, dto.getcName());
 			ptmt.setString(12, dto.getItemName());
 			ptmt.setString(13, dto.getBasketID());
+			ptmt.setString(14, dto.getCode());
 			
 			ptmt.executeUpdate();
 			
@@ -701,7 +702,7 @@ public class BasketpaidDAO {
 			
 			try {
 				
-				sql = "select itemName, ddate, fdate, psn, id "
+				sql = "select itemName, ddate, fdate, psn, id, basketID "
 						+ "from basketpaid "
 						+ "where cName= ? and bstatus='m' and date(basketpaid.ddate) between ? and ? ";
 				
@@ -721,6 +722,91 @@ public class BasketpaidDAO {
 					dto.setFdateStr(rs.getString(3));
 					dto.setPsn(rs.getInt(4));
 					dto.setId(rs.getString(5));
+					dto.setBasketID(rs.getString(6));
+					
+					res.add(dto);
+				}
+		
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				
+				close();
+			}
+			
+			return res;
+		}
+		
+		public ArrayList<BasketpaidDTO> buyListByRcodeDate(String rcode, String startday, String endday) {		//회사 환불 갯수?
+			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
+			
+			try {
+				
+				sql = "select basketpaid.itemName, basketpaid.ddate, basketpaid.psn, basketpaid.totalPrice, hot_com.salesPercent, basketpaid.code "
+						+ "from basketpaid, hot_com "
+						+ "where basketpaid.cName = hot_com.hname and basketpaid.code= ? "
+						+ "and basketpaid.bstatus = 'p'  and date(basketpaid.ddate) between ? and ?";
+				
+				ptmt = con.prepareStatement(sql);
+		
+				ptmt.setString(1, rcode);
+				ptmt.setString(2, startday);
+				ptmt.setString(3, endday);
+				
+				rs = ptmt.executeQuery();
+				
+				while(rs.next()) {
+					BasketpaidDTO dto = new BasketpaidDTO();
+					
+					dto.setItemName(rs.getString(1));
+					dto.setDdateStr(rs.getString(2));
+					dto.setPsn(rs.getInt(3));
+					dto.setTotalPrice(rs.getInt(4));
+					dto.setSalesPercent(rs.getDouble(5));
+					dto.setCode(rs.getString(6));
+					
+					res.add(dto);
+				}
+		
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				
+				close();
+			}
+			
+			return res;
+		}
+		
+		public ArrayList<BasketpaidDTO> buyListBHotDate(String startday, String endday) {		//회사 환불 갯수?
+			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
+			
+			try {
+				
+				sql = "select basketpaid.itemName, basketpaid.ddate, basketpaid.psn, basketpaid.totalPrice, hot_com.salesPercent, basketpaid.code "
+						+ "from basketpaid, hot_com "
+						+ "where basketpaid.cName = hot_com.hname "
+						+ "and basketpaid.bstatus = 'p'  and date(basketpaid.ddate) between ? and ?";
+				
+				ptmt = con.prepareStatement(sql);
+		
+			
+				ptmt.setString(1, startday);
+				ptmt.setString(2, endday);
+				
+				rs = ptmt.executeQuery();
+				
+				while(rs.next()) {
+					BasketpaidDTO dto = new BasketpaidDTO();
+					
+					dto.setItemName(rs.getString(1));
+					dto.setDdateStr(rs.getString(2));
+					dto.setPsn(rs.getInt(3));
+					dto.setTotalPrice(rs.getInt(4));
+					dto.setSalesPercent(rs.getDouble(5));
+					dto.setCode(rs.getString(6));
 					
 					res.add(dto);
 				}

@@ -19,7 +19,7 @@
 			<td>${i.fdateStr }</td>
 			<td>${i.psn }</td>
 			<td>${i.id }</td>
-			<td><a href="CheckInReg?basketID=${i.basketID }&hotcont=in">체크인</a></td>
+			<td><a href="../hotelsell/CheckInReg?basketID=${i.basketID }&hotcont=in">체크인</a></td>
 		</tr>
 		</c:forEach>
 		

@@ -231,6 +231,8 @@ public class PaymentReg implements MvcAction {
 					bpdto.setPsn(badto.getPsn());
 					bpdto.setBcode(bdto.getBcode());
 					bpdto.setId(badto.getId());
+					bpdto.setCode(badto.getCode());
+					
 
 					new BasketpaidDAO().insert(bpdto); // 구매된 장바구니에 넣는다.
 					new BasketDAO().delete(badto); // 기존 장바구니에서 삭제한다.
