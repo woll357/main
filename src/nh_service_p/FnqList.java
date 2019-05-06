@@ -20,7 +20,7 @@ public class FnqList implements MvcAction {
 		
 		int page = 1;
 	      
-	      int limit = 3; //한 페이지 당 게시물 수
+	      int limit = 10; //한 페이지 당 게시물 수
 	      
 	      int pageLimit = 4 ; //리스트 하단에 보여질 페이지 번호 갯수
 	      

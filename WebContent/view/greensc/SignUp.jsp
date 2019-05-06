@@ -4,61 +4,9 @@
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src = "../js/nh/countryCombo.js"></script>
 <script src = "../js/nh/signUpChk.js"></script>
+<link rel="stylesheet" href="../css/nh/signup.css" type="text/css">
 
-<style>
-#back{
-	position: absolute;
-	width: 800px;
-	height: 700px;
-	background-color: #dcefef;
-	left: 100px;
-	top: 350px;
-}
-#in{
-	position: absolute;
-	width: 780px;
-	height: 680px;
-	background-color: white;
-	left: 10px;
-	top: 10px;
-}
-.tt{
-	height: 55px;
-	font-size: 25px;
-	width: 150px;
-}
-.inin{
-	height: 25px;
-	font-size: 15px;
-	width: 250px;
-}
-.ppin{
-	height: 25px;
-	font-size: 15px;
-	width: 100px;
-}
-#addDetail{
-	height: 25px;
-	font-size: 15px;
-	width: 250px;
-}
-.ee{
-	height: 25px;
-	font-size: 15px;
-	width: 180px;
-}
-select{
-	height: 30px;
-	font-size: 15px;
-	width: 100px;
-}
-.btn{
-height: 30px;
-	font-size: 20px;
-	width: 150px;
-}
 
-</style>
 
 <div id="back"><div id="in">
 

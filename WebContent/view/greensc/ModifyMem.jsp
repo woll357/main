@@ -3,6 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src = "../js/nh/countryCombo.js"></script>
+<link rel="stylesheet" href="../css/nh/signup.css" type="text/css">
 <script>
 
 var no=0;
@@ -187,58 +188,68 @@ function butPat(){
 
 
 </script>
+
+
+
+
+
+
+<div id="back"><div id="in">
 	<form action="ModifyMemReg" method="post" name="frm">
 	<input type="hidden" value="${dto.id }" name="id"/>
-	<table border="">
+	<table style="width: 100%">
+	<tr>
+	<td colspan="3"><font size="70px"><b>내 정보 수정</b></font><hr color="#dcefef" size="1px"></td>
+	</tr>
 		<tr>
-    			<td>ID</td>
-    			<td colspan="2">${mem.id }</td>
+    			<td width="100" class="tt" align="center">ID</td>
+    			<td colspan="2" class="tt">${mem.id }</td>
     		</tr>
 		<tr>
-			<td align="center">pw</td>
-			<td colspan="2"><input name="pw" type="password" maxlength="16" id="pw" onkeyup="chkPat()"/>
+			<td align="center" class="tt">pw</td>
+			<td colspan="2"><input name="pw" type="password" maxlength="16" id="pw" onkeyup="chkPat()"  class="inin"/>
 			<div id="pwTag">8 ~ 16자, 특수문자, 한글 제외</div>		
 			</td>
 		</tr>
 		<tr>
-			<td align="center">pw 확인</td>
-			<td colspan="2"><input name="pw2" type="password" maxlength="16" id="pw2" onkeyup="chkPat()"/>
+			<td align="center" class="tt">pw 확인</td>
+			<td colspan="2"><input name="pw2" type="password" maxlength="16" id="pw2" onkeyup="chkPat()"  class="inin"/>
 			<div id="pw2Tag">pw와 동일하게 입력</div>
 			</td>
 			
 		</tr>
 		<tr>
-			<td align="center">이름</td>
-			<td colspan="2">${dto.pname }
+			<td align="center" class="tt">이름</td>
+			<td colspan="2" class="tt">${dto.pname }
 			
 			</td>
 		</tr>
 		<tr>
-			<td align="center">연락처</td>
+			<td align="center" class="tt">연락처</td>
 			<td>
-			<input name="phone" type="text" id="phone1"  maxlength="3" onkeyup="butPat()" style="width: 50px" value="${dto.phone1 }"/> -
-			<input name="phone" type="text" id="phone2"  maxlength="4" onkeyup="butPat()" style="width: 50px" value="${dto.phone2 }"/> -
-			<input name="phone" type="text" id="phone3" maxlength="4" onkeyup="butPat()" style="width: 50px" value="${dto.phone3 }"/>
+			<input name="phone" type="text" id="phone1"  maxlength="3" onkeyup="butPat()" value="${dto.phone1 }" class="ppin"/> -
+			<input name="phone" type="text" id="phone2"  maxlength="4" onkeyup="butPat()" value="${dto.phone2 }" class="ppin"/> -
+			<input name="phone" type="text" id="phone3" maxlength="4" onkeyup="butPat()" value="${dto.phone3 }" class="ppin"/>
 			<div id="ppTag"></div>
 			</td><td>
 			<input type="button" value="중복확인" class="btn" id="phoneBtn" disabled="disabled"/>
 			</td>
 		</tr>
 		<tr>
-			<td align="center">생년월일</td>
-			<td colspan="2">${dto.birth }
+			<td align="center" class="tt">생년월일</td>
+			<td colspan="2" class="tt">${dto.birth }
 			</td>
 			
 		</tr>
 		<tr>
-			<td align="center">성별</td>
-			<td colspan="2">${dto.gender }
+			<td align="center" class="tt">성별</td>
+			<td colspan="2" class="tt">${dto.gender }
 			</td>
 			
 		</tr>
 
 		<tr>
-			<td align="center">주소</td>
+			<td align="center" class="tt">주소</td>
 			<td id="address" colspan="2">
 			<c:choose>
 					<c:when test="${dto.country=='한국' }">
@@ -382,15 +393,15 @@ function butPat(){
 		</tr>
 
 		<tr>
-			<td align="center">Email</td>
+			<td align="center" class="tt">Email</td>
 			<td colspan="2">
-			<input type="text" name="email" id="email1" onkeyup="chkPat()" value="${dto.email1 }"/>@
-			<input type="text" name="email" id="email2" onkeyup="chkPat()" value="${dto.email2 }"/>
+			<input type="text" name="email" id="email1" onkeyup="chkPat()" value="${dto.email1 }" class="ee"/>@
+			<input type="text" name="email" id="email2" onkeyup="chkPat()" value="${dto.email2 }" class="ee"/>
 			
 			</td>
 		</tr>
 		<tr>
-			<td colspan="3" align="center"><input type="button" value="수정" id="subBtn"/>
+			<td colspan="3" align="center" class="tt"><input type="button" value="수정" id="subBtn"/>
 				<input type="reset" value="초기화" /></td>
 		</tr>
 	</table>
@@ -398,5 +409,5 @@ function butPat(){
 	
 	
 	
-	
+	</div></div>
    
