@@ -654,6 +654,89 @@ public class BasketpaidDAO {
 			return res;
 		}
 		
+		public ArrayList<BasketpaidDTO> reserveListByHotRcodeDate(String rcode, String startday, String endday) {		//회사 환불 갯수?
+			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
+			
+			try {
+				
+				sql = "select distinct basketpaid.itemName, basketpaid.ddate, basketpaid.fdate, basketpaid.psn, basketpaid.id, basketpaid.basketID "
+						+ "from basketpaid, basketitem "
+						+ "where basketpaid.basketID = basketitem.basketID and basketitem.rcode = ? "
+						+ "and basketpaid.bstatus='m' and date(basketpaid.ddate) between ? and ? ";
+				
+				ptmt = con.prepareStatement(sql);
+		
+				ptmt.setString(1, rcode);
+				ptmt.setString(2, startday);
+				ptmt.setString(3, endday);
+				
+				rs = ptmt.executeQuery();
+				
+				while(rs.next()) {
+					BasketpaidDTO dto = new BasketpaidDTO();
+					
+					dto.setItemName(rs.getString(1));
+					dto.setDdateStr(rs.getString(2));
+					dto.setFdateStr(rs.getString(3));
+					dto.setPsn(rs.getInt(4));
+					dto.setId(rs.getString(5));
+					dto.setBasketID(rs.getString(6));
+					
+					res.add(dto);
+				}
+		
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				
+				close();
+			}
+			
+			return res;
+		}
+		
+		public ArrayList<BasketpaidDTO> reserveListByHotDate(String cName, String startday, String endday) {		//회사 환불 갯수?
+			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
+			
+			try {
+				
+				sql = "select itemName, ddate, fdate, psn, id "
+						+ "from basketpaid "
+						+ "where cName= ? and bstatus='m' and date(basketpaid.ddate) between ? and ? ";
+				
+				ptmt = con.prepareStatement(sql);
+		
+				ptmt.setString(1, cName);
+				ptmt.setString(2, startday);
+				ptmt.setString(3, endday);
+				
+				rs = ptmt.executeQuery();
+				
+				while(rs.next()) {
+					BasketpaidDTO dto = new BasketpaidDTO();
+					
+					dto.setItemName(rs.getString(1));
+					dto.setDdateStr(rs.getString(2));
+					dto.setFdateStr(rs.getString(3));
+					dto.setPsn(rs.getInt(4));
+					dto.setId(rs.getString(5));
+					
+					res.add(dto);
+				}
+		
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				
+				close();
+			}
+			
+			return res;
+		}
+		
+		
 	public void close() {
 		if(rs!=null) try {rs.close();} catch (SQLException e) {	}
 		if(ptmt!=null) try {ptmt.close();} catch (SQLException e) {	}
