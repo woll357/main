@@ -362,27 +362,18 @@ public Object air_pdetaill(String a) {
 		public Air_comDTO serarchByAirCode(Air_comDTO dto) {
 			Air_comDTO res = null;
 			
-			System.out.println("serarchByAirCode 진입하니?");
-			
 			sql = "select * from air_com where air_code = ? " ;
-			System.out.println(sql);
-			
 			
 			try {
 				ptmt = con.prepareStatement(sql);
 				
 				ptmt.setString(1, dto.getAir_code());
-				System.out.println("항공사코드 나오니?"+dto.getAir_code());
 				rs = ptmt.executeQuery();
 				
-				System.out.println("serarchByAirCode실행되고 있니?");
 				if(rs.next()) {
-					System.out.println("진입하니223");
 					
 					res = new Air_comDTO();
 					res.setAir_code(rs.getString("air_code"));
-					System.out.println("항공사코드"+rs.getString("air_code"));
-					
 					res.setId(rs.getString("id"));
 					res.setCrn(rs.getString("crn"));
 					res.setImg(rs.getString("img"));

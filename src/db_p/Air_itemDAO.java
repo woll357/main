@@ -1230,7 +1230,7 @@ public Object mair_planeitemlist(String ap_code ) {
 	
 	//협력업체 비행기 상품 찾기
 	
-	public ArrayList itemlistByAir_Code(Air_itemDTO dt) {
+	public ArrayList<Air_itemDTO> itemlistByAir_Code(Air_itemDTO dt) {
 		
 		ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 

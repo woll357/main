@@ -41,8 +41,6 @@ public class HotelSalesList implements MvcAction {
 		rlists = (ArrayList<Room_itemDTO>) new Hot_tempDAO().roomlist(ridto);
 		
 		request.setAttribute("rlists", rlists);
-		
-
 		request.setAttribute("mainUrl", "hotelsell/HotelSalesList.jsp");
 		
 		//		String bstatus = "p";

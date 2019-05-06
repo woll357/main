@@ -655,7 +655,7 @@ public class BasketpaidDAO {
 			return res;
 		}
 		
-		public ArrayList<BasketpaidDTO> reserveListByHotRcodeDate(String rcode, String startday, String endday) {		//회사 환불 갯수?
+		public ArrayList<BasketpaidDTO> reserveListByHotRcodeDate(String rcode, String startday, String endday) {
 			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
 			
 			try {
@@ -822,6 +822,83 @@ public class BasketpaidDAO {
 			return res;
 		}
 		
+		public ArrayList<BasketpaidDTO> reserveListByAirCcodeDate(String code, String startday, String endday) {
+			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
+			
+			try {
+				sql = "select code, itemName, ddate, fdate, psn, id, basketID "
+						+ "from basketpaid where code= ? and bstatus = 'm' and date(basketpaid.ddate) between ? and ? ";
+
+				ptmt = con.prepareStatement(sql);
+		
+				ptmt.setString(1, code);
+				ptmt.setString(2, startday);
+				ptmt.setString(3, endday);
+				
+				rs = ptmt.executeQuery();
+				
+				while(rs.next()) {
+					BasketpaidDTO dto = new BasketpaidDTO();
+					
+					dto.setCode(rs.getString(1));
+					dto.setItemName(rs.getString(2));
+					dto.setDdateStr(rs.getString(3));
+					dto.setFdateStr(rs.getString(4));
+					dto.setPsn(rs.getInt(5));
+					dto.setId(rs.getString(6));
+					dto.setBasketID(rs.getString(7));
+					res.add(dto);
+				}
+		
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				
+				close();
+			}
+			
+			return res;
+		}
+		
+		public ArrayList<BasketpaidDTO> reserveListByAirDate(String cName, String startday, String endday) {
+			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
+			
+			try {
+				sql = "select code, itemName, ddate, fdate, psn, id, basketID from basketpaid "
+						+ "where cName = ? and basketpaid.bstatus = 'm' and "
+						+ "date(basketpaid.ddate) between ? and ? ;";
+				ptmt = con.prepareStatement(sql);
+		
+				ptmt.setString(1, cName);
+				ptmt.setString(2, startday);
+				ptmt.setString(3, endday);
+				
+				rs = ptmt.executeQuery();
+				
+				while(rs.next()) {
+					BasketpaidDTO dto = new BasketpaidDTO();
+					
+					dto.setCode(rs.getString(1));
+					dto.setItemName(rs.getString(2));
+					dto.setDdateStr(rs.getString(3));
+					dto.setFdateStr(rs.getString(4));
+					dto.setPsn(rs.getInt(5));
+					dto.setId(rs.getString(6));
+					dto.setBasketID(rs.getString(7));
+					res.add(dto);
+				}
+		
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				
+				close();
+			}
+			
+			return res;
+		}
 		
 	public void close() {
 		if(rs!=null) try {rs.close();} catch (SQLException e) {	}

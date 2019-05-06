@@ -27,8 +27,6 @@ public class CheckInReg implements MvcAction {
 
 		new ChangeBstatus(basketID, bstatus);
 
-		bstatus = "m";
-		new ShowHotelReserveList(request, response, hcode, bstatus);
 		request.setAttribute("msg", "체크인 완료");
 		request.setAttribute("mainUrl", "hotelsell/alert.jsp");
 		request.setAttribute("goUrl", "HotelReserveList?hotcont=in");

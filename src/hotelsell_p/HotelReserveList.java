@@ -33,6 +33,8 @@ public class HotelReserveList implements MvcAction {
 		// TODO Auto-generated method stub
 		String hcode = ((SignUpDTO)request.getSession().getAttribute("mem")).getHcode();
 		
+		System.out.println("출력은 잘 되니?");
+		
 		Room_itemDTO ridto = new Room_itemDTO();
 		ridto.setHcode(hcode);
 		ArrayList<Room_itemDTO> ridtos = (ArrayList<Room_itemDTO>) new Hot_tempDAO().roomlist(ridto);
