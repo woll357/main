@@ -1,9 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<table border="" width="100%">
+<link rel="stylesheet" href="../css/nh/centerList.css" type="text/css">
+
+
+<div id="backk">
+<table border="" width="100%" cellpadding="5px;" style="border : 10px #dcefef solid;">
 	<tr>
-		<td>글번호</td>
+		<td width="100px;">글번호</td>
 		<td>${dto.num }</td>
 	</tr>
 	<tr>
@@ -41,10 +45,12 @@
 </table>
 
 
+
 <c:if test="${dto.answer=='완료' }">
-	<table border="" width="100%">
+
+<table border="" width="100%" cellpadding="5px;" style="border : 10px #dcefef solid;">
 		<tr>
-			<td>글번호</td>
+			<td  width="100px;">글번호</td>
 			<td>${dto2.num }</td>
 		</tr>
 		<tr>
@@ -80,3 +86,4 @@
 	</table>
 
 </c:if>
+</div>

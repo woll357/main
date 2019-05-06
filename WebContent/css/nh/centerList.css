@@ -6,6 +6,13 @@
 	left: 100px;
 	top: 350px;
 }
+#backk{
+	position: absolute;
+	width: 800px;
+	height: 700px;
+	left: 100px;
+	top: 320px;
+}
 
 .listCnt{
 	height: 50px;
@@ -47,4 +54,11 @@
 	height: 40px;
 	font-size: 20px;
 	text-align: right;
+}
+.listDetail{
+	height: 30px;
+	font-size: 15px;
+}
+#listDetail{
+	width: 100px;
 }
