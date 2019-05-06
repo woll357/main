@@ -143,16 +143,14 @@ public class SignUpDAO {
 					ptmt.setString(1, dto.getId());
 					ptmt.setString(2, dto.getCrn());
 					
-					
-					System.out.println(dto.getId());
-					System.out.println(dto.getCrn());
+
 					
 					rs = ptmt.executeQuery();
 					res = rs.next();
 					if(res) {
 						cc=false;
 					}
-					System.out.println(cc);
+
 				}
 				if(cc) {
 					sql = "select * from air_com where id=? or crn=?";
@@ -167,7 +165,7 @@ public class SignUpDAO {
 					if(res) {
 						cc=false;
 					}
-					System.out.println(cc);
+
 				}
 				if(cc) {
 					sql = "select * from hot_temp where id=? or crn=?";
@@ -676,6 +674,7 @@ public class SignUpDAO {
 				}
 			}
 			}else {
+				
 				if(dto.getId()!=null) {
 					
 					sql = "select * from member where id =? and black='블랙리스트'";

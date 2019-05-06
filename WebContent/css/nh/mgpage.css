@@ -1,0 +1,21 @@
+@charset "UTF-8";
+#back{
+	width: 800px;
+	position: absolute;
+	left: 100px;
+	top: 350px;
+}
+.tt{
+	font-size: 20px;
+	height: 40px;
+}
+.ttt{
+	font-size: 20px;
+	height: 40px;
+	width: 100px;
+	text-align: center;
+}
+.tt>select{
+	font-size: 20px;
+	height: 30px;
+}
