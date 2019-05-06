@@ -62,3 +62,17 @@
 #listDetail{
 	width: 100px;
 }
+.ggList{
+	height: 30px;
+	font-size: 20px;
+	text-align: center;
+}
+.ggcont{
+	height: 30px;
+	font-size: 20px;
+}
+.ggtitle{
+	height: 60px;
+	font-size: 30px;
+	vertical-align: bottom;
+}

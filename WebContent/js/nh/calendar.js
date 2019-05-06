@@ -1,6 +1,6 @@
  function calendar(year,month, id){ //달력 함수  
         //내장 객체
-        
+	 	
         if( id=='ssdate1' ||  id=='startDay'){
 	        var nowDate = new Date(); //오늘 날짜 객체 선언  
 	        var nYear = nowDate.getFullYear(); //오늘의 년도  
@@ -39,6 +39,7 @@
 	        var dayName=new Array("일", "월", "화", "수", "목", "금", "토"); // 숫자 요일을 문자 요일 바꿀 함수
         }
         var col=0; //나중에 앞뒤 빈 날짜칸 계산   
+        
         if (year==null){ //null 일경우, 처음 페이지의 년도는 현재 년도를 가져옴   
             year=nYear;
         } 
@@ -72,7 +73,28 @@
         calendarStr += "</td><td colspan=5 class='tt'>"  
         calendarStr += "<b>"+eDate.getFullYear()+"년 "+(eDate.getMonth()+1)+"월</b>"//해당하는 년도와 월 표시  
         calendarStr += "</td><td valign=middle>"  
-        calendarStr += "<a href=javascript:calendar("+year+","+(month+1)+",'"+id+"') class=preNext>></a>" //월을 넘길때 더하기 +1을 해서 넘긴다(년도는 자동 계산)  
+        
+        	
+        	
+       // calendarStr += "<a href=javascript:calendar("+year+","+(month+1)+",'"+id+"') class=preNext>></a>" //월을 넘길때 더하기 +1을 해서 넘긴다(년도는 자동 계산)  
+        
+        
+        var threeDate = new Date(nYear,nMonth+3,nDate);
+        var tYear = threeDate.getFullYear(); //오늘의 년도  
+        var tMonth = threeDate.getMonth(); //오늘의 월 ※ 0월부터 시작  
+        var tDate = threeDate.getDate(); //오늘의 날
+        
+       
+        
+        if(eDate.getFullYear()<tYear ||  (eDate.getFullYear()==tYear && eDate.getMonth()<tMonth)
+        		|| (eDate.getFullYear()==tYear && eDate.getMonth()==tMonth && i<tDate)){
+        	calendarStr += "<a href=javascript:calendar("+year+","+(month+1)+",'"+id+"') class=preNext></a>"
+        }else{
+        	calendarStr += "<a href=javascript:calendar("+year+","+(month+1)+",'"+id+"') class=preNext>></a>" //월을 넘길때 빼기 -1을 해서 넘긴다(년도는 자동 계산)  
+        }
+        
+        
+        
         calendarStr += "</td></tr><tr>"  
         for (i=0;i<dayName.length;i++){  
         	if(dayName[i]=='일'){
@@ -156,4 +178,5 @@
 	 $('#ddateCal1').css({
 		 'visibility': 'hidden'
 	 })
+	 
  }
