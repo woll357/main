@@ -27,7 +27,7 @@ public class SellList implements MvcAction {
 		System.out.println("day:"+day);
 		
 		String startday = year;
-		String endday = ""+(Integer.parseInt(year)+1);
+	
 		
 		ArrayList<BasketpaidDTO> salesList = new ArrayList<BasketpaidDTO>();
 		
@@ -39,6 +39,7 @@ public class SellList implements MvcAction {
 		
 				
 				if(year!=null && month==null && day==null) {
+					String endday = ""+(Integer.parseInt(year)+1);
 					month="1";
 					day="1";
 					startday = startday+"-"+month+"-"+day;
@@ -47,14 +48,16 @@ public class SellList implements MvcAction {
 					
 				}
 				else if(year!=null && month!=null && day==null) {
+					String endday = ""+(Integer.parseInt(year));
 					day="1";
 					startday = startday+"-"+month+"-"+day;
-					endday = endday+"-"+month+"-"+day;
+					endday = endday+"-"+(Integer.parseInt(month)+1)+"-"+day;
 					salesList = new BasketpaidDAO().buyListByAirComDate(comcode, startday, endday);
 				}
 				else if(year!=null && month!=null && day!=null) {
+					String endday = ""+(Integer.parseInt(year));
 					startday = startday+"-"+month+"-"+day;
-					endday = endday+"-"+month+"-"+day;
+					endday = endday+"-"+month+"-"+(Integer.parseInt(day)+1);
 					salesList = new BasketpaidDAO().buyListByAirComDate(comcode, startday, endday);
 				}
 			}
@@ -62,6 +65,7 @@ public class SellList implements MvcAction {
 
 				
 				if(year!=null && month==null && day==null) {
+					String endday = ""+(Integer.parseInt(year)+1);
 					month="1";
 					day="1";
 					startday = startday+"-"+month+"-"+day;
@@ -69,14 +73,16 @@ public class SellList implements MvcAction {
 					salesList = new BasketpaidDAO().buyListByHotComDate(comcode, startday, endday);
 				}
 				else if(year!=null && month!=null && day==null) {
+					String endday = ""+(Integer.parseInt(year));
 					day="1";
 					startday = startday+"-"+month+"-"+day;
-					endday = endday+"-"+month+"-"+day;
+					endday = endday+"-"+(Integer.parseInt(month)+1)+"-"+day;
 					salesList = new BasketpaidDAO().buyListByHotComDate(comcode, startday, endday);
 				}
 				else if(year!=null && month!=null && day!=null) {
+					String endday = ""+(Integer.parseInt(year));
 					startday = startday+"-"+month+"-"+day;
-					endday = endday+"-"+month+"-"+day;
+					endday = endday+"-"+month+"-"+(Integer.parseInt(day)+1);
 					salesList = new BasketpaidDAO().buyListByHotComDate(comcode, startday, endday);
 				}
 			}
@@ -89,7 +95,7 @@ public class SellList implements MvcAction {
 
 			
 			if(year!=null && month==null && day==null) {
-				
+				String endday = ""+(Integer.parseInt(year)+1);
 				month="1";
 				day="1";
 				startday = startday+"-"+month+"-"+day;
@@ -121,9 +127,10 @@ public class SellList implements MvcAction {
 				
 			}
 			else if(year!=null && month!=null && day==null) {
+				String endday = ""+(Integer.parseInt(year));
 				day="1";
 				startday = startday+"-"+month+"-"+day;
-				endday = endday+"-"+month+"-"+day;
+				endday = endday+"-"+(Integer.parseInt(month)+1)+"-"+day;
 				
 				ArrayList<BasketpaidDTO> plists = new BasketpaidDAO().buyListByDate(startday, endday);
 				
@@ -151,8 +158,10 @@ public class SellList implements MvcAction {
 				
 			}
 			else if(year!=null && month!=null && day!=null) {
+				String endday = ""+(Integer.parseInt(year));
 				startday = startday+"-"+month+"-"+day;
-				endday = endday+"-"+month+"-"+day;
+				endday = endday+"-"+month+"-"+(Integer.parseInt(day)+1);
+
 				
 				ArrayList<BasketpaidDTO> plists = new BasketpaidDAO().buyListByDate(startday, endday);
 				

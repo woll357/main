@@ -18,8 +18,11 @@ public class BasketpaidDTO {
 
 	public void setSalesPercent(double salesPercent) {
 		this.salesPercent = salesPercent;
-		this.managerSales = this.totalPrice*(1-salesPercent);
-		this.comSales = this.totalPrice*salesPercent;
+		System.out.println("이익률"+salesPercent);
+		System.out.println("가격"+this.totalPrice);
+		this.managerSales = (this.totalPrice*(100-salesPercent*100))/100;
+		System.out.println("회사가 갖는 돈"+this.managerSales);
+		this.comSales = (double)(this.totalPrice)*salesPercent;
 	}
 
 	public double getManagerSales() {
