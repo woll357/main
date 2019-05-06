@@ -23,10 +23,4 @@
 			<td>${i.id }</td>
 		</tr>
 		</c:forEach>
-		<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		</tr>
 	</table>

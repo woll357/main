@@ -2,186 +2,148 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%request.setCharacterEncoding("utf-8"); %>
+<script src="../js/jquery-3.3.1.min.js"></script>
 <script>
+function mkmonth(){
+	var today = new Date();
+	var todayYear = today.getFullYear();
+	var todayMonth = today.getMonth()+1;
+	var options;
+	 $("#month *").remove();
+	options = $('<option value="">필수입력</option>');
+	$("#month").append(options);
+	if($('#year').val()==todayYear){
+		for (var i = todayMonth; i < todayMonth+3 ; i++) {
+			if(i<13){
+			options = $('<option value='+i+'>'+i+'</option>');
+			$("#month").append(options);
+			}
+		}
+	}
+	else if($('#year').val()==todayYear+1){
+		for (var i = 1; i < todayMonth-9 ; i++) {
+			options = $('<option value='+i+'>'+i+'</option>');
+			$("#month").append(options);
+		}
+	}
+}
 
-function calendar(year,month, id){ //달력 함수  
-       //내장 객체
-       
-       if( id=='ssdate1' ||  id=='startDay'){
-	        var nowDate = new Date(); //오늘 날짜 객체 선언  
-	        var nYear = nowDate.getFullYear(); //오늘의 년도  
-	        var nMonth = nowDate.getMonth(); //오늘의 월 ※ 0월부터 시작  
-	        var nDate = nowDate.getDate(); //오늘의 날  
-	        var nNumday = nowDate.getDay(); //오늘의 요일 0=일요일...6=토요일  
-	        var endDay=new Array(31,28,31,30,31,30,31,31,30,31,30,31); //각달의 마지막 날짜  
-	        var dayName=new Array("일", "월", "화", "수", "목", "금", "토"); // 숫자 요일을 문자 요일 바꿀 함수  
-       }else if( id=='ssdate2'){
-       	var std = $('.ssdate1').val();
-       	var stdArr = std.split('-');
-       	var nowDate = new Date(stdArr[0], eval(stdArr[1])-1, stdArr[2]);
-       	var nYear = nowDate.getFullYear(); //오늘의 년도  
-	        var nMonth = nowDate.getMonth(); //오늘의 월 ※ 0월부터 시작  
-	        var nDate = nowDate.getDate(); //오늘의 날  
-           var nNumday = nowDate.getDay(); //오늘의 요일 0=일요일...6=토요일  
-           var endDay=new Array(31,28,31,30,31,30,31,31,30,31,30,31); //각달의 마지막 날짜  
-           var dayName=new Array("일", "월", "화", "수", "목", "금", "토"); // 숫자 요일을 문자 요일 바꿀 함수  
-       }else if( id=='endDay'){
-       	var std = $('.startDay').val();
-       	var stdArr = std.split('-');
-       	var nowDate = new Date(stdArr[0], eval(stdArr[1])-1, stdArr[2]);
-       	var nYear = nowDate.getFullYear(); //오늘의 년도  
-	        var nMonth = nowDate.getMonth(); //오늘의 월 ※ 0월부터 시작  
-	        var nDate = nowDate.getDate(); //오늘의 날  
-           var nNumday = nowDate.getDay(); //오늘의 요일 0=일요일...6=토요일  
-           var endDay=new Array(31,28,31,30,31,30,31,31,30,31,30,31); //각달의 마지막 날짜  
-           var dayName=new Array("일", "월", "화", "수", "목", "금", "토"); // 숫자 요일을 문자 요일 바꿀 함수  
-       }else{
-       	var nowDate = new Date(); //오늘 날짜 객체 선언  
-	        var nYear = nowDate.getFullYear(); //오늘의 년도  
-	        var nMonth = nowDate.getMonth(); //오늘의 월 ※ 0월부터 시작  
-	        var nDate = nowDate.getDate(); //오늘의 날  
-	        var nNumday = nowDate.getDay(); //오늘의 요일 0=일요일...6=토요일  
-	        var endDay=new Array(31,28,31,30,31,30,31,31,30,31,30,31); //각달의 마지막 날짜  
-	        var dayName=new Array("일", "월", "화", "수", "목", "금", "토"); // 숫자 요일을 문자 요일 바꿀 함수
-       }
-       var col=0; //나중에 앞뒤 빈 날짜칸 계산   
-       if (year==null){ //null 일경우, 처음 페이지의 년도는 현재 년도를 가져옴   
-           year=nYear;
-       } 
- 
-       if (month==null){ //null 일경우, 처음 페이지의 월은 현재 월을 가져옴
-           month=nMonth;  
-       }
-
-       eDate= new Date(); //달을 넘길 때 바뀌는 날짜
-       eDate.setFullYear(year); //바뀌는 년도 
-       eDate.setMonth(month); //바뀌는 월 
-       eDate.setDate(1); // 날짜는 1일로 설정  
-       var fNumday=eDate.getDay(); //넘길때 달 1일 요일 (숫자)  
-       var lastDay=endDay[eDate.getMonth()]; //바뀌는 월의 마지막 날짜  
- 
-       if ((eDate.getMonth()==1)&&(((eDate.getYear()%4==0)&&(eDate.getYear() %100 !=0))||eDate.getYear() % 400 ==0 )){
-           //0월 부터 시작하므로 배열의 첫번째는 2월-> 윤달 계산 4년마다 29일, 100년는 28일, 400년 째는 29일
-           lastDay=29;
-       }   
-		
-      
-       calendarStr  = "<table>"  
-       calendarStr += "<tr align=center><td valign=middle>"  
+function mkdate(){
 	
-       if(nYear==(eDate.getYear()+1900) && nMonth==eDate.getMonth()){
-       	calendarStr += "<a href=javascript:calendar("+year+","+(month-1)+",'"+id+"') class=preNext></a>"
-       }else{
-       calendarStr += "<a href=javascript:calendar("+year+","+(month-1)+",'"+id+"') class=preNext><</a>" //월을 넘길때 빼기 -1을 해서 넘긴다(년도는 자동 계산)  
-       }
-       
-       calendarStr += "</td><td colspan=5 class='tt'>"  
-       calendarStr += "<b>"+eDate.getFullYear()+"년 "+(eDate.getMonth()+1)+"월</b>"//해당하는 년도와 월 표시  
-       calendarStr += "</td><td valign=middle>"  
-       calendarStr += "<a href=javascript:calendar("+year+","+(month+1)+",'"+id+"') class=preNext>></a>" //월을 넘길때 더하기 +1을 해서 넘긴다(년도는 자동 계산)  
-       calendarStr += "</td></tr><tr>"  
-       for (i=0;i<dayName.length;i++){  
-       	if(dayName[i]=='일'){
-       		calendarStr += "<td class=week width='100px' ><font color='red'>"+dayName[i] + "</font></td>" //숫자 요일을 날짜로 입력 
-       	}else if(dayName[i]=='토'){
-       		calendarStr += "<td class=week width='100px'><font color='blue'>"+dayName[i] + "</font></td>" //숫자 요일을 날짜로 입력 
-       	}else{
-       		calendarStr += "<td class=week width='100px'>"+dayName[i] + "</td>" //숫자 요일을 날짜로 입력 
-       	}
-       }  
- 
-       calendarStr += "</tr><tr align=center>"  
- 
-       for (i=0;i<fNumday;i++){ // 첫번째 날짜의 숫자 요일을 구해서 그전까지는 빈칸 처리  
-           calendarStr += "<td>&nbsp;</td>"   
-           col++;                       
-       }  
- 
-       for ( i=1; i<=lastDay; i++){ //해당 월의 달력 출력  
-           if(eDate.getFullYear()==nYear&&eDate.getMonth()==nMonth&&i==nDate){ //오늘이면 today 스타일로 표시  
-               calendarStr += "<td class=today>"+i+"</td>"   
-           }
-           else if(eDate.getFullYear()<nYear ||  (eDate.getFullYear()==nYear && eDate.getMonth()<nMonth)
-           		|| (eDate.getFullYear()==nYear && eDate.getMonth()==nMonth && i<(nDate+1))){
-           	if(col==0){//일요일 
-                   calendarStr += "<td class=sunday>"+i+"</td>"  
-               }
-               else if(1<=col&&col<=5){//평일  
-                   calendarStr += "<td class=workday>"+i+"</td>"   
-               }
-               else if(col==6){ //토요일  
-                   calendarStr += "<td class=satday>"+i+"</td>"   
-               }
-           }else{  
-               if(col==0){//일요일 
-                   calendarStr += "<td class=sunday onClick=datePicker("+year+","+month+","+i+",'"+id+"')>"+i+"</td>"  
-               }
-               else if(1<=col&&col<=5){//평일  
-                   calendarStr += "<td class=workday onClick=datePicker("+year+","+month+","+i+",'"+id+"')>"+i+"</td>"   
-               }
-               else if(col==6){ //토요일  
-                   calendarStr += "<td class=satday onClick=datePicker("+year+","+month+","+i+",'"+id+"')>"+i+"</td>"   
-               }  
-           }             
-           col++;  
- 
-           if(col==7){ //7칸을 만들면 줄 바꾸어 새 줄을 만들고 다시 첫 칸부터 시작  
-               calendarStr += "</tr><tr align=center>"  
-               col=0;  
-           }  
-       }     
- 
-       for (i=col;i<dayName.length;i++){ //마지막 날에서 남은 요일의 빈 칸 만들기  
-           calendarStr += "<td>&nbsp;</td>"  
-       } 
-
-       $('#ddateCal1').html(calendarStr);  
+	var today = new Date();
+	var todayYear = today.getFullYear();
+	var todayMonth = today.getMonth()+1;
+	var todayDate = today.getDate();
+	
+	var yearMonth = new Date($('#year').val(),$('#month').val(),0);
+	var lastDate = yearMonth.getDate();
+	
+	var options;
+	$("#day *").remove();
+	options = $('<option value="">입력없음</option>');
+	$("#day").append(options);
+	
+	if($('#year').val()==todayYear && $('#month').val()==todayMonth){
+		for (var i = todayDate; i <= lastDate; i++) {
+			options = $('<option value='+i+'>'+i+'</option>');
+			$("#day").append(options);
+		}
 		
-       $('#ddateCal1').css({
-			 'visibility': 'visible'
-		 })
-       
-   }
-
-
-
-function datePicker(yy,mm,dd,id){
-
-	 if((mm+1)<10){
-		 mm="0"+(mm+1);
-	 }else{
-		 mm=(mm+1);
-	 }
-	 if((dd)<10){
-		 dd="0"+(dd);
-	 }
-	 
-	 var idd = "."+id;
-	 $(idd).val(yy+"-"+mm+"-"+dd);
-	 
-	 $('#ddateCal1').css({
-		 'visibility': 'hidden'
-	 })
+	}
+	else if($('#year').val()==todayYear && $('#month').val()==todayMonth+2){
+		for (var i = 1; i < todayDate; i++) {
+			options = $('<option value='+i+'>'+i+'</option>');
+			$("#day").append(options);
+		}
+		
+	}
+	else if($('#year').val()==todayYear+1 && $('#month').val()==todayMonth-10){
+		for (var i = 1; i < todayDate; i++) {
+			options = $('<option value='+i+'>'+i+'</option>');
+			$("#day").append(options);
+		}
+		
+	}
+	else{
+		for (var i = 1; i <= lastDate; i++) {
+			options = $('<option value='+i+'>'+i+'</option>');
+			$("#day").append(options);
+		}
+	}
 }
 </script>
 <table>
 <tr>
-<td><input type="text" readonly="readonly" id="inputdate" /></td>
-<td><input type="button" id="datebtn" value="검색"/></td>
-</tr>
-</table>
 
+	<td>
+	<select style="width: 80px" id="year" name="year" onchange="mkmonth()">
+	<option value="">필수입력</option>
+	<c:forEach var="i" items="${years }">
+	<option value="${i }">${i }</option>
+	</c:forEach>
+	</select>
+	</td>
+	<td  style="width: 25px" >년</td>
+
+	<td>
+	<select style="width: 80px" id="month" name="month" onchange="mkdate()">
+	<option value="">필수입력</option>
+	</select>
+	</td>
+	<td  style="width: 25px" >월</td>
+
+		<td>
+	<select style="width: 80px" id="day" name="day">
+	<option value="">입력없음</option>
+	</select>
+	</td>
+	<td  style="width: 25px" >일</td>
+
+
+	<td>
+	<input id="search" type="button" value="검색" />
+	</td>
+	</tr>
+	</table>
+	<div id="searchResult">
+
+	</div>
 <script>
+
 $(document).ready(function(){
-	$('#inputdate').on({
-		'click' : function(){
-			var cal = new Date();
-			var yy = cal.getYear()+1900;
-			var mm = cal.getMonth();
-			var id=$(this).attr("id");
-			calendar(yy,mm, id);
+	$("#search").on({
+		click:function(){
+			if($("#year").val()!="" && $("#month").val()!="" && $("#day").val()==""){
+				$.ajax("../Sales/ReserveDateList?year="+$('#year').val()+"&month="+$('#month').val(),
+			            {
+		               success:function(ll){
+		            	   $("#searchResult").html(ll)
+		    
+		               },
+		               error:function(){
+		              
+		               },
+		            }
+		         ); 
+			}
+			
+			else if($("#year").val()!="" && $("#month").val()!="" && $("#day").val()!=""){
+				$.ajax("../Sales/ReserveDateList?year="+$('#year').val()+"&month="+$('#month').val()+"&day="+$('#day').val(),
+			            {
+		               success:function(ll){
+		            	   $("#searchResult").html(ll)
+		    
+		               },
+		               error:function(){
+		              
+		               },
+		            }
+		         ); 
+			}
+			
+			
 		}
-	}) 
-	
-})
+});
+
+});
 </script>

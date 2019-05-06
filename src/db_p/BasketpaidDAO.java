@@ -385,7 +385,7 @@ public class BasketpaidDAO {
 			return res;
 		}
 		
-		public ArrayList<BasketpaidDTO> comReserveList(BasketpaidDTO dto) {		//회사 환불 갯수?
+		public ArrayList<BasketpaidDTO> comReserveList(BasketpaidDTO dto) {		//회사 예약 갯수?
 			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
 			
 			try {
@@ -406,6 +406,52 @@ public class BasketpaidDAO {
 					dto.setFdateStr(rs.getString(4));
 					dto.setId(rs.getString(5));
 					dto.setPsn(rs.getInt(6));
+					res.add(dto);
+				}
+		
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				
+				close();
+			}
+			
+			return res;
+		}
+		
+		public ArrayList<BasketpaidDTO> dateReserveList(String startday, String endday) {		//날짜별 예약갯수
+			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
+			System.out.println("dateReserveList 실행되니?");
+			try {
+				
+				sql = "select * from basketpaid where bstatus = 'm' and date(ddate) between '"+startday+"' and '"+endday+"' ";
+				ptmt = con.prepareStatement(sql);
+				
+				System.out.println("sql구문 뭐니?"+sql);
+				
+				rs = ptmt.executeQuery();
+				
+				while(rs.next()) {
+					System.out.println("dateReserveList 결과는 있니?");
+					BasketpaidDTO dto = new BasketpaidDTO();
+					
+					dto.setPno(rs.getInt("pno"));
+					dto.setBasketID(rs.getString("basketID"));
+					dto.setcType(rs.getString("cType"));
+					dto.setcNum(rs.getInt("cNum"));
+					dto.setcName(rs.getString("cName"));
+					dto.setItemName(rs.getString("itemName"));
+					dto.setDdate(rs.getTimestamp("ddate"));
+					dto.setFdate(rs.getTimestamp("fdate"));
+					dto.setLocation1(rs.getString("location1"));
+					dto.setLocation2(rs.getString("location2"));
+					dto.setTotalPrice(rs.getInt("totalPrice"));
+					dto.setPsn(rs.getInt("psn"));
+					dto.setBcode(rs.getString("bcode"));
+					dto.setId(rs.getString("id"));
+					dto.setBstatus(rs.getString("bstatus"));
+					System.out.println(dto.getBasketID()+"ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ");
 					res.add(dto);
 				}
 		
