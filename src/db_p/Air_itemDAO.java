@@ -803,7 +803,7 @@ public class Air_itemDAO {
 	      
 	      try {
 	         
-	         sql = "update air_item set seatcnt = ? where ccode = ? ";
+	         sql = "update air_item set seatcnt = seatcnt + ? where ccode = ? ";
 	         
 	         ptmt = con.prepareStatement(sql);
 	         

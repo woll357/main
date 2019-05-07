@@ -279,6 +279,7 @@ public class BasketpaidDAO {
 				res.setBcode(rs.getString("bcode"));
 				res.setId(rs.getString("id"));
 				res.setBstatus(rs.getString("bstatus"));
+				res.setCode(rs.getString("code"));
 				
 				}
 			} catch (SQLException e1) {
@@ -472,7 +473,7 @@ public class BasketpaidDAO {
 			
 			try {
 				
-				sql = "select * from basketpaid where bstatus = 'p' and date(ddate) between '"+startday+"' and '"+endday+"' ";
+				sql = "select * from basketpaid where bstatus = 'p' or basketpaid.bstatus = 'n' and date(ddate) between '"+startday+"' and '"+endday+"' ";
 				ptmt = con.prepareStatement(sql);
 		
 				rs = ptmt.executeQuery();
@@ -580,7 +581,7 @@ public class BasketpaidDAO {
 						+ "basketpaid.psn, basketpaid.totalPrice, air_com.salesPercent "
 						+ "from basketpaid, air_com where basketpaid.cName = air_com.air_name and "
 						+ "air_com.air_code = ? and date(basketpaid.ddate) between '"+startday+"' and '"+endday+"' "
-						+ "and basketpaid.bstatus = 'p'";
+						+ "and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n'";
 				ptmt = con.prepareStatement(sql);
 		
 				ptmt.setString(1, comcode);
@@ -621,7 +622,7 @@ public class BasketpaidDAO {
 						+ "basketpaid.psn, basketpaid.totalPrice, hot_com.salesPercent "
 						+ "from basketpaid, hot_com where basketpaid.cName = hot_com.hname and "
 						+ "hot_com.hcode = ? and date(basketpaid.ddate) between '"+startday+"' and '"+endday+"' "
-						+ "and basketpaid.bstatus = 'p'";
+						+ "and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n' ";
 				ptmt = con.prepareStatement(sql);
 		
 				ptmt.setString(1, comcode);
@@ -746,7 +747,7 @@ public class BasketpaidDAO {
 				sql = "select basketpaid.itemName, basketpaid.ddate, basketpaid.psn, basketpaid.totalPrice, hot_com.salesPercent, basketpaid.code "
 						+ "from basketpaid, hot_com "
 						+ "where basketpaid.cName = hot_com.hname and basketpaid.code= ? "
-						+ "and basketpaid.bstatus = 'p'  and date(basketpaid.ddate) between ? and ?";
+						+ "and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n' and date(basketpaid.ddate) between ? and ?";
 				
 				ptmt = con.prepareStatement(sql);
 		
@@ -788,7 +789,7 @@ public class BasketpaidDAO {
 				sql = "select basketpaid.itemName, basketpaid.ddate, basketpaid.psn, basketpaid.totalPrice, hot_com.salesPercent, basketpaid.code "
 						+ "from basketpaid, hot_com "
 						+ "where basketpaid.cName = hot_com.hname "
-						+ "and basketpaid.bstatus = 'p'  and date(basketpaid.ddate) between ? and ?";
+						+ "and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n' and date(basketpaid.ddate) between ? and ?";
 				
 				ptmt = con.prepareStatement(sql);
 		
@@ -909,7 +910,7 @@ public class BasketpaidDAO {
 						+ "basketpaid.totalPrice, air_com.salesPercent "
 						+ "from basketpaid, air_com where basketpaid.cName=air_com.air_name "
 						+ "and basketpaid.code = ? "
-						+ "and date(basketpaid.ddate) between ? and ? and bstatus = 'p'";
+						+ "and date(basketpaid.ddate) between ? and ? and bstatus = 'p' or basketpaid.bstatus = 'n' ";
 							
 				ptmt = con.prepareStatement(sql);
 		
@@ -954,7 +955,7 @@ public class BasketpaidDAO {
 						+ "basketpaid.location1, basketpaid.location2 "
 						+ "from basketpaid, air_com "
 						+ "where basketpaid.cName = air_com.air_name "
-						+ "and basketpaid.bstatus = 'p' and date(basketpaid.ddate) between ? and ?";
+						+ "and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n' and date(basketpaid.ddate) between ? and ?";
 				
 				ptmt = con.prepareStatement(sql);
 		

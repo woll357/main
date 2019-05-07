@@ -2,6 +2,8 @@ package payment_p;
 
 import java.util.Date;
 
+import db_p.Air_itemDAO;
+import db_p.Air_itemDTO;
 import db_p.BasketItemDAO;
 import db_p.BasketItemDTO;
 import db_p.BasketpaidDAO;
@@ -19,7 +21,15 @@ public class ChangeBstatus {
 		BuyDTO bdto = new BuyDTO();
 		
 		bpdto.setBasketID(basketID);
-		new BasketpaidDAO().detail(bpdto);
+		bpdto = new BasketpaidDAO().detail(bpdto);
+		
+		if(bpdto.getcType().equals("A")){
+			Air_itemDTO aidto = new Air_itemDTO();
+			aidto.setCcode(bpdto.getCode());
+			aidto.setSeatcnt(-bpdto.getPsn());
+			new Air_itemDAO().update_seatcnt(aidto);
+		}
+		
 		bidto.setBasketID(basketID);
 		bdto.setBasketID(basketID);
 		
