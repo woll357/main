@@ -64,11 +64,11 @@
         calendarStr  = "<table>"  
         calendarStr += "<tr align=center><td valign=middle>"  
 	
-        if(nYear==(eDate.getYear()+1900) && nMonth==eDate.getMonth()){
-        	calendarStr += "<a href=javascript:calendar("+year+","+(month-1)+",'"+id+"') class=preNext></a>"
-        }else{
+      //  if(nYear==(eDate.getYear()+1900) && nMonth==eDate.getMonth()){
+      //  	calendarStr += "<a href=javascript:calendar("+year+","+(month-1)+",'"+id+"') class=preNext></a>"
+      //  }else{
         calendarStr += "<a href=javascript:calendar("+year+","+(month-1)+",'"+id+"') class=preNext><</a>" //월을 넘길때 빼기 -1을 해서 넘긴다(년도는 자동 계산)  
-        }
+       // }
         
         calendarStr += "</td><td colspan=5 class='tt'>"  
         calendarStr += "<b>"+eDate.getFullYear()+"년 "+(eDate.getMonth()+1)+"월</b>"//해당하는 년도와 월 표시  
@@ -117,18 +117,18 @@
             if(eDate.getFullYear()==nYear&&eDate.getMonth()==nMonth&&i==nDate){ //오늘이면 today 스타일로 표시  
                 calendarStr += "<td class=today>"+i+"</td>"   
             }
-            else if(eDate.getFullYear()<nYear ||  (eDate.getFullYear()==nYear && eDate.getMonth()<nMonth)
-            		|| (eDate.getFullYear()==nYear && eDate.getMonth()==nMonth && i<(nDate+1))){
-            	if(col==0){//일요일 
-                    calendarStr += "<td class=sunday>"+i+"</td>"  
-                }
-                else if(1<=col&&col<=5){//평일  
-                    calendarStr += "<td class=workday>"+i+"</td>"   
-                }
-                else if(col==6){ //토요일  
-                    calendarStr += "<td class=satday>"+i+"</td>"   
-                }
-            }else{  
+//            else if(eDate.getFullYear()<nYear ||  (eDate.getFullYear()==nYear && eDate.getMonth()<nMonth)
+//            		|| (eDate.getFullYear()==nYear && eDate.getMonth()==nMonth && i<(nDate+1))){
+//            	if(col==0){//일요일 
+//                    calendarStr += "<td class=sunday>"+i+"</td>"  
+//                }
+//                else if(1<=col&&col<=5){//평일  
+//                    calendarStr += "<td class=workday>"+i+"</td>"   
+//                }
+//                else if(col==6){ //토요일  
+//                    calendarStr += "<td class=satday>"+i+"</td>"   
+//                }
+//            }else{  
                 if(col==0){//일요일 
                     calendarStr += "<td class=sunday onClick=datePicker("+year+","+month+","+i+",'"+id+"')>"+i+"</td>"  
                 }
@@ -138,7 +138,7 @@
                 else if(col==6){ //토요일  
                     calendarStr += "<td class=satday onClick=datePicker("+year+","+month+","+i+",'"+id+"')>"+i+"</td>"   
                 }  
-            }             
+//            }             
             col++;  
   
             if(col==7){ //7칸을 만들면 줄 바꾸어 새 줄을 만들고 다시 첫 칸부터 시작  
