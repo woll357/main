@@ -112,6 +112,7 @@ public class Air_itemDAO {
 				ptmt.setString(2, dto.getAir_code());
 				ptmt.setString(3, dto.getAp_code());
 			
+				System.out.println(dto.getDdateStr());
 				rs = ptmt.executeQuery();
 				
 				res = rs.next();

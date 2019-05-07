@@ -29,13 +29,17 @@ public class AirItem_InsertReg implements MvcAction {
 		Air_itemDTO dto = new Air_itemDTO();
 		
 		////////////////////////////////////////////////////////////////////////////
+		String msg = "";
+		String goUrl = "";
 		
 		
+		for (int i = 346; i <365; i=i+7) {
 		
-		for (int i = 0; i <= 365; i=i+7) {
-			
-		Date ddd = new Date(2019,01,01+i);
-		String dddd = ddd.getYear()+"-"+ddd.getMonth()+"-"+ddd.getDate();
+		
+		Date ddd = new Date(2019-1900,00,01+i);
+		String dddd = ddd.getYear()+"-"+(ddd.getMonth()+1)+"-"+ddd.getDate();
+		
+		
 		////////////////////////////////////////////////////////////////////////
 		
 		String darea = request.getParameter("darea");
@@ -43,8 +47,7 @@ public class AirItem_InsertReg implements MvcAction {
 		String carea = request.getParameter("carea");
 		String air_code = ((SignUpDTO) session.getAttribute("mem")).getAir_code();
 		String ap_code = request.getParameter("ap_code");
-		String msg = "";
-		String goUrl = "";
+		
 		
 		Air_itemDTO dto2 = new Air_itemDTO();
 		dto2.setAir_code(air_code);								//항공편코드는 session에서 가져옴
@@ -100,7 +103,7 @@ public class AirItem_InsertReg implements MvcAction {
 	
 		
 		if(	new Air_itemDAO().itemtimedetail(dto)) {		
-
+			
 			msg="같은날 상품이 있습니다.";
 			goUrl = "AirItem_List?aotcont=in";
 		
@@ -123,14 +126,14 @@ public class AirItem_InsertReg implements MvcAction {
 			msg = "없는 비행기입니다.";
 			goUrl = "AirItem_Insert";
 		}
-//		request.setAttribute("msg", msg);
-//		request.setAttribute("goUrl", goUrl);
-//		request.setAttribute("mainUrl", "air/alert.jsp");
+		
 		
 		}
 	
 		
-		
+		request.setAttribute("msg", msg);
+		request.setAttribute("goUrl", goUrl);
+		request.setAttribute("mainUrl", "air/alert.jsp");
 		
 		
 		return null;
