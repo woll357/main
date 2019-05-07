@@ -12,9 +12,9 @@
 <form action="AirItem_Detail">
 	<table width=100%>	
 		<tr>
-			<td colspan="8">상품 코드</td>
-			<td><input type="text" name="ccode" /></td>
-			<td align="center"><input type="submit" value="선택  " /></td>
+			<td style="background: #FFFFFF" colspan="8">상품 코드</td>
+			<td style="background: #FFFFFF"><input type="text" name="ccode" /></td>
+			<td style="background: #FFFFFF" align="center"><input type="submit" value="선택  " /></td>
 		</tr>
 	<tr>
 		<td>상품코드</td>

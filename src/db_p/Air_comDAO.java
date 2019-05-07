@@ -340,11 +340,11 @@ public Object air_pdetaill(String a) {
 				
 				try {
 					 
-					sql = "delete from air_com where id = ? " ;
+					sql = "delete from air_com where air_code = ? " ;
 					
 					ptmt = con.prepareStatement(sql);
 					
-					ptmt.setString(1, dto.getId());
+					ptmt.setString(1, dto.getAir_code());
 					
 					ptmt.executeUpdate() ;
 					

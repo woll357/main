@@ -82,7 +82,7 @@ public class Air_itemDAO {
 			rs = ptmt.executeQuery();
 			
 			res = rs.next();
-			//뭐라도 있으면 false
+			
 					
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -95,6 +95,36 @@ public class Air_itemDAO {
 		return res;
 	}
 	
+	
+	
+	//관리자 비행기 삭제
+	//select * from air_item where air_code = 'AAA1012';
+	public boolean airitemdelete(Air_itemDTO dto ) {
+		
+		boolean res = false;
+		
+		sql = "select * from air_item where air_code = ? ";
+		
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getAir_code());
+			
+		
+			rs = ptmt.executeQuery();
+			
+			res = rs.next();
+			//뭐라도 있으면 true
+					
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		
+		}finally {
+		   close();
+	  }
+		       
+		return res;
+	}
 	
 	//상품등록 전 불린
 	public boolean itemtimedetail(Air_itemDTO dto) {
@@ -1017,17 +1047,19 @@ public Object air_pitemlist3(String air_p , String air_code ,  int page , int li
 		}
 
 //관리자 비행기 모든 상품 열람 select * from air_item where ap_code = 'a105';
-public Object mair_planeitemlist(String ap_code ) {
+public Object mair_planeitemlist(String ap_code , int page , int limit) {
 	
 	ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 
 	try {
 		
-		sql = " select * from air_item where ap_code = ? ";        
+		sql = " select * from air_item where ap_code = ? and no limit ? , ?  ";        
 		ptmt = con.prepareStatement(sql);
 		
 		ptmt.setString(1, ap_code);
-	
+		ptmt.setInt(2, page);
+		ptmt.setInt(3, limit);
+		
 		
 		rs = ptmt.executeQuery();
 		

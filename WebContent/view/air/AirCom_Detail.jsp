@@ -13,11 +13,11 @@
 <form action="AirCom_Detail" method="post">
 	<table width=100%  >	
 		<tr>
-			<td colspan="2">항공편 코드</td>
-			<td><input type="text" name="air_p"/></td>
+			<td style="background: #D4F4FA" colspan="2">항공편 코드</td>
+			<td style="background: #D4F4FA"><input type="text" name="air_p"/></td>
 			<input type="hidden" name="air_code" value="${air_code }">
 			<input type="hidden" name="id" value="${id }">
-			<td align="center"><input type="submit" value="선택  " /></td>
+			<td style="background: #D4F4FA" align="center"><input type="submit" value="선택  " /></td>
 		</tr>
 	<tr>
 		<td>항공편코드</td>

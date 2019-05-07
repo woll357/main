@@ -15,8 +15,6 @@
 		<tr>
 			<td style="background: #D4F4FA"  colspan="2">항공편 코드</td>
 			<td style="background: #D4F4FA" ><input type="text" name="air_p"/></td>
-			<input type="hidden" name="air_code" value="${air_code }">
-			<input type="hidden" name="id" value="${id }">
 			<td style="background: #D4F4FA"  align="center"><input type="submit" value="선택  " /></td>
 		</tr>
 	<tr>
@@ -27,7 +25,7 @@
 	</tr>
 <c:forEach var="dto" items="${data }" varStatus="no">	
 	<tr>
-	<td><a href="Airp_List2?air_p=${dto.air_p }&air_code=${air_code }">${dto.air_p }</a></td>	
+	<td><a href="Airp_List2?air_p=${dto.air_p }&air_code=${air_code }&partner=in">${dto.air_p }</a></td>	
 		<td>${dto.air_name }</td>
 		<td>${dto.darea }</td>
 		<td>${dto.carea }</td>

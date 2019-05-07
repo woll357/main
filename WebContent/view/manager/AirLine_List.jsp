@@ -23,7 +23,7 @@
 		<td>${dto.id }</td>
 		<td>${dto.crn }</td>
 		<td>${dto.air_name }</td>
-		<td><a href="AirLine_Delete?id=${mem.id }"><input type="button" value="삭제"></a></td>
+		<td><a href="AirLine_Delete?air_code=${dto.air_code }&partner=in"><input type="button" value="삭제"></a></td>
 	</tr>
 	</c:forEach>
 </table>

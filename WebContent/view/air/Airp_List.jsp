@@ -48,9 +48,6 @@
 				</c:otherwise>
 				</c:choose>			
 			</c:forEach>
-			<c:if test="${endpage<totalpage }">  <!-- 마지막 페이지가 토탈페이지보다 작을때만 다음이 나오게-->
-			<a href="?page=${endpage+1 }&aotcont=in">[다음]</a> 
-		</c:if>
 		</td>
 	</tr>
 	</table>

@@ -17,20 +17,34 @@ public class AirLine_Delete implements MvcAction {
 	@Override
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
+	
 		
 		
-		System.out.println("항공사 삭제 페에지");
+		String msg = "";
+		String goUrl = "";
 		
+		
+		
+		System.out.println(request.getParameter("air_code"));
 		Air_comDTO dto = new Air_comDTO();
 		
-		dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
+		dto.setAir_code(request.getParameter("air_code"));
+		Air_itemDTO idto = new Air_itemDTO();
+		idto.setAir_code(request.getParameter("air_code"));
+		
+		if(new Air_itemDAO().airitemdelete(idto)) {
+			msg = "예약된 상품이 있습니다.";
+			goUrl = "AirLine_List?partner=in";
+		}else {
+			msg = "삭제되었습니다.";
+			goUrl = "AirLine_List?partner=in";
+			new Air_comDAO().airlinedelete(dto);
+		}
+	
 		
 		
-		new Air_comDAO().airlinedelete(dto);
-		
-		request.setAttribute("msg", "삭제되었습니다.");
-		request.setAttribute("goUrl", "AirLine_List");
+		request.setAttribute("msg", msg);
+		request.setAttribute("goUrl", goUrl);
 		request.setAttribute("mainUrl", "air/alert.jsp");
 		
 		

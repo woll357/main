@@ -17,7 +17,7 @@ public class AirItem_List implements MvcAction {
 		HttpSession session = request.getSession();
 		
 		
-		   int limit = 3; //한 페이지 당 게시물 수
+		   int limit = 10; //한 페이지 당 게시물 수
 		
 		   int pageLimit =  4; //리스트 하단에 보여질 페이지 번호 갯수
 		
@@ -34,6 +34,8 @@ public class AirItem_List implements MvcAction {
 		      
 		      //천체페이지수
 		      int totalpage = total/limit;
+		      
+		   
 		      
 		      if(total%limit>0)
 		    	  totalpage++;

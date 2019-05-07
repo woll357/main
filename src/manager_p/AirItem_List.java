@@ -14,9 +14,9 @@ public class AirItem_List implements MvcAction {
 	@Override
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-			int limit = 3; //한 페이지 당 게시물 수
+			int limit = 10; //한 페이지 당 게시물 수
 	      
-	      int pageLimit = 4 ; //리스트 하단에 보여질 페이지 번호 갯수
+	      int pageLimit = 5 ; //리스트 하단에 보여질 페이지 번호 갯수
 	      
 	      
 	      int page = 1;
