@@ -89,7 +89,7 @@ $(document).ready(function(){
 					$('#email2').val()=='${dto.email2}'){
 				chk=true;
 			}
-			
+			console.log(chk);
 			if(chk && ppchk){
 				frm.submit();
 			}else{
