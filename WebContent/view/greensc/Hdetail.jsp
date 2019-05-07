@@ -5,16 +5,23 @@
 <h1>호텔상세보기</h1>
 <table border="">
 	<tr>
-		<td rowspan="3"><img src="../img/${dto.himg }" alt="" /></td>
+		<td rowspan="5"><img src="../img/${dto.himg }" alt="" /></td>
+		<td>나라</td>
 		<td>${dto.country }</td>
+		
+	</tr>
+	<tr>
+		<td>도시</td>
 		<td>${dto.city }</td>
 	</tr>
 	<tr>
-	<td colspan="2">${dto.hname }</td>
+		<td>호텔이름</td>
+		<td>${dto.hname }</td>
 	</tr>
 
 	<tr>
-	<td colspan="2">${dto.hinfo }</td>
+	<td>간단정보</td>
+	<td>${dto.hinfo }</td>
 	</tr>
 	<tr>
 		<td style="text-align: center;">상세주소</td>
@@ -40,7 +47,7 @@
 		<c:if test="${data.rkind=='D' }">
 		<td>디럭스룸</td>
 		</c:if>
-		<td><input type="submit" value="예약" /></td>
+		<td rowspan="7"><input type="submit" value="예약" /></td>
 		<%-- <td><a href="../Basket/BasketHotelReg?rcode=${data.rcode}&startDay=${param.startDay }&endDay=${param.endDay }">예약</a></td> --%>
 	</tr>
 	<tr>

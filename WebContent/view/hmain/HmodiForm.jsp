@@ -11,17 +11,17 @@
     
 
     <h1>호텔수정</h1>
-    <table border="" width="100%" style="text-align: center;">
+    <table  width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
     	<tr>
-			<td>호텔명</td>
+			<td style="border-bottom: 10px #dcefef solid;">호텔명</td>
 			<td><input type="text" name="hname" value="${dto.hname }" id="hname"/></td>
 		</tr>
 		<tr>
-			<td>호텔정보</td>
+			<td style="border-bottom: 10px #dcefef solid;">호텔정보</td>
 			<td><input type="text" name="hinfo" value="${dto.hinfo }" id="hinfo"/></td>
 		</tr>    
     	<tr>
-			<td>파일</td>
+			<td style="border-bottom: 10px #dcefef solid;">파일</td>
 			<td>
 			<c:choose>
 				<c:when test="${dto.himg!=null }">

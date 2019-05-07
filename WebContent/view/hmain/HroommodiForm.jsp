@@ -7,9 +7,9 @@
 
  <form name = "roommod" action="HroommodiReg" method="post" enctype="multipart/form-data">
      <input type="hidden" name="rcode" value="${dto.rcode }" />
- 	<table border=""  style="text-align: center;">
+ 	<table   style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
  		<tr>
-			<td>방종류</td>
+			<td style="border-bottom: 10px #dcefef solid;">방종류</td>
 			<td><select name="rkind">
 				<option value="${dto.rkind }">${dto.rkind }</option>
 				<option value="S">스탠다드</option>
@@ -17,7 +17,7 @@
 			</select></td>
 		</tr>
 		<tr>
-			<td>방갯수</td>
+			<td style="border-bottom: 10px #dcefef solid;">방갯수</td>
 			<td>
 <%-- 			<select name="rcnt">
 				<option value="${dto.rcnt }">${dto.rcnt }</option>
@@ -31,7 +31,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>방인원</td>
+			<td style="border-bottom: 10px #dcefef solid;">방인원</td>
 			<td><select name="pcnt">
 				<option value="${dto.pcnt }">${dto.pcnt }</option>
 				<option value=2>2</option>
@@ -39,7 +39,7 @@
 			</select></td>		
 		</tr>
 		<tr>
-			<td>방이미지</td>
+			<td style="border-bottom: 10px #dcefef solid;">방이미지</td>
 			<td>
 			<c:choose>
 				<c:when test="${dto.rimg!=null }">
@@ -53,15 +53,15 @@
 			</td>
 		</tr>
 		<tr>
-			<td>금액</td>
+			<td style="border-bottom: 10px #dcefef solid;">금액</td>
 			<td><input type="number" name="money" value="${dto.money }"  id="money"/></td>
 		</tr>
 				<tr>
-			<td>주말금액</td>
+			<td style="border-bottom: 10px #dcefef solid;">주말금액</td>
 			<td><input type="number" name="wmoney" value="${dto.wmoney }" id="wmoney"/></td>
 		</tr>		
 		<tr>
-			<td>wifi여부</td>
+			<td style="border-bottom: 10px #dcefef solid;">wifi여부</td>
 			<td><select name="wifi">
 				<option value="${dto.wifi }">${dto.wifi }</option>
 				<option value=false>false</option>
@@ -69,7 +69,7 @@
 			</select></td>
 		</tr>
 		<tr>
-			<td>조식여부</td>
+			<td style="border-bottom: 10px #dcefef solid;">조식여부</td>
 			<td><select name="morning">
 				<option value="${dto.morning }">${dto.morning }</option>
 				<option value=false>false</option>

@@ -11,10 +11,10 @@
 <form name="nono" action="HnoresDatewriteReg" method="post">
      <input type="hidden" name="rcode" value="${param.rcode }" />
      
-     <table border="">
+     <table style="border: 10px #dcefef solid;" cellspacing="0">
 
      	<tr>
-     		<td>날짜선택</td>
+     		<td style="border-bottom: 10px #dcefef solid;">날짜선택</td>
      		<!-- <td><input type="date" name="noresdate"/></td> -->
      		<td><input type="text" id="noresdate" name="noresdate" class="noresdate"/></td>
      			<td><div id="ddateCal1"></div></td>  
@@ -23,11 +23,11 @@
      	</tr>
      	
      	<tr>
-     		<td colspan="2">예약불가갯수</td>
+     		<td colspan="2" style="border-bottom: 10px #dcefef solid;">예약불가갯수</td>
      		<td><input type="number" maxlength="2" oninput="maxLengthCheck(this)"  name="norescnt" value="${dto.rcnt }" id="norescnt"/> </td>
      	</tr>
      	<tr>
-     		<td colspan="2">사유</td>
+     		<td colspan="2" style="border-bottom: 10px #dcefef solid;">사유</td>
      		<td><input type="text" name="reason" id="rs"/></td>
      	</tr>
 		<tr>
