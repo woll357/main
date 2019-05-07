@@ -906,7 +906,7 @@ public class BasketpaidDAO {
 			
 			try {
 				sql = "select basketpaid.code , basketpaid.itemName, basketpaid.ddate, "
-						+ "basketpaid.location1, basketpaid.location2, basketpaid.psn"
+						+ "basketpaid.location1, basketpaid.location2, basketpaid.psn, "
 						+ "basketpaid.totalPrice, air_com.salesPercent "
 						+ "from basketpaid, air_com where basketpaid.cName=air_com.air_name "
 						+ "and basketpaid.code = ? "
