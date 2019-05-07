@@ -367,7 +367,7 @@ public class Air_itemDAO {
 			
 			ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 			
-			sql = "select * from air_item where date(ddate)<=date(sysdate())  and air_code = ? order by ddate ";
+			sql = "select * from air_item where date(ddate)<=date(sysdate())  and air_code = ? order by ddate and no limit ?, ?  ";
 			
 			try {
 				ptmt = con.prepareStatement(sql);
