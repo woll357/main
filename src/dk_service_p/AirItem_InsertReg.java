@@ -28,8 +28,18 @@ public class AirItem_InsertReg implements MvcAction {
 		//항공편 등록 INSERT
 		Air_itemDTO dto = new Air_itemDTO();
 		
+		////////////////////////////////////////////////////////////////////////////
+		
+		
+		
+		for (int i = 0; i <= 365; i=i+7) {
+			
+		Date ddd = new Date(2019,01,01+i);
+		String dddd = ddd.getYear()+"-"+ddd.getMonth()+"-"+ddd.getDate();
+		////////////////////////////////////////////////////////////////////////
+		
 		String darea = request.getParameter("darea");
-		String ddate = request.getParameter("ddate")+" "+request.getParameter("h")+":"+request.getParameter("m")+":"+request.getParameter("s");
+		String ddate = dddd+" "+request.getParameter("h")+":"+request.getParameter("m")+":"+request.getParameter("s");
 		String carea = request.getParameter("carea");
 		String air_code = ((SignUpDTO) session.getAttribute("mem")).getAir_code();
 		String ap_code = request.getParameter("ap_code");
@@ -37,9 +47,9 @@ public class AirItem_InsertReg implements MvcAction {
 		String goUrl = "";
 		
 		Air_itemDTO dto2 = new Air_itemDTO();
-		dto2.setAir_code(air_code);
+		dto2.setAir_code(air_code);								//항공편코드는 session에서 가져옴
 		
-		dto2 = new Air_itemDAO().makeimg(dto2);
+		dto2 = new Air_itemDAO().makeimg(dto2);					// 항공편 코드에 대한 이미지 가져옴
 		
 		dto.setAp_code(ap_code);
 		dto.setDdateStr(ddate);
@@ -58,13 +68,13 @@ public class AirItem_InsertReg implements MvcAction {
 		ldto.setDarea(darea);
 		
 		
-		ldto = new Air_itemDAO().makea_time(ldto);
+		ldto = new Air_itemDAO().makea_time(ldto);			//항공편의 소요 시간을 가져옴
 		
 		LocationinfoDTO pdto = new LocationinfoDTO();
 		pdto.setDarea(darea);
 		pdto.setCarea(carea);
 		
-		pdto = new Air_itemDAO().makeair_p(pdto);
+		pdto = new Air_itemDAO().makeair_p(pdto);			//도착지와 출발지로의 Air_p를 가져옴
 		
 		dto.setAir_p(pdto.getAir_p());
 		
@@ -94,7 +104,7 @@ public class AirItem_InsertReg implements MvcAction {
 			msg="같은날 상품이 있습니다.";
 			goUrl = "AirItem_List?aotcont=in";
 		
-		}else if(new Air_planeDAO().apvalidity(air_code,ap_code)) {
+		}else if(new Air_planeDAO().apvalidity(air_code,ap_code)) {			
 			
 			msg = "추가되었습니다.";
 			goUrl = "AirItem_List?aotcont=in";
@@ -113,13 +123,14 @@ public class AirItem_InsertReg implements MvcAction {
 			msg = "없는 비행기입니다.";
 			goUrl = "AirItem_Insert";
 		}
+//		request.setAttribute("msg", msg);
+//		request.setAttribute("goUrl", goUrl);
+//		request.setAttribute("mainUrl", "air/alert.jsp");
 		
-		
+		}
 	
 		
-		request.setAttribute("msg", msg);
-		request.setAttribute("goUrl", goUrl);
-		request.setAttribute("mainUrl", "air/alert.jsp");
+		
 		
 		
 		return null;
