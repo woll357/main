@@ -108,7 +108,7 @@ function mkdate(){
 	$(document).ready(function(){
 		$("#search").on({
 			click:function(){
-				if($("#rcode").val()==""){
+				if($("#ccode").val()==""){
 					console.log("회사명이 없을 때");
 					
 					if($("#year").val()!="" && $("#month").val()=="" && $("#day").val()==""){ //연도까지
@@ -152,7 +152,7 @@ function mkdate(){
 				         ); 
 					}
 				}
-				else if($("#rcode").val()!=""){
+				else if($("#ccode").val()!=""){
 					console.log("회사명이 있다");
 					
 					if($("#year").val()!="" && $("#month").val()=="" && $("#day").val()==""){ //연도까지
