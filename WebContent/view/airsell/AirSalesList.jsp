@@ -108,7 +108,7 @@ function mkdate(){
 	$(document).ready(function(){
 		$("#search").on({
 			click:function(){
-				if($("#rcode").val()==""){
+				if($("#ccode").val()==""){
 					console.log("회사명이 없을 때");
 					
 					if($("#year").val()!="" && $("#month").val()=="" && $("#day").val()==""){ //연도까지
@@ -152,11 +152,11 @@ function mkdate(){
 				         ); 
 					}
 				}
-				else if($("#rcode").val()!=""){
+				else if($("#ccode").val()!=""){
 					console.log("회사명이 있다");
 					
 					if($("#year").val()!="" && $("#month").val()=="" && $("#day").val()==""){ //연도까지
-						$.ajax("../Sales/AirSalesList?rcode="+$('#rcode').val()+"&year="+$('#year').val(),
+						$.ajax("../Sales/AirSalesList?ccode="+$('#ccode').val()+"&year="+$('#year').val(),
 					            {
 				               success:function(ll){
 				            	   $("#searchResult").html(ll)
@@ -169,7 +169,7 @@ function mkdate(){
 				         ); 
 					}
 					else if($("#year").val()!="" && $("#month").val()!="" && $("#day").val()==""){ //달까지
-						$.ajax("../Sales/AirSalesList?rcode="+$('#rcode').val()+"&year="+$('#year').val()+"&month="+$('#month').val(),
+						$.ajax("../Sales/AirSalesList?ccode="+$('#ccode').val()+"&year="+$('#year').val()+"&month="+$('#month').val(),
 					            {
 				               success:function(ll){
 				            	   $("#searchResult").html(ll)
@@ -182,7 +182,7 @@ function mkdate(){
 				         ); 
 					}
 					else if($("#year").val()!="" && $("#month").val()!="" && $("#day").val()!=""){ //날짜까지
-						$.ajax("../Sales/AirSalesList?rcode="+$('#rcode').val()+"&year="+$('#year').val()+"&month="+$('#month').val()+"&day="+$('#day').val(),
+						$.ajax("../Sales/AirSalesList?ccode="+$('#ccode').val()+"&year="+$('#year').val()+"&month="+$('#month').val()+"&day="+$('#day').val(),
 					            {
 				               success:function(ll){
 				            	   $("#searchResult").html(ll)

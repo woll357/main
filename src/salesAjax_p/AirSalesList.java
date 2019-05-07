@@ -20,7 +20,7 @@ public class AirSalesList implements MvcAction {
 		String month = request.getParameter("month");
 		String day = request.getParameter("day");
 		
-		System.out.println("rcode:"+ccode);
+		System.out.println("ccode:"+ccode);
 		System.out.println("year:"+year);
 		System.out.println("month:"+month);
 		System.out.println("day:"+day);
