@@ -15,7 +15,7 @@ import di.MvcForward;
 /**
  * Servlet implementation class airmanger_Controller
  */
-@WebServlet("/Manager/*")
+@WebServlet("/manager/*")
 public class manger_Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
