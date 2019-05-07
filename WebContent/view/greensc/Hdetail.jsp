@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<h2>호텔상세보자</h2>
+    <div align="center">
+<h1>호텔상세보기</h1>
 <table border="">
 	<tr>
 		<td rowspan="3"><img src="../img/${dto.himg }" alt="" /></td>
@@ -11,15 +12,18 @@
 	<tr>
 	<td colspan="2">${dto.hname }</td>
 	</tr>
+
 	<tr>
 	<td colspan="2">${dto.hinfo }</td>
 	</tr>
 	<tr>
-		<td colspan="3">${dto.addDetail }</td>
+		<td style="text-align: center;">상세주소</td>
+		<td colspan="2">${dto.addDetail }</td>
 	</tr>
 </table>
-
-방목록
+</div>
+<div align="center">
+<h1>방목록</h1>
 <c:forEach var="data" items="${roomdata }" varStatus="no">
 <form action="../Basket/BasketHotelReg" method="post">
 		<input type="hidden" name="rcode" value="${data.rcode }" />
@@ -69,3 +73,5 @@
 	</table>
 	</form>
 </c:forEach>
+</div>
+<br><br>

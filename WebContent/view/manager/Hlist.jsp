@@ -68,7 +68,7 @@
 						[${i }]
 					</c:when>
 					<c:otherwise>
-							<a href="?page=${i }">${i }</a>
+							<a href="?page=${i }&partner=in">${i }</a>
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>
@@ -83,3 +83,4 @@
 
 </table>
 </div>
+<br><br>
