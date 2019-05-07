@@ -33,11 +33,11 @@ public class AirItem_InsertReg implements MvcAction {
 		String goUrl = "";
 		
 		
-		for (int i = 346; i <365; i=i+7) {
+		for (int i = 265; i <318; i=i+7) {  //53
 		
 		
 		Date ddd = new Date(2019-1900,00,01+i);
-		String dddd = ddd.getYear()+"-"+(ddd.getMonth()+1)+"-"+ddd.getDate();
+		String dddd = (ddd.getYear()+1900)+"-"+(ddd.getMonth()+1)+"-"+ddd.getDate();
 		
 		
 		////////////////////////////////////////////////////////////////////////

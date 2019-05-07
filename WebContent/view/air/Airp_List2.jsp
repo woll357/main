@@ -42,7 +42,7 @@
  <tr>
 		<td colspan="5" align="center">
 		<c:if test="${startpage>1 }">       <!-- 스타트 페이지가 1보다클때만 나와라 -->
-			<a href="?page=${startpage-1 }">[이전]</a> 
+			<a href="?page=${startpage-1 }&aotcont=in">[이전]</a> 
 		</c:if>
 		<c:forEach begin="${startpage }" end="${endpage }" var="i">
 				<c:choose>
@@ -50,12 +50,12 @@
 				[${i }]
 				</c:when>
 				<c:otherwise>
-					<a href="?page=${i }">${i }</a> <!-- 자기 자신으로 돌아오는데 페이지가 i -->
+					<a href="?page=${i }&aotcont=in">${i }</a> <!-- 자기 자신으로 돌아오는데 페이지가 i -->
 				</c:otherwise>
 				</c:choose>			
 			</c:forEach>
 			<c:if test="${endpage<totalpage }">  <!-- 마지막 페이지가 토탈페이지보다 작을때만 다음이 나오게-->
-			<a href="?page=${endpage+1 }">[다음]</a> 
+			<a href="?page=${endpage+1 }&aotcont=in">[다음]</a> 
 		</c:if>
 		</td>
 	</tr>

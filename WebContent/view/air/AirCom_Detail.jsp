@@ -6,12 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>항공편</title>
-<h2>항공편 검색 </h2>
+<h2 align="center">항공편 검색 </h2>
 </head>
 <body>
 
 <form action="AirCom_Detail" method="post">
-	<table width=100% border="" >	
+	<table width=100%  >	
 		<tr>
 			<td colspan="2">항공편 코드</td>
 			<td><input type="text" name="air_p"/></td>
@@ -27,7 +27,7 @@
 	</tr>
 <c:forEach var="dto" items="${data }" varStatus="no">	
 	<tr>
-	<td><a href="Airp_List2?air_p=${dto.air_p }&air_code=${air_code }">${dto.air_p }</a></td>	
+	<td><a href="Airp_List2?air_p=${dto.air_p }&air_code=${air_code }&aotcont=in">${dto.air_p }</a></td>	
 		<td>${dto.air_name }</td>
 		<td>${dto.darea }</td>
 		<td>${dto.carea }</td>

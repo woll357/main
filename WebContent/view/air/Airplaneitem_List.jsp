@@ -30,7 +30,7 @@
 <c:forEach var="dto" items="${data}" varStatus="no">	
 	<tr>
 	
-	<td><a href="AirItem_Detail?ccode=${dto.ccode }">${dto.ccode }</a></td>	
+	<td><a href="AirItem_Detail?ccode=${dto.ccode }&aotcont=in">${dto.ccode }</a></td>	
 		<td>${dto.ap_code }</td>
 		<td>${dto.ddate }</td>
 		<td>${dto.darea }</td>

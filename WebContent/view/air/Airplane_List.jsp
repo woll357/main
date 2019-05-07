@@ -36,7 +36,7 @@
 	</tr>
 <c:forEach var="dto" items="${data }" varStatus="no" >
 	<tr>
-	<td><a href="Airplaneitem_List?ap_code=${dto.ap_code }">${dto.ap_code }</a>
+	<td><a href="Airplaneitem_List?ap_code=${dto.ap_code }&aotcont=in">${dto.ap_code }</a>
 	<td>${mem.air_code }</td>
 	<td>${dto.air_ty }</td>
 	<td>${dto.aircraft_type }</td>
@@ -50,13 +50,13 @@
 	<td>${dto.maximum_od }</td>
 	<td>${dto.flightclass }</td>
 	
-	<td align="right"><a href="Airplane_Delete?ap_code=${dto.ap_code }&air_code=${mem.air_code}"><input type="button" value="삭제"></a></td>
+	<td align="right"><a href="Airplane_Delete?ap_code=${dto.ap_code }&air_code=${mem.air_code}&aotcont=in"><input type="button" value="삭제"></a></td>
 	
 	
 	</tr>
 	</c:forEach>
 	<tr>
-	<td colspan="14" align="right" ><a href="Airplane_Insert?air_code=${mem.air_code }"><input type="button" value="등록"></a></td>
+	<td colspan="14" align="right" ><a href="Airplane_Insert?air_code=${mem.air_code }&aotcont=in"><input type="button" value="등록"></a></td>
 	</tr>
 </table>
 </form>

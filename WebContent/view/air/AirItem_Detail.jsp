@@ -46,9 +46,9 @@
 	
 <tr>
 <td colspan="10" align="right">
-	<a href="AirItem_Modify?ccode=${dto.ccode }"><input type="button" value="수정"></a>
-	<a href=AirItem_Insert><input type="button" value="등록"></a>
-	<a href= "AirItem_Delete?ccode=${dto.ccode }" ><input type="button" value="삭제"></a>
+	<a href="AirItem_Modify?ccode=${dto.ccode }&aotcont=in"><input type="button" value="수정"></a>
+	<a href=AirItem_Insert?aotcont=in><input type="button" value="등록"></a>
+	<a href= "AirItem_Delete?ccode=${dto.ccode }&aotcont=in" ><input type="button" value="삭제"></a>
 </td>
 </tr>
 
