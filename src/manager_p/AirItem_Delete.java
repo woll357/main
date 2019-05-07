@@ -17,16 +17,28 @@ public class AirItem_Delete implements MvcAction {
 		//상품 삭제
 		Air_itemDTO dto = new Air_itemDTO();
 		
+		String msg = "";
+		String goUrl = "";
 		
 		dto.setCcode(request.getParameter("ccode"));
 		
 		Air_itemDAO dao = new Air_itemDAO();
 		
-		dao.delete(dto);
+		if(new Air_itemDAO().airseatcntdetail(dto)) {
+			
+			msg = "예약 상품이 있습니다.";
+			goUrl = "AirItem_Detail?ccode="+dto.getCcode();
+			
+		}else {
+			
+			msg ="삭제되었습니다.";
+			goUrl = "AirItem_List?partner=in";
+			dao.delete(dto);
+			
+		}
 		
-		
-		request.setAttribute("msg", "삭제되었습니다.");
-		request.setAttribute("goUrl", "AirManagerHome");
+		request.setAttribute("msg",  msg);
+		request.setAttribute("goUrl", goUrl);
 		request.setAttribute("mainUrl", "air/alert.jsp");
 		
 		

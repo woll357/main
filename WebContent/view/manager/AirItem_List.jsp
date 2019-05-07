@@ -36,7 +36,7 @@
 <c:forEach var="dto" items="${data}" varStatus="no">	
 	<tr>
 		
-	<td><a href="AirItem_Detail?ccode=${dto.ccode }">${dto.ccode }</a></td>	
+	<td><a href="AirItem_Detail?ccode=${dto.ccode }&partner=in">${dto.ccode }</a></td>	
 		<td>${dto.air_code }</td>
 		<td>${dto.ap_code }</td>
 		<td>${dto.ddate }</td>
@@ -51,7 +51,7 @@
 	</tr>
 	</c:forEach>
 	<tr>
-		<td colspan="10" align="center">
+		<td colspan="11" align="center">
 		<c:if test="${startpage>1 }">       <!-- 스타트 페이지가 1보다클때만 나와라 -->
 			<a href="?page=${startpage-1 }&partner=in">[이전]</a> 
 		</c:if>

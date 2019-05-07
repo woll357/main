@@ -20,12 +20,7 @@ public class AirItem_Delete implements MvcAction {
 		String goUrl = "";
 		
 		dto.setCcode(request.getParameter("ccode"));
-		System.out.println(request.getParameter("dajsdaskdjlasjdljasdjasldjkl"+"ccode"));
-		System.out.println(request.getParameter("dajsdaskdjlasjdljasdjasldjkl"+"ccode"));
-		System.out.println(request.getParameter("dajsdaskdjlasjdljasdjasldjkl"+"ccode"));
-		System.out.println(request.getParameter("dajsdaskdjlasjdljasdjasldjkl"+"ccode"));
-		System.out.println(request.getParameter("dajsdaskdjlasjdljasdjasldjkl"+"ccode"));
-		
+	
 		Air_itemDAO dao = new Air_itemDAO();
 		
 		if(new Air_itemDAO().airseatcntdetail(dto)) {
