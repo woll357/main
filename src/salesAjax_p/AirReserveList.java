@@ -1,6 +1,8 @@
 package salesAjax_p;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -70,6 +72,11 @@ public class AirReserveList implements MvcAction {
 		}
 		
 		request.setAttribute("reserveList", reserveList);
+		Date today = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		//request.setAttribute("today", sdf.format(today));
+		request.setAttribute("today", "2019-05-10");
+		
 		return null;
 	}
 
