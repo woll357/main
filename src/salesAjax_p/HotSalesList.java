@@ -95,8 +95,8 @@ public class HotSalesList implements MvcAction {
 			}
 		}
 		
-		double totalSalesPrice = 0;
-		double totalPrice = 0;
+		int totalSalesPrice = 0;
+		int totalPrice = 0;
 		for (BasketpaidDTO ss : salesList) {
 			totalSalesPrice+=ss.getComSales();
 			totalPrice+=ss.getTotalPrice();
