@@ -71,7 +71,7 @@ public class HotSalesList implements MvcAction {
 				startday = startday+"-"+month+"-"+day;
 				endday = endday+"-"+month+"-"+day;
 				
-				salesList = new BasketpaidDAO().buyListBHotDate(startday, endday);
+				salesList = new BasketpaidDAO().buyListHotDate(startday, endday);
 				
 				
 			}
@@ -81,7 +81,7 @@ public class HotSalesList implements MvcAction {
 				startday = startday+"-"+month+"-"+day;
 				endday = endday+"-"+(Integer.parseInt(month)+1)+"-"+day;
 				
-				salesList = new BasketpaidDAO().buyListBHotDate(startday, endday);
+				salesList = new BasketpaidDAO().buyListHotDate(startday, endday);
 				
 				
 			}
@@ -90,7 +90,7 @@ public class HotSalesList implements MvcAction {
 				startday = startday+"-"+month+"-"+day;
 				endday = endday+"-"+month+"-"+(Integer.parseInt(day)+1);
 
-				salesList = new BasketpaidDAO().buyListBHotDate(startday, endday);
+				salesList = new BasketpaidDAO().buyListHotDate(startday, endday);
 				
 			}
 		}
