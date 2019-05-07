@@ -955,7 +955,7 @@ public class BasketpaidDAO {
 						+ "basketpaid.location1, basketpaid.location2 "
 						+ "from basketpaid, air_com "
 						+ "where basketpaid.cName = air_com.air_name "
-						+ "and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n' and date(basketpaid.ddate) between ? and ?";
+						+ "and date(basketpaid.ddate) between ? and ? and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n' ";
 				
 				ptmt = con.prepareStatement(sql);
 		
