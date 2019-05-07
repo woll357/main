@@ -796,6 +796,33 @@ public class Air_itemDAO {
 		}
 	
 	
+	
+	
+	   
+	   public void update_seatcnt(Air_itemDTO dto) {
+	      
+	      try {
+	         
+	         sql = "update air_item set seatcnt = ? where ccode = ? ";
+	         
+	         ptmt = con.prepareStatement(sql);
+	         
+	         ptmt.setInt(1, dto.getSeatcnt());
+	         ptmt.setString(2, dto.getCcode());
+	   
+	         ptmt.executeUpdate();
+	   
+	      } catch (SQLException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      }finally {
+	         close();
+	      }
+	   }
+	
+	
+	
+	
 	public Object air_pitemlistsarch(String air_p , String air_code) {
 		
 		ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
@@ -940,7 +967,7 @@ public class Air_itemDAO {
 			return res;
 		}
 		
-		public Object air_pitemlist3(String air_p , String air_code ,  int page , int limit) {
+public Object air_pitemlist3(String air_p , String air_code ,  int page , int limit) {
 			
 			ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 	
@@ -1183,7 +1210,7 @@ public Object mair_planeitemlist(String ap_code ) {
 		return res;
 	}
 	
-	//관리자 비행기 찾기
+	//관리자 비행기 찾기 이부분 고쳐야함 ^^...;;;
 	public Object airplanedetailm(String ap_code) {
 		
 		ArrayList<Airp_detailsDTO> res = new ArrayList<Airp_detailsDTO>();
@@ -1230,7 +1257,7 @@ public Object mair_planeitemlist(String ap_code ) {
 	
 	//협력업체 비행기 상품 찾기
 	
-	public ArrayList<Air_itemDTO> itemlistByAir_Code(Air_itemDTO dt) {
+	public ArrayList itemlistByAir_Code(Air_itemDTO dt) {
 		
 		ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 
@@ -1270,27 +1297,6 @@ public Object mair_planeitemlist(String ap_code ) {
 		}
 
 		return res;
-	}
-	
-	public void update_seatcnt(Air_itemDTO dto) {
-		
-		try {
-			
-			sql = "update air_item set seatcnt = ? where ccode = ? ";
-			
-			ptmt = con.prepareStatement(sql);
-			
-			ptmt.setInt(1, dto.getSeatcnt());
-			ptmt.setString(2, dto.getCcode());
-	
-			ptmt.executeUpdate();
-	
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally {
-			close();
-		}
 	}
 	
 	public void close() {
