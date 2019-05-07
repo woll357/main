@@ -64,11 +64,11 @@
         calendarStr  = "<table>"  
         calendarStr += "<tr align=center><td valign=middle>"  
 	
-        if(nYear==(eDate.getYear()+1900) && nMonth==eDate.getMonth()){
-        	calendarStr += "<a href=javascript:calendar("+year+","+(month-1)+",'"+id+"') class=preNext></a>"
-        }else{
+      //  if(nYear==(eDate.getYear()+1900) && nMonth==eDate.getMonth()){
+      //  	calendarStr += "<a href=javascript:calendar("+year+","+(month-1)+",'"+id+"') class=preNext></a>"
+      //  }else{
         calendarStr += "<a href=javascript:calendar("+year+","+(month-1)+",'"+id+"') class=preNext><</a>" //월을 넘길때 빼기 -1을 해서 넘긴다(년도는 자동 계산)  
-        }
+       // }
         
         calendarStr += "</td><td colspan=5 class='tt'>"  
         calendarStr += "<b>"+eDate.getFullYear()+"년 "+(eDate.getMonth()+1)+"월</b>"//해당하는 년도와 월 표시  
