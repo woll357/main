@@ -28,8 +28,8 @@
 			<td><a href="../greensc/ModifyMem?mypage=in">마이페이지</a></td>
 			<td><a href="../greensc/NoticeList?center=in">고객센터</a></td>
 			<td><a href="../greensc/MgPage?mgpage=in">고객관리</a></td>
-			<td><a href="../manager/AirLine_List?partner=in">협력업체관리</a></td>
-			<td><a href="../manager/ManagerReserveList?sales=in">판매관리</a></td>
+			<td><a href="../Manager/AirLine_List?partner=in">협력업체관리</a></td>
+			<td><a href="../Manager/ManagerReserveList?sales=in">판매관리</a></td>
 			
 			</c:when>
 			
