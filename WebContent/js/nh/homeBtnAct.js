@@ -49,6 +49,7 @@ $(document).ready(function(){
 	
 	$('#ssdate1').on({
 		'click':function(){
+			
 			var cal = new Date();
 			var yy = cal.getYear()+1900;
 			var mm = cal.getMonth();

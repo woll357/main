@@ -78,16 +78,16 @@
         	
        // calendarStr += "<a href=javascript:calendar("+year+","+(month+1)+",'"+id+"') class=preNext>></a>" //월을 넘길때 더하기 +1을 해서 넘긴다(년도는 자동 계산)  
         
-        
-        var threeDate = new Date(nYear,nMonth+3,nDate);
+        var ttoday = new Date();
+        var threeDate = new Date(ttoday.getFullYear(),ttoday.getMonth(),ttoday.getDate()+90);
         var tYear = threeDate.getFullYear(); //오늘의 년도  
         var tMonth = threeDate.getMonth(); //오늘의 월 ※ 0월부터 시작  
         var tDate = threeDate.getDate(); //오늘의 날
         
        
         
-        if(eDate.getFullYear()<tYear ||  (eDate.getFullYear()==tYear && eDate.getMonth()<tMonth)
-        		|| (eDate.getFullYear()==tYear && eDate.getMonth()==tMonth && i<tDate)){
+        if(eDate.getFullYear()>tYear ||  (eDate.getFullYear()==tYear && eDate.getMonth()>tMonth)
+        		|| (eDate.getFullYear()==tYear && eDate.getMonth()==tMonth && i>tDate)){
         	calendarStr += "<a href=javascript:calendar("+year+","+(month+1)+",'"+id+"') class=preNext></a>"
         }else{
         	calendarStr += "<a href=javascript:calendar("+year+","+(month+1)+",'"+id+"') class=preNext>></a>" //월을 넘길때 빼기 -1을 해서 넘긴다(년도는 자동 계산)  
