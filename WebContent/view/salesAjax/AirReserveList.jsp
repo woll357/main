@@ -21,7 +21,7 @@
 			<td>${i.fdateStr }</td>
 			<td>${i.psn }</td>
 			<td>${i.id }</td>
-			<td><a href="../airsell/BoardingReg?basketID=${i.basketID }&aotcont=in">체크인</a></td>
+			<td><a href="../airsell/BoardingReg?basketID=${i.basketID }&aotcont=in">보딩</a></td>
 		</tr>
 		</c:forEach>
 		

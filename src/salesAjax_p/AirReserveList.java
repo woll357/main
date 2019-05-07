@@ -26,6 +26,8 @@ public class AirReserveList implements MvcAction {
 		adto.setAir_code(air_code);
 		adto = new Air_comDAO().serarchByAirCode(adto);
 		
+		System.out.println("진입할까?0000000000000000000000000000000000000000000000000");
+		
 		String ccode = request.getParameter("ccode");
 		System.out.println("ccode뭐나와?2222222222222"+ccode);
 		String year = request.getParameter("year");
@@ -56,12 +58,13 @@ public class AirReserveList implements MvcAction {
 			if(day!=null) {
 				startday = year+"-"+month+"-"+day;
 				endday = year+"-"+month+"-"+(Integer.parseInt(day)+1);
+				System.out.println("여기로 들어외?111111111111111111111111111111111111");
 				reserveList = new BasketpaidDAO().reserveListByAirDate(adto.getAir_name(), startday, endday);
 			}
 			else if(day==null) {
 				startday = year+"-"+month+"-"+1;
 				endday = year+"-"+(Integer.parseInt(month)+1)+"-"+1;
-				
+				System.out.println("여기로 들어외?222222222222222222222");
 				reserveList = new BasketpaidDAO().reserveListByAirDate(adto.getAir_name(), startday, endday);
 			}
 		}

@@ -113,7 +113,7 @@ function mkdate(){
 					
 					if($("#year").val()!="" && $("#month").val()=="" && $("#day").val()==""){ //연도까지
 						console.log("회사명x연도O")
-						$.ajax("../Sales/HotSalesList?year="+$('#year').val(),
+						$.ajax("../Sales/AirSalesList?year="+$('#year').val(),
 					            {
 				               success:function(ll){
 				            	   $("#searchResult").html(ll)
@@ -126,7 +126,7 @@ function mkdate(){
 				         ); 
 					}
 					else if($("#year").val()!="" && $("#month").val()!="" && $("#day").val()==""){ //달까지
-						$.ajax("../Sales/HotSalesList?year="+$('#year').val()+"&month="+$('#month').val(),
+						$.ajax("../Sales/AirSalesList?year="+$('#year').val()+"&month="+$('#month').val(),
 					            {
 				               success:function(ll){
 				            	   $("#searchResult").html(ll)
@@ -139,7 +139,7 @@ function mkdate(){
 				         ); 
 					}
 					else if($("#year").val()!="" && $("#month").val()!="" && $("#day").val()!=""){ //날짜까지
-						$.ajax("../Sales/HotSalesList?year="+$('#year').val()+"&month="+$('#month').val()+"&day="+$('#day').val(),
+						$.ajax("../Sales/AirSalesList?year="+$('#year').val()+"&month="+$('#month').val()+"&day="+$('#day').val(),
 					            {
 				               success:function(ll){
 				            	   $("#searchResult").html(ll)
@@ -156,7 +156,7 @@ function mkdate(){
 					console.log("회사명이 있다");
 					
 					if($("#year").val()!="" && $("#month").val()=="" && $("#day").val()==""){ //연도까지
-						$.ajax("../Sales/HotSalesList?rcode="+$('#rcode').val()+"&year="+$('#year').val(),
+						$.ajax("../Sales/AirSalesList?rcode="+$('#rcode').val()+"&year="+$('#year').val(),
 					            {
 				               success:function(ll){
 				            	   $("#searchResult").html(ll)
@@ -169,7 +169,7 @@ function mkdate(){
 				         ); 
 					}
 					else if($("#year").val()!="" && $("#month").val()!="" && $("#day").val()==""){ //달까지
-						$.ajax("../Sales/HotSalesList?rcode="+$('#rcode').val()+"&year="+$('#year').val()+"&month="+$('#month').val(),
+						$.ajax("../Sales/AirSalesList?rcode="+$('#rcode').val()+"&year="+$('#year').val()+"&month="+$('#month').val(),
 					            {
 				               success:function(ll){
 				            	   $("#searchResult").html(ll)
@@ -182,7 +182,7 @@ function mkdate(){
 				         ); 
 					}
 					else if($("#year").val()!="" && $("#month").val()!="" && $("#day").val()!=""){ //날짜까지
-						$.ajax("../Sales/HotSalesList?rcode="+$('#rcode').val()+"&year="+$('#year').val()+"&month="+$('#month').val()+"&day="+$('#day').val(),
+						$.ajax("../Sales/AirSalesList?rcode="+$('#rcode').val()+"&year="+$('#year').val()+"&month="+$('#month').val()+"&day="+$('#day').val(),
 					            {
 				               success:function(ll){
 				            	   $("#searchResult").html(ll)

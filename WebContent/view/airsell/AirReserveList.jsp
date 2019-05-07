@@ -156,6 +156,9 @@ $(document).ready(function(){
 			else if($("#ccode").val()==""){ //상품코드가 없을 때
 				console.log("상품코드없따");
 				if($("#year").val()!="" && $("#month").val()!="" && $("#day").val()==""){
+					
+					console.log("호호호");
+					
 					$.ajax("../Sales/AirReserveList?year="+$('#year').val()+"&month="+$('#month').val(),
 				            {
 			               success:function(ll){
