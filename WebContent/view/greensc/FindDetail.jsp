@@ -81,7 +81,7 @@ $(document).ready(function(){
 			if("${dto.phone1}"==$('#phone1').val() && "${dto.phone2}"==$('#phone2').val() && "${dto.phone3}"==$('#phone3').val()){
 				ppchk=true;
 			}
-			if($('#pw').val()==$('#pw2').val()=='${dto.pw}' && 
+			if($('#pw').val()=='${dto.pw}' && $('#pw2').val()=='${dto.pw}' &&
 					$('#country').val()=='${dto.country}' &&
 					$('#city').val()=='${dto.city}' &&
 					$('#addDetail').val()=='${dto.addDetail}' &&
