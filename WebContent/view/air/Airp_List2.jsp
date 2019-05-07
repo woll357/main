@@ -9,7 +9,7 @@
 </head>
 <body>
 <form action="Airp_Detail">
-	<table width=100% border="" >	
+	<table width=100% >	
 		<tr>
 			<td style="background: #D4F4FA"  colspan="4">항공편 코드</td>
 			<td style="background: #D4F4FA" ><input type="text" name="air_p" /></td>

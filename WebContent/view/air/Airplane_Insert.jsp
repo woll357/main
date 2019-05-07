@@ -15,7 +15,7 @@
 <script type="../js/odk/Airplane_insert"></script>
 <h2>비행기등록</h2>
 <form name="airinre" action="Airplane_InsertReg">
-<table width=100% border="">
+<table width=100% >
 	<tr >
 		<td>비행기 코드</td><td><input type="text" class="ap"  name="ap_code"></td>
 	</tr>

@@ -11,7 +11,6 @@ import javax.sql.DataSource;
 
 public class Air_itemDAO {
 	
-	
 	Connection con;
 	PreparedStatement ptmt;
 	ResultSet rs;

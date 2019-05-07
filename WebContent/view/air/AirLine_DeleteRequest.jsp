@@ -10,7 +10,7 @@
 <form action="AirLine_DeleteRequestReg">
 <input type="hidden" name="code" value="${code }">
 
-	<table width=100% border="">
+	<table width=100% >
 		<tr>
 			<td>id</td><td><input type="text" name="id"></input>
 		</tr>
