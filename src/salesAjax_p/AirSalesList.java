@@ -40,6 +40,9 @@ public class AirSalesList implements MvcAction {
 				day="1";
 				startday = startday+"-"+month+"-"+day;
 				endday = endday+"-"+month+"-"+day;
+				
+				System.out.println("연"+startday+":"+endday);
+				
 				salesList = new BasketpaidDAO().buyListByccodeDate(ccode, startday, endday);
 				
 			}
@@ -48,12 +51,17 @@ public class AirSalesList implements MvcAction {
 				day="1";
 				startday = startday+"-"+month+"-"+day;
 				endday = endday+"-"+(Integer.parseInt(month)+1)+"-"+day;
+				
+				System.out.println("연월"+startday+":"+endday);
+				
 				salesList = new BasketpaidDAO().buyListByccodeDate(ccode, startday, endday);
 			}
 			else if(year!=null && month!=null && day!=null) {
 				String endday = ""+(Integer.parseInt(year));
 				startday = startday+"-"+month+"-"+day;
 				endday = endday+"-"+month+"-"+(Integer.parseInt(day)+1);
+				
+				System.out.println("연월일"+startday+":"+endday);
 				salesList = new BasketpaidDAO().buyListByccodeDate(ccode, startday, endday);
 			}
 				
@@ -70,6 +78,7 @@ public class AirSalesList implements MvcAction {
 				startday = startday+"-"+month+"-"+day;
 				endday = endday+"-"+month+"-"+day;
 				
+				System.out.println("연"+startday+":"+endday);
 				salesList = new BasketpaidDAO().buyListAirDate(startday, endday);
 				
 				
@@ -80,6 +89,7 @@ public class AirSalesList implements MvcAction {
 				startday = startday+"-"+month+"-"+day;
 				endday = endday+"-"+(Integer.parseInt(month)+1)+"-"+day;
 				
+				System.out.println("연월"+startday+":"+endday);
 				salesList = new BasketpaidDAO().buyListAirDate(startday, endday);
 				
 				
@@ -89,6 +99,7 @@ public class AirSalesList implements MvcAction {
 				startday = startday+"-"+month+"-"+day;
 				endday = endday+"-"+month+"-"+(Integer.parseInt(day)+1);
 
+				System.out.println("연월일"+startday+":"+endday);
 				salesList = new BasketpaidDAO().buyListAirDate(startday, endday);
 				
 			}

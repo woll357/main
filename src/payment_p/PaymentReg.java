@@ -166,7 +166,7 @@ public class PaymentReg implements MvcAction {
 						Air_itemDTO aidto = new Air_itemDTO();
 						aidto.setCcode(tt.getCode());
 						aidto = new Air_itemDAO().itemdetail(aidto);
-						aidto.setSeatcnt(aidto.getSeatcnt()+tt.getcNum());
+						aidto.setSeatcnt(tt.getPsn());
 						new Air_itemDAO().update_seatcnt(aidto);
 					}
 					
