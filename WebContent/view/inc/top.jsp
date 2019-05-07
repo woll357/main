@@ -37,7 +37,7 @@
 
 			<td><a href="../greensc/LogOut">로그아웃</a></td>
 			<td><a href="../greensc/ModifyMem?mypage=in">마이페이지</a></td>
-			<td><a href="../hmain/Hmain?hotcont=in">호텔관리</a></td>
+			<td><a href="../hmain/Hdetail?hotcont=in">호텔관리</a></td>
 
 			
 			</c:when>
