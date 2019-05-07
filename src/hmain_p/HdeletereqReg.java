@@ -30,7 +30,7 @@ public class HdeletereqReg implements MvcAction {
 		
 		new Hot_tempDAO().delewrite(dto);
 		
-		String goUrl ="Hdetail";
+		String goUrl ="Hdetail?hotcont=in"; 
 		request.setAttribute("goUrl", goUrl);
 		request.setAttribute("mainUrl", "hmain/alert.jsp");
 		

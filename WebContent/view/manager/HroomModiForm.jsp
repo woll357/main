@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<h3>방수정</h3>
+<div align="center" style="margin-top: -250px">
+<h1>방수정</h1>
     <script src="../js/yjm/manager_rmodi.js"></script>
 
  <form name = "roommod" action="HroomModiReg" method="post" enctype="multipart/form-data">
      <input type="hidden" name="rcode" value="${dto.rcode }" />
      <input type="hidden" name="hcode" value="${dto.hcode }" />
- 	<table border="" width="100%">
+ 	<table border="" style="text-align: center;">
  		<tr>
 			<td>방종류</td>
 			<td><select name="rkind">
@@ -77,3 +78,4 @@
  	</table>
  
  </form>
+ </div>

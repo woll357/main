@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <script src="../js/yjm/hmain_rwrite.js"></script>
+    <div align="center" style="margin-top: -250px">
+    <h1>방등록</h1>
 <form name="rmsign" action="HroomwriteReg" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="hcode" value="${mem.hcode }"  />
 
-	<table border="">
+	<table border="" style="text-align: center;">
 			<!-- <a href=""><input type="button" value=""/></a> -->
 		<tr>
 			<td>방종류</td>
@@ -69,3 +71,4 @@
 
 
 </form>
+</div>

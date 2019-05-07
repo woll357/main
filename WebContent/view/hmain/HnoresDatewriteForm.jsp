@@ -5,6 +5,8 @@
 <script src="../js/jquery-3.3.1.min.js"></script>   
 <script src="../js/yjm/nores_pm.js"></script>
 <script src="../js/yjm/nores_cal.js"></script>
+<div align="center" style="margin-top: -250px">
+<h1>예약불가날짜선정</h1>
 	 <input type="hidden" name="rcnt" value="${param.rcnt }" id="hiddenrcnt" /> 
 <form name="nono" action="HnoresDatewriteReg" method="post">
      <input type="hidden" name="rcode" value="${param.rcode }" />
@@ -35,7 +37,8 @@
 			</td>
 		</tr>
      </table>
-</form>    
+</form>  
+</div>  
 </body>
 <%-- 		<c:choose>
 		<c:when test="${mem.id!=null && mem.id!=''}">

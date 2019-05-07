@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<h2>관리자호텔상세보자</h2>
+<h2 align="center" >호텔상세보기</h2>
+<div align="center">
 <table border="">
 	<tr>
-		<td>호텔코드</td>
-		<td colspan="2">${dto.hcode }</td>
+		<td style="background: #D4F4FA">호텔코드</td>
+		<td style="background: #D4F4FA"  colspan="2">${dto.hcode }</td>
 	</tr>
 	<tr>
 		<td rowspan="3"><img src="../img/${dto.himg }" alt="" /></td>
@@ -26,14 +27,16 @@
 		<td colspan="2">${dto.crn }</td>
 	</tr>
 </table>
-
-<br><br>방목록 
+</div>
+<br><br>
+<h2 align="center">방목록</h2>
 <c:forEach var="data" items="${roomdata }" varStatus="no">
-<table border="">
+<div align="center">
+<table border="" style="text-align: center;">
 
 	<tr>
-		<td align="left">방코드</td>
-		<td colspan="3">${data.rcode }</td>
+		<td style="background: #D4F4FA" align="left">방코드</td>
+		<td style="background: #D4F4FA" colspan="3">${data.rcode }</td>
 	</tr>
 	<tr>
 		<td rowspan="7"><img width="300" src="../img/${data.rimg }" alt="" /></td>
@@ -44,12 +47,12 @@
 		<c:if test="${data.rkind=='D' }">
 		<td>디럭스룸</td>
 		</c:if>
-		<td><a href="HroomModiForm?rcode=${data.rcode }&partner=in">방수정</a></td>
+		<td rowspan="3"><a href="HroomModiForm?rcode=${data.rcode }&partner=in">방수정</a></td>
 	</tr>
 	<tr>
 		<td>방갯수</td>
 		<td>${data.rcnt }</td>
-		<td><a href="HroomDelete?rcode=${data.rcode }&partner=in">방삭제</a></td>
+		
 	</tr>
 	<tr>
 		<td>방인원</td>
@@ -58,7 +61,7 @@
 	<tr>
 		<td>금액</td>
 		<td>${data.money }</td>
-
+		<td rowspan="4"><a href="HroomDelete?rcode=${data.rcode }&partner=in">방삭제</a></td>
 	</tr>
 	<tr>
 		<td>주말금액</td>
@@ -76,4 +79,6 @@
 		
 	</tr>
 	</table>
+	</div>
 </c:forEach>
+<br><br>

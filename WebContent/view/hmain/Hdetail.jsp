@@ -2,8 +2,9 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<h1>호텔상세</h1>
-<table border="">
+<h1 align="center">호텔상세</h1>
+<div align="center">
+<table border="" style="text-align: center;">
 	<tr>
 		<td rowspan="3"><img width="300" src="../img/${dto.himg }" alt="" /></td>
 		<td>${dto.country }</td>
@@ -23,10 +24,12 @@
 		<td colspan="2">${dto.crn }</td>
 	</tr>
 </table>
+</div>
 <br>
-<h2>방목록</h2>   
+<h2 align="center">방목록</h2>   
 <c:forEach var="data" items="${roomdata }" varStatus="no">
-<table border="">
+<div align="center">
+<table  border="" style="text-align: center;">
 	<tr>
 		<tr>
 		<td rowspan="7"><img width="280" src="../img/${data.rimg }" alt="" /></td>
@@ -42,17 +45,18 @@
 	<tr>
 		<td>방갯수</td>
 		<td>${data.rcnt }</td>
-		<td><a href="HnoresDatewriteForm?rcode=${data.rcode }&hotcont=in&rcnt=${data.rcnt }">예약불가날짜선정</a></td>
+		<td rowspan="2"><a href="HnoresDatewriteForm?rcode=${data.rcode }&hotcont=in&rcnt=${data.rcnt }">예약불가날짜선정</a></td>
 	</tr>
 	<tr>
 		<td>방인원</td>
 		<td>${data.pcnt }</td>
-		<td><a href="HnoresList?rcode=${data.rcode }&hotcont=in">예약불가날짜목록</a></td>
+		
 	</tr>
 	<tr>
 		<td>금액</td>
 		<td>${data.money }</td>
-		<td><a href="HroomDelete?rcode=${data.rcode }&hotcont=in">방삭제</a></td>
+		<td rowspan="2"><a href="HnoresList?rcode=${data.rcode }&hotcont=in">예약불가날짜목록</a></td>
+		
 	</tr>
 	<tr>
 		<td>주말금액</td>
@@ -61,6 +65,7 @@
 	<tr>
 		<td>wifi</td>
 		<td>${data.wifi }</td>
+		<td rowspan="2"><a href="HroomDelete?rcode=${data.rcode }&hotcont=in">방삭제</a></td>
 	</tr>	
 	<tr>
 		<td>조식</td>
@@ -70,4 +75,5 @@
 		
 	</tr>
 	</table>
+	</div>
 </c:forEach>

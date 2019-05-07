@@ -48,7 +48,7 @@
 				<td><a href="../hmain/HmodiForm?hotcont=in">호텔수정</a></td>
 				<td><a href="../hmain/HroomwriteForm?hotcont=in">방등록</a></td>
 				<td><a href="../hmain/HdeletereqForm?hotcont=in">호텔삭제신청</a></td>
-				<td><a href="../hmain/Hmain?hotcont=in">메인</a></td>
+			
 				<td><a href="../hotelsell/HotelSalesList?hotcont=in">매출내역</a></td>
 				<td><a href="../hotelsell/HotelReserveList?hotcont=in">예약내역</a></td>
 			</tr>

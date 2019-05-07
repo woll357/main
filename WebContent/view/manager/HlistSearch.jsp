@@ -1,20 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <h2>관리자호텔검색</h2>
+    <h2 align="center">호텔검색</h2> 
+    <div align="center">
 <form action="HlistSearch?partner=in" method="post">
 	<table border="">
 		<tr>
-			<td>호텔코드로검색</td>
+			<td style="background: #D4F4FA">코드검색</td>
 			<td><input type="text" name="hcode" /></td>
 			<td><input type="submit" value="검색" /></td>
 		</tr>
 	</table>
 </form>
+</div>
+<div align="center">
 <form action="HlistCountrySearch?partner=in" method="post">
 	<table border="">
 		<tr>
-			<td>나라검색</td>
+			<td style="background: #D4F4FA">나라검색</td>
 			<td><select name="country">
 				<option value="일본">일본</option>
 				<option value="중국">중국</option>
@@ -25,20 +28,21 @@
 		</tr>
 	</table>
 </form>
-
+</div>
 
 <c:choose>
 
 	<c:when test="${data.size()==0 }">
-		<h1>검색결과가 없습니다.</h1>
+		<h1 align="center">검색결과가 없습니다.</h1>
 	</c:when>
 </c:choose>
 <br><br>
-<c:forEach var="dto" items="${data }" varStatus="no">	
+<c:forEach var="dto" items="${data }" varStatus="no">
+<div align="center">	
 <table border="">
 	<tr>
-		<td>호텔코드</td>
-		<td colspan="2" width="200">${dto.hcode }</td>
+		<td style="background: #D4F4FA">호텔코드</td>
+		<td style="background: #D4F4FA" colspan="2" width="200">${dto.hcode }</td>
 	</tr>
 	<tr>
 		<td rowspan="3" width="220"><img src="../img/${dto.himg }" alt="" /></td>
@@ -56,4 +60,5 @@
 	</tr>
 
 </table>
+</div>
 </c:forEach>
