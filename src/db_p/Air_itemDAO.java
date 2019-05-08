@@ -38,7 +38,7 @@ public class Air_itemDAO {
 		
 		
 		try {
-			sql = "select count(*) from air_item";        //총 게시물이 몇개냐
+			sql = "select count(*) from air_item where date(ddate) >= date( sysdate() )";        //총 게시물이 몇개냐
 			
 			ptmt = con.prepareStatement(sql);		
 			
@@ -57,6 +57,31 @@ public class Air_itemDAO {
 		return res;
 	}
 	
+	//총 게시글 구하기 지난상품
+		public int total2() {
+			
+			int res = 0;
+			
+			
+			try {
+				sql = "select count(*) from air_item where date(ddate) <= date( sysdate())";        //총 게시물이 몇개냐
+				
+				ptmt = con.prepareStatement(sql);		
+				
+				rs = ptmt.executeQuery();
+				
+				rs.next() ;
+					
+				res = rs.getInt(1);
+					
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return res;
+		}
 	
 
 	//select air_name, air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code;
@@ -125,6 +150,35 @@ public class Air_itemDAO {
 		       
 		return res;
 	}
+	
+	//관리자 비행기 삭제전  유효성
+		public boolean airitemplanedelete(Air_itemDTO dto ) {
+			
+			boolean res = false;
+			
+			sql = "select * from air_item where ap_code = ? ";
+			
+			try {
+				ptmt = con.prepareStatement(sql);
+				ptmt.setString(1, dto.getAp_code());
+				
+			
+				rs = ptmt.executeQuery();
+				
+				res = rs.next();
+				//뭐라도 있으면 true
+						
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			
+			}finally {
+			   close();
+		  }
+			       
+			return res;
+		}
+	
 	
 	//상품등록 전 불린
 	public boolean itemtimedetail(Air_itemDTO dto) {
@@ -539,6 +593,10 @@ public class Air_itemDAO {
 			
 			
 		}
+		
+		
+		
+	
 	
 	
 	
@@ -860,7 +918,7 @@ public class Air_itemDAO {
 		
 		
 		try {
-			sql = "	select air_name, air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code and air_item.air_p = ? and air_item.air_code = ? ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
+			sql = "	select distinct air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code and air_item.air_p = ? and air_item.air_code = ? ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
 			//limit 0, 3  - > 3개만 가져옴
 			ptmt = con.prepareStatement(sql);
 			
@@ -875,7 +933,7 @@ public class Air_itemDAO {
 				
 			Air_itemDTO dto = new Air_itemDTO();
 			
-			dto.setAir_name(rs.getString("air_name"));	
+		
 			dto.setAir_p(rs.getString("air_p"));	
 			dto.setDarea(rs.getString("darea"));
 			dto.setCarea(rs.getString("carea"));		
@@ -909,7 +967,7 @@ public class Air_itemDAO {
 		
 		
 		try {
-			sql = "	select distinct air_name, air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code and air_item.air_code = ? and air_item.no limit ? , ? ";        
+			sql = "	select distinct air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code and air_item.air_code = ? and air_item.no limit ? , ? ";        
 			
 			ptmt = con.prepareStatement(sql);
 			
@@ -925,7 +983,7 @@ public class Air_itemDAO {
 				
 			Air_itemDTO dto = new Air_itemDTO();
 			
-			dto.setAir_name(rs.getString("air_name"));	
+
 			dto.setAir_p(rs.getString("air_p"));	
 			dto.setDarea(rs.getString("darea"));
 			dto.setCarea(rs.getString("carea"));		
@@ -1002,7 +1060,7 @@ public Object air_pitemlist3(String air_p , String air_code ,  int page , int li
 			ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 	
 			try {
-				sql = "select * from air_item where air_p = ? and air_code = ? and no limit ? , ? ";          
+				sql = "select * from air_item where air_p = ? and date(ddate) >= date( sysdate() ) and air_code = ? and no limit ? , ? " ;          
 
 				ptmt = con.prepareStatement(sql);
 				
@@ -1053,7 +1111,7 @@ public Object mair_planeitemlist(String ap_code , int page , int limit) {
 
 	try {
 		
-		sql = " select * from air_item where ap_code = ? and no limit ? , ?  ";        
+		sql = " select * from air_item where ap_code = ? and date(ddate) >= date( sysdate() ) and no limit ? , ? ;  ";        
 		ptmt = con.prepareStatement(sql);
 		
 		ptmt.setString(1, ap_code);
@@ -1201,7 +1259,7 @@ public Object mair_planeitemlist(String ap_code , int page , int limit) {
 		
 		ArrayList<Airp_detailsDTO> res = new ArrayList<Airp_detailsDTO>();
 		
-		sql = "select distinct  ap_code ,air_code  , airp_details.air_ty , aircraft_type , linear_content , wings_width , numberof_sea , max_two , engine_type , tail_velocity , maximum_altitude , maximum_od ,flightclass from air_plane , airp_details where air_plane.air_ty =  airp_details.air_ty  ";
+		sql = "select distinct air_com.air_name,  ap_code , air_com.air_code  , airp_details.air_ty , aircraft_type , linear_content , wings_width , numberof_sea , max_two , engine_type , tail_velocity , maximum_altitude , maximum_od ,flightclass from air_com, air_plane , airp_details where air_plane.air_ty =  airp_details.air_ty and air_plane.air_code = air_com.air_code";
 		
 		try {
 			ptmt = con.prepareStatement(sql);
@@ -1212,7 +1270,7 @@ public Object mair_planeitemlist(String ap_code , int page , int limit) {
 				
 				Airp_detailsDTO dto = new Airp_detailsDTO();
 				
-				
+				 dto.setAir_name(rs.getString("air_name"));
 				 dto.setAir_code(rs.getString("air_code"));
 				 dto.setAp_code(rs.getString("ap_code"));
 				 dto.setAir_ty(rs.getString("air_ty"));
@@ -1242,12 +1300,44 @@ public Object mair_planeitemlist(String ap_code , int page , int limit) {
 		return res;
 	}
 	
-	//관리자 비행기 찾기 이부분 고쳐야함 ^^...;;;
+	//관리자 비행기 코드로 상품 유효성
+	//select * from air_item where air_code = "AAA101" ;
+	public boolean aircomdelete(Air_itemDTO dto ) {
+		
+		boolean res = false;
+		
+		sql = "select * from air_item where air_code = ? ";
+		
+		try {
+			
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getAir_code());
+		
+			rs = ptmt.executeQuery();
+			
+			res = rs.next();
+
+		
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		
+		}finally {
+		   close();
+	  }
+		       
+		return res;
+	}
+	
+	
+	
+//관리자 ap 코드로 비행기 찾기
 	public Object airplanedetailm(String ap_code) {
 		
 		ArrayList<Airp_detailsDTO> res = new ArrayList<Airp_detailsDTO>();
 		
-		sql = "select distinct air_name, air_plane.ap_code  , air_item.air_code  , airp_details.air_ty , aircraft_type , linear_content , wings_width , numberof_sea , max_two , engine_type , tail_velocity , maximum_altitude , maximum_od ,air_item.flightclass   from airp_details ,air_com, air_item ,air_plane where air_com.air_code = air_item.air_code and  air_item.air_code = air_plane.air_code and air_plane.ap_code = ? order by air_name  ";
+		sql = "select distinct air_com.air_name,  ap_code , air_com.air_code  , airp_details.air_ty , aircraft_type , linear_content , wings_width , numberof_sea , max_two , engine_type , tail_velocity , maximum_altitude , maximum_od ,flightclass from air_com, air_plane , airp_details where air_plane.air_ty =  airp_details.air_ty and air_plane.air_code = air_com.air_code and ap_code = ? ";
 		
 		try {
 			ptmt = con.prepareStatement(sql);

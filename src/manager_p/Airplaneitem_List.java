@@ -25,7 +25,7 @@ public class Airplaneitem_List implements MvcAction {
 	         page = Integer.parseInt(request.getParameter("page")); //페이지가 널이 아니면 페이지를 받아오겠다.
 	      }
 	      
-		Air_itemDAO dao = new Air_itemDAO();
+	      Air_itemDAO dao = new Air_itemDAO();
 		 
 	      int total = dao.total();
 	      

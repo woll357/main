@@ -36,30 +36,7 @@ public class Air_dereDAO {
 	
 	}
 	
-	public void insert(Air_dereDTO dto) {
-		
-		sql = "insert into dere(code , request , id , requestdate ,kind ) values"
-				+ "( ? , ? , ? , sysdate() , ? )";
-		
-		try {
-			ptmt = con.prepareStatement(sql);
-			ptmt.setString(1, dto.getCode());
-			ptmt.setString(2, dto.getRequest());
-			ptmt.setString(3, dto.getId());
-			ptmt.setString(4, dto.getKind());
-			
-			
-			ptmt.executeUpdate();
-			
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally {
-			close();
-		}
-			
-	}
+
 	
 	
 	
@@ -117,7 +94,7 @@ public class Air_dereDAO {
 		
 		
 		try {
-			sql = "SELECT * FROM dere  ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
+			sql = "SELECT * FROM dere  ";         
 
 			ptmt = con.prepareStatement(sql);
 			

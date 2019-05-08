@@ -21,14 +21,12 @@
 		</tr>
 	<tr>
 		<td>항공편코드</td>
-		<td>회사명</td>
 		<td>출발지</td>
 		<td>도착지</td>
 	</tr>
 <c:forEach var="dto" items="${data }" varStatus="no">	
 	<tr>
 	<td><a href="Airp_List2?air_p=${dto.air_p }&air_code=${air_code }&aotcont=in">${dto.air_p }</a></td>	
-		<td>${dto.air_name }</td>
 		<td>${dto.darea }</td>
 		<td>${dto.carea }</td>
 		

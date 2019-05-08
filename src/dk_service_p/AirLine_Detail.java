@@ -19,7 +19,7 @@ public class AirLine_Detail implements MvcAction {
 
 		
 		HttpSession session = request.getSession();
-		System.out.println("항공사  검색 후 수정 페이지");
+	
 			
 			Air_comDTO dto = new Air_comDTO();
 			

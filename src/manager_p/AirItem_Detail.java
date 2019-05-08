@@ -26,10 +26,9 @@ public class AirItem_Detail implements MvcAction {
 		Air_itemDAO dao = new Air_itemDAO();
 		
 		request.setAttribute("dto", dao.itemdetail(dto));	
-		/*
-		 * request.setAttribute("goUrl",
-		 * "AirItem_Detail?"+request.getParameter("ccode")+"&partner=in");
-		 */
+		
+		
+		
 		
 		return null;
 	}

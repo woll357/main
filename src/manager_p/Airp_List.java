@@ -23,7 +23,7 @@ public class Airp_List implements MvcAction {
 			
 			int limit = 10; //한 페이지 당 게시물 수
 		      
-		      int pageLimit = 2 ; //리스트 하단에 보여질 페이지 번호 갯수
+		      int pageLimit = 5 ; //리스트 하단에 보여질 페이지 번호 갯수
 		      
 		      
 		      int page = 1;

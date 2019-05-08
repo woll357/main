@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	
+	
 	$('.planego').on({
 		'click':function(){
 			
@@ -9,4 +11,4 @@ $(document).ready(function(){
 			}
 		}
 	})
-})
+});

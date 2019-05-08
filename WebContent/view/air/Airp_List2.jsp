@@ -3,29 +3,37 @@
      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>항공편 하나에 전체 상품</title>
+
 </head>
 <body>
 <form action="Airp_Detail">
-	<table width=100% >	
+	<table  align="center">	
 		<tr>
-			<td style="background: #D4F4FA"  colspan="4">항공편 코드</td>
+			<td style="background: #D4F4FA" >항공편 코드</td>
 			<td style="background: #D4F4FA" ><input type="text" name="air_p" /></td>
-			<td style="background: #D4F4FA" >날짜</td>
+			<td style="background: #D4F4FA"  align="center"><input type="submit" value="선택  " /></td>
+		</tr>
+			</table>
+</form>
+<form action="Airp_Detail">
+<table align="center">
+<tr>
+			<td style="background: #D4F4FA" >날짜</td>			
 			<td style="background: #D4F4FA" ><input type="text" name="ddate" /></td>
 			<td style="background: #D4F4FA"  align="center"><input type="submit" value="선택  " /></td>
 		</tr>
+		</table>
+</form>
+<table width=100%>
 	<tr>
-		<td>상품코드</td>
-		<td>비행기코드</td>
-		<td>출발시간</td>
-		<td>출발지</td>
-		<td>도착지</td>
-		<td>도착시간</td>
-		<td>남은좌석</td>	
-		<td>좌석등급</td>
+		<td style="background: #D4F4FA" >상품코드</td>
+		<td style="background: #D4F4FA" >비행기코드</td>
+		<td style="background: #D4F4FA" >출발시간</td>
+		<td style="background: #D4F4FA" >출발지</td>
+		<td style="background: #D4F4FA" >도착지</td>
+		<td style="background: #D4F4FA" >도착시간</td>
+		<td style="background: #D4F4FA" >남은좌석</td>	
+		<td style="background: #D4F4FA" >좌석등급</td>
 	</tr>
 <c:forEach var="dt" items="${dto }" varStatus="no" >
 	<tr>
@@ -39,8 +47,8 @@
 		<td>${dt.flightclass }</td>
 	</tr>
  </c:forEach>
- <tr>
-		<td colspan="5" align="center">
+	<tr>
+		<td colspan="10" align="center">
 		<c:if test="${startpage>1 }">       <!-- 스타트 페이지가 1보다클때만 나와라 -->
 			<a href="?page=${startpage-1 }&aotcont=in">[이전]</a> 
 		</c:if>
@@ -60,6 +68,5 @@
 		</td>
 	</tr>
 </table>
-</form>
 </body>
 </html>

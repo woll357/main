@@ -19,14 +19,11 @@ public class Airplane_List implements MvcAction {
 		
 		HttpSession session = request.getSession();
 		
-		System.out.println("비행기 목록 진입");
-		
-		System.out.println(((SignUpDTO) session.getAttribute("mem")).getAir_code());
-		
+	
 		request.setAttribute("data", new Airp_detailsDAO().airplanlista(((SignUpDTO) session.getAttribute("mem")).getAir_code()));
 		
 		
-	//	 request.setAttribute("dd", ((SignUpDTO) session.getAttribute("mem")).getAir_code());
+	
 		
 		return null;
 	}

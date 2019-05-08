@@ -9,7 +9,7 @@
 </head>
 <body>
 <h4>항공편 검색</h4>
-<%-- <form action="Airp_Detail">
+<form action="Airp_Detail">
 	<table border="" >	
 		<tr>
 			<td colspan="4">항공편 코드</td>
@@ -31,7 +31,7 @@
 <c:forEach var="dt" items="${dto }" varStatus="no" >
 	<tr>
 	
-	<td><a href="airdetail?ccode=${dt.ccode }">${dt.ccode }</a></td>	
+	<td><a href="airdetail?ccode=${dt.ccode }&aotcont=in">${dt.ccode }</a></td>	
 		<td>${dt.ap_code }</td>
 		<td>${dt.ddate }</td>
 		<td>${dt.darea }</td>
@@ -43,7 +43,7 @@
  </c:forEach>
   <tr>
 		</tr>
-	</table> --%>
+	</table> 
 </form>
 </body>
 </html>

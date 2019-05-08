@@ -204,7 +204,7 @@ public Object air_pdetaill(String a) {
 		ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 			//air_itemDTO res = null;
 			
-			sql = "select * from air_item where air_p = ? " ;
+			sql = "select distinct darea , carea from air_item where air_p = ? " ;
 			
 			try {
 				ptmt = con.prepareStatement(sql);
@@ -246,23 +246,25 @@ public Object air_pdetaill(String a) {
 	
 	
 	
-		public Object air_pdetail(String a ,String b) {
+		public Object air_pdetail(Air_itemDTO dto) {
 			
 			ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 				//air_itemDTO res = null;
 				
-				sql = "select * from air_item where air_p = ? and date(ddate)=date( ? )" ;
+				sql = "select * from air_item where air_p = ? or date(ddate)=date(?) " ;
 				
 				try {
+					
+					System.out.println("진입집이");
 					ptmt = con.prepareStatement(sql);
-					ptmt.setString(1, a);
-					ptmt.setString(2, b);
+					ptmt.setString(1, dto.getAir_p());
+					ptmt.setString(2, dto.getDdateStr());
 		
 					rs = ptmt.executeQuery();
 					
 					while(rs.next()) {
 						
-						Air_itemDTO dto = new Air_itemDTO();
+						dto = new Air_itemDTO();
 						
 						dto.setDdate(rs.getTimestamp("ddate"));
 						dto.setDarea(rs.getString("darea"));
@@ -337,16 +339,18 @@ public Object air_pdetaill(String a) {
 		
 		public void airlinedelete(Air_comDTO dto) {
 					
-				
 				try {
 					 
-					sql = "delete from air_com where air_code = ? " ;
-					
-					ptmt = con.prepareStatement(sql);
-					
-					ptmt.setString(1, dto.getAir_code());
+					sql = "delete from air_com where id = ? " ;			
+					ptmt = con.prepareStatement(sql);					
+					ptmt.setString(1, dto.getId());
 					
 					ptmt.executeUpdate() ;
+					
+					sql = "DELETE from member where id= ?";
+					ptmt = con.prepareStatement(sql);
+					ptmt.setString(1, dto.getId());
+					ptmt.executeUpdate();
 					
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block

@@ -11,13 +11,7 @@
 </head>
 <body>
 <h1>지난상품 목록</h1>
-<form action="AirItem_Detail">
 	<table width=100% >	
-		<tr>
-			<td style="background: #D4F4FA" colspan="8">상품 코드</td>
-			<td style="background: #D4F4FA"><input type="text" name="ccode" /></td>
-			<td style="background: #D4F4FA" align="center"><input type="submit" value="선택  " /></td>
-		</tr>
 	<tr>
 		<td width="40">상품코드</td>
 		<td width="30">비행기코드</td>
@@ -47,7 +41,6 @@
 		
 	</tr>
 	</c:forEach>
-
 	<tr>
 		<td colspan="10" align="center">
 		<c:if test="${startpage>1 }">       <!-- 스타트 페이지가 1보다클때만 나와라 -->
@@ -55,7 +48,7 @@
 		</c:if>
 		<c:forEach begin="${startpage }" end="${endpage }" var="i">
 				<c:choose>
-				<c:when test="${i==nowpage }&aotcont=in"> <!-- 지금 페이지가 내 페이지라면 -->
+				<c:when test="${i==nowpage }"> <!-- 지금 페이지가 내 페이지라면 -->
 				[${i }]
 				</c:when>
 				<c:otherwise>
@@ -69,7 +62,5 @@
 		</td>
 	</tr>
 	</table>
-
-</form>
 </body>
 </html>
