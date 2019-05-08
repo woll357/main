@@ -70,7 +70,7 @@ public class PaymentReg implements MvcAction {
 					Air_itemDTO aidto = new Air_itemDTO();
 					aidto.setCcode(bdto.getCode());
 					try {
-						aidto = new Air_itemDAO().itemdetail(aidto);
+						aidto = new Air_itemDAO().detail(aidto);
 						if (aidto.getSeatcnt() + psn > aidto.getTotseatcnt()) {
 							chkBaskets[i] = false;
 						} else {
@@ -159,17 +159,22 @@ public class PaymentReg implements MvcAction {
 				for (int i = 0; i < basketIDs.length; i++) {
 					System.out.println("chk555555555555555555555555555");
 					System.out.println("===============================" + basketIDs[i]);
-
+					
+					
 					BasketDTO tt = new BasketDTO();
 					tt.setBasketID(basketIDs[i]);
 					tt = new BasketDAO().detail(tt);
 					
+					System.out.println("하하하하하하 숫자 몇이냐?"+tt.getPsn());
+					
 					if(tt.getcType().equals("A")) { //항공편이면, seatcnt 업데이트 시켜주기
 						System.out.println("");
 						
+						System.out.println("나나나나나나난나나ㅏ 숫자 몇이냐?"+tt.getPsn());
+						
 						Air_itemDTO aidto = new Air_itemDTO();
 						aidto.setCcode(tt.getCode());
-						aidto = new Air_itemDAO().itemdetail(aidto);
+						aidto = new Air_itemDAO().detail(aidto);
 						aidto.setSeatcnt(tt.getPsn());
 						new Air_itemDAO().update_seatcnt(aidto);
 						
