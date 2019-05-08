@@ -30,7 +30,6 @@ public class BasketReg implements MvcAction {
 		
 		ArrayList<BasketDTO> airBaskets = new ArrayList<BasketDTO>();
 		
-		int totalPrice = 0;
 		
 		for (int i = 0; i < basketIDs.length; i++) {
 			BasketDTO dto = new BasketDTO();
@@ -39,18 +38,10 @@ public class BasketReg implements MvcAction {
 			
 			dto.setBasketID(basketIDs[i]);
 			dto = new BasketDAO().detail(dto);
-			
-			
-			if(dto.getcType().equals("H")) {
-				totalPrice+=dto.getTotalPrice();	
-			}
-			
+
 			
 			if(dto.getcType().equals("A")) {
 				airBaskets.add(dto);
-				for (int j = 0; j < dto.getPsn(); j++) {
-					totalPrice+=dto.getTotalPrice();
-				}
 			}
 		}
 		request.setAttribute("airBaskets", airBaskets);
