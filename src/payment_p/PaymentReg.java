@@ -23,6 +23,10 @@ import db_p.PaymentDAO;
 import db_p.PaymentDTO;
 import db_p.Room_itemDTO;
 import db_p.SignUpDTO;
+import db_p.TravelerInfoDAO;
+import db_p.TravelerInfoDTO;
+import db_p.TravelerInfo_tempDAO;
+import db_p.TravelerInfo_tempDTO;
 import di.MvcAction;
 import di.MvcForward;
 
@@ -168,6 +172,35 @@ public class PaymentReg implements MvcAction {
 						aidto = new Air_itemDAO().itemdetail(aidto);
 						aidto.setSeatcnt(tt.getPsn());
 						new Air_itemDAO().update_seatcnt(aidto);
+						
+						TravelerInfo_tempDTO ttdto = new TravelerInfo_tempDTO();
+						ttdto.setBasketID(basketIDs[i]);
+						ArrayList<TravelerInfo_tempDTO> ttdtos = new TravelerInfo_tempDAO().TravelerInfoListByBasketID(ttdto);
+						
+						for (TravelerInfo_tempDTO ttt : ttdtos) {
+							TravelerInfoDTO tdto = new TravelerInfoDTO();
+							
+							tdto.setPassport(ttt.getPassport());
+							tdto.setId(ttt.getId());
+							tdto.setMainEngLastName(ttt.getMainEngLastName());
+							tdto.setMainEngFirstName(ttt.getMainEngFirstName());
+							tdto.setPname(ttt.getPname());
+							tdto.setBirthDate(ttt.getBirthDate());
+							tdto.setcEngLastName(ttt.getcEngLastName());
+							tdto.setcEngFirstName(ttt.getcEngFirstName());
+							tdto.setcKorName(ttt.getcKorName());
+							tdto.setCph1(ttt.getCph1());
+							tdto.setCph2(ttt.getCph2());
+							tdto.setCph3(ttt.getCph3());
+							tdto.setCemail1(ttt.getCemail1());
+							tdto.setCemail2(ttt.getCemail2());
+							tdto.setBasketID(ttt.getBasketID());
+							
+							new TravelerInfoDAO().insert(tdto);
+							new TravelerInfo_tempDAO().delete(ttt);
+						}
+						
+						
 					}
 					
 					BuyDTO bdto = new BuyDTO();

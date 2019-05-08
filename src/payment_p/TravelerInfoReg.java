@@ -10,6 +10,8 @@ import db_p.BasketDTO;
 import db_p.SignUpDTO;
 import db_p.TravelerInfoDAO;
 import db_p.TravelerInfoDTO;
+import db_p.TravelerInfo_tempDAO;
+import db_p.TravelerInfo_tempDTO;
 import di.MvcAction;
 import di.MvcForward;
 
@@ -71,7 +73,7 @@ public class TravelerInfoReg implements MvcAction {
 			
 			
 			
-			TravelerInfoDTO dto = new TravelerInfoDTO();
+			TravelerInfo_tempDTO dto = new TravelerInfo_tempDTO();
 			System.out.println("비행기 장바구니"+airBaskets[i]);
 			dto.setBasketID(airBaskets[i]);		
 			
@@ -97,7 +99,7 @@ public class TravelerInfoReg implements MvcAction {
 				dto.setCemail1(request.getParameterValues("cemail1")[j]);
 				dto.setCemail2(request.getParameterValues("cemail2")[j]);
 				
-				new TravelerInfoDAO().insert(dto); //커밋 사용해보기!!
+				new TravelerInfo_tempDAO().insert(dto); 
 			};
 			
 			index += bdto.getPsn();

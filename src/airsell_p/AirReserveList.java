@@ -69,11 +69,6 @@ public class AirReserveList implements MvcAction {
 		
 		System.out.println("여기까진 오니?");
 		
-		//		String bstatus = "m";
-//		//예약내역 확인할꺼야
-//		
-//		new ShowAirReserveList(request, response, air_code, bstatus);
-//		request.setAttribute("mainUrl", "airsell/AirReserveList.jsp");
 		
 		return null;
 	}

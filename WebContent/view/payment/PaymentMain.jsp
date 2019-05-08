@@ -147,11 +147,15 @@
 		
 		  $('#btn').on({
 		      'click':function(){
+	    			alert("들어오니??");
+	    			alert($('#check').attr("checked"));
+		    	  
 		    		if(chk1 && chk2 && chk3 && chk4 && chk5 && chk6){
 		    			chk=true;
 		    			frm.submit();
 		    		}
-		    		else if($('input:checkbox[id="check"]').is(":checked") == true && chk5){
+		    		else if($('#check').attr("checked") == "checked" && chk6){
+
 		    			frm.submit();			
 		    		}
 		    		else{

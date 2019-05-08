@@ -89,9 +89,9 @@ public class BasketpaidDTO {
 		return sdf.format(ddate);
 	}
 	
-	public void setDdateStr(String bdateStr) {
+	public void setDdateStr(String ddateStr) {
 		try {
-			this.ddate = sdf.parse(bdateStr);
+			this.ddate = sdf.parse(ddateStr);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

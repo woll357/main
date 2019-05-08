@@ -887,10 +887,7 @@ public class BasketpaidDAO {
 					dto.setFdateStr(rs.getString(4));
 					dto.setPsn(rs.getInt(5));
 					dto.setId(rs.getString(6));
-					dto.setBasketID(rs.getString(7));
-					
-					dto.setDdate(rs.getDate("ddate"));
-					
+					dto.setBasketID(rs.getString(7));				
 					
 					res.add(dto);
 				}
