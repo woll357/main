@@ -13,12 +13,18 @@ function mkmonth(){
 	options = $('<option value="">필수입력</option>');
 	$("#month").append(options);
 	if($('#year').val()==todayYear){
-		for (var i = todayMonth; i < todayMonth+3 ; i++) {
+		for (var i = 1; i < 13 ; i++) {
 			if(i<13){
 			options = $('<option value='+i+'>'+i+'</option>');
 			$("#month").append(options);
 			}
 		}
+		/* for (var i = todayMonth; i < todayMonth+3 ; i++) {
+			if(i<13){
+			options = $('<option value='+i+'>'+i+'</option>');
+			$("#month").append(options);
+			}
+		} */
 	}
 	else if($('#year').val()==todayYear+1){
 		for (var i = 1; i < todayMonth-9 ; i++) {

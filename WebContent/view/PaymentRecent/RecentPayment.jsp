@@ -16,7 +16,7 @@ if("${msg}"!=""){
 		
 		<tr>
 			<td style="width: 120px">카드선택</td>
-			<td><input id="cComName" style="width: 50px" type="text" value="${pdto.cComName }" readonly="readonly" /></td>
+			<td><input id="cComName" name="cComName" style="width: 50px" type="text" value="${pdto.cComName }" readonly="readonly" /></td>
 		</tr>
 		<tr>
 			<td style="width: 120px">카드번호</td>
