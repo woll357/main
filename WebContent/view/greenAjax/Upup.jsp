@@ -122,12 +122,11 @@
 		var numPat = /^\d*$/;
 		var korPat = /^[가-힣]*$/;
 		var crnPat = /^\d{3}-\d{2}-\d{5}$/;
-		var perPat = /^\d.\d{1}$/;
+		var perPat = /^\d*.\d{1}$/;
 		var engPat = /^[A-Z]*$/;
 		var imgPat = /img|bmp|jpeg|jpg|gif|png$/i;
 		var bnumPat = /^[A-Z]{1}[0-9]{6}/;
 		
-	
 		
 		
 		if(perPat.test($('#salesPercent').val()) && $('#salesPercent').val()>0 && $('#salesPercent').val()<=100){

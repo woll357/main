@@ -22,7 +22,7 @@
 						<td class="tt">아이디 검색</td>
 						<td class="tt"><input type="text" id="id" maxlength="8"
 							onkeyup="chkPat1()" /></td>
-						<td class="tt"><input type="button" value="검색" id="btn1" /></td>
+						<td class="tt"><input type="button" value="검색" id="btn1"/></td>
 					</tr>
 					<tr>
 						<td class="tt">이름 검색</td>

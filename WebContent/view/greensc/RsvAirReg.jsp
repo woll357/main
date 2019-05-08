@@ -171,7 +171,7 @@ width: 1000px;
 		<td>${dto.a_time }</td>
 		<td>${dto.darea }</td>
 		<td>${dto.carea }</td>
-		<td>${dto.seatcnt }</td>
+		<td>${dto.totseatcnt-dto.seatcnt }</td>
 		<td>${dto.money }</td>
 		<td><input type="button" value="선택" id="${dto.cCode}" class="awpBtn"/></td>
 		</tr>
