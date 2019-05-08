@@ -30,8 +30,7 @@ function TravelerInfoDetail(id){
 			<td>${adto.location1 }</td>
 			<td>${adto.location2 }</td>
 			<td>${adto.psn }</td>
-			
-			
+			<td><button onclick="TravelerInfoDetail('${i.basketID}')" >여행객 상세 정보</button></td>
 			<td>
 			<form action="RefundReg">
 			<input type="submit" value="환불" />

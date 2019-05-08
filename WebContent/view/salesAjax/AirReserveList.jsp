@@ -3,6 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <script>
 
+	function TravelerInfoDetail(id){
+		
+		location.href="../purchase/TravelerInfoDetail?basketID="+id+"&aotcont=in";
+			
+	}
+
 	function formatDate() {
 		
 	var d = new Date(); 
@@ -40,6 +46,7 @@
 			<td style="border-bottom: 10px #dcefef solid;">사람수</td>
 			<td style="border-bottom: 10px #dcefef solid;">고객id</td>
 			<td style="border-bottom: 10px #dcefef solid;">보딩</td>
+			<td style="border-bottom: 10px #dcefef solid;">여행객 상세 정보</td>
 		</tr>
 		<c:forEach var="i" items="${reserveList }" >
 		<tr id="bd">
@@ -49,8 +56,7 @@
 			<td>${i.fdateStr }</td>
 			<td>${i.psn }</td>
 			<td>${i.id }</td>
-			<td>
-			<button onclick="boarding('${i.basketID }', '${i.ddateStr }')">보딩</button></td>
+			<td><button onclick="boarding('${i.basketID }', '${i.ddateStr }')">보딩</button></td>
 			<td><button onclick="TravelerInfoDetail('${i.basketID}')" >여행객 상세 정보</button></td>
 		</tr>
 		</c:forEach>
