@@ -10,7 +10,7 @@
 <body>
 <h1>상품 상세</h1>
 <form action="AirItem_Detail">
-	<table border="" >	
+<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 		<tr>
 			<td style="background: #D4F4FA"  colspan="8">상품 코드</td>
 			<td style="background: #D4F4FA" ><input type="text" name="ccode" /></td>

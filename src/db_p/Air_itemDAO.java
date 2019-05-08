@@ -967,21 +967,18 @@ public Object air_pdetail(Air_itemDTO dto) {
 
 		
 		
-	public Object air_pitemlist(int page , int limit) {
+	public Object air_pitemlist() {
 			
 			ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 			
 			
 			
 			try {
-				sql = "select distinct air_name, air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code and air_item.no limit ? ,? ";         
+				sql = "select distinct air_name, air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code  ";         
 				
 				ptmt = con.prepareStatement(sql);
 				
-				ptmt.setInt(1, page);
-				ptmt.setInt(2, limit);
-				
-				
+			
 				rs = ptmt.executeQuery();
 				
 				

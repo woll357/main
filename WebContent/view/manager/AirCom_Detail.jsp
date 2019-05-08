@@ -3,15 +3,11 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>항공편</title>
-<h2>항공편 검색 </h2>
-</head>
+
 <body>
 
 <form action="AirCom_Detail" method="post">
-	<table width=100% border="" >	
+<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 		<tr>
 			<td style="background: #D4F4FA"  colspan="2">항공편 코드</td>
 			<td style="background: #D4F4FA" ><input type="text" name="air_p"/></td>

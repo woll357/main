@@ -40,7 +40,7 @@
 			<td><a href="../greensc/LogOut">로그아웃</a></td>
 			<td><a href="../greensc/ModifyMem?mypage=in">마이페이지</a></td>
 			<td><a href="../hmain/Hdetail?hotcont=in">호텔관리</a></td>
-
+			<td><a href="../greensc/NoticeList?center=in">고객센터</a></td>
 			
 			</c:when>
 			
@@ -48,7 +48,7 @@
 			<td><a href="../airgreen/AirHomeMain?aotcont=in"><img style="width:50px; height:50px;" src="http://localhost:8080/mainProj/img/logo2.png" alt="" /></a></td>	
 			<td><a href="../greensc/LogOut">로그아웃</a></td>
 			<td><a href="../greensc/ModifyMem?mypage=in">마이페이지</a></td>
-			
+			<td><a href="../greensc/NoticeList?center=in">고객센터</a></td>
 			
 			</c:when>
 			

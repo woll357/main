@@ -12,7 +12,7 @@
 <h3>비행기 목록</h3>
 <form action="Airplane_List2">
 <input type="hidden" name="air_code" value="${dd }">
-<table border="">
+<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 <tr>
 		<td style="background: #D4F4FA"  colspan="11">비행기 검색</td>
 		<td style="background: #D4F4FA"  colspan="4"><input type="text" name="ap_code"><input type="submit" value="선택"></td>

@@ -11,7 +11,7 @@
 <body>
 <h3>비행기 목록</h3>
 <form action="Airplane_List2">
-<table width=100% border="">
+<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 	<tr>
 		<td style="background: #D4F4FA"  colspan="11">비행기 검색</td>
 		<td style="background: #D4F4FA"  colspan="4"><input type="text" name="ap_code"><input type="submit" value="선택"></td>
@@ -38,7 +38,7 @@
 	</tr>
 <c:forEach var="dto" items="${ddd }" varStatus="no" >
 	<tr>
-	<td><a href="Airplaneitem_List?ap_code=${dto.ap_code }">${dto.ap_code }</a>
+	<td><a href="Airplaneitem_List?ap_code=${dto.ap_code }&partner=in">${dto.ap_code }</a>
 	<td>${dto.air_name }</td>
 	<td>${dto.air_code }</td>
 	
@@ -53,7 +53,7 @@
 	<td>${dto.maximum_altitude }</td>
 	<td>${dto.maximum_od }</td>
 	<td>${dto.flightclass }</td>
-	<td><a href="Airplane_Delete?ap_code=${dto.ap_code }"><input type="button" value="삭제"></a></td>
+	<td><a href="Airplane_Delete?ap_code=${dto.ap_code }&partner=in"><input type="button" value="삭제"></a></td>
 	</tr>
 </c:forEach>
 </table>
