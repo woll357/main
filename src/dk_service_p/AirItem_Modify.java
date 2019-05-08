@@ -13,9 +13,7 @@ public class AirItem_Modify implements MvcAction {
 	@Override
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		System.out.println("AirItem_Modify 진입");
 		
-		System.out.println(request.getParameter("ccode"));
 		
 		Air_itemDTO dto = new Air_itemDTO();
 		

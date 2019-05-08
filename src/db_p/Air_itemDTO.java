@@ -14,6 +14,8 @@ public class Air_itemDTO {
 	
 	SimpleDateFormat asd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
+	
+	SimpleDateFormat qwe = new SimpleDateFormat("yyyy-MM-dd");
 	public String getAir_name() {
 		return air_name;
 	}
@@ -55,6 +57,8 @@ public class Air_itemDTO {
 		}
 	}
 	
+	
+	
 	public void setA_time(Date a_time) {
 		this.a_time = a_time;
 	}
@@ -70,6 +74,19 @@ public class Air_itemDTO {
 	public void setDdateStr(String ddateStr) {
 		try {
 			this.ddate = asd.parse(ddateStr);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public String getDdateStr2() {
+		return qwe.format(ddate);
+	}
+	
+	public void setDdateStr2(String ddateStr) {
+		try {
+			this.ddate = qwe.parse(ddateStr);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

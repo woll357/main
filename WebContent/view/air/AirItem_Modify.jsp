@@ -3,10 +3,7 @@
     
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>상품 등록</title>
-</head>
+
 <body onload="calendar()">
 <script src="../js/jquery-3.3.1.min.js"></script>   
 <script src="../js/odk/item_Modifyday.js"></script> 
@@ -15,7 +12,7 @@
 
 
 <form name="AirItem_InsertReg" action="AirItem_InsertReg">
-	<table width=100%>
+<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 		<tr>
 			<td  colspan="2">비행기코드</td>
 			<td><input type="text" name="ap_code"  class="ap_code" value="${dto.ap_code }"/></td>

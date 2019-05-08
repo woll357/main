@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table width=100%  >	
+<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 		<tr>
 			<td style="background: #D4F4FA"  colspan="8">상품 코드</td>
 			<td style="background: #D4F4FA" ><input type="text" name="ccode" /></td>

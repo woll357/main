@@ -3,12 +3,10 @@
      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<table align="center" width = 100% >
+<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<input type="hidden" value="${param.air_code }" name="air_code" />
+<input type="hidden" value="${param.air_p}" name="air_p" />
+
 	<tr>
 		<td style="background: #D4F4FA">항공편코드</td>
 		<td style="background: #D4F4FA">출발지</td>
@@ -17,7 +15,7 @@
 
 <c:forEach var="dto" items="${data}" varStatus="no">	
 	<tr>
-	<td><%-- <a href="AirItem_Detail?ccode=${dto.ccode }">${dto.ccode }</a> --%><a href="Airp_List2?air_p=${dto.air_p }&air_code=${mem.air_code }&aotcont=in">${dto.air_p }</a></td>	
+	<td><a href="Airp_List2?air_p=${dto.air_p }&air_code=${mem.air_code }&aotcont=in">${dto.air_p }</a></td>	
 		<td>${dto.darea }</td>
 		<td>${dto.carea }</td>
 		

@@ -16,8 +16,7 @@ public class AirItem_Detail implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		System.out.println("상품 목록 진입진입");
-		System.out.println(request.getParameter("ccode"));
+	
 		
 		Air_itemDTO dto = new Air_itemDTO();
 		
@@ -26,6 +25,7 @@ public class AirItem_Detail implements MvcAction {
 		Air_itemDAO dao = new Air_itemDAO();
 		
 		request.setAttribute("dto", dao.itemdetail(dto));
+		
 		
 		
 		return null;

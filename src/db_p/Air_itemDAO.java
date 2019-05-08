@@ -31,6 +31,8 @@ public class Air_itemDAO {
 	
 	}
 	
+	
+	
 	//총 게시글 구하기
 	public int total() {
 		
@@ -82,13 +84,93 @@ public class Air_itemDAO {
 			
 			return res;
 		}
-	
+		
+		
+		//총 항공편 상품 개수 구하기 
+		public int total3(String a) {
+			
+			int res = 0;
+			
+			
+			try {
+				sql = "select count(*) from air_item where date(ddate) >= date( sysdate() ) and air_p = ? ";       
+				
+				ptmt = con.prepareStatement(sql);		
+				
+				ptmt.setString(1, a);
+				rs = ptmt.executeQuery();
+				
+				rs.next() ;
+					
+				res = rs.getInt(1);
+					
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return res;
+		}
+//	
 
 	//select air_name, air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code;
 	
 	//관리자
 	
-	
+public Object air_pdetail(Air_itemDTO dto) {
+			
+			ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
+				//air_itemDTO res = null;
+				
+				sql = "select * from air_item where air_p = ? and date(ddate)=date(?) and air_code = ? " ;
+			        //select * from air_item where air_p = 'TPI-200' and date(ddate)=date('2019-12-27');
+				System.out.println("select * from air_item where air_p = 'TPI-200' and date(ddate)=date('2019-12-27') and air_code = 'AAA1012'");
+				
+				try {
+				System.out.println("진입1"+ dto.getAir_p() +  dto.getDdateStr2() + dto.getAir_code());	
+			
+					ptmt = con.prepareStatement(sql);
+				
+					ptmt.setString(1, dto.getAir_p());
+					ptmt.setString(2, dto.getDdateStr2());
+					ptmt.setString(3, dto.getAir_code());
+		
+					rs = ptmt.executeQuery();
+					
+					while(rs.next()) {
+						
+						System.out.println("진입2");
+						
+						dto = new Air_itemDTO();
+						
+						dto.setDdate(rs.getTimestamp("ddate"));
+						dto.setDarea(rs.getString("darea"));
+						dto.setCarea(rs.getString("carea"));
+						dto.setAp_code(rs.getString("ap_code"));
+						dto.setCcode(rs.getString("ccode"));
+						dto.setMoney(rs.getInt("money"));
+						dto.setA_time(rs.getTimestamp("a_time"));
+						dto.setSeatcnt(rs.getInt("seatcnt"));
+						dto.setFlightclass(rs.getString("flightclass"));	
+						dto.setTotseatcnt(rs.getInt("totseatcnt"));
+					
+						
+						res.add(dto);
+						
+						
+					}
+							
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				
+				}finally {
+				   close();
+			  }
+				       
+				return res;
+			}
 	
 	
 	//협력업체 비행기 삭제
@@ -495,6 +577,57 @@ public class Air_itemDAO {
 			       
 			return res;
 		}
+		//관리자
+		//비행기 지난상품 리스트
+				//select * from air_item where date(ddate)<=date(sysdate())  and air_code = 'A1000'; 
+				public Object yitemdetailm(int page , int limit) {
+					
+					ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
+					
+					sql = "select * from air_item where date(ddate)<=date(sysdate()) order by ddate and no limit ?, ?  ";
+					
+					try {
+						ptmt = con.prepareStatement(sql);
+					
+						ptmt.setInt(1, page);
+						ptmt.setInt(2, limit);
+
+						
+						rs = ptmt.executeQuery();
+						
+						while(rs.next()) {
+							
+							
+							
+							Air_itemDTO dto = new Air_itemDTO();
+
+							dto.setDdate(rs.getTimestamp("ddate"));
+							dto.setDarea(rs.getString("darea"));
+							dto.setCarea(rs.getString("carea"));
+							dto.setAp_code(rs.getString("ap_code"));
+							dto.setCcode(rs.getString("ccode"));
+							dto.setMoney(rs.getInt("money"));
+							dto.setA_time(rs.getTimestamp("a_time"));
+							dto.setSeatcnt(rs.getInt("seatcnt"));
+							dto.setFlightclass(rs.getString("flightclass"));	
+							dto.setTotseatcnt(rs.getInt("totseatcnt"));
+
+							res.add(dto);
+							
+							
+						
+						}
+								
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					
+					}finally {
+					   close();
+				  }
+					       
+					return res;
+				}
 		
 		
 		
@@ -960,20 +1093,19 @@ public class Air_itemDAO {
 	}
 	
 	
-	public Object air_pitemlistt(String a , int page , int limit) {
+	public Object air_pitemlistt(String a ) {
 		
 		ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
 		
 		
 		
 		try {
-			sql = "	select distinct air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code and air_item.air_code = ? and air_item.no limit ? , ? ";        
+			sql = "	select distinct air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code and air_item.air_code = ? ";        
 			
 			ptmt = con.prepareStatement(sql);
 			
 			ptmt.setString(1, a);
-			ptmt.setInt(2, page);
-			ptmt.setInt(3, limit);
+	
 			
 			rs = ptmt.executeQuery();
 			
@@ -1215,7 +1347,7 @@ public Object mair_planeitemlist(String ap_code , int page , int limit) {
 	public Air_itemDTO itemdetail(Air_itemDTO dto) {
 		Air_itemDTO res = null;
 		
-		sql = "select * from air_item where ccode = ? " ;
+		sql = "select * from air_item where ccode = ? and date(ddate) >= date( sysdate() ) " ;
 		
 		try {
 			ptmt = con.prepareStatement(sql);

@@ -12,7 +12,7 @@ public class AirItem_Insert implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		System.out.println("상품 AirItem_Insert 등록");
+		
 		
 		return null;
 	}

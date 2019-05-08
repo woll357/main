@@ -4,19 +4,16 @@
 <!DOCTYPE html>
 <html>
 
+
 </head>
 <body>
+
 <form action="Airp_Detail">
-	<table  align="center">	
-		<tr>
-			<td style="background: #D4F4FA" >항공편 코드</td>
-			<td style="background: #D4F4FA" ><input type="text" name="air_p" /></td>
-			<td style="background: #D4F4FA"  align="center"><input type="submit" value="선택  " /></td>
-		</tr>
-			</table>
-</form>
-<form action="Airp_Detail">
-<table align="center">
+<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+
+<input type="hidden" name= "aotcont"  value="in"/>
+<input type="hidden" value="${air_p }" name="air_p">
+<input type="hidden" name= "air_code"  value="${mem.air_code }"/>
 <tr>
 			<td style="background: #D4F4FA" >날짜</td>			
 			<td style="background: #D4F4FA" ><input type="text" name="ddate" /></td>
@@ -24,7 +21,7 @@
 		</tr>
 		</table>
 </form>
-<table width=100%>
+<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 	<tr>
 		<td style="background: #D4F4FA" >상품코드</td>
 		<td style="background: #D4F4FA" >비행기코드</td>
@@ -58,7 +55,7 @@
 				[${i }]
 				</c:when>
 				<c:otherwise>
-					<a href="?page=${i }&aotcont=in">${i }</a> <!-- 자기 자신으로 돌아오는데 페이지가 i -->
+					<a href="?page=${i }&aotcont=in&air_code=${param.air_code}&air_p=${param.air_p}">${i }</a> <!-- 자기 자신으로 돌아오는데 페이지가 i -->
 				</c:otherwise>
 				</c:choose>			
 			</c:forEach>
