@@ -34,25 +34,28 @@ public class BasketAirReg implements MvcAction {
 
 		String id = ((SignUpDTO) (request.getSession().getAttribute("mem"))).getId();
 		
-		if (request.getParameterValues("ccode") != null) {
+		AAA:if (request.getParameterValues("ccode") != null) {
 			
 			String[] cCodes = request.getParameterValues("ccode"); // 넘겨받는게 ccode로 들어오고 나는 cCodes로 넣는다.
 
 			String cType = cCodes[0].substring(0, 1);
-
+			int psn = Integer.parseInt(request.getParameter("seatcnt")); // 좌석수로 받고 psn으로 넣는다.
 		
-			AAA: for (String cc : cCodes) {
+			for (String cc : cCodes) {
 				BasketDTO bdto = new BasketDTO();
 				bdto.setId(id);
 				bdto.setCode(cc);
+				bdto.setPsn(psn);
 				if(new BasketDAO().myAirBasketNum(bdto)>0) {
-					System.out.println("들어오니?");
+
 					request.setAttribute("msg", "동일한 상품이 장바구니에 존재합니다.");
+					new BasketDAO().modifyPsn(bdto);
+					
 					break AAA;
 				}
 			}
 							
-				int psn = Integer.parseInt(request.getParameter("seatcnt")); // 좌석수로 받고 psn으로 넣는다.
+			
 
 				for (int i = 0; i < cCodes.length; i++) {
 

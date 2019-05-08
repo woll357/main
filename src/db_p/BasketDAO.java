@@ -378,7 +378,31 @@ public class BasketDAO {
 			close();
 		}
 		return res;
-
+	}
+	
+	public void modifyPsn(BasketDTO dto) {		//값을 넣준다.
+		
+		sql = "update basket set psn = psn + ? where code = ? and id = ? ";
+		System.out.println(sql);
+		try {
+			
+			System.out.println("총액 들어오니?"+dto.getTotalPrice());
+			System.out.println("BasketID뭐야?"+ dto.getBasketID());
+			
+			ptmt = con.prepareStatement(sql);
+			ptmt.setInt(1, dto.getPsn());
+			ptmt.setString(2, dto.getCode());
+			ptmt.setString(3, dto.getId());
+			int a = ptmt.executeUpdate();
+			
+			System.out.println(a);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
 	}
 	
 	public void close() {
