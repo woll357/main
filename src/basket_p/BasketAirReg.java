@@ -60,8 +60,7 @@ public class BasketAirReg implements MvcAction {
 					Air_itemDTO airdto = new Air_itemDTO();
 					airdto.setCcode(cCodes[i]);
 
-					airdto = new Air_itemDAO().detail(airdto.getCcode());
-					airdto = new Air_itemDAO().itemdetail(airdto); // 편도정보를 가지고온다.
+					airdto = new Air_itemDAO().detail(airdto); // 편도정보를 가지고온다.
 
 					Air_comDTO aircomdto = new Air_comDTO();
 					aircomdto.setAir_code(airdto.getAir_code());// 항공편 정보에서 가지고온 항공사 코드를 항공사 dto에 세팅
