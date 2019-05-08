@@ -55,7 +55,7 @@ public class PaymentReg implements MvcAction {
 			String exDateMonth = request.getParameter("exDateMonth");
 			String exDateYear = request.getParameter("exDateYear");
 
-			String cPw = request.getParameter("cPw");
+			String cPw = request.getParameter("pw");
 			String cvc = request.getParameter("cvc");
 
 			boolean[] chkBaskets = new boolean[basketIDs.length]; // 상품 존재 여부
