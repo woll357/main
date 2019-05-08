@@ -145,8 +145,16 @@ public class TravelerInfoReg implements MvcAction {
 				dto.setBasketID(basketIDs[i]);
 			
 				dto = new BasketDAO().detail(dto);
-				System.out.println("얼마니?"+dto.getTotalPrice());
-				totalPrice+=dto.getTotalPrice();
+				if(dto.getcType().equals("H")) {
+					totalPrice+=dto.getTotalPrice();	
+				}
+				
+				
+				if(dto.getcType().equals("A")) {
+					for (int j = 0; j < dto.getPsn(); j++) {
+					totalPrice+=dto.getTotalPrice();
+					}
+				}
 			}
 			
 			request.getSession().setAttribute("totalPrice", totalPrice);
