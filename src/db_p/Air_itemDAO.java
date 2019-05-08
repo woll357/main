@@ -1553,6 +1553,46 @@ public Object mair_planeitemlist(String ap_code , int page , int limit) {
 		return res;
 	}
 	
+		public Air_itemDTO detail(Air_itemDTO dto) {
+			
+				//air_itemDTO res = null;
+				
+				sql = "select * from air_item where ccode = ? " ;
+				
+				try {
+					ptmt = con.prepareStatement(sql);
+					ptmt.setString(1, dto.getCcode());
+		
+					
+					rs = ptmt.executeQuery();
+					
+					while(rs.next()) {
+						
+						dto.setDdate(rs.getTimestamp("ddate"));
+						dto.setDarea(rs.getString("darea"));
+						dto.setCarea(rs.getString("carea"));
+						dto.setAp_code(rs.getString("ap_code"));
+						dto.setCcode(rs.getString("ccode"));
+						dto.setMoney(rs.getInt("money"));
+						dto.setA_time(rs.getTimestamp("a_time"));
+						dto.setSeatcnt(rs.getInt("seatcnt"));
+						dto.setFlightclass(rs.getString("flightclass"));	
+						dto.setTotseatcnt(rs.getInt("totseatcnt"));
+				
+		
+					}
+							
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				
+				}finally {
+				   close();
+			  }
+				       
+				return dto;
+			}
+	
 	public void close() {
 		if(rs!=null) try {rs.close();} catch (SQLException e) {	}
 		if(ptmt!=null) try {ptmt.close();} catch (SQLException e) {	}

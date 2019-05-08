@@ -56,8 +56,9 @@ function mkdate(){
 	}
 }
 </script>
-
-<table>
+<div align="center">
+<h1>구매내역</h1>
+<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 	<tr>
 	<td  style="width: 50px" >회사명</td>
 	<td>
@@ -100,10 +101,10 @@ function mkdate(){
 	</td>
 	</tr>
 	</table>
+</div>
 	<div id="searchResult">
 
 	</div>
-
 <script>
 
 	$(document).ready(function(){
@@ -127,6 +128,7 @@ function mkdate(){
 				         ); 
 					}
 					else if($("#year").val()!="" && $("#month").val()!="" && $("#day").val()==""){ //달까지
+						console.log("회사명x연도O달력O")
 						$.ajax("../Sales/SellList?year="+$('#year').val()+"&month="+$('#month').val(),
 					            {
 				               success:function(ll){

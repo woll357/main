@@ -77,12 +77,11 @@ public class TravelerInfoReg implements MvcAction {
 			System.out.println("비행기 장바구니"+airBaskets[i]);
 			dto.setBasketID(airBaskets[i]);		
 			
-			
 			//다시해야한다
 			
 			int index = 0;
 			
-			for (int j = index; j < index + bdto.getPsn(); j++) {	
+			for (int j = index; j < index + bdto.getPsn(); j++) {
 				
 				dto.setMainEngLastName(mainEngLastName);
 				dto.setMainEngFirstName(mainEngFirstName);

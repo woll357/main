@@ -1,5 +1,6 @@
 package salesAjax_p;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -101,6 +102,8 @@ public class SellList implements MvcAction {
 				startday = startday+"-"+month+"-"+day;
 				endday = endday+"-"+month+"-"+day;
 				
+				System.out.println(startday+":"+endday+"dddddddddddddddddddddddddddddddddddddd");
+				
 				ArrayList<BasketpaidDTO> plists = new BasketpaidDAO().buyListByDate(startday, endday);
 				
 				ArrayList<BasketpaidDTO> hlists = new ArrayList<BasketpaidDTO>();
@@ -131,6 +134,8 @@ public class SellList implements MvcAction {
 				day="1";
 				startday = startday+"-"+month+"-"+day;
 				endday = endday+"-"+(Integer.parseInt(month)+1)+"-"+day;
+				
+				System.out.println(startday+":"+endday+"qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
 				
 				ArrayList<BasketpaidDTO> plists = new BasketpaidDAO().buyListByDate(startday, endday);
 				
@@ -195,8 +200,8 @@ public class SellList implements MvcAction {
 			totalSalesPrice+=ss.getManagerSales();
 			totalPrice+=ss.getTotalPrice();
 		}
-		request.setAttribute("totalPrice", totalPrice);
-		request.setAttribute("totalSalesPrice", totalSalesPrice);
+		request.setAttribute("totalPrice", new DecimalFormat("#,##0").format(totalPrice));
+		request.setAttribute("totalSalesPrice", new DecimalFormat("#,##0").format(totalSalesPrice));
 		request.setAttribute("salesList", salesList);
 		
 		

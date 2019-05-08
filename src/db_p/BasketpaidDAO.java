@@ -522,7 +522,7 @@ public class BasketpaidDAO {
 			
 			try {
 				
-				sql = "select * from basketpaid where bstatus = 'p' or basketpaid.bstatus = 'n' and date(ddate) between ? and ? ";
+				sql = "select * from basketpaid where date(ddate) between ? and ? and bstatus = 'p' or basketpaid.bstatus = 'n' ";
 				ptmt = con.prepareStatement(sql);
 		
 				ptmt.setString(1, startday);
