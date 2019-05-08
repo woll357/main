@@ -2,9 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%request.setCharacterEncoding("utf-8"); %>
-<table>
+<table align="right">
 	<tr>
-	<td>
+	<td style="border-bottom: 10px #dcefef solid;">
 	<select style="width: 200px" id="comName" name="comName">
 	<c:forEach var="i" items="${clists }">
 	<option  value="${i.key }">${i.value }</option>

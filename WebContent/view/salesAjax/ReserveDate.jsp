@@ -72,10 +72,10 @@ function mkdate(){
 	}
 }
 </script>
-<table>
+<table align="right">
 <tr>
 
-	<td>
+	<td style="border-bottom: 10px #dcefef solid;">
 	<select style="width: 80px" id="year" name="year" onchange="mkmonth()">
 	<option value="">필수입력</option>
 	<c:forEach var="i" items="${years }">
@@ -85,14 +85,14 @@ function mkdate(){
 	</td>
 	<td  style="width: 25px" >년</td>
 
-	<td>
+	<td style="border-bottom: 10px #dcefef solid;">
 	<select style="width: 80px" id="month" name="month" onchange="mkdate()">
 	<option value="">필수입력</option>
 	</select>
 	</td>
 	<td  style="width: 25px" >월</td>
 
-		<td>
+		<td style="border-bottom: 10px #dcefef solid;">
 	<select style="width: 80px" id="day" name="day">
 	<option value="">입력없음</option>
 	</select>

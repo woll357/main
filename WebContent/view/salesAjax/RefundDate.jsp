@@ -2,9 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%request.setCharacterEncoding("utf-8"); %>
-<table>
+<table align="right">
 	<tr>
-	<td>
+	<td style="border-bottom: 10px #dcefef solid;">
 	<select style="width: 60px" id="year" name="year">
 	<c:forEach var="i" items="${years }">
 	<option value="${i }">${i }</option>
@@ -13,7 +13,7 @@
 	</td>
 	<td  style="width: 25px" >년</td>
 	
-	<td>
+	<td style="border-bottom: 10px #dcefef solid;">
 	<select style="width: 50px" id="month" name="month">
 	<option value="1">1</option>
 	<option value="2">2</option>
