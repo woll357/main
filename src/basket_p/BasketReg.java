@@ -26,7 +26,7 @@ public class BasketReg implements MvcAction {
 		}
 		
 		String [] basketIDs = request.getParameterValues("basketIDs");
-	
+		
 		
 		ArrayList<BasketDTO> airBaskets = new ArrayList<BasketDTO>();
 		
@@ -39,12 +39,18 @@ public class BasketReg implements MvcAction {
 			
 			dto.setBasketID(basketIDs[i]);
 			dto = new BasketDAO().detail(dto);
-			totalPrice+=dto.getTotalPrice();
+			
+			
+			if(dto.getcType().equals("H")) {
+				totalPrice+=dto.getTotalPrice();	
+			}
+			
 			
 			if(dto.getcType().equals("A")) {
 				airBaskets.add(dto);
-				
-				
+				for (int j = 0; j < dto.getPsn(); j++) {
+					totalPrice+=dto.getTotalPrice();
+				}
 			}
 		}
 		request.setAttribute("airBaskets", airBaskets);
