@@ -3,12 +3,8 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
 <body>
-<table width=100% border="">
+<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 	<tr>
 		<td style="background: #D4F4FA" width="250" ></td>
 		<td style="background: #D4F4FA" >항공사 코드</td>

@@ -10,14 +10,8 @@
 <body>
 </head>
 <body>
-<h1>지난상품 목록</h1>
-<form action="AirItem_Detail">
-	<table width=100% border="" >	
-		<tr>
-			<td style="background: #D4F4FA" colspan="8">상품 코드</td>
-			<td style="background: #D4F4FA"><input type="text" name="ccode" /></td>
-			<td style="background: #D4F4FA" align="center"><input type="submit" value="선택  " /></td>
-		</tr>
+<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">	
+
 	<tr>
 		<td width="40">상품코드</td>
 		<td width="30">비행기코드</td>
@@ -70,6 +64,5 @@
 	</tr>
 	</table>
 
-</form>
 </body>
 </html>

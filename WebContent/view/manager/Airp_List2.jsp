@@ -9,11 +9,9 @@
 </head>
 <body>
 <form action="Airp_Detail">
-	<table width=100% border="" >	
+<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 		<tr>
-			<td style="background: #D4F4FA"  colspan="4">항공편 코드</td>
-			<td style="background: #D4F4FA" ><input type="text" name="air_p" /></td>
-			<td style="background: #D4F4FA" >날짜</td>
+			<td style="background: #D4F4FA" colspan="6">날짜</td>
 			<td style="background: #D4F4FA" ><input type="text" name="ddate" /></td>
 			<td style="background: #D4F4FA"  align="center"><input type="submit" value="선택  " /></td>
 		</tr>

@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>상품 등록</title>
 </head>
-<body onload="calendar()">
+<body onljoad="calendar()">
 <script src="../js/jquery-3.3.1.min.js"></script>   
 <script src="../js/odk/item_insertday.js"></script> 
 <script src="../js/odk/textnum.js"></script> 

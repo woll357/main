@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table border="" >	
+<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 		<tr>
 			<td colspan="8">상품 코드</td>
 			<td><input type="text" name="ccode" /></td>
@@ -54,7 +54,7 @@
 				[${i }]
 				</c:when>
 				<c:otherwise>
-					<a href="?page=${i }&partner=in">${i }</a> <!-- 자기 자신으로 돌아오는데 페이지가 i -->
+					<a href="?page=${i }&partner=in&ap_code=${param.ap_code}">${i }</a> <!-- 자기 자신으로 돌아오는데 페이지가 i -->
 				</c:otherwise>
 				</c:choose>			
 			</c:forEach>
