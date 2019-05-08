@@ -22,13 +22,15 @@
 		
 		startDate = startDate.substring(0,10);
 
-		if(startDate==today){
+		location.href="../hotelsell/CheckInReg?basketID="+id+"&hotcont=in";
+		
+		/* if(startDate==today){
 			location.href="../hotelsell/CheckInReg?basketID="+id+"&hotcont=in";
 			
 		}
 		else{
 			alert("체크인 불가 날짜입니다.")
-		}
+		} */
 		
 	}
 </script>
