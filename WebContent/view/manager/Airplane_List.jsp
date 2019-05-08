@@ -11,6 +11,7 @@
 <body>
 <h3>비행기 목록</h3>
 <form action="Airplane_List2">
+<input type="hidden" name= "partner"  value="in">
 <table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 	<tr>
 		<td style="background: #D4F4FA"  colspan="11">비행기 검색</td>

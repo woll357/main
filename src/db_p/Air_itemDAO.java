@@ -34,16 +34,16 @@ public class Air_itemDAO {
 	
 	
 	//총 게시글 구하기
-	public int total() {
+	public int total(String air_code) {
 		
 		int res = 0;
 		
 		
 		try {
-			sql = "select count(*) from air_item where date(ddate) >= date( sysdate() )";        //총 게시물이 몇개냐
+			sql = "select count(*) from air_item where date(ddate) >= date( sysdate() ) and air_code = ?";        //총 게시물이 몇개냐
 			
 			ptmt = con.prepareStatement(sql);		
-			
+			ptmt.setString(1, air_code);
 			rs = ptmt.executeQuery();
 			
 			rs.next() ;
@@ -59,17 +59,68 @@ public class Air_itemDAO {
 		return res;
 	}
 	
+public int total() {
+		
+		int res = 0;
+		
+		
+		try {
+			sql = "select count(*) from air_item where date(ddate) >= date( sysdate() )";        //총 게시물이 몇개냐
+			
+			ptmt = con.prepareStatement(sql);		
+	
+			rs = ptmt.executeQuery();
+			
+			rs.next() ;
+				
+			res = rs.getInt(1);
+				
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
+	
+	
 	//총 게시글 구하기 지난상품
-		public int total2() {
+		public int total2(String air_code) {
 			
 			int res = 0;
 			
 			
 			try {
-				sql = "select count(*) from air_item where date(ddate) <= date( sysdate())";        //총 게시물이 몇개냐
+				sql = "select count(*) from air_item where date(ddate) <= date( sysdate()) and air_code = ? ";        //총 게시물이 몇개냐
 				
 				ptmt = con.prepareStatement(sql);		
+				ptmt.setString(1, air_code);
+				rs = ptmt.executeQuery();
 				
+				rs.next() ;
+					
+				res = rs.getInt(1);
+					
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return res;
+		}
+		
+	public int total2() {
+			
+			int res = 0;
+			
+			
+			try {
+				sql = "select count(*) from air_item where date(ddate) <= date( sysdate())  ";        //총 게시물이 몇개냐
+				
+				ptmt = con.prepareStatement(sql);		
+			
 				rs = ptmt.executeQuery();
 				
 				rs.next() ;

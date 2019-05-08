@@ -54,12 +54,13 @@ public class AirLine_ModifyFm implements MvcAction {
 			dto.setAir_code(((SignUpDTO) session.getAttribute("mem")).getAir_code());
 			
 			String msg = "";
-			String goUrl = "aircom_detail";
+			String goUrl = "AirLine_Detail?aotcont=in";
 			
 			
 			if(new Air_comDAO().aircommodify(dto)) {
+				
 				msg = "수정되었습니다.";
-				goUrl = "AirLine_Detail?id="+dto.getId();
+				goUrl = "AirLine_Detail?id="+dto.getId()+"&aotcont=in";
 				
 			}	
 			

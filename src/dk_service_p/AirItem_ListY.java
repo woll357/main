@@ -17,7 +17,7 @@ public class AirItem_ListY implements MvcAction {
 		
 		
 		HttpSession session = request.getSession();
-		
+		  String air_code = (((SignUpDTO) session.getAttribute("mem")).getAir_code());
 		int limit = 10; //한 페이지 당 게시물 수
 		
 		   int pageLimit =  5; //리스트 하단에 보여질 페이지 번호 갯수
@@ -32,7 +32,7 @@ public class AirItem_ListY implements MvcAction {
 		  	Air_itemDAO dao = new Air_itemDAO();
 		      
 		      //전체글 수 가져오기.
-		      int total = dao.total2();
+		      int total = dao.total2(air_code);
 		      
 		      //천체페이지수
 		      int totalpage = total/limit;
@@ -49,7 +49,7 @@ public class AirItem_ListY implements MvcAction {
 		      
 		      int start = (page-1)*limit;  //페이지 번호
 		
-		      String air_code = (((SignUpDTO) session.getAttribute("mem")).getAir_code());
+		    
 		      
 	
 	      request.setAttribute("data", dao.yitemdetail(air_code , start , limit ));
