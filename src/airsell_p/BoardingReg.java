@@ -25,7 +25,7 @@ public class BoardingReg implements MvcAction {
 
 		request.setAttribute("msg", "보딩 완료");
 		request.setAttribute("mainUrl", "airsell/alert.jsp");
-		request.setAttribute("goUrl", "AirReserveList?aircont=in");
+		request.setAttribute("goUrl", "AirReserveList?aotcont=in");
 		
 		return null;
 	}

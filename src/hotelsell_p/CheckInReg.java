@@ -19,7 +19,7 @@ public class CheckInReg implements MvcAction {
 	@Override
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		
+		//ggggggggggg
 		String hcode = ((SignUpDTO)request.getSession().getAttribute("mem")).getHcode();
 		
 		String basketID = request.getParameter("basketID");
