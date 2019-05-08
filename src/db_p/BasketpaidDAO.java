@@ -471,7 +471,7 @@ public class BasketpaidDAO {
 			return res;
 		}
 		
-		public ArrayList<BasketpaidDTO> dateReserveListDay(String startday, String endday) {		//날짜별 예약갯수
+		public ArrayList<BasketpaidDTO> dateReserveListDay(String startday) {		//날짜별 예약갯수
 			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
 			System.out.println("dateReserveList 실행되니?");
 			try {
@@ -480,8 +480,7 @@ public class BasketpaidDAO {
 				ptmt = con.prepareStatement(sql);
 				
 				ptmt.setString(1, startday);
-				ptmt.setString(2, endday);
-				
+
 				rs = ptmt.executeQuery();
 				
 				while(rs.next()) {

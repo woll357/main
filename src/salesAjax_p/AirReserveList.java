@@ -47,7 +47,7 @@ public class AirReserveList implements MvcAction {
 			if(day!=null) {
 				startday = year+"-"+month+"-"+day;
 				endday = year+"-"+month+"-"+(Integer.parseInt(day)+1);
-				reserveList = new BasketpaidDAO().reserveListByAirCcodeDate(ccode, startday, endday);
+				reserveList = new BasketpaidDAO().reserveListByAirCcodeDateDay(ccode, startday);
 			}
 			else if(day==null) {
 				startday = year+"-"+month+"-"+1;
@@ -60,8 +60,7 @@ public class AirReserveList implements MvcAction {
 			if(day!=null) {
 				startday = year+"-"+month+"-"+day;
 				endday = year+"-"+month+"-"+(Integer.parseInt(day)+1);
-				System.out.println("여기로 들어외?111111111111111111111111111111111111");
-				reserveList = new BasketpaidDAO().reserveListByAirDate(adto.getAir_name(), startday, endday);
+				reserveList = new BasketpaidDAO().reserveListByAirDateDay(adto.getAir_name(), startday);
 			}
 			else if(day==null) {
 				startday = year+"-"+month+"-"+1;

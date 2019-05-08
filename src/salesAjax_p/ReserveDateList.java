@@ -30,7 +30,7 @@ public class ReserveDateList implements MvcAction {
 		if(day!=null) {
 			startday = year+"-"+month+"-"+day;
 			endday = year+"-"+month+"-"+(Integer.parseInt(day)+1);
-			reserveList = new BasketpaidDAO().dateReserveList(startday, endday);
+			reserveList = new BasketpaidDAO().dateReserveListDay(startday);
 		}
 		else if(day==null) {
 			startday = year+"-"+month+"-"+1;

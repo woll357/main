@@ -54,8 +54,6 @@ public class BasketAirReg implements MvcAction {
 					break AAA;
 				}
 			}
-							
-			
 
 				for (int i = 0; i < cCodes.length; i++) {
 

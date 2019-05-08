@@ -41,7 +41,7 @@ public class HotReserveList implements MvcAction {
 			if(day!=null) {
 				startday = year+"-"+month+"-"+day;
 				endday = year+"-"+month+"-"+(Integer.parseInt(day)+1);
-				reserveList = new BasketpaidDAO().reserveListByHotRcodeDate(rcode, startday, endday);
+				reserveList = new BasketpaidDAO().reserveListByHotRcodeDateDay(rcode, startday);
 			}
 			else if(day==null) {
 				startday = year+"-"+month+"-"+1;
@@ -54,7 +54,7 @@ public class HotReserveList implements MvcAction {
 			if(day!=null) {
 				startday = year+"-"+month+"-"+day;
 				endday = year+"-"+month+"-"+(Integer.parseInt(day)+1);
-				reserveList = new BasketpaidDAO().reserveListByHotDate(hdto.getHname(), startday, endday);
+				reserveList = new BasketpaidDAO().reserveListByHotDateDay(hdto.getHname(), startday);
 			}
 			else if(day==null) {
 				startday = year+"-"+month+"-"+1;

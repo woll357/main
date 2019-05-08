@@ -58,7 +58,7 @@ public class SellList implements MvcAction {
 					String endday = ""+(Integer.parseInt(year));
 					startday = startday+"-"+month+"-"+day;
 					endday = endday+"-"+month+"-"+(Integer.parseInt(day)+1);
-					salesList = new BasketpaidDAO().buyListByAirComDate(comcode, startday, endday);
+					salesList = new BasketpaidDAO().buyListByAirComDateDay(comcode, startday);
 				}
 			}
 			else if(comcode.substring(0, 1).equals("H")) {
@@ -83,7 +83,7 @@ public class SellList implements MvcAction {
 					String endday = ""+(Integer.parseInt(year));
 					startday = startday+"-"+month+"-"+day;
 					endday = endday+"-"+month+"-"+(Integer.parseInt(day)+1);
-					salesList = new BasketpaidDAO().buyListByHotComDate(comcode, startday, endday);
+					salesList = new BasketpaidDAO().buyListByHotComDateDay(comcode, startday);
 				}
 			}
 			
@@ -163,7 +163,7 @@ public class SellList implements MvcAction {
 				endday = endday+"-"+month+"-"+(Integer.parseInt(day)+1);
 
 				
-				ArrayList<BasketpaidDTO> plists = new BasketpaidDAO().buyListByDate(startday, endday);
+				ArrayList<BasketpaidDTO> plists = new BasketpaidDAO().buyListByDateDay(startday);
 				
 				ArrayList<BasketpaidDTO> hlists = new ArrayList<BasketpaidDTO>();
 				ArrayList<BasketpaidDTO> alists = new ArrayList<BasketpaidDTO>();

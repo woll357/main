@@ -55,7 +55,7 @@ public class HotSalesList implements MvcAction {
 				String endday = ""+(Integer.parseInt(year));
 				startday = startday+"-"+month+"-"+day;
 				endday = endday+"-"+month+"-"+(Integer.parseInt(day)+1);
-				salesList = new BasketpaidDAO().buyListByRcodeDate(rcode, startday, endday);
+				salesList = new BasketpaidDAO().buyListByRcodeDateDay(rcode, startday);
 			}
 				
 
@@ -90,7 +90,7 @@ public class HotSalesList implements MvcAction {
 				startday = startday+"-"+month+"-"+day;
 				endday = endday+"-"+month+"-"+(Integer.parseInt(day)+1);
 
-				salesList = new BasketpaidDAO().buyListHotDate(startday, endday);
+				salesList = new BasketpaidDAO().buyListHotDateDay(startday);
 				
 			}
 		}
