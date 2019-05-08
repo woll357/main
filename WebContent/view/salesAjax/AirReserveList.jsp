@@ -8,7 +8,7 @@
 		location.href="../purchase/TravelerInfoDetail?basketID="+id+"&aotcont=in";
 			
 	}
-
+	
 	function formatDate() {
 		
 	var d = new Date(); 
@@ -39,6 +39,7 @@
 		
 	}
 </script>
+<h1>나와요?</h1>
 	<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 		<tr>
 			<td id="zz" style="border-bottom: 10px #dcefef solid;">상품코드</td>
