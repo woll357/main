@@ -28,6 +28,14 @@ public class JustBuyDetail implements MvcAction {
 				jbdto.setBasketID(basketIDs[j]);
 			jbdto = new BasketpaidDAO().detail(jbdto);
 			totalPrice += jbdto.getTotalPrice();
+			
+			if(jbdto.getcType().equals("A")) {
+				adtos.add(jbdto);
+			}
+			else if(jbdto.getcType().equals("H")) {
+				hdtos.add(jbdto);
+			
+			}
 		}
 		request.setAttribute("totalPrice", totalPrice);
 		request.setAttribute("hdtos",hdtos);
