@@ -2,6 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%request.setCharacterEncoding("utf-8"); %>
+<script>
+function TravelerInfoDetail(id){
+	
+	location.href="TravelerInfoDetail?basketID="+id+"&mypage=in";
+		
+}
+</script>
 	<table border="" >
 		<tr>
 			<td>항공사명</td>
@@ -24,11 +31,6 @@
 			<td>${adto.location2 }</td>
 			<td>${adto.psn }</td>
 			
-			<td>
-			<form action="TravelerInfoDetail">
-			<input type="submit" value="여행객 상세 정보" />
-			<input type="hidden" name="basketID" value="${adto.basketID }" /></form>
-			</td>
 			
 			<td>
 			<form action="RefundReg">

@@ -51,6 +51,7 @@
 			<td>${i.id }</td>
 			<td>
 			<button onclick="boarding('${i.basketID }', '${i.ddateStr }')">보딩</button></td>
+			<td><button onclick="TravelerInfoDetail('${i.basketID}')" >여행객 상세 정보</button></td>
 		</tr>
 		</c:forEach>
 		
