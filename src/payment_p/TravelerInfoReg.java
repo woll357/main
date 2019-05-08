@@ -66,6 +66,8 @@ public class TravelerInfoReg implements MvcAction {
 		System.out.println(id);
 		
 		
+		int index = 0;
+		
 		for (int i = 0; i < airBaskets.length; i++) {
 			
 			BasketDTO bdto = new BasketDTO();
@@ -81,7 +83,7 @@ public class TravelerInfoReg implements MvcAction {
 			//다시해야한다
 
 			
-			for (int j = 0; j < bdto.getPsn(); j++) {
+			for (int j = index; j < index+bdto.getPsn(); j++) {
 				
 				dto.setMainEngLastName(mainEngLastName);
 				dto.setMainEngFirstName(mainEngFirstName);
@@ -100,7 +102,7 @@ public class TravelerInfoReg implements MvcAction {
 				
 				new TravelerInfo_tempDAO().insert(dto); 
 			};
-			
+			index = index+bdto.getPsn();
 		};
 		
 		int totalPrice = 0;
