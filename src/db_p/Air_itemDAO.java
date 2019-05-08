@@ -1565,6 +1565,7 @@ public Object mair_planeitemlist(String ap_code , int page , int limit) {
 					
 					while(rs.next()) {
 						
+						dto.setAir_code(rs.getString("air_code"));
 						dto.setDdate(rs.getTimestamp("ddate"));
 						dto.setDarea(rs.getString("darea"));
 						dto.setCarea(rs.getString("carea"));
