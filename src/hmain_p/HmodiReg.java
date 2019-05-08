@@ -39,6 +39,7 @@ public class HmodiReg implements MvcAction {
 			dto.setCountry(mm.getParameter("country"));
 			dto.setCity(mm.getParameter("city"));
 			dto.setId(mm.getParameter("id"));
+
 			
 			if(mm.getParameter("himg")!= null)
 			dto.setHimg(mm.getParameter("himg"));

@@ -492,6 +492,7 @@ public SignUpDTO phonefind(Hot_comDTO dto) {
 				res.setHcode(rs.getString("hcode"));
 				res.setHinfo(rs.getString("hinfo"));
 				res.setAddDetail(rs.getString("adddetail"));
+
 				
 				
 			}

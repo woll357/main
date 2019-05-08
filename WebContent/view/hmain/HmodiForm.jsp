@@ -19,7 +19,7 @@
 		<tr>
 			<td style="border-bottom: 10px #dcefef solid;">호텔정보</td>
 			<td><input type="text" name="hinfo" value="${dto.hinfo }" id="hinfo"/></td>
-		</tr>    
+		</tr>   
     	<tr>
 			<td style="border-bottom: 10px #dcefef solid;">파일</td>
 			<td>

@@ -7,6 +7,8 @@ public class Hot_comDTO {
 	String id,crn,hname,hinfo,grade,himg,country,city,addDetail,hcode;
 	double salesPercent;
 	
+	
+
 	public double getSalesPercent() {
 		return salesPercent;
 	}

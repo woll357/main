@@ -72,7 +72,9 @@ function mkdate(){
 	}
 }
 </script>
-<table>
+<div align="center">
+<h1>예약내역</h1>
+<table style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 <tr>
 	<td>상품코드</td>
 	<td>
@@ -113,7 +115,8 @@ function mkdate(){
 	</td>
 	</tr>
 	</table>
-	<div id="searchResult">
+	</div>
+	<div id="searchResult" align="center">
 
 	</div>
 <script>

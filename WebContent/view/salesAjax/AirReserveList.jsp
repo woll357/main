@@ -31,15 +31,15 @@
 		
 	}
 </script>
-	<table>
+	<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 		<tr>
-			<td id="zz">상품코드</td>
-			<td>상품이름</td>
-			<td>이륙날짜</td>
-			<td>착륙날짜</td>
-			<td>사람수</td>
-			<td>고객id</td>
-			<td>보딩</td>
+			<td id="zz" style="border-bottom: 10px #dcefef solid;">상품코드</td>
+			<td style="border-bottom: 10px #dcefef solid;">상품이름</td>
+			<td style="border-bottom: 10px #dcefef solid;">이륙날짜</td>
+			<td style="border-bottom: 10px #dcefef solid;">착륙날짜</td>
+			<td style="border-bottom: 10px #dcefef solid;">사람수</td>
+			<td style="border-bottom: 10px #dcefef solid;">고객id</td>
+			<td style="border-bottom: 10px #dcefef solid;">보딩</td>
 		</tr>
 		<c:forEach var="i" items="${reserveList }" >
 		<tr id="bd">
