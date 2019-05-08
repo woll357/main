@@ -20,7 +20,7 @@ public class AirItem_ListY implements MvcAction {
 		
 		int limit = 10; //한 페이지 당 게시물 수
 		
-		   int pageLimit =  4; //리스트 하단에 보여질 페이지 번호 갯수
+		   int pageLimit =  5; //리스트 하단에 보여질 페이지 번호 갯수
 		
 		   
 		   int page = 1;
@@ -32,7 +32,7 @@ public class AirItem_ListY implements MvcAction {
 		  	Air_itemDAO dao = new Air_itemDAO();
 		      
 		      //전체글 수 가져오기.
-		      int total = dao.total();
+		      int total = dao.total2();
 		      
 		      //천체페이지수
 		      int totalpage = total/limit;

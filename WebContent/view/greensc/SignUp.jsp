@@ -86,7 +86,7 @@
 					<option value="인천">인천</option>
 
 			</select> <input type="text" name="addDetail" id="addDetail" value="상세주소" onkeyup="chkPat()"/>
-			<div id="addTag"></div>
+			
 			</td>
 
 		</tr>

@@ -3,15 +3,10 @@
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>지난상품 목록</title>
+ <link rel="stylesheet" href="../css/nh/centerList.css" type="text/css">
 </head>
 <body>
-</head>
-<body>
-<h1>지난상품 목록</h1>
-	<table width=100% >	
+<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 	<tr>
 		<td width="40">상품코드</td>
 		<td width="30">비행기코드</td>

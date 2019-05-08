@@ -99,8 +99,8 @@
 		
 		
 		
-		var lastDay = ( new Date(eval($('#birth').val().slice(0,4))+1900, 
-				eval($('#birth').val().slice(4,6))+2, 0)).getDate();
+		var lastDay = ( new Date(eval($('#birth').val().slice(0,4)), 
+				eval($('#birth').val().slice(4,6)), 0)).getDate();
 		var yychk = (new Date()).getYear();
 		var mmchk = (new Date()).getMonth();
 		var ddchk = (new Date()).getDate();
@@ -125,12 +125,12 @@
 		
 			}
 		if(!/[.!@#$%^&*A-Za-z]/.test($('#addDetail').val()) && $('#addDetail').val().length>0 && $('#addDetail').val()!="상세주소"){
-			$('#addTag').html("정상입력");
+			
 			chk8=true;
 		}else{
 			chk8=false;
 			msg = "주소 확인 부탁드립니다.";
-			$('#addTag').html("");
+			
 		}
 		if(numPat.test($('#birth').val()) && $('#birth').val().length >7
 				&& eval($('#birth').val().slice(4,6))<13 && eval($('#birth').val().slice(4,6))>0

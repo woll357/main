@@ -52,7 +52,30 @@ public class CenterDAO {
 		
 		return res;
 	}
-	
+	public int bbtotal(SignUpDTO dto) {
+		int res = 0;
+		
+		try {
+			
+			sql = "select count(*) from member where preason=?"; 
+			//limit : a번부터 b번까지
+			
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.preason);
+			rs = ptmt.executeQuery();
+			
+			rs.next();
+			
+			res = rs.getInt(1);
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
 	
 	public ArrayList<Integer> qnaCnt(CenterDTO dto) {
 		ArrayList<Integer> res = null;

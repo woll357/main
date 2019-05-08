@@ -5,6 +5,8 @@ $(document).ready(function(){
 			 $('.dd').css({
 				 'visibility': 'hidden'
 			 })
+			 $('.ssdate2').val('');
+			 
 			 $('#awp').css({
 				 'background-color': '#dcefef'
 			 })

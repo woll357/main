@@ -44,15 +44,27 @@ $(document).ready(function(){
 		   });
 	   $('#btn4').on({
 		      'click':function(){
-		    	  console.log($('#preason').val());
+		    	  
 		    	  dataGet("../greenAjax/Find?preason="+$('#preason').val()+"&black="+"black");
 		    	  $('#id').val("");
 		    	  $('#phone').val("");
 		    	  $('#name').val("");
 		    	  
 		      }
+	   		
 		   });
 	   
+	   $('#pageBtn').on({
+		      'click':function(){
+		    	  console.log("zzzz");
+		    	  dataGet("../greenAjax/Find?preason="+$('#preason').val()+"&black="+"black&page="+$('#pageBtn').attr('data-page'));
+		    	  $('#id').val("");
+		    	  $('#phone').val("");
+		    	  $('#name').val("");
+		    	  
+		      }
+	   		
+		   });
 	   
 	function dataGet(url){
 		$.ajax(url,

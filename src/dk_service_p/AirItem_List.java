@@ -60,20 +60,7 @@ public class AirItem_List implements MvcAction {
 	      request.setAttribute("endpage", endpage);
 	      request.setAttribute("totalpage", totalpage);
 	      request.setAttribute("totalpage",totalpage);
-	      
-	      System.out.println("리스트 서비스 진입");
-	      
-	      
-	      System.out.println("토탈asdasdasdasd"+total);
-	      System.out.println("토탈asdasdasdasd"+total);
-	      System.out.println("토탈asdasdasdasd"+total);
-	      
-	      System.out.println("토탈ㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹ"+totalpage);
-	      System.out.println("토탈ㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹ"+totalpage);
-	      System.out.println("토탈ㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹ"+totalpage);
-	      System.out.println("토탈ㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹ"+totalpage);
-	      System.out.println("토탈ㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹ"+totalpage);
-	      
+	   
 	      
 	      
 		return null;

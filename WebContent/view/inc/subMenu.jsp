@@ -73,7 +73,7 @@
 		<table width=100% >
 			<tr>
 				<td><a href="../Manager/AirLine_List?partner=in">항공사 목록</a></td>
-				<td><a href="../Manager/AirItem_ListY?aotcont=in">지난상품목록조회</a></td>
+				<td><a href="../Manager/AirItem_ListY?partner=in">지난상품목록조회</a></td>
 				<td><a href="../Manager/AirItem_List?partner=in">상품목록조회</a></td>
 				<td><a href="../Manager/Airplane_List?partner=in">비행기목록</a></td>
 				<td><a href="../Manager/Airp_List?partner=in">항공편목록</a></td>

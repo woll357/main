@@ -25,9 +25,7 @@ public class AirLine_ModifyFm implements MvcAction {
 		
 		HttpSession session = request.getSession();
 		
-	System.out.println(" AirLine_ModifyFm 페이지 진입");
-	System.out.println(" 항공사가 수정이 되는 페이지");
-		
+
 		String path = request.getRealPath("/img");
 	
 		path = new Common().getPath();
@@ -63,11 +61,7 @@ public class AirLine_ModifyFm implements MvcAction {
 				msg = "수정되었습니다.";
 				goUrl = "AirLine_Detail?id="+dto.getId();
 				
-			}
-//			else if((mm.getParameter("img")==null)){
-//				File ff = new File(path+"\\"+dto.getImg());
-//				ff.delete();
-//			}
+			}	
 			
 			request.setAttribute("msg", msg);
 			request.setAttribute("goUrl", goUrl);

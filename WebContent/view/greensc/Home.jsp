@@ -326,7 +326,12 @@ width: 250px;
 						<td>인원</td>
 					</tr>
 					<tr>
-						<td><input type="number" name="pcnt" id="pcnt" /></td>
+						<td>
+						<select name="pcnt" id="pcnt">
+										<option value="2">2</option>
+										<option value="4">4</option>
+								</select>
+						</td>
 					</tr>
 					<tr>
 						<td>등급</td>
@@ -334,7 +339,7 @@ width: 250px;
 					<tr>
 						<td><select name="rkind" id="rkind" class="hotSelect">
 								<option value="D">디럭스룸</option>
-								<option value="S">스위트룸</option>
+								<option value="S">스탠다드룸</option>
 						</select></td>
 					</tr>
 					<tr>

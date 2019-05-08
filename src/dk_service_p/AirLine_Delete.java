@@ -25,7 +25,7 @@ public class AirLine_Delete implements MvcAction {
 		String msg = "";
 		String goUrl = "";
 
-		System.out.println("!!!!!!!!!!!!!"+request.getParameter("air_code"));
+		
 		
 		
 		Air_comDTO cdto = new Air_comDTO();

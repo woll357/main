@@ -425,9 +425,6 @@ public class SignUpDAO {
 	}
 	
 	
-	
-	
-	
 	public void rejectUp(SignUpDTO dto) {
 
 		try {
@@ -906,7 +903,57 @@ public class SignUpDAO {
 		return res;
 	}
 	
-	
+	public ArrayList<SignUpDTO> memList(SignUpDTO dto, int page, int limit) {
+		
+		
+		ArrayList<SignUpDTO> res = new ArrayList<SignUpDTO>();
+		SignUpDTO dto2 = null;
+		try {
+			
+					sql = "select * from member where preason= ? and black='블랙리스트' limit ?, ?";
+					ptmt = con.prepareStatement(sql);
+					ptmt.setString(1, dto.getPreason());
+					ptmt.setInt(2, page);
+					ptmt.setInt(3, limit);
+					rs = ptmt.executeQuery();
+
+					while(rs.next()) {
+						dto2 = new SignUpDTO();
+					dto2.setId(rs.getString("id"));
+					dto2.setPw(rs.getString("pw"));
+					dto2.setEmail(rs.getString("email"));
+					dto2.setPhone(rs.getString("phone"));
+					dto2.setCountry(rs.getString("country"));
+					dto2.setCity(rs.getString("city"));
+					dto2.setAddDetail(rs.getString("addDetail"));
+					dto2.setBlack(rs.getString("black"));
+					dto2.setPreason(rs.getString("preason"));
+					dto2.setGender(rs.getString("gender"));
+					dto2.setAddDetail(rs.getString("addDetail"));
+					dto2.setPname(rs.getString("pname"));
+					dto2.setBirth(rs.getString("birth"));
+					
+					String pp[]=rs.getString("phone").split("-");
+					dto2.setPhone1(pp[0]);
+					dto2.setPhone2(pp[1]);
+					dto2.setPhone3(pp[2]);
+					String ee[]=rs.getString("email").split("@");
+					dto2.setEmail1(ee[0]);
+					dto2.setEmail2(ee[1]);
+					
+					res.add(dto2);
+					}
+				
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return res;
+	}
 
 	public boolean chkMem(SignUpDTO dto) {
 		

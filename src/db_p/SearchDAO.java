@@ -37,7 +37,7 @@ public class SearchDAO {
 
 		try {
 			
-			sql="select air_com.img, air_item.ddate, air_item.darea, air_item.carea, air_item.seatcnt, air_item.flightclass, money, air_item.a_time, air_com.air_name,air_item.ap_Code,air_item.cCode from air_item, air_com " + 
+			sql="select air_com.img, air_item.ddate, air_item.darea, air_item.carea, air_item.seatcnt, air_item.flightclass, money, air_item.a_time, air_com.air_name,air_item.ap_Code,air_item.cCode, air_item.totseatcnt from air_item, air_com " + 
 				"where date(air_item.ddate)=date(?) and air_item.darea=? and air_item.carea =? and (air_item.totseatcnt-air_item.seatcnt)>=? and air_item.flightclass=? and air_item.air_code=air_com.air_code order by money;";
 			ptmt = con.prepareStatement(sql);
 			
@@ -61,6 +61,7 @@ public class SearchDAO {
 				dto.setSeatcnt(rs.getInt("seatcnt"));
 				dto.setcCode(rs.getString("cCode"));
 				dto.setImg(rs.getString("img"));
+				dto.setTotseatcnt(rs.getInt("totseatcnt"));
 				res.add(dto);
 			}
 			

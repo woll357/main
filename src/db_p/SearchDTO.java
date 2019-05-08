@@ -8,11 +8,17 @@ public class SearchDTO {
 		
 	String darea, carea, img, air_code, cCode, flightclass, ap_Code, ddate, a_time, air_name;
 	String hname, city, country, hinfo, startDay, endDay, rkind, rcode;
-	Integer money, seatcnt, pcnt,rescnt;
+	Integer money, seatcnt, pcnt,rescnt, totseatcnt;
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
 	
 	
+	public Integer getTotseatcnt() {
+		return totseatcnt;
+	}
+	public void setTotseatcnt(Integer totseatcnt) {
+		this.totseatcnt = totseatcnt;
+	}
 	public String getRcode() {
 		return rcode;
 	}

@@ -246,53 +246,7 @@ public Object air_pdetaill(String a) {
 	
 	
 	
-		public Object air_pdetail(Air_itemDTO dto) {
-			
-			ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
-				//air_itemDTO res = null;
-				
-				sql = "select * from air_item where air_p = ? or date(ddate)=date(?) " ;
-				
-				try {
-					
-					System.out.println("진입집이");
-					ptmt = con.prepareStatement(sql);
-					ptmt.setString(1, dto.getAir_p());
-					ptmt.setString(2, dto.getDdateStr());
 		
-					rs = ptmt.executeQuery();
-					
-					while(rs.next()) {
-						
-						dto = new Air_itemDTO();
-						
-						dto.setDdate(rs.getTimestamp("ddate"));
-						dto.setDarea(rs.getString("darea"));
-						dto.setCarea(rs.getString("carea"));
-						dto.setAp_code(rs.getString("ap_code"));
-						dto.setCcode(rs.getString("ccode"));
-						dto.setMoney(rs.getInt("money"));
-						dto.setA_time(rs.getTimestamp("a_time"));
-						dto.setSeatcnt(rs.getInt("seatcnt"));
-						dto.setFlightclass(rs.getString("flightclass"));	
-						dto.setTotseatcnt(rs.getInt("totseatcnt"));
-					
-						
-						res.add(dto);
-						
-						
-					}
-							
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				
-				}finally {
-				   close();
-			  }
-				       
-				return res;
-			}
 	
 	
 	

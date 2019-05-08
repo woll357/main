@@ -54,7 +54,7 @@
 					<td class="hg">
 					<c:choose>
 					<c:when test="${dto.rkind=='D' }">디럭스룸</c:when>
-					<c:otherwise>스위트룸</c:otherwise>
+					<c:otherwise>스탠다드룸</c:otherwise>
 					</c:choose>
 
 					</td>

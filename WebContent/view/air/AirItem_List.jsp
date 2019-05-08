@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+
 <!DOCTYPE html>
+
 <html>
-<head>
-<meta charset="UTF-8">
-<title>상품 목록</title>
-</head>
+ <link rel="stylesheet" href="../css/nh/centerList.css" type="text/css">
 <body>
 </head>
 <body>
 <h1>상품 목록</h1>
 <form action="AirItem_Detail">
-	<table width=100% >	
+<input type="hidden" name= "aotcont"  value="in"/>
+<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 		<tr>
 			<td style="background: #D4F4FA" colspan="8">상품 코드</td>
 			<td style="background: #D4F4FA"><input type="text" name="ccode" /></td>
@@ -36,7 +36,7 @@
 
 
 	<tr>	
-	<td><a href="AirItem_Detail?ccode=${dto.ccode }">${dto.ccode }</a></td>	
+	<td><a href="AirItem_Detail?ccode=${dto.ccode }&aotcont=in">${dto.ccode }</a></td>	
 		<td>${dto.ap_code }</td>
 		<td>${dto.ddate }</td>
 		<td>${dto.darea }</td>

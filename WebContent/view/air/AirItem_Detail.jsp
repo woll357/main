@@ -1,19 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-
-
-
+ <link rel="stylesheet" href="../css/nh/centerList.css" type="text/css">
 <body>
-<h1>상품 상세</h1>
-<form action="AirItem_Detail">
 
-	<table width=100%>	
+<form action="AirItem_Detail">
+	<input type="hidden" name= "aotcont"  value="in"/>
+<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 		<tr>
-			<td style="background: #FFFFFF" colspan="8">상품 코드</td>
-			<td style="background: #FFFFFF"><input type="text" name="ccode" /></td>
-			<td style="background: #FFFFFF" align="center"><input type="submit" value="선택  " /></td>
+			<td colspan="8" style="background: #D4F4FA">상품 코드</td>
+			<td style="background: #D4F4FA"><input type="text" name="ccode" /></td>
+			<td align="center" style="background: #D4F4FA"><input type="submit" value="선택  " /></td>
 		</tr>
 	<tr>
 		<td>상품코드</td>

@@ -5,18 +5,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>항공편 검색</title>
+
 </head>
 <body>
 <h4>항공편 검색</h4>
 <form action="Airp_Detail">
-	<table border="" >	
+<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<input type="hidden" name= "aotcont"  value="in"/>
+<input type="hidden" value="${air_p }" name="air_p">
 		<tr>
-			<td colspan="4">항공편 코드</td>
-			<td><input type="text" name="air_p" /></td>
-			<td>날짜</td>
-			<td><input type="text" name="ddate" /></td>
-			<td align="center"><input type="submit" value="선택  " /></td>
+			<td style="background: #D4F4FA" colspan="6">날짜</td>
+			<td style="background: #D4F4FA"><input type="text" name="ddate" /></td>
+			<td style="background: #D4F4FA" align="center"><input type="submit" value="선택  " /></td>
 		</tr>
 	<tr>
 		<td>상품코드</td>
@@ -31,7 +31,7 @@
 <c:forEach var="dt" items="${dto }" varStatus="no" >
 	<tr>
 	
-	<td><a href="airdetail?ccode=${dt.ccode }&aotcont=in">${dt.ccode }</a></td>	
+	<td><a href="AirItem_Detail?ccode=${dt.ccode }&aotcont=in">${dt.ccode }</a></td>	
 		<td>${dt.ap_code }</td>
 		<td>${dt.ddate }</td>
 		<td>${dt.darea }</td>
