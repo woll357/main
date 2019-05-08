@@ -2,36 +2,33 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%request.setCharacterEncoding("utf-8"); %>
-<table>
+<div align="center">
+<h1>여행객 상세정보</h1>
+<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 	<tr>
-		<td>여권번호</td>
-		<td>생년월일</td>
-		<td>영문 성</td>
-		<td>영문 이름</td>
-		<td>한글 이름</td>
-		<td>연락처</td>
-		<td>이메일</td>
+		<td style="border-bottom: 10px #dcefef solid;">여권번호</td>
+		<td style="border-bottom: 10px #dcefef solid;">생년월일</td>
+		<td style="border-bottom: 10px #dcefef solid;">영문 성</td>
+		<td style="border-bottom: 10px #dcefef solid;">영문 이름</td>
+		<td style="border-bottom: 10px #dcefef solid;">한글 이름</td>
+		<td style="border-bottom: 10px #dcefef solid;">연락처</td>
+		<td style="border-bottom: 10px #dcefef solid;">이메일</td>
 	</tr>
 <c:forEach var="i" items="${tdtos }">
 		<tr>
 			<td>${i.passport }</td>
-			<td>19${i.birthDate.substring(0,2) }</td>
-			<td>년</td>
-			<td>${i.birthDate.substring(2,4) }</td>
-			<td>월</td>
-			<td>${i.birthDate.substring(4) }</td>
-			<td>일</td>
+			<td>19${i.birthDate.substring(0,2) }년 ${i.birthDate.substring(2,4) }월 ${i.birthDate.substring(4) }일</td>
 			<td>${i.cEngLastName }</td>
 			<td>${i.cEngFirstName }</td>
 			<td>${i.cKorName }</td>
-			<td>${i.cph1 }</td>
-			<td>-</td>
-			<td>${i.cph2 }</td>
-			<td>-</td>
-			<td>${i.cph3 }</td>
-			<td>${i.cemail1 }</td>
-			<td>@</td>
-			<td>${i.cemail2 }</td>
+			<td>${i.cph1 }-${i.cph2 }-${i.cph3 }</td>
+			<td>${i.cemail1 }@${i.cemail2 }</td>
 		</tr>
 </c:forEach>
 </table>
+		 <c:choose>
+		<c:when test="${tdtos.size()==0 }">
+			<h2>조회된 결과가 없습니다.</h2>
+		</c:when>
+		</c:choose>
+</div>

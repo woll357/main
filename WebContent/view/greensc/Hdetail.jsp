@@ -39,7 +39,7 @@
 <table border="">
 	<tr>
 		<tr>
-		<td rowspan="7"><img src="../img/${data.rimg }" alt="" /></td>
+		<td rowspan="7"><img width="280" src="../img/${data.rimg }" alt="" /></td>
 		<td>방종류</td>
 		<c:if test="${data.rkind=='S' }">
 		<td>스탠다드</td>
