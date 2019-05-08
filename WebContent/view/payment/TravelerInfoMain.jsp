@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%request.setCharacterEncoding("utf-8"); %>
 
-<h1>여행객 정보 입력 페이지</h1>
+<h1>여행객 정보</h1>
 <form name="frm" action="../payment/TravelerInfoReg" method="post">
 
 <c:forEach var="l" items="${basketIDs }" >
@@ -23,15 +23,15 @@
 
 	<c:forEach var="i" items="${airBaskets }" >
 		<input type="hidden" name="airBaskets" value="${i.basketID }"  />
-				<table border="0px">
+				<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 					<tr>
-					<td style="width:75px">성명(한글)</td>
-					<td>여권번호</td>
-					<td>성(영어)</td>
-					<td>이름(영어)</td>
-					<td>생년월일 6자리</td>
-					<td>연락처</td>
-					<td>이메일</td>
+					<td style="border-bottom: 10px #dcefef solid;">성명(한글)</td>
+					<td style="border-bottom: 10px #dcefef solid;">여권번호</td>
+					<td style="border-bottom: 10px #dcefef solid;">성(영어)</td>
+					<td style="border-bottom: 10px #dcefef solid;">이름(영어)</td>
+					<td style="border-bottom: 10px #dcefef solid;">생년월일 6자리</td>
+					<td style="border-bottom: 10px #dcefef solid;">연락처</td>
+					<td style="border-bottom: 10px #dcefef solid;">이메일</td>
 					</tr>
 					
 					<c:forEach  var="j" begin="1" end="${i.psn }" step="1" >
