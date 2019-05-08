@@ -5,9 +5,13 @@
 <script>
 function TravelerInfoDetail(id){
 	
-	location.href="TravelerInfoDetail?basketID="+id+"&mypage=in";
-		
+	location.href="TravelerInfoDetail?basketID="+id+"&mypage=in";	
 }
+function Refund(id){
+	
+	location.href="RefundReg?basketID="+id+"&mypage=in";	
+}
+
 </script>
 <div align="center">
 <h1>항공예약내역</h1>
@@ -33,11 +37,7 @@ function TravelerInfoDetail(id){
 			<td>${adto.location2 }</td>
 			<td>${adto.psn }</td>
 			<td><button onclick="TravelerInfoDetail('${adto.basketID}')" >여행객 상세 정보</button></td>
-			<td>
-			<form action="RefundReg">
-			<input type="submit" value="환불" />
-			<input type="hidden" name="basketID" value="${adto.basketID }" /></form>
-			</td>
+			<td><button onclick="Refund('${adto.basketID}')" >환불</button></td>
 		</tr>
 		</c:forEach>
 	</table>
@@ -72,11 +72,7 @@ function TravelerInfoDetail(id){
 			<td>${hdto.location2 }</td>
 			<td>${hdto.psn }</td>
 			
-			<td>
-			<form action="RefundReg">
-			<input type="submit" value="환불" />
-			<input type="hidden" name="basketID" value="${hdto.basketID }" /></form>
-			</td>
+			<td><button onclick="Refund('${hdto.basketID}')" >환불</button></td>
 
 		</tr>
 		</c:forEach>

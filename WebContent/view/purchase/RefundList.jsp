@@ -6,17 +6,19 @@
 <h1>환불내역조회</h1>
 <table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 		<tr>
-			<td style="border-bottom: 10px #dcefef solid;">항공사명</td>
-			<td style="border-bottom: 10px #dcefef solid;">비행기코드</td>
-			<td style="border-bottom: 10px #dcefef solid;">출발날짜</td>
-			<td style="border-bottom: 10px #dcefef solid;">도착날짜</td>
-			<td style="border-bottom: 10px #dcefef solid;">출발도시</td>
-			<td style="border-bottom: 10px #dcefef solid;">도착도시</td>
+			<td style="border-bottom: 10px #dcefef solid;">회사명</td>
+			<td style="border-bottom: 10px #dcefef solid;">상품종류</td>
+			<td style="border-bottom: 10px #dcefef solid;">상품명</td>
+			<td style="border-bottom: 10px #dcefef solid;">시작날짜</td>
+			<td style="border-bottom: 10px #dcefef solid;">끝날짜</td>
+			<td style="border-bottom: 10px #dcefef solid;"></td>
+			<td style="border-bottom: 10px #dcefef solid;"></td>
 			<td style="border-bottom: 10px #dcefef solid;">예약인원</td>
 		</tr>
 		<c:forEach var="bpdto" items="${bpdtos }"   >
 		<tr>
 			<td>${bpdto.cName }</td>
+			<td>${bpdto.cType }</td>
 			<td>${bpdto.itemName }</td>
 			<td>${bpdto.ddateStr }</td>
 			<td>${bpdto.fdateStr }</td>

@@ -65,6 +65,8 @@ public class TravelerInfoReg implements MvcAction {
 		String bid = request.getParameter("bid");
 		System.out.println(id);
 		
+		int index = 0;
+		
 		for (int i = 0; i < airBaskets.length; i++) {
 			
 			BasketDTO bdto = new BasketDTO();
@@ -78,8 +80,7 @@ public class TravelerInfoReg implements MvcAction {
 			dto.setBasketID(airBaskets[i]);		
 			
 			//다시해야한다
-			
-			int index = 0;
+
 			
 			for (int j = index; j < index + bdto.getPsn(); j++) {
 				
