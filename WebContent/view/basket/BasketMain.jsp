@@ -2,19 +2,22 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%request.setCharacterEncoding("utf-8"); %>
+<div align="center">
+
 <form  name = "basket" action="BasketReg" method="post">
-	<table border="" >
+	<h1>항공장바구니</h1>
+	<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0" >
 		<tr>
-			<td>상태</td>
-			<td>항공사명</td>
-			<td>비행기코드</td>
-			<td>출발날짜</td>
-			<td>도착날짜</td>
-			<td>출발도시</td>
-			<td>도착도시</td>
-			<td>예약인원</td>
-			<td>금액</td>
-			<td>삭제</td>
+			<td style="border-bottom: 10px #dcefef solid;">상태</td>
+			<td style="border-bottom: 10px #dcefef solid;">항공사명</td>
+			<td style="border-bottom: 10px #dcefef solid;">비행기코드</td>
+			<td style="border-bottom: 10px #dcefef solid;">출발날짜</td>
+			<td style="border-bottom: 10px #dcefef solid;">도착날짜</td>
+			<td style="border-bottom: 10px #dcefef solid;">출발도시</td>
+			<td style="border-bottom: 10px #dcefef solid;">도착도시</td>
+			<td style="border-bottom: 10px #dcefef solid;">예약인원</td>
+			<td style="border-bottom: 10px #dcefef solid;">금액</td>
+			<td style="border-bottom: 10px #dcefef solid;">삭제</td>
 		</tr>
 		<c:forEach var="adto" items="${adtos }"   >
 		<tr>
@@ -31,18 +34,19 @@
 		</tr>
 		</c:forEach>
 	</table>
-	<table border="">
+		<h1>호텔장바구니</h1>
+	<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 		<tr>
-			<td>상태</td>
-			<td>호텔이름</td>
-			<td>방이름</td>
-			<td>체크인날짜</td>
-			<td>체크아웃날짜</td>
-			<td>국가명</td>
-			<td>도시명</td>
-			<td>방인원</td>
-			<td>금액</td>
-			<td>삭제</td>
+			<td style="border-bottom: 10px #dcefef solid;">상태</td>
+			<td style="border-bottom: 10px #dcefef solid;">호텔이름</td>
+			<td style="border-bottom: 10px #dcefef solid;">방이름</td>
+			<td style="border-bottom: 10px #dcefef solid;">체크인날짜</td>
+			<td style="border-bottom: 10px #dcefef solid;">체크아웃날짜</td>
+			<td style="border-bottom: 10px #dcefef solid;">국가명</td>
+			<td style="border-bottom: 10px #dcefef solid;">도시명</td>
+			<td style="border-bottom: 10px #dcefef solid;">방인원</td>
+			<td style="border-bottom: 10px #dcefef solid;">금액</td>
+			<td style="border-bottom: 10px #dcefef solid;">삭제</td>
 		</tr>
 		
 		<c:forEach var="hdto" items="${hdtos }" >
@@ -66,6 +70,7 @@
 	</tr>
 	</table>
 </form>
+</div>
 
 <script>
 
