@@ -147,8 +147,6 @@
 		
 		  $('#btn').on({
 		      'click':function(){
-	    			alert("들어오니??");
-	    			alert($('#check').attr("checked"));
 		    	  
 		    		if(chk1 && chk2 && chk3 && chk4 && chk5 && chk6){
 		    			chk=true;
