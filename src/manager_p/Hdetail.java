@@ -17,6 +17,11 @@ public class Hdetail implements MvcAction {
 		// TODO Auto-generated method stub
 		Hot_comDTO dto = new Hot_comDTO();
 		dto.setHcode(request.getParameter("hcode"));
+		
+		SignUpDTO sdto = new Hot_tempDAO().phonefind(dto);
+		
+		request.setAttribute("sdto", sdto);
+		
 			
 		Hot_comDTO dto2 = new Hot_tempDAO().detail2(dto);
 		

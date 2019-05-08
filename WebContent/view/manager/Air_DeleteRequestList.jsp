@@ -10,7 +10,7 @@
 </head>
 <body>
 <div align="center">
-<h1>삭제신청목록</h1>
+<h1>호텔삭제신청목록</h1>
 
 <table border="" width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 		<c:choose>

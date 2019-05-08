@@ -30,6 +30,9 @@ public class Hot_tempDAO {
 		
 	}
 	
+	
+	
+	
 	public void roomdelete(Room_itemDTO dto) {
 		
 
@@ -62,6 +65,27 @@ public void holddelete(Hold_tableDTO dto) {
 		close();
 	}	
 }
+public SignUpDTO phonefind(Hot_comDTO dto) {
+	SignUpDTO res = null;
+		sql = "select phone from member where id=(select id from hot_com where hcode=?)";
+		
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.hcode);
+			rs = ptmt.executeQuery();
+			if(rs.next()) {
+				res = new SignUpDTO();
+				res.setPhone(rs.getString("phone"));
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+	
+	
+	return res;
+}
+
+
 	public Hot_comDTO detail2(Hot_comDTO dto) {
 		Hot_comDTO res = null;
 		
@@ -422,6 +446,9 @@ public void holddelete(Hold_tableDTO dto) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		finally {
+			close();
+		}	
 		return res;
 	}
 	public int total2(Hot_comDTO dto) {
@@ -437,6 +464,9 @@ public void holddelete(Hold_tableDTO dto) {
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			}	
+			finally {
+				close();
 			}	
 		return res;
 	}

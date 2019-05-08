@@ -40,6 +40,10 @@
 		<td style="background: #D4F4FA" colspan="2" width="200">${dto.hcode }</td>
 	</tr>
 	<tr>
+		<td>아이디</td>
+		<td colspan="2">${dto.id }</td>
+	</tr>
+	<tr>
 		<td rowspan="3" width="220"><img src="../img/${dto.himg }" alt="" /></td>
 		<td>${dto.country }</td>
 		<td>${dto.city }</td>
@@ -54,7 +58,7 @@
 		<td colspan="3">${dto.addDetail }</td>
 	</tr>
 	<tr>
-	<td align="left" colspan="3"><a href="Hdetail?hcode=${dto.hcode }&partner=in">관리자상세조회</a></td>
+	<td align="right" colspan="3"><a href="Hdetail?hcode=${dto.hcode }&partner=in">관리자상세조회</a></td>
 	</tr>
 </c:forEach>
 	<tr>

@@ -3,7 +3,7 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <h2 align="center" >호텔상세보기</h2>
 <div align="center">
-<table border="">
+<table border="" style="text-align: center;">
 	<tr>
 		<td style="background: #D4F4FA">호텔코드</td>
 		<td style="background: #D4F4FA"  colspan="2">${dto.hcode }</td>
@@ -25,6 +25,10 @@
 	<tr>
 		<td>사업자등록번호</td>
 		<td colspan="2">${dto.crn }</td>
+	</tr>
+	<tr>
+		<td>연락처</td>
+		<td colspan="2">${sdto.phone }</td>	
 	</tr>
 </table>
 </div>
