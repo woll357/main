@@ -288,12 +288,16 @@ public class PaymentReg implements MvcAction {
 					BasketpaidDTO jbdto = new BasketpaidDTO();
 					jbdto.setBasketID(basketIDs[j]);
 					jbdto = new BasketpaidDAO().detail(jbdto);
-					totalPrice += jbdto.getTotalPrice();
 
 					if (jbdto.getcType().equals("A")) {
 						adtos.add(jbdto);
+						for (int k = 0; k < jbdto.getPsn(); k++) {
+							totalPrice += jbdto.getTotalPrice();
+						}
+						
 					} else if (jbdto.getcType().equals("H")) {
 						hdtos.add(jbdto);
+						totalPrice += jbdto.getTotalPrice();
 					}
 				}
 				request.setAttribute("totalPrice", totalPrice);

@@ -83,7 +83,11 @@ public class BasketAirReg implements MvcAction {
 					dto.setCode(cCodes[i]);
 					dto.setDdate(airdto.getDdate());
 					dto.setFdate(airdto.getA_time());
-					dto.setTotalPrice(airdto.getMoney());
+					int totalPrice = 0;
+					for (int j = 0; j < psn; j++) {
+						totalPrice +=airdto.getMoney(); 
+					}
+					dto.setTotalPrice(totalPrice);
 
 					new BasketDAO().insert(dto);
 
