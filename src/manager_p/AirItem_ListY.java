@@ -29,10 +29,10 @@ public class AirItem_ListY implements MvcAction {
 		      }
 		      
 		   
-		  	Air_itemDAO dao = new Air_itemDAO();
+		     	Air_itemDAO dao = new Air_itemDAO();
 		      
 		      //전체글 수 가져오기.
-		      int total = dao.total();
+		      int total = dao.total2();
 		      
 		      //천체페이지수
 		      int totalpage = total/limit;

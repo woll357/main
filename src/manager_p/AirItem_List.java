@@ -44,6 +44,7 @@ public class AirItem_List implements MvcAction {
 	      
 	      int start = (page-1)*limit;  //페이지 번호
 	      
+	   
 	      request.setAttribute("data", dao.itemlistm(start , limit));
 	      
 	      request.setAttribute("start", start);

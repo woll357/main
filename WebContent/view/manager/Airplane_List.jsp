@@ -17,7 +17,9 @@
 		<td style="background: #D4F4FA"  colspan="4"><input type="text" name="ap_code"><input type="submit" value="선택"></td>
 	</tr>
 	<tr >
+		
 		<td>비행기 코드</td>
+		<td>항공사명</td>
 		<td>항공사 코드</td>
 		<td>항공기이름</td>
 		<td>기종</td>
@@ -37,7 +39,9 @@
 <c:forEach var="dto" items="${ddd }" varStatus="no" >
 	<tr>
 	<td><a href="Airplaneitem_List?ap_code=${dto.ap_code }">${dto.ap_code }</a>
+	<td>${dto.air_name }</td>
 	<td>${dto.air_code }</td>
+	
 	<td>${dto.air_ty }</td>
 	<td>${dto.aircraft_type }</td>
 	<td>${dto.linear_content }</td>

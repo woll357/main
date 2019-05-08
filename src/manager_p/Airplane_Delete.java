@@ -3,6 +3,8 @@ package manager_p;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import db_p.Air_itemDAO;
+import db_p.Air_itemDTO;
 import db_p.Air_planeDAO;
 import db_p.Air_planeDTO;
 import di.MvcAction;
@@ -14,21 +16,35 @@ public class Airplane_Delete implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		System.out.println(request.getParameter("ap_code"));
-		System.out.println("비행기 삭제 페이지");
-		System.out.println(request.getParameter("ap_code"));
+	
+		String msg = "";
+		String goUrl = "";
 		
 		Air_planeDTO dto = new Air_planeDTO();
-		
+		Air_itemDTO adto = new Air_itemDTO();
+		adto.setAp_code(request.getParameter("ap_code"));
 	
 		
 		dto.setAp_code(request.getParameter("ap_code"));
 	
-		new Air_planeDAO().airplanedelete(dto);
-		/* Airplane_List?air_code=A1000 */
 		
-		request.setAttribute("msg", "삭제되었습니다.");
-		request.setAttribute("goUrl", "Airplane_List?aotcont=in");
+		if(new Air_itemDAO().airitemplanedelete(adto)) {
+			msg="예약상품이 있습니다.";
+			goUrl = "Airplane_List?aotcont=in";
+			
+		}else {
+			msg = "삭제되었습니다.";
+			goUrl = "Airplane_List?aotcont=in";
+			new Air_planeDAO().airplanedelete(dto);
+		}
+		
+		
+	
+		
+		
+		
+		request.setAttribute("msg", msg);
+		request.setAttribute("goUrl", goUrl);
 		request.setAttribute("mainUrl", "air/alert.jsp");
 		
 		

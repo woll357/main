@@ -2,10 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
+
 <body>
 
 <form action="AirLine_Modify?id=${mem.id }" method="post" enctype="multipart/form-data">
@@ -23,7 +20,7 @@
 		</tr>
 		<tr align="right" >
 		<td colspan="3"><input type="submit" value="수정">
-		<a href="AirLine_DeleteRequest?code=${mem.air_code }&aotcont=in"><input type="button" value="삭제신청"></a></td>
+		<a href="AirLine_Delete?air_code=${mem.air_code }&id=${mem.id }&aotcont=in"><input type="button" value="삭제"></a></td>
 		</tr>
 	</table>
 </form>

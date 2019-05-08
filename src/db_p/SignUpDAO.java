@@ -425,6 +425,9 @@ public class SignUpDAO {
 	}
 	
 	
+	
+	
+	
 	public void rejectUp(SignUpDTO dto) {
 
 		try {

@@ -12,7 +12,6 @@ public class AirHomeMain implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		System.out.println("항공사 메인 페이지");
 		return null;
 	}
 

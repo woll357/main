@@ -107,13 +107,7 @@ public class Air_planeDAO {
 			
 			ptmt.executeUpdate() ;
 			
-			sql = "delete from air_item where ap_code = ? " ;
-			
-			ptmt = con.prepareStatement(sql);
-			
-			ptmt.setString(1, dto.getAp_code());
-			
-			ptmt.executeUpdate() ;
+		
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

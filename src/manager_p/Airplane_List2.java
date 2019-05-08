@@ -23,7 +23,7 @@ public class Airplane_List2 implements MvcAction {
 		
 	
 		
-		request.setAttribute("data", new Air_itemDAO().airplanedetailm(request.getParameter("air_name")));
+		request.setAttribute("data", new Air_itemDAO().airplanedetailm(request.getParameter("ap_code")));
 		
 		
 	
