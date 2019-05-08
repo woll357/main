@@ -86,20 +86,20 @@
 			</td>
 		</tr>
 		<tr>
-			<td style="width: 120px">cvc</td>
+			<td style="width: 120px;border-bottom: 10px #dcefef solid;">cvc</td>
 			<td style="width: 50px" ><input style="width: 50px"  type="password" maxlength="3" id="cvc" name="cvc" /></td>
 		</tr>
 		<tr>
-			<td style="width: 120px">카드비밀번호</td>
+			<td style="width: 120px;border-bottom: 10px #dcefef solid;">카드비밀번호</td>
 			<td style="width: 50px"><input style="width: 50px"  type="password" maxlength="2" id="pw" name="pw" /></td><td style="width: 10px">**</td>
 		</tr>
 		</table>
 		</div>
 		
 		
-		<table>
+		<table style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 		<tr>
-			<td style= "width: 120px">총액</td>
+			<td style= "width: 120px;border-bottom: 10px #dcefef solid;">총액</td>
 			<td>
 			<input type="text" value=${totalPrice } readonly="readonly" name="totalPrice"/>
 			</td>
