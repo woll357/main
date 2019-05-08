@@ -13,16 +13,16 @@
 
 </c:forEach>
 <div id="contents">
-	<table>
+	<table style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 		<tr>
-			<td style="width: 120px" >최근 이용 카드</td>
+			<td style="width: 120px;border-bottom: 10px #dcefef solid;" >최근 이용 카드</td>
 			<td><input id="check" type="checkbox" /></td>
 		</tr>
 		
 		<tr>
-			<td style="width: 120px">카드선택</td>
+			<td style="width: 120px;border-bottom: 10px #dcefef solid;">카드선택</td>
 			<td>
-			<select style="width: 50px" id="cComName" name="cComName">
+			<select style="width: 50px;border-bottom: 10px #dcefef solid;" id="cComName" name="cComName">
 			<option  value="국민">국민</option>
 			<option  value="비씨">비씨</option>
 			<option  value="신한">신한</option>
@@ -33,16 +33,16 @@
 			</td>
 		</tr>
 		<tr>
-			<td style="width: 120px">카드번호</td>
+			<td style="width: 120px;border-bottom: 10px #dcefef solid;">카드번호</td>
 			<td><input style="width: 50px" type="text" maxlength="4" id="cNum1" name="cNum1" /></td><td style="width: 10px">-</td>
 			<td><input style="width: 50px" type="text" maxlength="4" id="cNum2" name="cNum2"/></td><td style="width: 10px">-</td>
 			<td><input style="width: 50px" type="text" maxlength="4" id="cNum3" name="cNum3"/></td><td style="width: 10px">-</td>
 			<td><input style="width: 50px" type="text" maxlength="4" id="cNum4" name="cNum4"/></td>
 		</tr>
 		<tr>
-			<td style="width: 120px">유효기간</td>
+			<td style="width: 120px;border-bottom: 10px #dcefef solid;">유효기간</td>
 			<td>
-			<select style="width: 50px" id="exDateMonth" name="exDateMonth">
+			<select style="width: 50px;border-bottom: 10px #dcefef solid;" id="exDateMonth" name="exDateMonth">
 			<option value="01">01</option>
 			<option value="02">02</option>
 			<option value="03">03</option>
@@ -59,7 +59,7 @@
 			</td><td style="width: 10px">/</td>
 
 			<td>
-			<select style="width: 50px" id="exDateYear" name="exDateYear">
+			<select style="width: 50px;border-bottom: 10px #dcefef solid;" id="exDateYear" name="exDateYear">
 			<option value="19">19</option>
 			<option value="20">20</option>
 			<option value="21">21</option>

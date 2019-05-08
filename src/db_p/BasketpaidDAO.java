@@ -394,7 +394,7 @@ public class BasketpaidDAO {
 			
 			try {
 				
-				sql = "select basketpaid.cName, basketpaid.itemName, basketpaid.ddate, basketpaid.fdate , basketpaid.id, basketpaid.psn from basketpaid, buy "
+				sql = "select basketpaid.cName, basketpaid.itemName, basketpaid.ddate, basketpaid.fdate , basketpaid.id, basketpaid.psn, basketpaid.cType from basketpaid, buy "
 						+ "where basketpaid.bcode = buy.bcode and basketpaid.cName = ? and basketpaid.bstatus = 'm'";
 				ptmt = con.prepareStatement(sql);
 				
@@ -410,6 +410,7 @@ public class BasketpaidDAO {
 					dto.setFdateStr(rs.getString(4));
 					dto.setId(rs.getString(5));
 					dto.setPsn(rs.getInt(6));
+					dto.setcType(rs.getString(7));
 					res.add(dto);
 				}
 		
