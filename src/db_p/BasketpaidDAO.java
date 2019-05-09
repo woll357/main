@@ -1008,19 +1008,105 @@ public class BasketpaidDAO {
 			return res;
 		}
 		
-		public ArrayList<BasketpaidDTO> buyListByRcodeDate(String rcode, String startday, String endday) {		//회사 환불 갯수?
+		public ArrayList<BasketpaidDTO> buyListByRcodeDate(String rcode, String startday, String endday, String cname) {		//회사 환불 갯수?
 			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
 			
 			try {
 				
 				sql = "select basketpaid.itemName, basketpaid.ddate, basketpaid.psn, basketpaid.totalPrice, hot_com.salesPercent, basketpaid.code "
 						+ "from basketpaid, hot_com "
-						+ "where basketpaid.cName = hot_com.hname and basketpaid.code= ? "
+						+ "where basketpaid.cName = hot_com.hname and basketpaid.code= ? and basketpaid.cName = ? "
 						+ "and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n' and date(basketpaid.ddate) between ? and ?";
 				
 				ptmt = con.prepareStatement(sql);
 		
 				ptmt.setString(1, rcode);
+				ptmt.setString(2, cname);
+				ptmt.setString(3, startday);
+				ptmt.setString(4, endday);
+				
+				rs = ptmt.executeQuery();
+				
+				while(rs.next()) {
+					BasketpaidDTO dto = new BasketpaidDTO();
+					
+					dto.setItemName(rs.getString(1));
+					dto.setDdateStr(rs.getString(2));
+					dto.setPsn(rs.getInt(3));
+					dto.setTotalPrice(rs.getInt(4));
+					dto.setSalesPercent(rs.getDouble(5));
+					dto.setCode(rs.getString(6));
+					
+					res.add(dto);
+				}
+		
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				
+				close();
+			}
+			
+			return res;
+		}
+		
+		public ArrayList<BasketpaidDTO> buyListByRcodeDateDay(String rcode, String startday, String cname) {		//회사 환불 갯수?
+			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
+			
+			try {
+				
+				sql = "select basketpaid.itemName, basketpaid.ddate, basketpaid.psn, basketpaid.totalPrice, hot_com.salesPercent, basketpaid.code "
+						+ "from basketpaid, hot_com "
+						+ "where basketpaid.cName = hot_com.hname and basketpaid.code= ? and basketpaid.cName = ?  "
+						+ "and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n' and date(basketpaid.ddate) = ?";
+				
+				ptmt = con.prepareStatement(sql);
+		
+				ptmt.setString(1, rcode);
+				ptmt.setString(2, cname);
+				ptmt.setString(2, startday);
+				
+				rs = ptmt.executeQuery();
+				
+				while(rs.next()) {
+					BasketpaidDTO dto = new BasketpaidDTO();
+					
+					dto.setItemName(rs.getString(1));
+					dto.setDdateStr(rs.getString(2));
+					dto.setPsn(rs.getInt(3));
+					dto.setTotalPrice(rs.getInt(4));
+					dto.setSalesPercent(rs.getDouble(5));
+					dto.setCode(rs.getString(6));
+					
+					res.add(dto);
+				}
+		
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				
+				close();
+			}
+			
+			return res;
+		}
+		
+		public ArrayList<BasketpaidDTO> buyListHotDate(String startday, String endday, String cname) {		//회사 환불 갯수?
+			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
+			
+			try {
+				
+				sql = "select basketpaid.itemName, basketpaid.ddate, basketpaid.psn, basketpaid.totalPrice, hot_com.salesPercent, basketpaid.code "
+						+ "from basketpaid, hot_com "
+						+ "where basketpaid.cName = hot_com.hname and basketpaid.cName = ? "
+						+ "and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n' and date(basketpaid.ddate) between ? and ?";
+				
+				ptmt = con.prepareStatement(sql);
+		
+			
+				ptmt.setString(1, cname);
 				ptmt.setString(2, startday);
 				ptmt.setString(3, endday);
 				
@@ -1050,103 +1136,21 @@ public class BasketpaidDAO {
 			return res;
 		}
 		
-		public ArrayList<BasketpaidDTO> buyListByRcodeDateDay(String rcode, String startday) {		//회사 환불 갯수?
+		public ArrayList<BasketpaidDTO> buyListHotDateDay(String startday, String cname) {		//회사 환불 갯수?
 			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
 			
 			try {
 				
 				sql = "select basketpaid.itemName, basketpaid.ddate, basketpaid.psn, basketpaid.totalPrice, hot_com.salesPercent, basketpaid.code "
 						+ "from basketpaid, hot_com "
-						+ "where basketpaid.cName = hot_com.hname and basketpaid.code= ? "
+						+ "where basketpaid.cName = hot_com.hname and basketpaid.cName = ? "
 						+ "and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n' and date(basketpaid.ddate) = ?";
 				
 				ptmt = con.prepareStatement(sql);
 		
-				ptmt.setString(1, rcode);
+			
+				ptmt.setString(1, cname);
 				ptmt.setString(2, startday);
-				
-				rs = ptmt.executeQuery();
-				
-				while(rs.next()) {
-					BasketpaidDTO dto = new BasketpaidDTO();
-					
-					dto.setItemName(rs.getString(1));
-					dto.setDdateStr(rs.getString(2));
-					dto.setPsn(rs.getInt(3));
-					dto.setTotalPrice(rs.getInt(4));
-					dto.setSalesPercent(rs.getDouble(5));
-					dto.setCode(rs.getString(6));
-					
-					res.add(dto);
-				}
-		
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}finally {
-				
-				close();
-			}
-			
-			return res;
-		}
-		
-		public ArrayList<BasketpaidDTO> buyListHotDate(String startday, String endday) {		//회사 환불 갯수?
-			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
-			
-			try {
-				
-				sql = "select basketpaid.itemName, basketpaid.ddate, basketpaid.psn, basketpaid.totalPrice, hot_com.salesPercent, basketpaid.code "
-						+ "from basketpaid, hot_com "
-						+ "where basketpaid.cName = hot_com.hname "
-						+ "and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n' and date(basketpaid.ddate) between ? and ?";
-				
-				ptmt = con.prepareStatement(sql);
-		
-			
-				ptmt.setString(1, startday);
-				ptmt.setString(2, endday);
-				
-				rs = ptmt.executeQuery();
-				
-				while(rs.next()) {
-					BasketpaidDTO dto = new BasketpaidDTO();
-					
-					dto.setItemName(rs.getString(1));
-					dto.setDdateStr(rs.getString(2));
-					dto.setPsn(rs.getInt(3));
-					dto.setTotalPrice(rs.getInt(4));
-					dto.setSalesPercent(rs.getDouble(5));
-					dto.setCode(rs.getString(6));
-					
-					res.add(dto);
-				}
-		
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}finally {
-				
-				close();
-			}
-			
-			return res;
-		}
-		
-		public ArrayList<BasketpaidDTO> buyListHotDateDay(String startday) {		//회사 환불 갯수?
-			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
-			
-			try {
-				
-				sql = "select basketpaid.itemName, basketpaid.ddate, basketpaid.psn, basketpaid.totalPrice, hot_com.salesPercent, basketpaid.code "
-						+ "from basketpaid, hot_com "
-						+ "where basketpaid.cName = hot_com.hname "
-						+ "and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n' and date(basketpaid.ddate) = ?";
-				
-				ptmt = con.prepareStatement(sql);
-		
-			
-				ptmt.setString(1, startday);
 				
 				rs = ptmt.executeQuery();
 				
@@ -1332,22 +1336,23 @@ public class BasketpaidDAO {
 			return res;
 		}
 		
-		public ArrayList<BasketpaidDTO> buyListByccodeDate(String ccode, String startday, String endday) {		//회사 환불 갯수?
+		public ArrayList<BasketpaidDTO> buyListByccodeDate(String ccode, String startday, String endday, String cname) {		//회사 환불 갯수?
 			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
 			
 			try {
 				sql = "select basketpaid.code , basketpaid.itemName, basketpaid.ddate, "
 						+ "basketpaid.location1, basketpaid.location2, basketpaid.psn, "
 						+ "basketpaid.totalPrice, air_com.salesPercent "
-						+ "from basketpaid, air_com where basketpaid.cName=air_com.air_name "
+						+ "from basketpaid, air_com where basketpaid.cName=air_com.air_name and basketpaid.cName= ? "
 						+ "and basketpaid.code = ? "
 						+ "and date(basketpaid.ddate) between ? and ? and bstatus = 'p' or basketpaid.bstatus = 'n' ";
 							
 				ptmt = con.prepareStatement(sql);
 		
-				ptmt.setString(1, ccode);
-				ptmt.setString(2, startday);
-				ptmt.setString(3, endday);
+				ptmt.setString(1, cname);
+				ptmt.setString(2, ccode);
+				ptmt.setString(3, startday);
+				ptmt.setString(4, endday);
 				
 				rs = ptmt.executeQuery();
 				
@@ -1377,21 +1382,22 @@ public class BasketpaidDAO {
 			return res;
 		}
 		
-		public ArrayList<BasketpaidDTO> buyListByccodeDateDay(String ccode, String startday) {		//회사 환불 갯수?
+		public ArrayList<BasketpaidDTO> buyListByccodeDateDay(String ccode, String startday, String cname) {		//회사 환불 갯수?
 			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
 			
 			try {
 				sql = "select basketpaid.code , basketpaid.itemName, basketpaid.ddate, "
 						+ "basketpaid.location1, basketpaid.location2, basketpaid.psn, "
 						+ "basketpaid.totalPrice, air_com.salesPercent "
-						+ "from basketpaid, air_com where basketpaid.cName=air_com.air_name "
+						+ "from basketpaid, air_com where basketpaid.cName=air_com.air_name and basketpaid.cName = ? "
 						+ "and basketpaid.code = ? "
 						+ "and date(basketpaid.ddate) = ? and bstatus = 'p' or basketpaid.bstatus = 'n' ";
 							
 				ptmt = con.prepareStatement(sql);
 		
-				ptmt.setString(1, ccode);
-				ptmt.setString(2, startday);
+				ptmt.setString(1, cname);
+				ptmt.setString(2, ccode);
+				ptmt.setString(3, startday);
 				
 				rs = ptmt.executeQuery();
 				
@@ -1421,7 +1427,7 @@ public class BasketpaidDAO {
 			return res;
 		}
 		
-		public ArrayList<BasketpaidDTO> buyListAirDate(String startday, String endday) {		//회사 환불 갯수?
+		public ArrayList<BasketpaidDTO> buyListAirDate(String startday, String endday, String cname) {		//회사 환불 갯수?
 			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
 			
 			try {
@@ -1429,14 +1435,15 @@ public class BasketpaidDAO {
 				sql = "select basketpaid.itemName, basketpaid.ddate, basketpaid.psn, basketpaid.totalPrice, air_com.salesPercent, basketpaid.code, "
 						+ "basketpaid.location1, basketpaid.location2 "
 						+ "from basketpaid, air_com "
-						+ "where basketpaid.cName = air_com.air_name "
+						+ "where basketpaid.cName = air_com.air_name and basketpaid.cName = ? "
 						+ "and date(basketpaid.ddate) between ? and ? and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n' ";
 				
 				ptmt = con.prepareStatement(sql);
 		
 			
-				ptmt.setString(1, startday);
-				ptmt.setString(2, endday);
+				ptmt.setString(1, cname);
+				ptmt.setString(2, startday);
+				ptmt.setString(3, endday);
 				
 				rs = ptmt.executeQuery();
 				
@@ -1466,7 +1473,7 @@ public class BasketpaidDAO {
 			return res;
 		}
 		
-		public ArrayList<BasketpaidDTO> buyListAirDateDay(String startday) {		//회사 환불 갯수?
+		public ArrayList<BasketpaidDTO> buyListAirDateDay(String startday, String cname) {		//회사 환불 갯수?
 			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
 			
 			try {
@@ -1474,13 +1481,14 @@ public class BasketpaidDAO {
 				sql = "select basketpaid.itemName, basketpaid.ddate, basketpaid.psn, basketpaid.totalPrice, air_com.salesPercent, basketpaid.code, "
 						+ "basketpaid.location1, basketpaid.location2 "
 						+ "from basketpaid, air_com "
-						+ "where basketpaid.cName = air_com.air_name "
+						+ "where basketpaid.cName = air_com.air_name and basketpaid.cName = ? "
 						+ "and date(basketpaid.ddate) = ? and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n' ";
 				
 				ptmt = con.prepareStatement(sql);
 		
 			
-				ptmt.setString(1, startday);
+				ptmt.setString(1, cname);
+				ptmt.setString(2, startday);
 				
 				rs = ptmt.executeQuery();
 				
