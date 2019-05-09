@@ -189,7 +189,7 @@ public class PaymentReg implements MvcAction {
 						int maxcnt = new TravelerInfo_tempDAO().countMax(ttdto);
 						int startNum = maxcnt - bdto.getPsn();
 						
-						ArrayList<TravelerInfo_tempDTO> ttdtos = new TravelerInfo_tempDAO().TravelerInfoListByBasketID(ttdto, bdto.getPsn(), maxcnt);
+						ArrayList<TravelerInfo_tempDTO> ttdtos = new TravelerInfo_tempDAO().TravelerInfoListByBasketID(ttdto, bdto.getPsn(), startNum);
 						
 						for (TravelerInfo_tempDTO ttt : ttdtos) {
 							TravelerInfoDTO tdto = new TravelerInfoDTO();
