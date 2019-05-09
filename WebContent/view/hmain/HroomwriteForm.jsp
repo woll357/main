@@ -2,11 +2,11 @@
     pageEncoding="UTF-8"%>
     <script src="../js/yjm/hmain_rwrite.js"></script>
     <div align="center" style="margin-top: -250px">
-    <h1>방등록</h1>
+    <h1 class="stitle">방등록</h1>
 <form name="rmsign" action="HroomwriteReg" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="hcode" value="${mem.hcode }"  />
 
-	<table style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
+	<table class="contable" width="100%" border=""  style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 			<!-- <a href=""><input type="button" value=""/></a> -->
 		<tr>
 			<td style="border-bottom: 10px #dcefef solid;">방종류</td>

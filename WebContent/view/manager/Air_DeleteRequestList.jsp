@@ -10,9 +10,9 @@
 </head>
 <body>
 <div align="center">
-<h1>호텔삭제신청목록</h1>
+<h1 class="stitle">호텔삭제신청목록</h1>
 
-<table border="" width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
+<table class="contable" border="" width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 		<c:choose>
 	<c:when test="${data.size()==0 }">
 		<h1 align="center">검색결과가 없습니다.</h1>

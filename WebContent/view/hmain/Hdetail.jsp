@@ -2,11 +2,12 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<h1 align="center">호텔상세</h1>
+
+<h2 >호텔상세</h2>
 <div align="center">
-<table border="" style="text-align: center;">
+<table width="100%" border="" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 	<tr>
-		<td rowspan="3"><img width="300" src="../img/${dto.himg }" alt="" /></td>
+		<td width="250" rowspan="3"><img width="320" src="../img/${dto.himg }" alt="" /></td>
 		<td>${dto.country }</td>
 		<td>${dto.city }</td>
 	</tr>
@@ -25,14 +26,16 @@
 	</tr>
 </table>
 </div>
+
 <br>
-<h2 align="center">방목록</h2>   
+<h2 align="left">방목록</h2>   
+
 <c:forEach var="data" items="${roomdata }" varStatus="no">
-<div align="center">
-<table  border="" style="text-align: center;">
+<table class="contable2" width="100%" border=""  style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
+
 	<tr>
 		<tr>
-		<td rowspan="7"><img width="280" src="../img/${data.rimg }" alt="" /></td>
+		<td width="220" rowspan="7"><img width="300" src="../img/${data.rimg }" alt="" /></td>
 		<td>방종류</td>
 		<c:if test="${data.rkind=='S' }">
 		<td>스탠다드</td>
@@ -75,6 +78,6 @@
 		
 	</tr>
 	</table>
-	</div>
-</c:forEach>
-<br><br>
+	</c:forEach>
+
+

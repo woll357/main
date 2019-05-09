@@ -2,12 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div align="center" style="margin-top: -250px">
-<h1>방수정</h1>
+<h1 class="stitle">방수정</h1>
     <script src="../js/yjm/hmain_rmodi.js"></script>
 
  <form name = "roommod" action="HroommodiReg" method="post" enctype="multipart/form-data">
      <input type="hidden" name="rcode" value="${dto.rcode }" />
- 	<table   style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
+ 	<table   width="100%" border=""  style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
  		<tr>
 			<td style="border-bottom: 10px #dcefef solid;">방종류</td>
 			<td><select name="rkind">

@@ -1,10 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <h2 align="center">호텔검색</h2> 
+    <style >
+.aaa{
+	position: absolute;
+	top: 335px;
+
+}
+.bbb{
+position: absolute;
+	top: 335px;
+	left:325px;
+
+}
+.ccc{
+	top: 380px;
+	position: absolute;
+}
+.ddd{
+	top: 480px;
+	position: absolute;
+}
+</style>
+    
+    <h2 class="ccc">호텔검색</h2> 
     <div align="center">
-<form action="HlistSearch?partner=in" method="post">
-	<table border="" style="text-align: center; border: 5px #dcefef solid;" cellspacing="0">
+<form class="aaa" action="HlistSearch?partner=in" method="post">
+	<table  border="" style="text-align: center; border: 5px #dcefef solid;" cellspacing="0">
 		<tr>
 			<td style="background: #D4F4FA">호텔코드검색</td>
 			<td><input type="text" name="hcode" /></td>
@@ -14,7 +36,7 @@
 </form>
 </div>
 <div align="center">
-<form action="HlistCountrySearch?partner=in" method="post">
+<form class="bbb" action="HlistCountrySearch?partner=in" method="post">
 	<table border="" style="text-align: center; border: 5px #dcefef solid;" cellspacing="0">
 		<tr>
 			<td style="background: #D4F4FA">나라검색</td>
@@ -38,8 +60,8 @@
 </c:choose>
 <br><br>
 <c:forEach var="dto" items="${data }" varStatus="no">
-<div align="center">	
-<table border="" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
+<div>	
+<table class="ddd" width="100%" border="" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 	<tr>
 		<td style="background: #D4F4FA">호텔코드</td>
 		<td style="background: #D4F4FA" colspan="2" width="200">${dto.hcode }</td>

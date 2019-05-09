@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div align="left" style="margin-top: -250px">
-<h1>방수정</h1>
+<h1 class="stitle">방수정</h1>
     <script src="../js/yjm/manager_rmodi.js"></script>
 
  <form name = "roommod" action="HroomModiReg" method="post" enctype="multipart/form-data">

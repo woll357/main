@@ -6,20 +6,18 @@
 <script src="../js/yjm/nores_pm.js"></script>
 <script src="../js/yjm/nores_cal.js"></script>
 <div align="center" style="margin-top: -250px">
-<h1>예약불가날짜선정</h1>
+<h1 class="stitle">예약불가날짜선정</h1>
 	 <input type="hidden" name="rcnt" value="${param.rcnt }" id="hiddenrcnt" /> 
-<form name="nono" action="HnoresDatewriteReg" method="post">
+<form class="contable" name="nono" action="HnoresDatewriteReg" method="post">
      <input type="hidden" name="rcode" value="${param.rcode }" />
      
-     <table style="border: 10px #dcefef solid;" cellspacing="0">
+     <table width="100%" border=""  style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 
      	<tr>
      		<td style="border-bottom: 10px #dcefef solid;">날짜선택</td>
      		<!-- <td><input type="date" name="noresdate"/></td> -->
      		<td><input type="text" id="noresdate" name="noresdate" class="noresdate"/></td>
-     			<td><div id="ddateCal1"></div></td>  
-     		
-			
+     			<td><div id="ddateCal1"></div></td>  			
      	</tr>
      	
      	<tr>

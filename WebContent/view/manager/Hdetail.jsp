@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<h2 align="left" >호텔상세보기</h2>
+<h2 align="left">호텔상세보기</h2>
 <div align="center">
 <table width="100%" border="" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 	<tr>
@@ -32,7 +32,7 @@
 	</tr>
 </table>
 </div>
-<br><br>
+<br>
 <h2 align="left">방목록</h2>
 <c:forEach var="data" items="${roomdata }" varStatus="no">
 <div align="center">

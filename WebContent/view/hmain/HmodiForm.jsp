@@ -10,8 +10,8 @@
     <input type="hidden" name="city" value="${dto.city }" />
     
 
-    <h1>호텔수정</h1>
-    <table  width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
+    <h1 class="stitle">호텔수정</h1>
+    <table class="contable" width="100%" border=""  style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
     	<tr>
 			<td style="border-bottom: 10px #dcefef solid;">호텔명</td>
 			<td><input type="text" name="hname" value="${dto.hname }" id="hname"/></td>
