@@ -31,9 +31,9 @@
 	</div>
 	<br><br><br>
 	<div align="center">
-	<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0" border="">
+	<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 		<tr>
-			<td style="border-bottom: 5px #00D8FF solid;" width="250px">회사명</td>
+			<td style="background-color: #dcefef;" width="250px">회사명</td>
 			<td width="250px">(주)그린스캐너</td>
 			<td style="border-bottom: 5px #00D8FF solid;" width="250px">대표이사</td>
 			<td width="250px">오도경</td>

@@ -17,9 +17,9 @@
 		<td align="center" class="gg">회원등급</td>
 				<td class="gg">
 				<select name="grade" id="grade">                                   <!-- select 콤보박스 같은거 -->
-				<option value="A">A</option>
-				<option value="H">H</option>
-				<option value="M" >M</option> <!-- selected 미리 선택되어있게 -->
+				<option value="A">항공사</option>
+				<option value="H">호텔사</option>
+				<option value="M" >매니저</option> <!-- selected 미리 선택되어있게 -->
 				</select>
 		</td>
 

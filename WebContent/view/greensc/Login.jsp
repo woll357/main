@@ -2,16 +2,17 @@
     pageEncoding="UTF-8"%>
  <script src="../js/jquery-3.3.1.min.js"></script>
 <script src = "../js/nh/loginChk.js"></script>
-<link rel="stylesheet" href="../css/nh/login.css" type="text/css">
 
 
-<body>
-<div id="loglog">
+
 <form action="LoginReg" method="post" name="frm">
-
-<table style="border : 10px #dcefef solid;" cellspacing="20px">
+<table cellspacing="80px" style="background-image: url('../img/login.jpg'); width: 1000px; height: 800px;">
+<tr>
+<td>
+<br><br><br><br><br><br><br><br><br><br>
+<table style="background-color : #d8d8d8; border : 5px #dcefef solid; border-radius: 50px;" cellspacing="20px">
 	<tr>
-		<td colspan="2"><font size="20px">로그인 하세요</font></td>
+		<td colspan="2"><font size="7px">로그인 하세요</font></td>
 	</tr>
 	<tr>
 		<td class="lgtd">ID</td>
@@ -31,11 +32,9 @@
 		</td>
 	</tr>
 </table>
+</td>
+</tr>
+</table>
 
 
 </form>
-
-</div>
-
-</body>
-</html>
