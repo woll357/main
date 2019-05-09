@@ -17,7 +17,8 @@ input{
 }
 #loglog{
 	position: absolute;
-	left: 350px;
+	left: 50%;
+	margin-left : -200px;
 	top: 550px;
 	
 }

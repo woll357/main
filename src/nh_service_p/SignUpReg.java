@@ -48,13 +48,21 @@ public class SignUpReg implements MvcAction {
 			dto.setGender("남");
 		}else
 			dto.setGender("여");
-
+		
+		if(new SignUpDAO().detailMem(dto).getId()==null) {
+		
 		new SignUpDAO().signUp(dto);
 		
 		request.setAttribute("msg", request.getParameter("pname")+"님 환영합니다.");
 		request.setAttribute("mainUrl", "greensc/alert.jsp");
 		request.setAttribute("goUrl", "Home");
+		}else {
 		
+			request.setAttribute("msg", "중복 계정입니다.");
+			request.setAttribute("mainUrl", "greensc/alert.jsp");
+			request.setAttribute("goUrl", "Home");
+			
+		}
 		
 		return null;
 	}
