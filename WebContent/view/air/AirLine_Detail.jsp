@@ -7,7 +7,7 @@
 
 <form action="AirLine_Modify?id=${mem.id }" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="id" value="${mem.id }">
-<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<table class="contable" border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 		<tr>
 			<td width="200" style="background: #D4F4FA">이미지</td>
 			<td style="background: #D4F4FA">사업자등록증</td>
