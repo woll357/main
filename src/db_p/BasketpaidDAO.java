@@ -32,12 +32,11 @@ public class BasketpaidDAO {
 		
 		try {
 			
-			sql = "select * from basketpaid where id = ? and bstatus= 'p' or bstatus = 'n' ";
+			sql = "select * from basketpaid where id = ? and (bstatus= 'p' or bstatus = 'n') ";
 			ptmt = con.prepareStatement(sql);
 			System.out.println(sql);
 			
 			ptmt.setString(1, dto.getId());
-	
 			rs = ptmt.executeQuery();
 			
 			while(rs.next()) {
@@ -523,7 +522,7 @@ public class BasketpaidDAO {
 			
 			try {
 				
-				sql = "select * from basketpaid where date(ddate) between ? and ? and bstatus = 'p' or basketpaid.bstatus = 'n' ";
+				sql = "select * from basketpaid where date(ddate) between ? and ? and (bstatus = 'p' or bstatus = 'n') ";
 				ptmt = con.prepareStatement(sql);
 		
 				ptmt.setString(1, startday);
@@ -679,7 +678,7 @@ public class BasketpaidDAO {
 						+ "basketpaid.psn, basketpaid.totalPrice, air_com.salesPercent "
 						+ "from basketpaid, air_com where basketpaid.cName = air_com.air_name and "
 						+ "air_com.air_code = ? and date(basketpaid.ddate) between ? and ? "
-						+ "and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n'";
+						+ "and (basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n') ";
 				ptmt = con.prepareStatement(sql);
 		
 				ptmt.setString(1, comcode);
@@ -722,7 +721,7 @@ public class BasketpaidDAO {
 						+ "basketpaid.psn, basketpaid.totalPrice, air_com.salesPercent "
 						+ "from basketpaid, air_com where basketpaid.cName = air_com.air_name and "
 						+ "air_com.air_code = ? and date(basketpaid.ddate) = ? "
-						+ "and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n'";
+						+ "and (basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n')";
 				ptmt = con.prepareStatement(sql);
 		
 				ptmt.setString(1, comcode);
@@ -764,7 +763,7 @@ public class BasketpaidDAO {
 						+ "basketpaid.psn, basketpaid.totalPrice, hot_com.salesPercent "
 						+ "from basketpaid, hot_com where basketpaid.cName = hot_com.hname and "
 						+ "hot_com.hcode = ? and date(basketpaid.ddate) between ? and ? "
-						+ "and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n' ";
+						+ "and (basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n') ";
 				ptmt = con.prepareStatement(sql);
 		
 				ptmt.setString(1, comcode);
@@ -809,7 +808,7 @@ public class BasketpaidDAO {
 						+ "basketpaid.psn, basketpaid.totalPrice, hot_com.salesPercent "
 						+ "from basketpaid, hot_com where basketpaid.cName = hot_com.hname and "
 						+ "hot_com.hcode = ? and date(basketpaid.ddate) = ? "
-						+ "and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n' ";
+						+ "and (basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n') ";
 				ptmt = con.prepareStatement(sql);
 		
 				ptmt.setString(1, comcode);
@@ -1016,7 +1015,7 @@ public class BasketpaidDAO {
 				sql = "select basketpaid.itemName, basketpaid.ddate, basketpaid.psn, basketpaid.totalPrice, hot_com.salesPercent, basketpaid.code "
 						+ "from basketpaid, hot_com "
 						+ "where basketpaid.cName = hot_com.hname and basketpaid.code= ? and basketpaid.cName = ? "
-						+ "and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n' and date(basketpaid.ddate) between ? and ?";
+						+ "and (basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n') and date(basketpaid.ddate) between ? and ?";
 				
 				ptmt = con.prepareStatement(sql);
 		
@@ -1059,7 +1058,7 @@ public class BasketpaidDAO {
 				sql = "select basketpaid.itemName, basketpaid.ddate, basketpaid.psn, basketpaid.totalPrice, hot_com.salesPercent, basketpaid.code "
 						+ "from basketpaid, hot_com "
 						+ "where basketpaid.cName = hot_com.hname and basketpaid.code= ? and basketpaid.cName = ?  "
-						+ "and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n' and date(basketpaid.ddate) = ?";
+						+ "and (basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n') and date(basketpaid.ddate) = ?";
 				
 				ptmt = con.prepareStatement(sql);
 		
@@ -1101,7 +1100,7 @@ public class BasketpaidDAO {
 				sql = "select basketpaid.itemName, basketpaid.ddate, basketpaid.psn, basketpaid.totalPrice, hot_com.salesPercent, basketpaid.code "
 						+ "from basketpaid, hot_com "
 						+ "where basketpaid.cName = hot_com.hname and basketpaid.cName = ? "
-						+ "and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n' and date(basketpaid.ddate) between ? and ?";
+						+ "and (basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n') and date(basketpaid.ddate) between ? and ?";
 				
 				ptmt = con.prepareStatement(sql);
 		
@@ -1144,7 +1143,7 @@ public class BasketpaidDAO {
 				sql = "select basketpaid.itemName, basketpaid.ddate, basketpaid.psn, basketpaid.totalPrice, hot_com.salesPercent, basketpaid.code "
 						+ "from basketpaid, hot_com "
 						+ "where basketpaid.cName = hot_com.hname and basketpaid.cName = ? "
-						+ "and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n' and date(basketpaid.ddate) = ?";
+						+ "and (basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n') and date(basketpaid.ddate) = ?";
 				
 				ptmt = con.prepareStatement(sql);
 		
@@ -1345,7 +1344,7 @@ public class BasketpaidDAO {
 						+ "basketpaid.totalPrice, air_com.salesPercent "
 						+ "from basketpaid, air_com where basketpaid.cName=air_com.air_name and basketpaid.cName= ? "
 						+ "and basketpaid.code = ? "
-						+ "and date(basketpaid.ddate) between ? and ? and bstatus = 'p' or basketpaid.bstatus = 'n' ";
+						+ "and date(basketpaid.ddate) between ? and ? and (bstatus = 'p' or basketpaid.bstatus = 'n') ";
 							
 				ptmt = con.prepareStatement(sql);
 		
@@ -1391,7 +1390,7 @@ public class BasketpaidDAO {
 						+ "basketpaid.totalPrice, air_com.salesPercent "
 						+ "from basketpaid, air_com where basketpaid.cName=air_com.air_name and basketpaid.cName = ? "
 						+ "and basketpaid.code = ? "
-						+ "and date(basketpaid.ddate) = ? and bstatus = 'p' or basketpaid.bstatus = 'n' ";
+						+ "and date(basketpaid.ddate) = ? and (bstatus = 'p' or basketpaid.bstatus = 'n') ";
 							
 				ptmt = con.prepareStatement(sql);
 		
@@ -1436,7 +1435,7 @@ public class BasketpaidDAO {
 						+ "basketpaid.location1, basketpaid.location2 "
 						+ "from basketpaid, air_com "
 						+ "where basketpaid.cName = air_com.air_name and basketpaid.cName = ? "
-						+ "and date(basketpaid.ddate) between ? and ? and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n' ";
+						+ "and date(basketpaid.ddate) between ? and ? and (basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n') ";
 				
 				ptmt = con.prepareStatement(sql);
 		
@@ -1482,7 +1481,7 @@ public class BasketpaidDAO {
 						+ "basketpaid.location1, basketpaid.location2 "
 						+ "from basketpaid, air_com "
 						+ "where basketpaid.cName = air_com.air_name and basketpaid.cName = ? "
-						+ "and date(basketpaid.ddate) = ? and basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n' ";
+						+ "and date(basketpaid.ddate) = ? and (basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n') ";
 				
 				ptmt = con.prepareStatement(sql);
 		
