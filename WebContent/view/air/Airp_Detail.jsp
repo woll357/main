@@ -11,7 +11,7 @@
 <h4>항공편 검색</h4>
 <form action="Airp_Detail">
 <h2 class="stitle">..?</h2>
-<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<table class="contable" border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 <input type="hidden" name= "aotcont"  value="in"/>
 <input type="hidden" value="${air_p }" name="air_p">
 		<tr>

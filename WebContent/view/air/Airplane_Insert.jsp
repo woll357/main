@@ -7,7 +7,7 @@
 <script src="../js/jquery-3.3.1.min.js"></script>   
 <script src="../js/odk/Airplane_insert.js"></script>
 <h2 class="stitle">비행기 등록</h2>
-<form name="airinre" action="Airplane_InsertReg">
+<form class="contable" name="airinre" action="Airplane_InsertReg">
 <table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 	<tr >
 		<td>비행기 코드</td><td><input type="text" class="ap"  name="ap_code"></td>

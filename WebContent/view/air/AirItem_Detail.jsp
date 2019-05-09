@@ -6,7 +6,7 @@
 <h2 class="stitle">상품 상세</h2>
 <form action="AirItem_Detail">
 	<input type="hidden" name= "aotcont"  value="in"/>
-<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<table class="contable" border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 		<tr>
 			<td colspan="8" style="background: #D4F4FA">상품 코드</td>
 			<td style="background: #D4F4FA"><input type="text" name="ccode" /></td>

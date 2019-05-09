@@ -12,7 +12,7 @@
 <h2 class="stitle">상품 목록</h2>
 <form action="AirItem_Detail">
 <input type="hidden" name= "aotcont"  value="in"/>
-<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<table class="contable" border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 		<tr>
 			<td style="background: #D4F4FA" colspan="8">상품 코드</td>
 			<td style="background: #D4F4FA"><input type="text" name="ccode" /></td>
@@ -28,7 +28,7 @@
 		<td>가격</td>
 		<td>도착시간</td>
 		<td width="50" >예약된좌석</td>
-		<td width="35">총좌석</td>	
+		<td width="20">총좌석</td>	
 		<td>좌석등급</td>
 	</tr>
 

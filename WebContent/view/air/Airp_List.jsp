@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <h2 class="stitle">항공편 목록</h2>
-<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<table class="contable" border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 <input type="hidden" name= "aotcont"  value="in"/>
 <input type="hidden" value="${param.air_code }" name="air_code" />
 <input type="hidden" value="${param.air_p}" name="air_p" />

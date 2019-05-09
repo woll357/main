@@ -7,10 +7,10 @@
 </head>
 <body>
 <h2 class="stitle">지난 상품 목록</h2>
-<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<table class="contable" border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 	<tr>
-		<td width="40">상품코드</td>
-		<td width="30">비행기코드</td>
+		<td width="45">상품코드</td>
+		<td width="35">비행기코드</td>
 		<td>출발시간</td>
 		<td>출발지</td>
 		<td>도착지</td>

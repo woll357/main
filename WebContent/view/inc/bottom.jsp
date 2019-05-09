@@ -16,8 +16,13 @@ margin-right: 10p
 	top: 400px;
 	position: absolute;
 }
+.azaz{
+	top:100px;
+	position: relative;
+
+}
 </style>
-<table style="background: #D4F4FA; width: 1000px;" cellspacing="0">
+<table class="azaz" style="background: #D4F4FA; width: 1000px;" cellspacing="0">
 	<tr>
 		<td><a href="../greensc/Cinfo" >회사소개</a>
 <a href="../greensc/Sitemap">사이트맵</a></td>

@@ -12,7 +12,7 @@
 
 <h2 class="stitle">상품 수정</h2>
 <form name="AirItem_InsertReg" action="AirItem_InsertReg">
-<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<table class="contable" border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 		<tr>
 			<td  colspan="2">비행기코드</td>
 			<td><input type="text" name="ap_code"  class="ap_code" value="${dto.ap_code }"/></td>
