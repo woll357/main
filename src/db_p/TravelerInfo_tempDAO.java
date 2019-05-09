@@ -66,17 +66,21 @@ public class TravelerInfo_tempDAO {
 	}
 	
 	
-	public ArrayList<TravelerInfo_tempDTO> TravelerInfoListByBasketID(TravelerInfo_tempDTO dto){ //예약내역 찾기
+	public ArrayList<TravelerInfo_tempDTO> TravelerInfoListByBasketID(TravelerInfo_tempDTO dt){ //예약내역 찾기
 		ArrayList<TravelerInfo_tempDTO> res = new ArrayList<TravelerInfo_tempDTO>();
 		try {
 			sql = "select * from travelerInfo_temp where basketID = ? ";
 			ptmt = con.prepareStatement(sql);
 			
-			ptmt.setString(1, dto.getBasketID());
+			ptmt.setString(1, dt.getBasketID());
 	
 			rs = ptmt.executeQuery();
 			
 			while(rs.next()) {
+				
+				TravelerInfo_tempDTO dto = new TravelerInfo_tempDTO();
+				
+				System.out.println(rs.getString("cKorName"));
 				
 				dto.setPassport(rs.getString("passport"));
 				dto.setId(rs.getString("id"));

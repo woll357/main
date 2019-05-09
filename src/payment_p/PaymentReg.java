@@ -73,7 +73,7 @@ public class PaymentReg implements MvcAction {
 						aidto = new Air_itemDAO().detail(aidto);
 						if (aidto.getSeatcnt() + psn > aidto.getTotseatcnt()) {
 							chkBaskets[i] = false;
-						} else {
+						} else if (aidto.getSeatcnt() + psn <= aidto.getTotseatcnt()) {
 							chkBaskets[i] = true;
 						}
 					} catch (Exception e) {
@@ -184,6 +184,8 @@ public class PaymentReg implements MvcAction {
 						
 						for (TravelerInfo_tempDTO ttt : ttdtos) {
 							TravelerInfoDTO tdto = new TravelerInfoDTO();
+							
+							System.out.println(ttt.getcKorName());
 							
 							tdto.setPassport(ttt.getPassport());
 							tdto.setId(ttt.getId());

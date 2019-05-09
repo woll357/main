@@ -76,14 +76,14 @@ public class TravelerInfoReg implements MvcAction {
 			
 			
 			
-			TravelerInfo_tempDTO dto = new TravelerInfo_tempDTO();
-			System.out.println("비행기 장바구니"+airBaskets[i]);
-			dto.setBasketID(airBaskets[i]);		
-			
 			//다시해야한다
 
 			
 			for (int j = index; j < index+bdto.getPsn(); j++) {
+				
+				TravelerInfo_tempDTO dto = new TravelerInfo_tempDTO();
+				System.out.println("비행기 장바구니"+airBaskets[i]);
+				dto.setBasketID(airBaskets[i]);
 				
 				dto.setMainEngLastName(mainEngLastName);
 				dto.setMainEngFirstName(mainEngFirstName);
