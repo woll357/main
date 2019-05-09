@@ -22,9 +22,10 @@ public class Find implements MvcAction {
 			SignUpDTO dto = new SignUpDTO();
 			
 			HttpSession session = request.getSession();
-			
+			request.setAttribute("msg", "");
 			if(request.getParameter("black")==null) {
-			if(request.getParameter("id")!=null) {
+				
+			if(request.getParameter("id")!=null && request.getParameter("id")!="") {
 				dto.setId(request.getParameter("id"));
 				if(new SignUpDAO().chkMem(dto)) {
 					request.setAttribute("data", new SignUpDAO().memList(dto));
@@ -32,7 +33,7 @@ public class Find implements MvcAction {
 				}else if(!new SignUpDAO().chkMem(dto)){
 					request.setAttribute("msg", "No");
 				}		
-			}else if(request.getParameter("phone")!=null) {
+			}else if(request.getParameter("phone")!=null && request.getParameter("phone")!="") {
 				dto.setPhone(request.getParameter("phone"));
 				if(new SignUpDAO().chkMem(dto)) {
 					request.setAttribute("data", new SignUpDAO().memList(dto));
@@ -40,7 +41,7 @@ public class Find implements MvcAction {
 				}else if(!new SignUpDAO().chkMem(dto)){
 					request.setAttribute("msg", "No");
 				}		
-			}else if(request.getParameter("pname")!=null) {
+			}else if(request.getParameter("pname")!=null && request.getParameter("pname")!="") {
 				dto.setPname(request.getParameter("pname"));
 				if(new SignUpDAO().chkMem(dto)) {
 					request.setAttribute("data", new SignUpDAO().memList(dto));
@@ -52,7 +53,7 @@ public class Find implements MvcAction {
 			}else {
 				dto.setBlack(request.getParameter("black"));
 				
-				if(request.getParameter("id")!=null) {
+				if(request.getParameter("id")!=null && request.getParameter("id")!="") {
 					dto.setId(request.getParameter("id"));
 					if(new SignUpDAO().chkMem(dto)) {
 						request.setAttribute("data", new SignUpDAO().memList(dto));
@@ -62,7 +63,7 @@ public class Find implements MvcAction {
 					}else if(((ArrayList<SignUpDTO>)new SignUpDAO().memList(dto)).size()==0){
 						request.setAttribute("msg", "No");
 					}		
-				}else if(request.getParameter("phone")!=null) {
+				}else if(request.getParameter("phone")!=null && request.getParameter("phone")!="") {
 					dto.setPhone(request.getParameter("phone"));
 					System.out.println("여기");
 					if(new SignUpDAO().chkMem(dto)) {
@@ -73,7 +74,7 @@ public class Find implements MvcAction {
 					}else if(((ArrayList<SignUpDTO>)new SignUpDAO().memList(dto)).size()==0){
 						request.setAttribute("msg", "No");
 					}		
-				}else if(request.getParameter("pname")!=null) {
+				}else if(request.getParameter("pname")!=null && request.getParameter("pname")!="") {
 					dto.setPname(request.getParameter("pname"));
 					if(new SignUpDAO().chkMem(dto)) {
 						request.setAttribute("data", new SignUpDAO().memList(dto));
@@ -83,7 +84,7 @@ public class Find implements MvcAction {
 					}else if(((ArrayList<SignUpDTO>)new SignUpDAO().memList(dto)).size()==0){
 						request.setAttribute("msg", "No");
 					}
-				}else if(request.getParameter("preason")!=null) {
+				}else if(request.getParameter("preason")!=null && request.getParameter("preason")!="") {
 					
 					dto.setPreason(request.getParameter("preason"));
 					

@@ -100,7 +100,7 @@
 					</tr>
 					<tr>
 						<td class="ggList">요청 수익률</td>
-						<td class="ggcont">${dto.salesPercent }%</td>
+						<td class="ggcont">${dto.salesPercent*100 }%</td>
 					</tr>
 					<tr>
 						<td colspan="2"><hr color="#dcefef" size="1px"></td>
@@ -175,7 +175,7 @@
 					</tr>
 					<tr>
 						<td class="ggList">요청 수익률</td>
-						<td class="ggcont">${dto.salesPercent }%</td>
+						<td class="ggcont">${dto.salesPercent*100 }%</td>
 					</tr>
 					<tr>
 						<td colspan="2"><hr color="#dcefef" size="1px"></td>

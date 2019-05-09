@@ -353,7 +353,7 @@ public class SignUpDAO {
 				ptmt.setString(4, dto.getGrade());
 				ptmt.setString(5, dto.getAir_codecom());
 				ptmt.setString(6, dto.getImg());
-				ptmt.setString(7, dto.getSalesPercent());
+				ptmt.setDouble(7, dto.getSalesPercent());
 				ptmt.executeUpdate();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -376,7 +376,7 @@ public class SignUpDAO {
 				ptmt.setString(6, dto.getHinfo());
 				ptmt.setString(7, dto.getGrade());
 				ptmt.setString(8, dto.getHimg());
-				ptmt.setString(9, dto.getSalesPercent());
+				ptmt.setDouble(9, dto.getSalesPercent());
 				ptmt.executeUpdate();
 
 			} catch (SQLException e) {
@@ -1184,7 +1184,7 @@ public class SignUpDAO {
 				res.setGrade(rs.getString("grade"));
 				res.setTime(rs.getDate("time"));
 				res.setAir_codecom(rs.getString("air_codecom"));
-				res.setSalesPercent(rs.getString("salesPercent"));
+				res.setSalesPercent(rs.getDouble("salesPercent"));
 
 			}
 		} catch (SQLException e) {
@@ -1217,7 +1217,7 @@ public class SignUpDAO {
 				res.setGrade(rs.getString("grade"));
 				res.setTime(rs.getDate("time"));
 				res.setHname(rs.getString("hname"));
-				res.setSalesPercent(rs.getString("salesPercent"));
+				res.setSalesPercent(rs.getDouble("salesPercent"));
 
 			}
 		} catch (SQLException e) {
@@ -1274,7 +1274,7 @@ public class SignUpDAO {
 			ptmt.setString(4, dto.crn);
 			ptmt.setString(5, dto.air_name);
 			ptmt.setString(6, dto.img);
-			ptmt.setString(7, dto.salesPercent);
+			ptmt.setDouble(7, dto.salesPercent);
 			ptmt.executeUpdate();
 
 			sql = "DELETE FROM air_temp WHERE id=?";
@@ -1314,7 +1314,7 @@ public class SignUpDAO {
 			ptmt.setString(8, dto.getHcode());
 			ptmt.setString(9, dto.getId());
 			ptmt.setString(10, dto.getHimg());
-			ptmt.setString(11, dto.salesPercent);
+			ptmt.setDouble(11, dto.salesPercent);
 			ptmt.executeUpdate();
 
 			sql = "DELETE FROM hot_temp WHERE id=?";

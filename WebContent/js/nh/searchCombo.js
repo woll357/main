@@ -14,6 +14,8 @@ $(document).ready(function(){
 			}else if($('#darea').val()=='상해' || $('#darea').val()=='베이징'){
 				if($('#carea').val()=='상해' || $('#carea').val()=='베이징'){
 					alert("동일 국가는 선택 불가합니다.");
+				}else if($('#darea').val()!='인천' && $('#carea').val()!='인천' ){
+					alert("출발, 혹은 도착지 한 곳은 인천이어야 합니다.");
 				}else{
 					airFrm.submit();
 				}

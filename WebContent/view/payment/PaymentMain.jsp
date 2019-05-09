@@ -235,7 +235,9 @@
 		               success:function(dd){
 		            	   console.log(dd.trim());
 		            	   if(dd.trim()=='최근 이용 내역이 없습니다.'){
+		            		   $(this).checked = false;
 		            		   alert("최근이용내역이 없습니다.");
+		            		   
 		            	   }else{
 		            	   $("#contents").html(dd)
 		            	   }

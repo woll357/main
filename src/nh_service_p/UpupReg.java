@@ -72,7 +72,7 @@ public class UpupReg implements MvcAction {
 						dto.setAir_name(mm.getParameter("air_name"));
 						dto.setAir_codecom(mm.getParameter("air_codecom"));
 						dto.setImg(mm.getFilesystemName("img"));
-						dto.setSalesPercent(mm.getParameter("salesPercent"));
+						dto.setSalesPercent(Double.parseDouble(mm.getParameter("salesPercent"))/100);
 						
 					} else {
 
@@ -81,7 +81,7 @@ public class UpupReg implements MvcAction {
 						dto.setHname(mm.getParameter("hname"));
 						dto.setHinfo(mm.getParameter("hinfo"));
 						dto.setHimg(mm.getFilesystemName("himg"));
-						dto.setSalesPercent(mm.getParameter("salesPercent"));
+						dto.setSalesPercent(Double.parseDouble(mm.getParameter("salesPercent"))/100);
 					}
 
 					new SignUpDAO().upupGrade(dto);
