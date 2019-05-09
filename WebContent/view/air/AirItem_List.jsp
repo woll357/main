@@ -51,7 +51,7 @@
 	</c:forEach>
 <tr>
 <td colspan="10" align="right">
-	<a href=AirItem_Insert><input type="button" value="등록"></a>
+	<a href=AirItem_Insert?aotcont=in><input type="button" value="등록"></a>
 </td>
 </tr>
 	<tr>

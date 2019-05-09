@@ -1,3 +1,6 @@
+
+var regType1 = /^[0-9+]{5,8}$/;
+
 $(document).ready(function(){	
 	
      $('.darea').on({
@@ -50,10 +53,15 @@ $(document).ready(function(){
     						$('.ss').val()=='초' || $('.darea').val()=='출발지' ||  $('.carea').val()=='도착지' || $('.money').val()=='' ) {
     					
     					alert("기입이완료되지않았습니다.");
+    				}else if(!regType1.test($('.money').val())){
+    					alert("금액을 확인해주세요");
+    				}
     				
-    				}	else{
+    				
+    				else{
     					AirItem_InsertReg.submit();
     	           		 }
+    	       		 
     	       		 }
     				
     			

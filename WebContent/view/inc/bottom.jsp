@@ -8,7 +8,7 @@ margin-left: 10px;
 margin-right: 10p
 }
 </style>
-<table style="background: #E1E1E1; width: 1000px; " cellspacing="0">
+<table style="background: #D4F4FA; width: 1000px; " cellspacing="0">
 	<tr>
 		<td><a href="../greensc/Cinfo" >회사소개</a>
 <a href="../greensc/Sitemap">사이트맵</a></td>
