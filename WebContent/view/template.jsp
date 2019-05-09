@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<table celspacing="0" width = 1000px >
+<div style="width: 1000px; margin-left: -300px; left:36%; position: absolute;">
+<table celspacing="0" >
 	<tr>
 		<td  height="50px"><jsp:include page="inc/top.jsp" /></td> 
 	</tr>
@@ -15,7 +16,7 @@
 		<td height="150px"><jsp:include page="inc/logo.jsp" /></td>
 	</tr>
 	<tr>
-		<td height="50px"><jsp:include page="inc/subMenu.jsp" /></td>
+		<td height="50px"><jsp:include page="inc/subMenu.jsp" /></td> 
 	</tr>
 	<tr>
 		<td height="800px"><jsp:include page="${mainUrl }" /></td>
@@ -24,5 +25,6 @@
 		<td height="50px"><jsp:include page="inc/bottom.jsp" /></td>
 	</tr>
 </table>
+</div>
 </body>
 </html>
