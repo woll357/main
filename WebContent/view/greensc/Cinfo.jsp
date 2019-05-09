@@ -31,23 +31,23 @@
 	</div>
 	<br><br><br>
 	<div align="center">
-	<table border="">
+	<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0" border="">
 		<tr>
-			<td>회사명</td>
-			<td>(주)그린스캐너</td>
-			<td>대표이사</td>
-			<td>오도경</td>
+			<td style="border-bottom: 5px #00D8FF solid;" width="250px">회사명</td>
+			<td width="250px">(주)그린스캐너</td>
+			<td style="border-bottom: 5px #00D8FF solid;" width="250px">대표이사</td>
+			<td width="250px">오도경</td>
 		</tr>
 		<tr>
-			<td>설립일</td>
+			<td style="border-bottom: 5px #00D8FF solid;">설립일</td>
 			<td>2019-05-04</td>
-			<td>소재지</td>
+			<td style="border-bottom: 5px #00D8FF solid;">소재지</td>
 			<td>테헤란로 119 대호빌딩 8층 804호</td>
 		</tr>
 		<tr>
-			<td>업종</td>
+			<td style="border-bottom: 5px #00D8FF solid;">업종</td>
 			<td>여행대행사</td>
-			<td>사업자등록번호</td>
+			<td style="border-bottom: 5px #00D8FF solid;">사업자등록번호</td>
 			<td>102-81-39440</td>	
 		</tr>
 		<tr>
