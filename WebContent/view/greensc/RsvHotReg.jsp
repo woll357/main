@@ -3,9 +3,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="stylesheet" href="../css/nh/hotRev.css" type="text/css">
 
+<script>
+
+$(document).ready(function(){
+	
+	$('.btn').on({
+		'click':function(){
+			alert("로그인 하세요");
+		}
+		
+	})
+
+})
 
 
-<div id="back">
+
+</script>
+
+
 <table  style="width: 100%">
 	<tr>
 		<td colspan="4"><font size="30px"><b>호텔예약</b></font></td>
@@ -83,22 +98,6 @@
 
 </table>
 
-</div>
-
-
-<script>
-
-$(document).ready(function(){
-	
-	$('.btn').on({
-		'click':function(){
-			alert("로그인 하세요");
-		}
-		
-	})
-
-})
 
 
 
-</script>

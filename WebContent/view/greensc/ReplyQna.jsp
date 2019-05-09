@@ -3,9 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src = "../js/nh/centerWriteChk.js"></script>     
-    
+    <link rel="stylesheet" href="../css/nh/centerList.css" type="text/css">
  
-<table border="" width="100%">
+<table border="" width="100%" cellpadding="5px;" style="border : 10px #dcefef solid;">
 	<tr><td colspan="2">회원 문의</td>
 	</tr><tr>
 		<td>글번호</td><td>${dto.num }</td>
@@ -25,7 +25,7 @@
 <form action="ReplyQnaWriteReg" method="post" enctype="multipart/form-data" name="frm">
 	<input type="hidden" name="num" value="${dto.num }"/>
 	<input type="hidden" name="qnum" value="${dto.num }"/>
-	<table border="" width="100%">
+	<table border="" width="100%" cellpadding="5px;" style="border : 10px #dcefef solid;">
 	<tr><td colspan="2">답변 내용</td>
 	</tr><tr>
 			<td>제목</td>
