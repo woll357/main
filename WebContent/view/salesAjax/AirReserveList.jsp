@@ -27,15 +27,13 @@
 		var today = formatDate();
 		
 		startDate = startDate.substring(0,10);
-
-		location.href="../airsell/BoardingReg?basketID="+id+"&aotcont=in";
 		
-		/* if(startDate==today){
+		if(startDate==today){
 			location.href="../airsell/BoardingReg?basketID="+id+"&aotcont=in";
 		}
 		else{
 			alert("보딩 불가 날짜입니다.")
-		} */
+		}
 		
 	}
 </script>

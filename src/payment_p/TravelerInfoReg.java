@@ -1,6 +1,7 @@
 package payment_p;
 
 import java.io.UnsupportedEncodingException;
+import java.text.DecimalFormat;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -139,7 +140,7 @@ public class TravelerInfoReg implements MvcAction {
 				
 			}
 			
-			request.getSession().setAttribute("totalPrice", totalPrice);
+			request.getSession().setAttribute("totalPrice",new DecimalFormat("#,##0").format(totalPrice));
 			request.setAttribute("basketIDs", basketIDs);
 			request.setAttribute("mainUrl", "payment/PaymentMain.jsp");
 			
