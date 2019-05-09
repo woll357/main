@@ -1,19 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>항공편 하나에 전체 상품</title>
+
 </head>
 <body>
-<form action="Airp_Detail">
+<script src="../js/odk/datesarch.js"></script>
+<form id="cc" action="Airp_Detail">
 <table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<input type="hidden" value="${param.air_p}" name="air_p">
+<input type="hidden" value="in" name="partner">
 		<tr>
 			<td style="background: #D4F4FA" colspan="6">날짜</td>
-			<td style="background: #D4F4FA" ><input type="text" name="ddate" /></td>
-			<td style="background: #D4F4FA"  align="center"><input type="submit" value="선택  " /></td>
+			<td style="background: #D4F4FA" ><input type="text" class="ddate" name="ddate" /></td>
+			<td style="background: #D4F4FA"  align="center"><input class="aa" type="button" value="선택  " /></td>
 		</tr>
 	<tr>
 		<td>상품코드</td>
@@ -27,7 +31,7 @@
 	</tr>
 <c:forEach var="dt" items="${dto }" varStatus="no" >
 	<tr>
-	<td><a href="AirItem_Detail?ccode=${dt.ccode }">${dt.ccode }</a></td>	
+	<td>${dt.ccode }</td>	
 		<td>${dt.ap_code }</td>
 		<td>${dt.ddate }</td>
 		<td>${dt.darea }</td>
@@ -48,10 +52,13 @@
 				[${i }]
 				</c:when>
 				<c:otherwise>
-					<a href="?page=${i }&partner=in">${i }</a> <!-- 자기 자신으로 돌아오는데 페이지가 i -->
+					<a href="?page=${i }&partner=in&air_p=${param.air_p}">${i }</a> <!-- 자기 자신으로 돌아오는데 페이지가 i -->
 				</c:otherwise>
 				</c:choose>			
 			</c:forEach>
+			<c:if test="${endpage<totalpage }">  <!-- 마지막 페이지가 토탈페이지보다 작을때만 다음이 나오게-->
+			<a href="?page=${endpage+1 }&partner=in">[다음]</a> 
+		</c:if>
 		</td>
 	</tr>
 </table>

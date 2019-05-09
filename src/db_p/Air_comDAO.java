@@ -294,7 +294,7 @@ public Object air_pdetaill(String a) {
 		public void airlinedelete(Air_comDTO dto) {
 					
 				try {
-					 
+					
 					sql = "delete from air_com where id = ? " ;			
 					ptmt = con.prepareStatement(sql);					
 					ptmt.setString(1, dto.getId());
