@@ -15,7 +15,7 @@
 
 <c:forEach var="dto" items="${data}" varStatus="no">	
 	<tr>
-	<td><a href="Airp_List2?air_p=${dto.air_p }&air_code=${mem.air_code }&aotcont=in">${dto.air_p }</a></td>	
+	<td><a href="Airp_List2?air_p=${dto.air_p }&air_code=${mem.air_code }&partner=in">${dto.air_p }</a></td>	
 		<td>${dto.darea }</td>
 		<td>${dto.carea }</td>
 		

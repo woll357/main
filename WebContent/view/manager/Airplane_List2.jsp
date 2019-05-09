@@ -38,7 +38,7 @@
 	</tr>
 <c:forEach var="dto" items="${data }" varStatus="no" >
 	<tr>
-	<td><a href="Airplaneitem_List?ap_code=${dto.ap_code }">${dto.ap_code }</a>
+	<td><a href="Airplaneitem_List?ap_code=${dto.ap_code }&partner=in">${dto.ap_code }</a>
 	<td>${dto.air_name }</td>
 	<td>${dto.air_code }</td>
 	
@@ -53,7 +53,7 @@
 	<td>${dto.maximum_altitude }</td>
 	<td>${dto.maximum_od }</td>
 	<td>${dto.flightclass }</td>
-	<td><a href="Airplane_Delete?ap_code=${dto.ap_code }"><input type="button" value="삭제"></a></td>
+	<td><a href="Airplane_Delete?ap_code=${dto.ap_code }&partner=in"><input type="button" value="삭제"></a></td>
 	</tr>
 	</c:forEach>
 	

@@ -27,9 +27,12 @@ public class AirLine_Delete implements MvcAction {
 
 		
 		
-		
 		Air_comDTO cdto = new Air_comDTO();
+		
+		
 		cdto.setId(request.getParameter("id"));
+		
+		System.out.println(request.getParameter("id")+"zzzzzzzzzzzz");
 		
 		
 		if(new Air_itemDAO().aircomdelete(dto)) {

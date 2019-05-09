@@ -4,11 +4,11 @@
 <!DOCTYPE html>
 <html>
 
-
+<script src="../js/odk/datesarch.js"></script>
 </head>
 <body>
 
-<form action="Airp_Detail">
+<form id="cc" action="Airp_Detail">
 <table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 
 <input type="hidden" name= "aotcont"  value="in"/>
@@ -16,8 +16,8 @@
 <input type="hidden" name= "air_code"  value="${mem.air_code }"/>
 <tr>
 			<td style="background: #D4F4FA" >날짜</td>			
-			<td style="background: #D4F4FA" ><input type="text" name="ddate" /></td>
-			<td style="background: #D4F4FA"  align="center"><input type="submit" value="선택  " /></td>
+			<td style="background: #D4F4FA" ><input type="text" name="ddate" class="ddate" /></td>
+			<td style="background: #D4F4FA"  align="center"><input type="button" class="aa" value="선택  " /></td>
 		</tr>
 		</table>
 </form>
@@ -29,7 +29,7 @@
 		<td style="background: #D4F4FA" >출발지</td>
 		<td style="background: #D4F4FA" >도착지</td>
 		<td style="background: #D4F4FA" >도착시간</td>
-		<td style="background: #D4F4FA" >남은좌석</td>	
+		<td style="background: #D4F4FA" >예약된좌석</td>	
 		<td style="background: #D4F4FA" >좌석등급</td>
 	</tr>
 <c:forEach var="dt" items="${dto }" varStatus="no" >
