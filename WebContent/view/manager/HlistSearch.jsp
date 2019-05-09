@@ -4,9 +4,9 @@
     <h2 align="center">호텔검색</h2> 
     <div align="center">
 <form action="HlistSearch?partner=in" method="post">
-	<table border="">
+	<table border="" style="text-align: center; border: 5px #dcefef solid;" cellspacing="0">
 		<tr>
-			<td style="background: #D4F4FA">코드검색</td>
+			<td style="background: #D4F4FA">호텔코드검색</td>
 			<td><input type="text" name="hcode" /></td>
 			<td><input type="submit" value="검색" /></td>
 		</tr>
@@ -15,7 +15,7 @@
 </div>
 <div align="center">
 <form action="HlistCountrySearch?partner=in" method="post">
-	<table border="">
+	<table border="" style="text-align: center; border: 5px #dcefef solid;" cellspacing="0">
 		<tr>
 			<td style="background: #D4F4FA">나라검색</td>
 			<td><select name="country">
@@ -39,7 +39,7 @@
 <br><br>
 <c:forEach var="dto" items="${data }" varStatus="no">
 <div align="center">	
-<table border="">
+<table border="" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 	<tr>
 		<td style="background: #D4F4FA">호텔코드</td>
 		<td style="background: #D4F4FA" colspan="2" width="200">${dto.hcode }</td>
@@ -56,7 +56,7 @@
 	<td colspan="2">${dto.hinfo }</td>
 	</tr>
 	<tr>
-	<td align="left" colspan="3"><a href="Hdetail?hcode=${dto.hcode }&partner=in">관리자상세조회</a></td>
+	<td align="right" colspan="3"><a href="Hdetail?hcode=${dto.hcode }&partner=in">관리자상세조회</a></td>
 	</tr>
 
 </table>
