@@ -1,6 +1,7 @@
 package payment_p;
 
 import java.io.UnsupportedEncodingException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -315,7 +316,7 @@ public class PaymentReg implements MvcAction {
 						totalPrice += jbdto.getTotalPrice();
 					}
 				}
-				request.setAttribute("totalPrice", totalPrice);
+				request.setAttribute("totalPrice", new DecimalFormat("#,##0").format(totalPrice));
 				request.setAttribute("hdtos", hdtos);
 				request.setAttribute("adtos", adtos);
 

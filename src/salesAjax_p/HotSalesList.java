@@ -1,5 +1,6 @@
 package salesAjax_p;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -109,8 +110,8 @@ public class HotSalesList implements MvcAction {
 			totalSalesPrice+=ss.getComSales();
 			totalPrice+=ss.getTotalPrice();
 		}
-		request.setAttribute("totalPrice", totalPrice);
-		request.setAttribute("totalSalesPrice", totalSalesPrice);
+		request.setAttribute("totalPrice", new DecimalFormat("#,##0").format(totalPrice));
+		request.setAttribute("totalSalesPrice", new DecimalFormat("#,##0").format(totalSalesPrice));
 		request.setAttribute("salesList", salesList);
 		
 		return null;

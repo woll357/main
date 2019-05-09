@@ -1,5 +1,6 @@
 package payment_p;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,7 +38,7 @@ public class JustBuyDetail implements MvcAction {
 			
 			}
 		}
-		request.setAttribute("totalPrice", totalPrice);
+		request.setAttribute("totalPrice", new DecimalFormat("#,##0").format(totalPrice));
 		request.setAttribute("hdtos",hdtos);
 		request.setAttribute("adtos",adtos);
 		request.getSession().removeAttribute("basketIDs");
