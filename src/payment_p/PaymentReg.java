@@ -178,9 +178,17 @@ public class PaymentReg implements MvcAction {
 						aidto.setSeatcnt(tt.getPsn());
 						new Air_itemDAO().update_seatcnt(aidto);
 						
+						BasketDTO bdto = new BasketDTO();
+						bdto.setBasketID(basketIDs[i]);
+						bdto = new BasketDAO().detail(bdto);
+						
+						
 						TravelerInfo_tempDTO ttdto = new TravelerInfo_tempDTO();
 						ttdto.setBasketID(basketIDs[i]);
-						ArrayList<TravelerInfo_tempDTO> ttdtos = new TravelerInfo_tempDAO().TravelerInfoListByBasketID(ttdto);
+						int maxcnt = new TravelerInfo_tempDAO().countMax(ttdto);
+						int startNum = maxcnt - bdto.getPsn();
+						
+						ArrayList<TravelerInfo_tempDTO> ttdtos = new TravelerInfo_tempDAO().TravelerInfoListByBasketID(ttdto, bdto.getPsn(), maxcnt);
 						
 						for (TravelerInfo_tempDTO ttt : ttdtos) {
 							TravelerInfoDTO tdto = new TravelerInfoDTO();

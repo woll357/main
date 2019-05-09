@@ -66,14 +66,17 @@ public class TravelerInfo_tempDAO {
 	}
 	
 	
-	public ArrayList<TravelerInfo_tempDTO> TravelerInfoListByBasketID(TravelerInfo_tempDTO dt){ //예약내역 찾기
+	public ArrayList<TravelerInfo_tempDTO> TravelerInfoListByBasketID(TravelerInfo_tempDTO dt, int limit, int offset){ //예약내역 찾기
 		ArrayList<TravelerInfo_tempDTO> res = new ArrayList<TravelerInfo_tempDTO>();
+		
 		try {
-			sql = "select * from travelerInfo_temp where basketID = ? ";
+			sql = "select * from travelerInfo_temp where basketID = ? limit ? offset ? ";
 			ptmt = con.prepareStatement(sql);
 			
 			ptmt.setString(1, dt.getBasketID());
-	
+			ptmt.setInt(2, limit);
+			ptmt.setInt(3, offset);
+			
 			rs = ptmt.executeQuery();
 			
 			while(rs.next()) {
@@ -110,6 +113,36 @@ public class TravelerInfo_tempDAO {
 		}
 		
 		return res;
+		
+	}
+	
+	public int countMax(TravelerInfo_tempDTO dto){ //예약내역 찾기
+		int countMax = 0;
+		
+		try {
+			sql = "select count(travelerCode) from travelerinfo_temp where basketID = ?";
+			ptmt = con.prepareStatement(sql);
+			
+			ptmt.setString(1, dto.getBasketID());
+	
+			rs = ptmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				System.out.println(rs.getInt(1));
+				
+				countMax = rs.getInt(1);
+			}
+	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+			close();
+		}
+		
+		return countMax;
 		
 	}
 	
