@@ -21,7 +21,7 @@
 
 		<c:forEach var="dto" items="${data}" varStatus="no">
 			<tr>
-				<td class="listNo">${start+no.index+1 }</td>
+				<td class="listNo">${dto.num }</td>
 				<td class="listtt"><a
 					href="NoticeDetail?num=${dto.num }&center=in&page=${nowPage}">${dto.title }</a></td>
 				<c:choose>

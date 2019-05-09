@@ -20,9 +20,9 @@
 </tr>
 
 <c:forEach var="dto" items="${data}" varStatus="no">	
-	<c:if test="${dto.num>-1 }">
+	
 	<tr>
-		<td class="listNo">${start+no.index+1 }</td>
+		<td class="listNo">${dto.num }</td>
 		<td class="listtt"><a href="../greensc/FnqDetail?num=${dto.num }&center=in&page=${nowPage}">${dto.title }</a></td>
 		<c:choose>
 			<c:when test="${mem.grade=='M' }"><td class="listnn">${dto.id }</td></c:when>
@@ -31,7 +31,7 @@
 		<td class="listdd">${dto.time }</td>
 		<td class="listvv">${dto.view }</td>
 	</tr>
-	</c:if>
+	
 </c:forEach>
 <tr>
 		<td colspan="5" align="center">

@@ -33,7 +33,7 @@
 
 	<c:forEach var="dto" items="${data}" varStatus="no">
 				<tr>
-					<td class="listNo">${dto.num+1 }</td>
+					<td class="listNo">${dto.num }</td>
 					<td class="listtt"><a href="QnaDetail?num=${dto.num }&center=in&page=${nowPage}&center=in">${dto.title }</a></td>
 					<td class="listnn">${dto.id }</td>
 					<td class="listdd">${dto.time }</td>
