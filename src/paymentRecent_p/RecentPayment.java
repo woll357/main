@@ -36,7 +36,7 @@ public class RecentPayment implements MvcAction {
 				}
 		} catch (Exception e) {
 			request.setAttribute("msg", "최근 이용 내역이 없습니다.");
-			request.setAttribute("goUrl", "../payment/PaymentMain");
+			//request.setAttribute("goUrl", "../payment/PaymentMain");
 		}
 		
 		

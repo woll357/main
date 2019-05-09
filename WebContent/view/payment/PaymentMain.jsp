@@ -10,10 +10,12 @@
 <c:forEach var="l" items="${basketIDs }" >
 
 	<input type="hidden" name="basketIDs" value="${l }"  />
-
+	
 </c:forEach>
-<div id="contents">
-	<table style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
+<table>
+<tr>
+<td id="contents">
+<table style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 		<tr>
 			<td style="width: 120px;border-bottom: 10px #dcefef solid;" >최근 이용 카드</td>
 			<td><input id="check" type="checkbox" /></td>
@@ -94,7 +96,13 @@
 			<td style="width: 50px"><input style="width: 50px"  type="password" maxlength="2" id="pw" name="pw" /></td><td style="width: 10px">**</td>
 		</tr>
 		</table>
-		</div>
+
+</td>
+</tr>
+</table>
+
+	
+		
 		
 		
 		<table style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
@@ -222,11 +230,15 @@
 		
 		$("#check").on({
 			click:function(){
-				$.ajax("../PaymentRecent/RecentPayment",
+				$.ajax("../PaymentRecent/RecentPayment?",
 			            {
 		               success:function(dd){
+		            	   console.log(dd.trim());
+		            	   if(dd.trim()=='최근 이용 내역이 없습니다.'){
+		            		   alert("최근이용내역이 없습니다.");
+		            	   }else{
 		            	   $("#contents").html(dd)
-		            	 
+		            	   }
 		               },
 		               error:function(){
 		                  alert("최근이용내역이 없습니다.");

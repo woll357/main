@@ -1,13 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
+<c:choose>
+<c:when test="${pdto.cComName!=null }">  
+<script src="../js/hsj/recentPayment.js"></script>
 
-<script>
-if("${msg}"!=""){
-	alert("${msg}");
-	
-	location.href="${goUrl}";
-}
-</script>
+
  <table style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 		<tr>
 			<td style="width: 120px;border-bottom: 10px #dcefef solid;" >최근 이용 카드</td>
@@ -40,16 +38,8 @@ if("${msg}"!=""){
 			<td style="width: 50px"><input style="width: 50px"  type="password" maxlength="2" id="pw" name="pw" /></td><td style="width: 10px">**</td>
 		</tr>
 		</table>
-<script>
-
-	$('#pw').focusout(function(){
-		if(pwPat.test($(this).val())){
-			chk6=true;
-		}
-		else{
-			chk6=false;
-			 alert("유효하지 않은 pw 입니다.");
-		}
-	})
-
-</script>
+</c:when>
+<c:otherwise>
+${msg }
+</c:otherwise>
+</c:choose>

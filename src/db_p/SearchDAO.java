@@ -46,7 +46,6 @@ public class SearchDAO {
 			ptmt.setString(3, dto.getCarea());
 			ptmt.setInt(4, dto.getSeatcnt());
 			ptmt.setString(5, dto.getFlightclass());
-			
 			rs = ptmt.executeQuery();
 			
 			while(rs.next()) {
