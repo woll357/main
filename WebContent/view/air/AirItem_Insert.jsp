@@ -3,9 +3,7 @@
     
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>상품 등록</title>
+<h2 class="stitle">상품 등록</h2>
 </head>
 <body onload="calendar()">
 <script src="../js/jquery-3.3.1.min.js"></script>   

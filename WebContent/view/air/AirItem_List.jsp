@@ -9,7 +9,7 @@
 <body>
 </head>
 <body>
-<h1>상품 목록</h1>
+<h2 class="stitle">상품 목록</h2>
 <form action="AirItem_Detail">
 <input type="hidden" name= "aotcont"  value="in"/>
 <table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">

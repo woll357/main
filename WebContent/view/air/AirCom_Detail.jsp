@@ -5,7 +5,7 @@
 
 <html>
 <body>
-
+<h2 class="stitle">..?</h2>
 <form action="AirCom_Detail" method="post">
 <table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 		<tr>

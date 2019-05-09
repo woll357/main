@@ -6,6 +6,7 @@
  <link rel="stylesheet" href="../css/nh/centerList.css" type="text/css">
 </head>
 <body>
+<h2 class="stitle">지난 상품 목록</h2>
 <table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 	<tr>
 		<td width="40">상품코드</td>

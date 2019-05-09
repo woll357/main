@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<h2 class="stitle">항공편 상품 목록</h2>
 <body>
 <table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 		<tr>

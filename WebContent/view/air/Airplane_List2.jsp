@@ -8,6 +8,7 @@
 <title>비행기 검색</title>
 </head>
 <body>
+<h2 class="stitle">비행기 검색</h2>
 <form action="Airplane_List2">
 <input type="hidden" name="air_code" value="${dd }">
 <input type="hidden" name= "aotcont"  value="in"/>

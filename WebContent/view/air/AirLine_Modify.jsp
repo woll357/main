@@ -10,6 +10,7 @@
 </head>
 <body>
 <script src="../js/odk/AirLine_Modify.js"></script>
+<h2 class="stitle">항공사 수정</h2>
 <form name="airmod" action="AirLine_ModifyFm" method="post"  enctype="multipart/form-data">
 <table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 	<input type="hidden" name="id" value="${mem.id }">

@@ -8,7 +8,7 @@
 <title>비행기 목록</title>
 </head>
 <body>
-<h3>비행기 목록</h3>
+<h2 class="stitle">비행기 목록</h2>
 <form action="Airplane_List2">
 <input type="hidden" name="air_code" value="${mem.air_code }"> 
 <input  type="hidden" value="in" name="aotcont">

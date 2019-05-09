@@ -10,7 +10,7 @@
 <script src="../js/odk/textnum.js"></script> 
 <script src="../js/odk/item_insert.js"></script> 
 
-
+<h2 class="stitle">상품 수정</h2>
 <form name="AirItem_InsertReg" action="AirItem_InsertReg">
 <table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 		<tr>

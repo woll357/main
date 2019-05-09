@@ -7,8 +7,14 @@ color:#4374D9;
 margin-left: 10px;
 margin-right: 10p
 }
+
+.stitle{
+	top: 320px;
+	position: absolute;
+
+}
 </style>
-<table style="background: #D4F4FA; width: 1000px; " cellspacing="0">
+<table style="background: #D4F4FA; width: 1000px;" cellspacing="0">
 	<tr>
 		<td><a href="../greensc/Cinfo" >회사소개</a>
 <a href="../greensc/Sitemap">사이트맵</a></td>

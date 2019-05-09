@@ -3,7 +3,7 @@
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <link rel="stylesheet" href="../css/nh/centerList.css" type="text/css">
 <body>
-
+<h2 class="stitle">상품 상세</h2>
 <form action="AirItem_Detail">
 	<input type="hidden" name= "aotcont"  value="in"/>
 <table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">

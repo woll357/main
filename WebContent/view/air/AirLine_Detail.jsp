@@ -2,14 +2,14 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-
+<h2 class="stitle">항공사 정보</h2>
 <body>
 
 <form action="AirLine_Modify?id=${mem.id }" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="id" value="${mem.id }">
 <table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 		<tr>
-			<td style="background: #D4F4FA">이미지</td>
+			<td width="200" style="background: #D4F4FA">이미지</td>
 			<td style="background: #D4F4FA">사업자등록증</td>
 			<td style="background: #D4F4FA">회사명</td>
 		</tr>
