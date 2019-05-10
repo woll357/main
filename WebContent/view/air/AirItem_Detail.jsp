@@ -3,6 +3,41 @@
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <link rel="stylesheet" href="../css/nh/centerList.css" type="text/css">
 <link rel="stylesheet" href="../css/dk/input.css" type="text/css">
+<script>
+/* $(document).ready(function(){
+	$('.acb').on({
+		'click':function() {
+		
+			
+			
+			
+			if($('.seatcnt').val()>0 ) {
+				console.log($('.seatcnt').val());
+				alert("파일은 선택해주세요.");
+				
+				
+			}		
+     	
+		}
+		
+	})
+	
+}) ; */
+
+/* <a href="#" onclick="delchk();">삭제하기</a>
+
+<script type="text/javascript">
+function delchk(){
+    if(confirm("삭제하시겠습니까?")){
+        location.href = "write_del_ok.jsp?num=1";
+        return true;
+    } else {
+        return false;
+    }
+} */
+
+
+</script>
 <h2>상품 상세</h2>
 <form action="AirItem_Detail">
 	<input type="hidden" name= "aotcont"  value="in"/>
@@ -34,7 +69,7 @@
 		<td>${dto.carea }</td>
 		<td>${dto.money }</td>
 		<td>${dto.a_time }</td>
-		<td>${dto.seatcnt }</td>
+		<td class="seatcnt">${dto.seatcnt }</td>
 		<td>${dto.totseatcnt }</td>
 		<td>${dto.flightclass }</td>
 		
@@ -42,7 +77,7 @@
 	
 <tr>
 <td colspan="10" align="right">
-	<a href="AirItem_Modify?ccode=${dto.ccode }&aotcont=in"><input type="button" value="수정"></a>
+	<a onclick="showHide()" class="acccc" href="AirItem_Modify?ccode=${dto.ccode }&aotcont=in"><input class="acb" type="button" value="수정"  ></a>
 	<a href=AirItem_Insert?aotcont=in><input type="button" value="등록"></a>
 	<a href= "AirItem_Delete?ccode=${dto.ccode }&aotcont=in" ><input type="button" value="삭제"></a>
 </td>
