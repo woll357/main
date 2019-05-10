@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src = "../js/nh/countryCombo.js"></script>
-
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 <script>
 
 var no=0;
@@ -125,7 +125,7 @@ function chkPat(){
 	
 	
 	if(idPat.test($('#pw').val()) && $('#pw').val().length>7 && $('#pw').val().length<17){		
-		$('#pwTag').html("정상입력");
+		$('#pwTag').html("정상적으로 입력되었습니다.");
 		chk4=true;
 	}else{
 		chk4=false;
@@ -134,7 +134,7 @@ function chkPat(){
 		}
 	
 	if($('#pw').val()==$('#pw2').val() && $('#pw2').val().length>0){
-		$('#pw2Tag').html("정상입력");
+		$('#pw2Tag').html("정상적으로 입력되었습니다.");
 		chk5=true;
 	}else{
 		chk5=false;
@@ -169,7 +169,7 @@ function butPat(){
 			&& numPat.test($('#phone3').val()) && $('#phone1').val().length >2
 			&& $('#phone2').val().length >2 && $('#phone3').val().length >3){
 		chk1=true; 
-		$('#ppTag').html("정상입력");
+		$('#ppTag').html("정상적으로 입력되었습니다.");
 		ppchk=false;
 		$('#phoneBtn').removeAttr("disabled");
 	}else{
@@ -197,56 +197,56 @@ function butPat(){
 <h2>내 정보 수정</h2>
 	<form action="ModifyMemReg" method="post" name="frm">
 	<input type="hidden" value="${dto.id }" name="id"/>
-	<table style="border : 10px #dcefef solid; width: 100%; border-collapse: collapse;" cellspacing="0" border="" cellpadding="5px;">
+	<table class="ttcss" cellspacing="0" border="" cellpadding="5px;">
 		<tr>
-    			<td width="100"  align="center">ID</td>
+    			<td width="100"  align="center" class="wbbr">ID</td>
     			<td colspan="2" >${mem.id }</td>
     		</tr>
 		<tr>
-			<td align="center" >pw</td>
+			<td align="center" class="wbbr">pw</td>
 			<td colspan="2"><input name="pw" type="password" maxlength="16" id="pw" onkeyup="chkPat()"  class="inin"/>
 			<div id="pwTag">8 ~ 16자, 영문과 숫자로 부탁드립니다.</div>		
 			</td>
 		</tr>
 		<tr>
-			<td align="center" >pw 확인</td>
+			<td align="center" class="wbbr">pw 확인</td>
 			<td colspan="2"><input name="pw2" type="password" maxlength="16" id="pw2" onkeyup="chkPat()"  class="inin"/>
 			<div id="pw2Tag">pw와 동일하게 입력하세요.</div>
 			</td>
 			
 		</tr>
 		<tr>
-			<td align="center" >이름</td>
+			<td align="center" class="wbbr">이름</td>
 			<td colspan="2" >${dto.pname }
 			
 			</td>
 		</tr>
 		<tr>
-			<td align="center" >연락처</td>
+			<td align="center" class="wbbr">연락처</td>
 			<td style="width: 600px; border-right: 1px white solid;">
 			<input name="phone" type="text" id="phone1"  maxlength="3" onkeyup="butPat()" value="${dto.phone1 }" class="ppin"/> -
 			<input name="phone" type="text" id="phone2"  maxlength="4" onkeyup="butPat()" value="${dto.phone2 }" class="ppin"/> -
 			<input name="phone" type="text" id="phone3" maxlength="4" onkeyup="butPat()" value="${dto.phone3 }" class="ppin"/>
 			<div id="ppTag"></div>
 			</td><td>
-			<input type="button" value="중복확인" class="btn" id="phoneBtn" disabled="disabled"/>
+			<input type="button" value="중복확인" class="btncss" id="phoneBtn" disabled="disabled"/>
 			</td>
 		</tr>
 		<tr>
-			<td align="center" >생년월일</td>
+			<td align="center" class="wbbr">생년월일</td>
 			<td colspan="2" >${dto.birth }
 			</td>
 			
 		</tr>
 		<tr>
-			<td align="center" >성별</td>
+			<td align="center" class="wbbr">성별</td>
 			<td colspan="2" >${dto.gender }
 			</td>
 			
 		</tr>
 
 		<tr>
-			<td align="center" >주소</td>
+			<td align="center" class="wbbr">주소</td>
 			<td id="address" colspan="2">
 			<c:choose>
 					<c:when test="${dto.country=='한국' }">
@@ -390,7 +390,7 @@ function butPat(){
 		</tr>
 
 		<tr>
-			<td align="center" >Email</td>
+			<td align="center" class="wbbr">Email</td>
 			<td colspan="2">
 			<input type="text" name="email" id="email1" onkeyup="chkPat()" value="${dto.email1 }" class="ee"/>@
 			<input type="text" name="email" id="email2" onkeyup="chkPat()" value="${dto.email2 }" class="ee"/>
@@ -398,8 +398,8 @@ function butPat(){
 			</td>
 		</tr>
 		<tr>
-			<td colspan="3" align="center" ><input type="button" value="수정" id="subBtn"/>
-				<input type="reset" value="초기화" /></td>
+			<td colspan="3" align="center" ><input type="button" value="수정" id="subBtn"class="btncss"/>
+				<input type="reset" value="초기화"class="btncss" /></td>
 		</tr>
 	</table>
 </form>

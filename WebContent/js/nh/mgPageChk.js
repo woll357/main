@@ -11,9 +11,9 @@ $(document).ready(function(){
 	      'click':function(){
 	    	  if(chk1){
 	    	  dataGet("../greenAjax/Find?id="+$('#id').val());
-	    	  $('#id').val("");
-	    	  $('#phone').val("");
-	    	  $('#name').val("");
+	    	  $('#id').val(null);
+	    	  $('#phone').val(null);
+	    	  $('#name').val(null);
 	    	  }else{
 	    		  alert(msg);
 	    	  }
@@ -23,9 +23,9 @@ $(document).ready(function(){
 		      'click':function(){
 		    	  if(chk2){
 		    	  dataGet("../greenAjax/Find?pname="+$('#name').val());
-		    	  $('#id').val("");
-		    	  $('#phone').val("");
-		    	  $('#name').val("");
+		    	  $('#id').val(null);
+		    	  $('#phone').val(null);
+		    	  $('#name').val(null);
 		    	  }else{
 		    		  alert(msg);
 		    	  }
@@ -35,9 +35,9 @@ $(document).ready(function(){
 		      'click':function(){
 		    	  if(chk3){
 		    	  dataGet("../greenAjax/Find?phone="+$('#phone').val());
-		    	  $('#id').val("");
-		    	  $('#phone').val("");
-		    	  $('#name').val("");
+		    	  $('#id').val(null);
+		    	  $('#phone').val(null);
+		    	  $('#name').val(null);
 		    	  }else{
 		    		  alert(msg);
 		    	  }
@@ -50,7 +50,7 @@ $(document).ready(function(){
                 {
                    success:function(dd){	                       
                 	   $("#contents").html(dd);
-                      
+                	   
                    },
                    error:function(){
                       alert("실패다 실패");

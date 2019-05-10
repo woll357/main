@@ -251,12 +251,12 @@ function chkPat2(){
 				<tr>
 					<td class="wbbr">사번</td>
 					<td class="bb"><input type="text" name="bnum" id="bnum" onkeyup="chkPat2()">
-						<input type="button" id="bBtn" value="중복검사"/>
+						<input type="button" id="bBtn" value="중복검사" class="btncss"/>
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2" class="bbb"><input type="button" value="제출" id="subBtn" /> 
-					<input type="reset" value="초기화"></td>
+					<td colspan="2" align="left"><input type="button" value="제출" id="subBtn" class="btncss"/> 
+					<input type="reset" value="초기화" class="btncss"></td>
 				</tr>
 			</table>
 		</form>
@@ -276,7 +276,7 @@ function chkPat2(){
 				<tr>
 					<td id="bnum" class="wbbr">사업자등록번호</td>
 					<td class="bb"><input type="text" name="crn" id="crn" onkeyup="chkPat()"/>
-					<input type="button" id="aBtn" value="중복검사"/></td>
+					<input type="button" id="aBtn" value="중복검사" class="btncss"/></td>
 				</tr>
 				<tr>
 					<td class="wbbr">파일</td>
@@ -298,8 +298,8 @@ function chkPat2(){
 					<td class="bb">0.1~100.0%, 소수점 1자리까지</td>
 				</tr>
 				<tr>
-					<td colspan="2" class="bbb"><input type="button" value="제출" id="subBtn" /> 
-					<input type="reset" value="초기화"></td>
+					<td colspan="2" class="bbb" align="center"><input type="button" value="제출" id="subBtn" class="btncss"/> 
+					<input type="reset" value="초기화" class="btncss"></td>
 				</tr>
 			</table>
 		</form>
@@ -323,11 +323,11 @@ function chkPat2(){
 				<tr>
 					<td class="wbbr">사업자등록번호</td>
 					<td class="bb"><input type="text" name="crn" id="crn" onkeyup="chkPat()"/>
-					<input type="button" id="hBtn" value="중복검사"/></td>
+					<input type="button" id="hBtn" value="중복검사" class="btncss"/></td>
 				</tr>
 				<tr>
 					<td class="wbbr">호텔이미지</td>
-					<td class="bb"><input type="file" name="himg" id="img" onchange="chkPat()"/></td>
+					<td class="bb"><input type="file" name="himg" id="img" onchange="chkPat()" /></td>
 				</tr>
 				<tr>
 					<td class="wbbr">호텔명</td>
@@ -346,8 +346,8 @@ function chkPat2(){
 				</tr>
 				<tr>
 
-					<td colspan="2"class="bbb"><input type="button" value="제출" id="subBtn" />
-						<input type="reset" value="초기화" /></td>
+					<td colspan="2"class="bbb" align="center"><input type="button" value="제출" id="subBtn" class="btncss"/>
+						<input type="reset" value="초기화" class="btncss" /></td>
 				</tr>
 			</table>
 

@@ -17,8 +17,7 @@
 
 
 				<c:otherwise>
-
-
+				
 					<c:forEach var="dto" items="${data}" varStatus="no">
 
 						<form action="FindDetail" method="post">
@@ -36,7 +35,7 @@
 									</c:choose>
 									</td>
 									<td style="width: 100px;" class="bbr">${dto.preason }</td>
-									<td style="width: 98px;" class="bb"><input type="submit" value="검색" /></td>
+									<td style="width: 98px;" class="bb"><input type="submit" value="검색" class="btncss2"/></td>
 								</tr>
 								
 							</table>

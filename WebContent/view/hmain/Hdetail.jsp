@@ -3,9 +3,11 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
+
 <h2 >호텔상세</h2>
 <div align="center">
-<table width="100%" border="" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
+<table class="ttcss" border="" style="text-align: center;">
 	<tr>
 		<td width="250" rowspan="3"><img width="320" src="../img/${dto.himg }" alt="" /></td>
 		<td>${dto.country }</td>
@@ -18,67 +20,70 @@
 	<td colspan="2">${dto.hinfo }</td>
 	</tr>
 		<tr>
-		<td>상세주소</td>
+		<td class="wbbr">상세주소</td>
 		<td colspan="2">${dto.addDetail }</td>
 	</tr>
 	<tr>
-		<td>사업자등록번호</td>
+		<td class="wbbr">사업자등록번호</td>
 		<td colspan="2">${dto.crn }</td>
 	</tr>
 </table>
 </div>
 
 <br>
-<h2 align="left">방목록</h2>   
+<h2>방목록</h2> 
 
-<c:forEach var="data" items="${roomdata }" varStatus="no">
-<table class="contable2" width="100%" border=""  style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 
+<c:forEach var="data" items="${roomdata }" varStatus="no">  
+<table  class="ttcss" border="" style="text-align: center;">
 	<tr>
 		<tr>
-		<td width="220" rowspan="7"><img width="300" src="../img/${data.rimg }" alt="" /></td>
-		<td>방종류</td>
+		<td width="220" rowspan="7" style="border-top: 10px #dcefef solid; border-bottom: 10px #dcefef solid;"><img width="300" src="../img/${data.rimg }" alt="" /></td>
+		<td class="wbbr" style="border-top: 10px #dcefef solid;">방종류</td>
 		<c:if test="${data.rkind=='S' }">
-		<td>스탠다드</td>
+		<td style="border-top: 10px #dcefef solid;">스탠다드</td>
 		</c:if>
 		<c:if test="${data.rkind=='D' }">
-		<td>디럭스룸</td>
+		<td style="border-top: 10px #dcefef solid;">디럭스룸</td>
 		</c:if>
-		<td><a href="HroommodiForm?rcode=${data.rcode }&hotcont=in">방수정</a></td>
+		<td style="border-top: 10px #dcefef solid;"><a href="HroommodiForm?rcode=${data.rcode }&hotcont=in">방수정</a></td>
 	</tr>
 	<tr>
-		<td>방갯수</td>
+		<td class="wbbr">방갯수</td>
 		<td>${data.rcnt }</td>
 		<td rowspan="2"><a href="HnoresDatewriteForm?rcode=${data.rcode }&hotcont=in&rcnt=${data.rcnt }">예약불가날짜선정</a></td>
 	</tr>
 	<tr>
-		<td>방인원</td>
+		<td class="wbbr">방인원</td>
 		<td>${data.pcnt }</td>
 		
 	</tr>
 	<tr>
-		<td>금액</td>
+		<td class="wbbr">금액</td>
 		<td>${data.money }</td>
 		<td rowspan="2"><a href="HnoresList?rcode=${data.rcode }&hotcont=in">예약불가날짜목록</a></td>
 		
 	</tr>
 	<tr>
-		<td>주말금액</td>
+		<td class="wbbr">주말금액</td>
 		<td>${data.wmoney }</td>
 	</tr>
 	<tr>
-		<td>wifi</td>
+		<td class="wbbr">wifi</td>
 		<td>${data.wifi }</td>
-		<td rowspan="2"><a href="HroomDelete?rcode=${data.rcode }&hotcont=in">방삭제</a></td>
+		<td rowspan="2" style="border-bottom: 10px #dcefef solid;"><a href="HroomDelete?rcode=${data.rcode }&hotcont=in">방삭제</a></td>
 	</tr>	
 	<tr>
-		<td>조식</td>
-		<td>${data.morning }</td>
+		<td class="wbbr" style="border-bottom: 10px #dcefef solid;">조식</td>
+		<td style="border-bottom: 10px #dcefef solid;">${data.morning }</td>
 	</tr>
 	<tr>
 		
 	</tr>
+
 	</table>
+
 	</c:forEach>
+
 
 

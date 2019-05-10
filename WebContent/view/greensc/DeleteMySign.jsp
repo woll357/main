@@ -41,7 +41,7 @@ $(document).ready(function(){
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-			<input type="button" value="회원 탈퇴" id="btn" style="width: 200px;"/>
+			<input type="button" value="회원 탈퇴" id="btn" style="width: 200px;" class="btncss"/>
 			</td>
 		</tr>
 	</table>

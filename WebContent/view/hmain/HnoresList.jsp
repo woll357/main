@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<h1 align="left">예약불가목록</h1>
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
+<h1 >예약불가목록</h1>
     
     <c:choose>
 
@@ -11,12 +11,12 @@
 		</c:when>
 	</c:choose>
     
-      <table  width="100%" border=""  style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">  
+      <table class="ttcss" border="" style="text-align: center;">  
           	<tr>
-    		<td>날짜</td>
-    		<td>예약불가갯수</td>
-    		<td>사유</td>
-    		<td>삭제</td>
+    		<td class="wbbr">날짜</td>
+    		<td class="wbbr">예약불가갯수</td>
+    		<td class="wbbr">사유</td>
+    		<td class="wbbr">삭제</td>
     	</tr>    
     <c:forEach var="data" items="${data }" varStatus="no">
     	<tr>

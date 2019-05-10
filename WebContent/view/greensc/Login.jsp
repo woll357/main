@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
  <script src="../js/jquery-3.3.1.min.js"></script>
 <script src = "../js/nh/loginChk.js"></script>
-
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 
 
 <form action="LoginReg" method="post" name="frm">
@@ -10,24 +10,24 @@
 <tr>
 <td>
 <br><br><br><br><br><br><br><br><br><br>
-<table style="background-color : #d8d8d8; border : 5px #dcefef solid; border-radius: 50px;" cellspacing="20px">
+<table style="background-color : rgba( 255, 255, 255, 0.5 ); border : 5px #dcefef solid; border-radius: 50px;" cellspacing="20px">
 	<tr>
 		<td colspan="2"><font size="7px">로그인 하세요</font></td>
 	</tr>
 	<tr>
-		<td class="lgtd">ID</td>
+		<td>ID</td>
 		<td><input type="text" name="id" id="id"/></td>
 	</tr>
 	<tr>
-		<td class="lgtd">PW</td>
+		<td>PW</td>
 		<td><input type="password" name="pw" id="pw"/></td>
 	</tr>
 	<tr>
-		<td colspan="2" class="lgtd">
+		<td colspan="2">
 		
-		<input type="button" value="로그인" id="btn"/>
-		<a href="SignUp"><input type="button" value="회원가입"/></a>
-		<a href="FindMySign"><input type="button" value="ID/PW찾기"/></a>
+		<input type="button" value="로그인" id="btn" class="btncss"/>
+		<a href="SignUp"><input type="button" value="회원가입" class="btncss"/></a>
+		<a href="FindMySign"><input type="button" value="ID/PW찾기" class="btncss"/></a>
 		
 		</td>
 	</tr>

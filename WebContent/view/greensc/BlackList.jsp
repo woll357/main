@@ -20,7 +20,7 @@
 						<input type="text" id="id" maxlength="8" onkeyup="chkPat1()"/></td>
 						
 						<td class="bbr" style="width: 400px;">
-						<input type="button" value="검색" id="btn1"/></td>
+						<input type="button" value="검색" id="btn4" class="btncss2" onclick="bbtn4()"/></td>
 						
 						
 					</tr>
@@ -31,7 +31,7 @@
 						
 						
 						<td class="bbr">
-						<input type="button" value="검색" id="btn2" /></td>
+						<input type="button" value="검색" id="btn5" class="btncss2" onclick="bbtn5()"/></td>
 						
 						
 						
@@ -43,7 +43,7 @@
 							
 							
 						<td class="bbr">
-						<input type="button" value="검색" id="btn3" /></td>
+						<input type="button" value="검색" id="btn6" class="btncss2" onclick="bbtn6()"/></td>
 						
 						
 					</tr>
@@ -56,7 +56,7 @@
 						</select></td>
 						
 						
-						<td class="bbr"><input type="button" value="검색" id="btn4" /></td>
+						<td class="bbr"><input type="button" value="검색" id="btn7" class="btncss2"  onclick="bbtn7()"/></td>
 						
 						
 					</tr>

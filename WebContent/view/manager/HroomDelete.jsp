@@ -7,7 +7,7 @@
      <input type="hidden" name="rcode" value="${dto.rcode }" />
 	<table>
 		<tr>
-			<td><input type="submit" value="삭제" /></td>
+			<td><input type="submit" value="삭제" style="background-color: #dcefef; font-size: 20px; color: #779191 ; border: 0;" /></td>
 		</tr>
 	</table>
 

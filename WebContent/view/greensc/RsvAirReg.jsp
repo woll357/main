@@ -125,20 +125,7 @@
 	width: 30px;
 	height: 30px;
 }
-table{
-width: 1000px;
-}
-.gogoTr{
-	background-color: #d4f5fc;
-}
-.rrTr{
-	background-color: #d8fcd4;
-}
-.tt{
-	padding: 30px 20px 10px 10px;
-	font-size: 30px;
 
-}
 
 </style>
 
@@ -172,7 +159,7 @@ width: 1000px;
 		<td>${dto.carea }</td>
 		<td>${dto.totseatcnt-dto.seatcnt }</td>
 		<td>${dto.money }</td>
-		<td><input type="button" value="선택" id="${dto.cCode}" class="awpBtn"/></td>
+		<td><input type="button" value="선택" id="${dto.cCode}" class="awpBtn" style="background-color: #dcefef; font-size: 20px; color: #779191"/></td>
 		</tr>
 		</c:forEach>
 		</table>
@@ -185,14 +172,14 @@ width: 1000px;
 
 		<table class="ttcss" border="">
 		<tr class="rrTr">
-		<td colspan="2" class="wbbr">항공사</td>
-		<td class="wbbr">출발일</td>
-		<td class="wbbr">도착일</td>
-		<td class="wbbr">출발도시</td>
-		<td class="wbbr">도착도시</td>
-		<td class="wbbr">잔여석</td>
-		<td class="wbbr">가격</td>
-		<td class="wbb">선택</td>
+		<td colspan="2" width="180px" class="wbbr">항공사</td>
+				<td width="190px" class="wbbr">출발일</td>
+				<td width="220px" class="wbbr">도착일</td>
+				<td width="80px" class="wbbr">출발도시</td>
+				<td width="80px" class="wbbr">도착도시</td>
+				<td width="70px" class="wbbr">잔여석</td>
+				<td width="80px" class="wbbr">가격</td>
+				<td width="50px" class="wbb">선택</td>
 		</tr>
 		<c:forEach var="dto" items="${dto2}" varStatus="no">
 		<tr>
@@ -207,7 +194,7 @@ width: 1000px;
 		<td>${dto.carea }</td>
 		<td>${dto.totseatcnt-dto.seatcnt }</td>
 		<td>${dto.money }</td>
-		<td><input type="button" value="선택"  id="${dto.cCode}" class="rtpBtn"/></td>
+		<td><input type="button" value="선택"  id="${dto.cCode}" class="rtpBtn" style="background-color: #dcefef; font-size: 20px; color: #779191"/></td>
 		</tr>
 		</c:forEach>
 		</table>
@@ -244,7 +231,7 @@ width: 1000px;
 				<td id="awpCarea"></td>
 				<td id="awpSeatcnt"></td>
 				<td id="awpMoney"></td>
-				<td><input type="button" value="취소" id="cancel1"/></td>
+				<td><input type="button" value="취소" id="cancel1" style="background-color: #dcefef; font-size: 20px; color: #779191"/></td>
 			</tr>
 		</table>	
 			
@@ -271,7 +258,7 @@ width: 1000px;
 				<td width="50px" class="wbb">취소</td>
 			</tr>
 			<tr>
-				<td id="rtpNo"></td>
+				<td id="rtpNo" width="15px"></td>
 				<td id="rtpName"></td>
 				<td id="rtpDdate"></td>
 				<td id="rtpCdate"></td>
@@ -279,15 +266,15 @@ width: 1000px;
 				<td id="rtpCarea"></td>
 				<td id="rtpSeatcnt"></td>
 				<td id="rtpMoney"></td>
-				<td><input type="button" value="취소" id="cancel2"/></td>
+				<td><input type="button" value="취소" id="cancel2" style="background-color: #dcefef; font-size: 20px; color: #779191"/></td>
 			</tr>
 			</table>
 		</c:if>
 		
-		<table>	
+		<table style="width: 100%">	
 		<tr>
-		<td colspan="9" align="right"style="padding: 20px;">
-		<input type="button" value="장바구니" id="btn" style="width: 100px; height: 50px;"/>
+		<td colspan="9" align="right" style="padding: 20px;">
+		<input type="button" value="장바구니" id="btn" style="width: 100px; height: 50px; background-color: #dcefef; color: #779191; font-size: 20px;"/>
 		</td>
 		</tr>
 		</table>

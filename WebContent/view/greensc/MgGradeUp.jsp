@@ -9,11 +9,11 @@
 		<td colspan="5" class="bb" style="border-bottom: 5px #dcefef solid;"><b><br>매니저 등업</b></td>
 	</tr>
 	<tr>
-		<td class="bbr">요청 번호</td>
-		<td class="bbr">아이디</td>
-		<td class="bbr">요청 등급</td>
-		<td class="bbr">요청 날짜</td>
-		<td style="padding-left: 15px;" class="bb">상세</td>
+		<td class="wbbr">요청 번호</td>
+		<td class="wbbr">아이디</td>
+		<td class="wbbr">요청 등급</td>
+		<td class="wbbr">요청 날짜</td>
+		<td style="padding-left: 15px;" class="wbb">상세</td>
 		</tr>
 	<c:forEach var="dto" items="${mgData}" varStatus="no">
 		<tr>
@@ -34,11 +34,11 @@
 	
 	
 	<tr>
-		<td class="bbr">요청 번호</td>
-		<td class="bbr">아이디</td>
-		<td class="bbr">요청 등급</td>
-		<td class="bbr">요청 날짜</td>
-		<td style="padding-left: 15px;" class="bb">상세</td>
+		<td class="wbbr">요청 번호</td>
+		<td class="wbbr">아이디</td>
+		<td class="wbbr">요청 등급</td>
+		<td class="wbbr">요청 날짜</td>
+		<td style="padding-left: 15px;" class="wbb">상세</td>
 		</tr>
 		
 	<c:forEach var="dto" items="${airData}" varStatus="no">
@@ -60,11 +60,11 @@
 	</tr>
 	
 	<tr>
-		<td class="bbr">요청 번호</td>
-		<td class="bbr">아이디</td>
-		<td class="bbr" >요청 등급</td>
-		<td class="bbr">요청 날짜</td>
-		<td style="padding-left: 15px;" class="bb">상세</td>
+		<td class="wbbr">요청 번호</td>
+		<td class="wbbr">아이디</td>
+		<td class="wbbr" >요청 등급</td>
+		<td class="wbbr">요청 날짜</td>
+		<td style="padding-left: 15px;" class="wbb">상세</td>
 		</tr>
 	<c:forEach var="dto" items="${hotData}" varStatus="no">
 		<tr>

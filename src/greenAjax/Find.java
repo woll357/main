@@ -22,9 +22,10 @@ public class Find implements MvcAction {
 			SignUpDTO dto = new SignUpDTO();
 			
 			HttpSession session = request.getSession();
-			request.setAttribute("msg", "");
+			request.setAttribute("msg", "나오거든요?");
+			
+			
 			if(request.getParameter("black")==null) {
-				
 			if(request.getParameter("id")!=null && request.getParameter("id")!="") {
 				dto.setId(request.getParameter("id"));
 				if(new SignUpDAO().chkMem(dto)) {
@@ -37,7 +38,7 @@ public class Find implements MvcAction {
 				dto.setPhone(request.getParameter("phone"));
 				if(new SignUpDAO().chkMem(dto)) {
 					request.setAttribute("data", new SignUpDAO().memList(dto));
-				
+					
 				}else if(!new SignUpDAO().chkMem(dto)){
 					request.setAttribute("msg", "No");
 				}		
@@ -45,14 +46,13 @@ public class Find implements MvcAction {
 				dto.setPname(request.getParameter("pname"));
 				if(new SignUpDAO().chkMem(dto)) {
 					request.setAttribute("data", new SignUpDAO().memList(dto));
-				
+					
 				}else if(!new SignUpDAO().chkMem(dto)){
 					request.setAttribute("msg", "No");
 				}		
 			}
 			}else {
 				dto.setBlack(request.getParameter("black"));
-				
 				if(request.getParameter("id")!=null && request.getParameter("id")!="") {
 					dto.setId(request.getParameter("id"));
 					if(new SignUpDAO().chkMem(dto)) {
@@ -62,12 +62,14 @@ public class Find implements MvcAction {
 						request.setAttribute("msg", "No");
 					}else if(((ArrayList<SignUpDTO>)new SignUpDAO().memList(dto)).size()==0){
 						request.setAttribute("msg", "No");
+						
 					}		
 				}else if(request.getParameter("phone")!=null && request.getParameter("phone")!="") {
 					dto.setPhone(request.getParameter("phone"));
-					System.out.println("여기");
+					
 					if(new SignUpDAO().chkMem(dto)) {
 						request.setAttribute("data", new SignUpDAO().memList(dto));
+						
 					
 					}else if(!new SignUpDAO().chkMem(dto)){
 						request.setAttribute("msg", "No");
@@ -78,6 +80,7 @@ public class Find implements MvcAction {
 					dto.setPname(request.getParameter("pname"));
 					if(new SignUpDAO().chkMem(dto)) {
 						request.setAttribute("data", new SignUpDAO().memList(dto));
+						
 					
 					}else if(!new SignUpDAO().chkMem(dto)){
 						request.setAttribute("msg", "No");

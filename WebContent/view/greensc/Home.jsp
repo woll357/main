@@ -5,7 +5,7 @@
 <script src="../js/nh/calendar.js"></script>
 <script src="../js/nh/homeBtnAct.js"></script>
 <script src="../js/nh/searchCombo.js"></script>
-
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 <style>
 .today {
 	text-align: center;
@@ -238,12 +238,12 @@ width: 250px;
 							<tr>
 								<td class="start" style="height: 40px; padding-left: 60px;"><input type="text" name="ddate1"
 									class="ssdate1" readonly="readonly" /> <input type="button"
-									value="날짜" id="ssdate1"></td>
+									value="날짜" id="ssdate1" class="btncss"></td>
 								<td class="return">
 									<div class="dd" style="visibility: visible;">
 										<input type="text" name="ddate2" class="ssdate2"
 											readonly="readonly" /> <input type="button" value="날짜"
-											id="ssdate2" />
+											id="ssdate2" class="btncss"/>
 									</div>
 								</td>
 							</tr>
@@ -261,7 +261,7 @@ width: 250px;
 							<tr>
 							<td></td>
 								<td style="height: 50px;padding-left: 60px;">
-								<input type="button" id="plane" value="검색" /></td>
+								<input type="button" id="plane" value="검색" class="btncss"/></td>
 							</tr>
 
 
@@ -316,7 +316,7 @@ width: 250px;
 					<tr>
 						<td style="padding-left: 50px;"><input type="text" name="startDay" class="startDay"
 							readonly="readonly" />  <input type="button" value="날짜검색"
-							id="startDay"></td>
+							id="startDay" class="btncss"></td>
 					</tr>
 					<tr>
 						<td style="padding-left: 50px;">체크아웃</td>
@@ -324,7 +324,7 @@ width: 250px;
 					<tr>
 						<td style="padding-left: 50px;"><input type="text" name="endDay" class="endDay"
 							readonly="readonly" />  <input type="button" value="날짜검색"
-							id="endDay"></td>
+							id="endDay" class="btncss"></td>
 					</tr>
 					<tr>
 						<td style="padding-left: 50px;">인원</td>
@@ -347,7 +347,7 @@ width: 250px;
 						</select></td>
 					</tr>
 					<tr>
-						<td  align="center" style="padding-left: 50px;"><input type="button" id="hott" value="검색" /></td>
+						<td  align="center" style="padding-left: 50px;"><input type="button" id="hott" value="검색" class="btncss"/></td>
 					</tr>
 
 				</table>

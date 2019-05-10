@@ -1,27 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 
 
 
-
-<table style="width: 100%; border: 10px #dcefef solid; border-collapse: collapse;"cellpadding="5px;" cellspacing="0" border="">
+<table class="ttcss" cellpadding="5px;" cellspacing="0" border="">
 	<tr>
-		<td  id="listDetail">글번호</td><td >${dto.num }</td>
+		<td class="wbbr" >글번호</td><td >${param.no}</td>
 	</tr><tr>
-		<td >제목</td><td >${dto.title }</td>
+		<td class="wbbr">제목</td><td >${dto.title }</td>
 	</tr><tr>
-		<td >작성자</td>
+		<td class="wbbr">작성자</td>
 		<c:choose>
 			<c:when test="${mem.grade=='M' }"><td >${dto.id }</td></c:when>
 			<c:otherwise><td >운영자</td></c:otherwise>
 		</c:choose>
 	</tr><tr>
-		<td >작성일</td><td >${dto.time }</td>
+		<td class="wbbr">작성일</td><td >${dto.time }</td>
 	</tr><tr>
-		<td >조회수</td><td >${dto.view }</td>
+		<td class="wbbr">조회수</td><td >${dto.view }</td>
 	</tr><tr>
-		<td >내용</td>
+		<td class="wbbr">내용</td>
 		<td >
 		<c:if test="${dto.img!=null}"><img alt="" src="../img/${dto.img}"><br></c:if>
 		

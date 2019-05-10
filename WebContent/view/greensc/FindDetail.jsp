@@ -245,7 +245,7 @@ function butPat(){
 			<input name="phone" type="text" id="phone3" maxlength="4" onkeyup="butPat()" value="${dto.phone3 }" class="ppin"/>
 			<div id="ppTag"></div>
 			</td><td>
-			<input type="button" value="중복확인" class="btn" id="phoneBtn" disabled="disabled"/>
+			<input type="button" value="중복확인" id="phoneBtn" disabled="disabled" class="btncss"/>
 			</td>
 		</tr>
 		<tr>
@@ -453,9 +453,9 @@ function butPat(){
 		</tr>
 		<tr>
 			<td colspan="3" align="center">
-			<input type="button" value="수정" id="subBtn"/>
-			<input type="button" value="블랙리스트 추가/해지" id="blackBtn" />
-				<input type="reset" value="초기화" /></td>
+			<input type="button" value="수정" id="subBtn" class="btncss"/>
+			<input type="button" value="블랙리스트 추가/해지" id="blackBtn" class="btncss"/>
+				<input type="reset" value="초기화" class="btncss"/></td>
 		</tr>
 	</table>
 </form>

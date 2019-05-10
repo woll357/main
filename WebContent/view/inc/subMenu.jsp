@@ -6,15 +6,16 @@
 	<c:when test="${param.mypage=='in'}">
 		<table  width=100%>
 			<tr>
-				<td><a href="../greensc/ModifyMem?mypage=in">회원 정보 수정</a></td>
-				<c:if test="${mem.grade=='C' || mem.grade=='M'}">
-					<td><a href="../greensc/DeleteMySign?mypage=in">탈퇴 신청</a></td>
+				<td  width="150px"><a href="../greensc/ModifyMem?mypage=in">회원 정보 수정</a></td>
+				<c:if test="${mem.grade=='C' || (mem.grade=='M' && mem.id!='admin')}">
+					<td  width="150px"><a href="../greensc/DeleteMySign?mypage=in">탈퇴 신청</a></td>
 					<c:if test="${mem.grade=='C'}">
-					<td><a href="../greensc/Appbss?mypage=in">등업 신청</a></td>
+					<td width="150px"><a href="../greensc/Appbss?mypage=in">등업 신청</a></td>
 					</c:if>
-					<td><a href="../purchase/DetailReserveInfo?mypage=in">예약내역조회</a></td>
-					<td><a href="../purchase/BuyList?mypage=in">구매내역조회</a></td>
-					<td><a href="../purchase/RefundList?mypage=in">환불내역조회</a></td>
+					<td width="150px"><a href="../purchase/DetailReserveInfo?mypage=in">예약내역조회</a></td>
+					<td width="150px"><a href="../purchase/BuyList?mypage=in">구매내역조회</a></td>
+					<td width="150px"><a href="../purchase/RefundList?mypage=in">환불내역조회</a></td>
+					<td></td>
 				</c:if>
 			</tr>
 		</table>
@@ -22,9 +23,10 @@
 	<c:when test="${param.mgpage=='in'}">
 		<table  width=100%>
 			<tr>
-				<td><a href="../greensc/MgPage?mgpage=in">회원 관리</a></td>
-				<td><a href="../greensc/BlackList?mgpage=in">블랙리스트 관리</a></td>
-				<td><a href="../greensc/MgGradeUp?mgpage=in">등업 관리</a></td>
+				<td width="150px"><a href="../greensc/MgPage?mgpage=in">회원 관리</a></td>
+				<td width="200px"><a href="../greensc/BlackList?mgpage=in">블랙리스트 관리</a></td>
+				<td width="150px"><a href="../greensc/MgGradeUp?mgpage=in">등업 관리</a></td>
+				<td></td>
 			</tr>
 		</table>
 	</c:when>
@@ -32,11 +34,12 @@
 	<c:when test="${param.center=='in'}">
 		<table  width=100%>
 			<tr>
-				<td><a href="../greensc/NoticeList?center=in">공지</a></td>
-				<td><a href="../greensc/FnqList?center=in">자주묻는질문</a></td>
+				<td width="150px"><a href="../greensc/NoticeList?center=in">공지사항</a></td>
+				<td width="180px"><a href="../greensc/FnqList?center=in">자주묻는질문</a></td>
 				<c:if test="${mem.id!=null }">
-					<td><a href="../greensc/QnaList?center=in">Q&A</a></td>
+					<td  width="150px"><a href="../greensc/QnaList?center=in">Q&A</a></td>
 				</c:if>
+				<td></td>
 			</tr>
 		</table>
 	</c:when>
@@ -88,13 +91,13 @@
 		<table  width=100%>
 			<tr>
 
-				<td><a href="../Manager/ManagerReserveList?sales=in">예약내역조회</a></td>
-				<td><a href="../Manager/ManagerSellList?sales=in">구매내역
+				<td  width="150px"><a href="../Manager/ManagerReserveList?sales=in">예약내역조회</a></td>
+				<td  width="150px"><a href="../Manager/ManagerSellList?sales=in">구매내역
 						조회</a></td>
-				<td><a href="../Manager/ManagerRefundList?sales=in">환불내역
+				<td  width="150px"><a href="../Manager/ManagerRefundList?sales=in">환불내역
 						조회</a></td>
 
-
+				<td></td>
 
 			</tr>
 		</table>

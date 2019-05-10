@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 
 <h2>Q&A</h2>
-<table style="width: 100%; border: 10px #dcefef solid; border-collapse: collapse;"cellpadding="5px;" cellspacing="0" border="">
+<table class="ttcss" cellpadding="5px;" cellspacing="0" border="">
 <tr>
 <c:choose>
 <c:when test="${mem.grade=='M' }">
@@ -22,17 +22,17 @@
 </tr>
 
 	<tr>
-		<td>글번호</td>
-		<td>제목</td>
-		<td>작성자</td>
-		<td>작성일</td>
-		<td>답변</td>
+		<td class="wbbr">글번호</td>
+		<td class="wbbr">제목</td>
+		<td class="wbbr">작성자</td>
+		<td class="wbbr">작성일</td>
+		<td class="wbb">답변</td>
 	</tr>
 
 	<c:forEach var="dto" items="${data}" varStatus="no">
 				<tr>
-					<td>${dto.num }</td>
-					<td><a href="QnaDetail?num=${dto.num }&center=in&page=${nowPage}&center=in">${dto.title }</a></td>
+					<td>${start+no.index+1 }</td>
+					<td><a href="QnaDetail?num=${dto.num }&center=in&page=${nowPage}&center=in&no=${start+no.index+1 }">${dto.title }</a></td>
 					<td>${dto.id }</td>
 					<td>${dto.time }</td>
 					<td>${dto.answer }</td>
