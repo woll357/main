@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link rel="stylesheet" href="../css/nh/centerList.css" type="text/css">
 
-
-<div id="backk">
-<table border="" width="100%" cellpadding="5px;" style="border : 10px #dcefef solid;">
+<h2>Q&A</h2>
+<table style="width: 100%; border: 10px #dcefef solid; border-collapse: collapse;"cellpadding="5px;" cellspacing="0" border="">
 	<tr>
 		<td width="100px;">글번호</td>
 		<td>${dto.num }</td>
@@ -48,7 +46,7 @@
 
 <c:if test="${dto.answer=='완료' }">
 
-<table border="" width="100%" cellpadding="5px;" style="border : 10px #dcefef solid;">
+<table style="width: 100%; border: 10px #dcefef solid; border-collapse: collapse;"cellpadding="5px;" cellspacing="0" border="">
 		<tr>
 			<td  width="100px;">글번호</td>
 			<td>${dto2.num }</td>
@@ -86,4 +84,3 @@
 	</table>
 
 </c:if>
-</div>

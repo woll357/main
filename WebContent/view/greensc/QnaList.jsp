@@ -1,43 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link rel="stylesheet" href="../css/nh/centerList.css" type="text/css">
 
 
-
-<div id="back">
-<table style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<h2>Q&A</h2>
+<table style="width: 100%; border: 10px #dcefef solid; border-collapse: collapse;"cellpadding="5px;" cellspacing="0" border="">
 <tr>
 <c:choose>
 <c:when test="${mem.grade=='M' }">
-<td colspan="3">총 문의글 : ${totcnt }</td>
-<td>대기 문의 : ${qqcnt }</td>
-<td>완료 : ${aacnt }</td>
+<td colspan="3" style="border-right: 1px white solid;">총 문의글 : ${totcnt }</td>
+<td style="border-right: 1px white solid;">대기 문의 : ${qqcnt }</td>
+<td >완료 : ${aacnt }</td>
 </c:when>
 <c:otherwise>
-<td colspan="3" align="right">내 문의글 : ${mycnt }</td>
-<td align="right">대기 문의 : ${qqcnt }</td>
-<td align="right">완료 : ${aacnt }</td>
+<td colspan="3" align="right"style="border-right: 1px white solid;">내 문의글 : ${mycnt }</td>
+<td align="right"style="border-right: 1px white solid;">대기 문의 : ${qqcnt }</td>
+<td align="right"style="border-right: 1px white solid;">완료 : ${aacnt }</td>
 </c:otherwise>
 </c:choose>
 
 </tr>
 
 	<tr>
-		<td class="listNo" style="border-bottom: 10px #dcefef solid;">글번호</td>
-		<td class="listtt" style="border-bottom: 10px #dcefef solid;">제목</td>
-		<td class="listnn" style="border-bottom: 10px #dcefef solid;">작성자</td>
-		<td class="listdd" style="border-bottom: 10px #dcefef solid;">작성일</td>
-		<td class="listvv" style="border-bottom: 10px #dcefef solid;">답변</td>
+		<td>글번호</td>
+		<td>제목</td>
+		<td>작성자</td>
+		<td>작성일</td>
+		<td>답변</td>
 	</tr>
 
 	<c:forEach var="dto" items="${data}" varStatus="no">
 				<tr>
-					<td class="listNo">${dto.num }</td>
-					<td class="listtt"><a href="QnaDetail?num=${dto.num }&center=in&page=${nowPage}&center=in">${dto.title }</a></td>
-					<td class="listnn">${dto.id }</td>
-					<td class="listdd">${dto.time }</td>
-					<td class="listvv">${dto.answer }</td>
+					<td>${dto.num }</td>
+					<td><a href="QnaDetail?num=${dto.num }&center=in&page=${nowPage}&center=in">${dto.title }</a></td>
+					<td>${dto.id }</td>
+					<td>${dto.time }</td>
+					<td>${dto.answer }</td>
 
 				</tr>
 
@@ -64,8 +62,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="5" id="listWrite"><a href="QnaWriteForm?center=in">글쓰기</a></td>
+		<td colspan="5" align="right"><a href="QnaWriteForm?center=in">글쓰기</a></td>
 	</tr>
 
 </table>
-</div>

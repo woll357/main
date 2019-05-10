@@ -15,7 +15,7 @@
 		</tr>
 		<tr>
 			<td>내용</td>
-			<td><textarea name="content" cols="30" rows="5" id="content">남기실 말</textarea></td>
+			<td><textarea name="content" cols="50" rows="20" id="content"></textarea></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="right">

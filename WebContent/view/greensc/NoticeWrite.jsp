@@ -2,13 +2,10 @@
     pageEncoding="UTF-8"%>
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src = "../js/nh/centerWriteChk.js"></script>      
- <link rel="stylesheet" href="../css/nh/centerList.css" type="text/css">
 
-
-<div id="back">
-
+<h2>공지사항 / 글쓰기</h2>
 <form action="NoticeWriteReg" method="post" enctype="multipart/form-data" name="frm">
-	<table border="" width="100%" cellpadding="5px;" style="border : 10px #dcefef solid;">   
+	<table style="width: 100%; border: 10px #dcefef solid; border-collapse: collapse;"cellpadding="5px;" cellspacing="0" border="">   
 
 		<tr>
 			<td>제목</td>
@@ -20,7 +17,7 @@
 		</tr>
 		<tr>
 			<td>내용</td>
-			<td><textarea name="content" cols="30" rows="5" id="content">남기실 말</textarea></td>
+			<td><textarea name="content" cols="50" rows="20" id="content"></textarea></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="right">
@@ -32,4 +29,3 @@
 	</table>
 </form>
 
-</div>

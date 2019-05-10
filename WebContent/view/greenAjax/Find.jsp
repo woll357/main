@@ -25,13 +25,18 @@
 							<input type="hidden" value="${dto.id }" name="id" />
 							<table style="width: 100%" cellspacing="0">
 								<tr>
-									<td style="width: 50px;" class="bbr">${no.index+1 }</td>
-									<td style="width: 200px;" class="bbr">${dto.id }</td>
-									<td style="width: 150px;" class="bbr">${dto.pname }</td>
-									<td style="width: 200px;" class="bbr">${dto.phone1 }-****-${dto.phone3 }</td>
-									<td style="width: 100px;" class="bbr">${dto.black }</td>
+									<td style="width: 49px;" class="bbr">${no.index+1 }</td>
+									<td style="width: 201px;" class="bbr">${dto.id }</td>
+									<td style="width: 151px;" class="bbr">${dto.pname }</td>
+									<td style="width: 201px;" class="bbr">${dto.phone1 }-****-${dto.phone3 }</td>
+									<td style="width: 101px;" class="bbr">
+									<c:choose>
+									<c:when test="${dto.black=='블랙리스트' }">Y</c:when>
+									<c:otherwise>N</c:otherwise>
+									</c:choose>
+									</td>
 									<td style="width: 100px;" class="bbr">${dto.preason }</td>
-									<td style="width: 100px;" class="bb"><input type="submit" value="검색" /></td>
+									<td style="width: 98px;" class="bb"><input type="submit" value="검색" /></td>
 								</tr>
 								
 							</table>

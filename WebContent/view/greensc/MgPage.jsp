@@ -2,65 +2,80 @@
     pageEncoding="UTF-8"%>
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src = "../js/nh/mgPageChk.js"></script>
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 
-<table style="width: 100%">
-    		<tr>
-    			<td id="searchId"> 회원 검색 </td>
-    			<td id="searchNum"> 회원 총 수 : ${memNum }</td>
-    		</tr>
-    		<tr>
-		<td colspan="2"><hr color="#dcefef" size="1px"></td>
-	</tr>
-    		<tr>
-    			<td colspan="2">
-    				<table style="width: 100%">
-    					<tr>
-    					<td>아이디 검색</td>
-    						<td><input type="text" id="id" maxlength="8" onkeyup="chkPat1()"/></td>
-    						<td><input type="button" value="검색" id="btn1"/></td>
-    					</tr>
-    					<tr>
-    					<td>이름 검색</td>
-    						<td><input type="text" id="name" onkeyup="chkPat2()"/></td>
-    						<td><input type="button" value="검색" id="btn2"/></td>
-    					</tr>
-    					<tr>
-    					<td>핸드폰 뒷자리 검색</td>
-    						<td><input type="text" id="phone" maxlength="4" onkeyup="chkPat3()"/></td>
-    						<td><input type="button" value="검색" id="btn3"/></td>
-    					</tr>
-    				</table>
-    			</td>
-    		</tr>
-    		<tr>
-		<td colspan="2"><hr color="#dcefef" size="1px"></td>
-	</tr>
-    		<tr>
-    			<td colspan="2"> 회원 검색 결과</td>
-    		
-    		</tr>
-    		<tr>
-		<td colspan="2"><hr color="#dcefef" size="1px"></td>
-	</tr>
-    		<tr>
-    			<td colspan="3">
-    			<table style="width: 100%">
-    				<tr>
-		<td>번호</td>
-		<td>아이디</td>
-		<td>이름</td>
-		<td>연락처</td>
-		<td>블랙리스트</td>
-		<td>사유</td>
-		<td>상세보기</td>
-	</tr>
-    		</table>	
-    			
-    			</td>
-    		</tr>
-    		<tr>
-    			<td colspan="3" id="contents">
-    	
-    			</td>
-    		</tr>
-    	</table>
+
+<h2>회원 관리</h2>
+	<table style="border : 10px #dcefef solid; width: 100%;" cellspacing="0">
+
+		<tr>
+			<td id="searchNum" colspan="2" class="bb">회원 총 수 : ${memNum }</td>
+		</tr>
+		
+		<tr>
+			<td colspan="2">
+				<table style="width: 100%" cellspacing="0">
+					<tr>
+						<td class="bbr" style="width: 300px;">아이디 검색</td>
+						<td class="bb" style="width: 300px;">
+						<input type="text" id="id" maxlength="8" onkeyup="chkPat1()"/></td>
+						
+						<td class="bb" style="width: 400px;">
+						<input type="button" value="검색" id="btn1"/></td>
+						
+						
+					</tr>
+					<tr>
+						<td class="bbr">이름 검색</td>
+						<td class="bb"><input type="text" id="name"
+							onkeyup="chkPat2()" /></td>
+						
+						
+						<td class="bb">
+						<input type="button" value="검색" id="btn2" /></td>
+						
+						
+						
+					</tr>
+					<tr>
+						<td class="bbr">핸드폰 뒷자리 검색</td>
+						<td class="bb"><input type="text" id="phone" maxlength="4"
+							onkeyup="chkPat3()" /></td>
+							
+							
+						<td class="bb">
+						<input type="button" value="검색" id="btn3" /></td>
+						
+						
+					</tr>
+					
+					
+				</table>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan="2" class="bb">회원 검색 결과</td>
+
+		</tr>
+		
+		<tr>
+			<td colspan="3">
+				<table style="border-collapse: collapse; width: 100%" cellspacing="0">
+					<tr>
+						<td style="width: 50px;" class="bbr">번호</td>
+						<td style="width: 200px;" class="bbr">아이디</td>
+						<td style="width: 150px;" class="bbr">이름</td>
+						<td style="width: 200px;" class="bbr">연락처</td>
+						<td style="width: 100px;" class="bbr">블랙리스트</td>
+						<td style="width: 100px;" class="bbr">사유</td>
+						<td style="width: 100px;" class="bb">상세보기</td>
+					</tr>
+				</table>
+
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" id="contents"></td>
+		</tr>
+	</table>

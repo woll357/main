@@ -5,18 +5,13 @@
 <script src = "../js/nh/centerWriteChk.js"></script>  
 
 
-
- <link rel="stylesheet" href="../css/nh/centerList.css" type="text/css">
-
-
-<div id="back">
-
+<h2>Q&A / 글쓰기</h2>
 <form action="QnaWriteReg" method="post" enctype="multipart/form-data" name="frm">
-	<table border="" width="100%" cellpadding="5px;" style="border : 10px #dcefef solid;"> 
+	<table style="width: 100%; border: 10px #dcefef solid; border-collapse: collapse;"cellpadding="5px;" cellspacing="0" border="">
 
 		<tr>
-			<td>제목</td>
-			<td><input type="text" name="title" id="title"/></td>
+			<td style="width: 200px;">제목</td>
+			<td><input type="text" name="title" id="title" width="100%"/></td>
 		</tr>
 		<tr>
 			<td>이미지 업로드</td>
@@ -24,7 +19,7 @@
 		</tr>
 		<tr>
 			<td>내용</td>
-			<td><textarea name="content" cols="30" rows="5" id="content">남기실 말</textarea></td>
+			<td><textarea name="content" cols="50" rows="20" id="content"></textarea></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="right">
@@ -35,4 +30,3 @@
 		</tr>
 	</table>
 </form>
-</div>

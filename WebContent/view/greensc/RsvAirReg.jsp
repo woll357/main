@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 
  <script src="../js/jquery-3.3.1.min.js"></script>
  <script>
@@ -143,21 +143,21 @@ width: 1000px;
 </style>
 
 
-<table>
+<table class="ttcss" border="">
 	<tr>
 		<td colspan="9" class="tt">
 			가는 편
 		</td>
 	</tr>
 	<tr class="gogoTr">
-		<td colspan="2" width="180px">항공사</td>
-				<td width="220px">출발일</td>
-				<td width="220px">도착일</td>
-				<td width="80px">출발도시</td>
-				<td width="80px">도착도시</td>
-				<td width="70px">잔여석</td>
-				<td width="80px">가격</td>
-				<td width="50px">선택</td>
+		<td colspan="2" width="180px" class="wbbr">항공사</td>
+				<td width="190px" class="wbbr">출발일</td>
+				<td width="220px" class="wbbr">도착일</td>
+				<td width="80px" class="wbbr">출발도시</td>
+				<td width="80px" class="wbbr">도착도시</td>
+				<td width="70px" class="wbbr">잔여석</td>
+				<td width="80px" class="wbbr">가격</td>
+				<td width="50px" class="wbb">선택</td>
 		</tr>
 		<c:forEach var="dto" items="${dto1}" varStatus="no">
 		<tr>

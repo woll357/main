@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <h2>자주묻는질문</h2>
-<table border="" width="100%" cellpadding="5px;" style="border : 10px #dcefef solid;">
+<table border="" width="100%" cellpadding="5px;" style="border : 10px #dcefef solid; border-collapse: collapse;">
 	<tr>
 		<td id="listDetail">글번호</td><td>${dto.num }</td>
 	</tr><tr>

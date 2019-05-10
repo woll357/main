@@ -1,40 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link rel="stylesheet" href="../css/nh/centerList.css" type="text/css">
 
-
-
-<div id="back">
-	<table style="width: 100%; border: 10px #dcefef solid;" cellspacing="0">
+<h2>공지사항</h2>
+	<table style="width: 100%; border: 10px #dcefef solid; border-collapse: collapse;"cellpadding="5px;" cellspacing="0" border="">
 		<tr>
-			<td colspan="4" class="listCnt" align="right">게시글 수 :</td>
-			<td class="listCnt">${totcnt}</td>
+			<td colspan="4" align="right" style="border-right: 1px white solid;">게시글 수 :</td>
+			<td>${totcnt}</td>
 		</tr>
 		<tr>
-			<td class="listNo" style="border-bottom: 10px #dcefef solid;">글번호</td>
-			<td class="listtt" style="border-bottom: 10px #dcefef solid;">제목</td>
-			<td class="listnn" style="border-bottom: 10px #dcefef solid;">작성자</td>
-			<td class="listdd" style="border-bottom: 10px #dcefef solid;">작성일</td>
-			<td class="listvv" style="border-bottom: 10px #dcefef solid;">조회수</td>
+			<td>글번호</td>
+			<td>제목</td>
+			<td>작성자</td>
+			<td>작성일</td>
+			<td>조회수</td>
 		</tr>
 
 		<c:forEach var="dto" items="${data}" varStatus="no">
 			<tr>
-				<td class="listNo">${dto.num }</td>
-				<td class="listtt"><a
+				<td>${dto.num }</td>
+				<td><a
 					href="NoticeDetail?num=${dto.num }&center=in&page=${nowPage}">${dto.title }</a></td>
 				<c:choose>
 					<c:when test="${mem.grade=='M' }">
-						<td class="listnn">${dto.id }</td>
+						<td>${dto.id }</td>
 					</c:when>
 					<c:otherwise>
-						<td class="listnn">운영자</td>
+						<td>운영자</td>
 					</c:otherwise>
 				</c:choose>
 
-				<td class="listdd">${dto.time }</td>
-				<td class="listvv">${dto.view }</td>
+				<td>${dto.time }</td>
+				<td>${dto.view }</td>
 			</tr>
 		</c:forEach>
 		<tr>
@@ -57,10 +54,9 @@
 		<c:if test="${mem.grade=='M' }">
 
 			<tr>
-				<td colspan="5" id="listWrite"><a href="NoticeWrite?center=in">글쓰기</a></td>
+				<td colspan="5" align="right"><a href="NoticeWrite?center=in">글쓰기</a></td>
 			</tr>
 		</c:if>
 
 
 	</table>
-</div>

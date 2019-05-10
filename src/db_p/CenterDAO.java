@@ -33,9 +33,12 @@ public class CenterDAO {
 		
 		try {
 			
+			if(table.equals("qna")) {
+				sql="select count(*) from qna where num not in (select num from qna where qnum in (select qnum from qna where qnum is not null))";
+			}else {
 			sql = "select count(*) from "+table; 
 			//limit : a번부터 b번까지
-			
+			}
 			ptmt = con.prepareStatement(sql);
 			
 			rs = ptmt.executeQuery();
@@ -377,7 +380,7 @@ public class CenterDAO {
 		CenterDTO dto2 =null;
 		try {
 			if(dto.grade.equals("M")) {
-				sql = "select * from qna order by  answer asc, time desc limit ?, ?";
+				sql = "select * from qna where num not in (select num from qna where qnum in (select qnum from qna where qnum is not null)) order by  answer asc, time desc limit ?, ?";
 				ptmt = con.prepareStatement(sql);
 				ptmt.setInt(1, page);
 				ptmt.setInt(2, limit);

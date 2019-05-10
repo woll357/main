@@ -1,18 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<style>
-.bbr{
-border-bottom: 1px #dcefef solid;
-border-collapse: collapse;
-border-right: 1px #dcefef solid;
-}
-.bb{
-border-collapse: collapse;
-border-bottom: 1px #dcefef solid;
-}
-
-</style>
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 
 <h2>관리자 등업</h2>
 <table style="width: 100%; border : 10px #dcefef solid;" cellspacing="0" cellpadding="5px;">
@@ -85,9 +74,7 @@ border-bottom: 1px #dcefef solid;
 		<td class="bbr">${dto.time }</td>
 		<td class="bb"><a href="GradeDetail?no=${dto.no }&rq=hot" style="text-align: left;">열람</a></td>
 		</tr>
-		<tr>
-		<td colspan="5"><hr color="#dcefef" size="1px"></td>
-		</tr>
+		
 	</c:forEach>
 	
 </table>

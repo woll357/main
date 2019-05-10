@@ -1,16 +1,40 @@
-.bbr{
+.bbr{ /* <!-- 아작스 테이블용  보더 (바닥, 오른쪽 선)--> */
 border-bottom: 1px #dcefef solid;
 border-collapse: collapse;
 border-right: 1px #dcefef solid;
 padding: 5px;
 }
-.bb{
+.bb{ /* <!-- 아작스 테이블용  보더 (바닥선)--> */
 border-collapse: collapse;
 border-bottom: 1px #dcefef solid;
 padding: 5px;
 }
-.br{
+.br{/*  <!-- 아작스 테이블용  보더 (오른쪽선)--> */
 border-collapse: collapse;
 border-right: 1px #dcefef solid;
 padding: 5px;
+}
+.ttcss{/*  테이블용 테두리 (내부 보더 원하면 따로 테이블에서 border="" 주세요 */
+	width: 100%; 
+	border: 10px #dcefef solid; 
+	border-collapse: collapse;
+}
+.wbbr{ /* 칼럼용 바닥, 오른쪽선 하얀 보더 */
+border-bottom: 1px white solid;
+border-collapse: collapse;
+border-right: 1px white solid;
+padding: 5px;
+background-color: #dcefef;
+}
+.wbb{ /* 칼럼용 바닥 하얀 보더 */
+border-collapse: collapse;
+border-bottom: 1px white solid;
+padding: 5px;
+background-color: #dcefef;
+}
+.wbr{ /* 칼럼용 오른쪽선 하얀 보더 */
+border-collapse: collapse;
+border-right: 1px white solid;
+padding: 5px;
+background-color: #dcefef;
 }
