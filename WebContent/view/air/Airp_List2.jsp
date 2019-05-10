@@ -6,21 +6,22 @@
 
 <script src="../js/odk/datesarch.js"></script>
 
-<h2>여긴어디니</h2>
-<form id="cc" action="Airp_Detail">
+<c:forEach var="dt" items="${dto }" end="0">
+<h2>${dt.darea } → ${dt.carea } 상품 목록</h2>
+</c:forEach>
+<form id="cc" action="Airp_Detail" >
 <table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 
 <input type="hidden" name= "aotcont"  value="in"/>
 <input type="hidden" value="${air_p }" name="air_p">
 <input type="hidden" name= "air_code"  value="${mem.air_code }"/>
 <tr>
-			<td style="background: #D4F4FA" >날짜</td>			
+			<td style="background: #D4F4FA" colspan="6" >날짜</td>			
 			<td style="background: #D4F4FA" ><input type="text" name="ddate" class="ddate" /></td>
 			<td style="background: #D4F4FA"  align="center"><input type="button" class="aa" value="선택  " /></td>
 		</tr>
-		</table>
-</form>
-<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+
+
 	<tr>
 		<td style="background: #D4F4FA" >상품코드</td>
 		<td style="background: #D4F4FA" >비행기코드</td>
@@ -64,3 +65,5 @@
 		</td>
 	</tr>
 </table>
+
+</form>

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import aacommon_p.Common;
+import db_p.BasketItemDTO;
 import db_p.Hot_tempDAO;
 import db_p.Room_itemDTO;
 import di.MvcAction;
@@ -20,6 +21,25 @@ public class HroomDeleteReg implements MvcAction {
 		//path = "C:\\d\\mainWork\\greenScProj2\\WebContent\\img";
 		//path = "D:\\mainWork\\mainProj\\WebContent\\img";
 		path = new Common().getPath();
+		
+		BasketItemDTO bdto = new BasketItemDTO();
+		
+		bdto.setRcode(request.getParameter("rcode"));
+		
+		new Hot_tempDAO().rescnt(bdto);
+		
+		if(new Hot_tempDAO().rescnt(bdto)>0) {
+			System.out.println("실패했습니다!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			String goUrl ="Hdetail?hotcont=in";
+			String msg = "예약목록이 있어 방삭제가 불가능합니다.";
+			
+			
+			request.setAttribute("msg", msg);
+			request.setAttribute("goUrl", goUrl);
+			request.setAttribute("mainUrl", "hmain/alert2.jsp");
+		}
+		
+		else {
 		
 		Room_itemDTO dto = new Room_itemDTO();
 		
@@ -38,11 +58,9 @@ public class HroomDeleteReg implements MvcAction {
 
 		goUrl = "Hdetail?hotcont=in";
 
-
-		
 		request.setAttribute("goUrl", goUrl);
 		request.setAttribute("mainUrl", "hmain/alert.jsp");
-		
+		}
 		return null;
 	}
 

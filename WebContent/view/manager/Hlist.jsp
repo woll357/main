@@ -4,13 +4,13 @@
 <style >
 .aaa{
 	position: absolute;
-	top: 335px;
+	top: 4px;
 
 }
 .bbb{
 position: absolute;
-	top: 335px;
-	left:325px;
+	top: 4px; 
+	left:323px;
 
 }
 </style>

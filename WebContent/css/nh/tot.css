@@ -1,3 +1,19 @@
+.btncss{	/* 수정 등록 삭제 버튼  */
+	background-color: #dcefef;
+	font-size: 20px;
+	
+	color: #779191;
+
+}
+
+.btncss2{/* 	검색 버튼 scc */
+	background-color: #dcefef;
+	font-size: 20px;
+	
+	color: #779191;
+
+}
+
 .bbr{ /* <!-- 아작스 테이블용  보더 (바닥, 오른쪽 선)--> */
 border-bottom: 1px #dcefef solid;
 border-collapse: collapse;
@@ -25,16 +41,22 @@ border-collapse: collapse;
 border-right: 1px white solid;
 padding: 5px;
 background-color: #dcefef;
+color: #779191;
+font-weight: bold;
 }
 .wbb{ /* 칼럼용 바닥 하얀 보더 */
 border-collapse: collapse;
 border-bottom: 1px white solid;
 padding: 5px;
 background-color: #dcefef;
+color: #779191;
+font-weight: bold;
 }
 .wbr{ /* 칼럼용 오른쪽선 하얀 보더 */
 border-collapse: collapse;
 border-right: 1px white solid;
 padding: 5px;
 background-color: #dcefef;
+color: #779191;
+font-weight: bold;
 }

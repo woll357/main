@@ -1,30 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-
- <link rel="stylesheet" href="../css/nh/centerList.css" type="text/css">
 <link rel="stylesheet" href="../css/dk/input.css" type="text/css">
+
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
+
 <h2 >상품 목록</h2>
 <form action="AirItem_Detail">
 <input type="hidden" name= "aotcont"  value="in"/>
-<table  border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<table class="ttcss" border="">
 		<tr>
-			<td style="background: #D4F4FA" colspan="8">상품 코드</td>
-			<td style="background: #D4F4FA"><input type="text" name="ccode" /></td>
-			<td style="background: #D4F4FA" align="center"><input type="submit" value="선택  " style="background: #FFFFFF" /></td>
+			
+			<td align="right" colspan="9" class="wbbr" style="border-bottom: 3px white solid;">상품 코드　　<input style="padding: 10px" type="text" name="ccode" /></td>
+			<td class="wbbr" style="border-bottom: 3px white solid;" align="center"><input type="submit" value="선택  " style="background: #FFFFFF ; font-size: 20px" /></td>
 		</tr>
 	
 	<tr>
-		<td width="40">상품코드</td>
-		<td width="30">비행기코드</td>
-		<td>출발시간</td>
-		<td>출발지</td>
-		<td>도착지</td>
-		<td>가격</td>
-		<td>도착시간</td>
-		<td width="50" >예약된좌석</td>
-		<td width="20">총좌석</td>	
-		<td>좌석등급</td>
+		<td class="wbbr" width="40">상품코드</td>
+		<td class="wbbr" width="50">비행기코드</td>
+		<td class="wbbr">출발시간</td>
+		<td class="wbbr">출발지</td>
+		<td class="wbbr">도착지</td>
+		<td class="wbbr">가격</td>
+		<td class="wbbr">도착시간</td>
+		<td class="wbbr" width="50" >예약된좌석</td>
+		<td class="wbbr" width="50">총좌석</td>	
+		<td class="wbbr">좌석등급</td>
 	</tr>
 
 <c:forEach var="dto" items="${data}" varStatus="no">	
@@ -46,7 +47,7 @@
 	</c:forEach>
 <tr>
 <td colspan="10" align="right">
-	<a href=AirItem_Insert?aotcont=in><input type="button" value="등록"></a>
+	<a href=AirItem_Insert?aotcont=in><input class="btncss" type="button" style="background-color: #dcefef;" value="등록"></a>
 </td>
 </tr>
 	<tr>

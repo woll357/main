@@ -4,23 +4,16 @@
     <style >
 .aaa{
 	position: absolute;
-	top: 335px;
+	top: 4px;
 
 }
 .bbb{
 position: absolute;
-	top: 335px;
-	left:325px;
+	top: 4px; 
+	left:323px;
 
 }
-.ccc{
-	top: 380px;
-	position: absolute;
-}
-.ddd{
-	top: 480px;
-	position: absolute;
-}
+
 </style>
     
     <h2 class="ccc">호텔검색</h2> 
@@ -51,13 +44,15 @@ position: absolute;
 	</table>
 </form>
 </div>
-
+<div>
+<br><br>
 <c:choose>
 
 	<c:when test="${data.size()==0 }">
 		<h1 align="center">검색결과가 없습니다.</h1>
 	</c:when>
 </c:choose>
+</div>
 <br><br>
 <c:forEach var="dto" items="${data }" varStatus="no">
 <div>	
