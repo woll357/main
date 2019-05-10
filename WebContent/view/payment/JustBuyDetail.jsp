@@ -1,20 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%request.setCharacterEncoding("utf-8"); %>
+<link rel="stylesheet" href="../css/nh/tot.css" />
 
 <form action="../greensc/Home">
 <h2>방금 결제하신 상품</h2>
-	<table style="text-align: center; border: 10px #dcefef solid;" cellspacing="0" >
+	<table class="ttcss" border="" >
 		<tr>
-			<td style="border-bottom: 10px #dcefef solid;">항공사명</td>
-			<td style="border-bottom: 10px #dcefef solid;">비행기코드</td>
-			<td style="border-bottom: 10px #dcefef solid;">출발날짜</td>
-			<td style="border-bottom: 10px #dcefef solid;">도착날짜</td>
-			<td style="border-bottom: 10px #dcefef solid;">출발도시</td>
-			<td style="border-bottom: 10px #dcefef solid;">도착도시</td>
-			<td style="border-bottom: 10px #dcefef solid;">예약인원</td>
-			<td style="border-bottom: 10px #dcefef solid;">금액</td>
+			<td class="wbbr">항공사명</td>
+			<td class="wbbr">비행기코드</td>
+			<td class="wbbr">출발날짜</td>
+			<td class="wbbr">도착날짜</td>
+			<td class="wbbr">출발도시</td>
+			<td class="wbbr">도착도시</td>
+			<td class="wbbr">예약인원</td>
+			<td class="wbbr">금액</td>
 		</tr>
 		<c:forEach var="adto" items="${adtos }"   >
 		<tr>
@@ -29,16 +29,17 @@
 		</tr>
 		</c:forEach>
 	</table>
-	<table style="text-align: center; border: 10px #dcefef solid;" cellspacing="0"">
+	<br>
+	<table class="ttcss" border="">
 		<tr>
-			<td style="border-bottom: 10px #dcefef solid;">호텔이름</td>
-			<td style="border-bottom: 10px #dcefef solid;">방이름</td>
-			<td style="border-bottom: 10px #dcefef solid;">체크인날짜</td>
-			<td style="border-bottom: 10px #dcefef solid;">체크아웃날짜</td>
-			<td style="border-bottom: 10px #dcefef solid;">국가명</td>
-			<td style="border-bottom: 10px #dcefef solid;">도시명</td>
-			<td style="border-bottom: 10px #dcefef solid;">방인원</td>
-			<td style="border-bottom: 10px #dcefef solid;">금액</td>
+			<td class="wbbr">호텔이름</td>
+			<td class="wbbr">방이름</td>
+			<td class="wbbr">체크인날짜</td>
+			<td class="wbbr">체크아웃날짜</td>
+			<td class="wbbr">국가명</td>
+			<td class="wbbr">도시명</td>
+			<td class="wbbr">방인원</td>
+			<td class="wbbr">금액</td>
 		</tr>
 		
 		<c:forEach var="hdto" items="${hdtos }" >
@@ -54,11 +55,14 @@
 		</tr>
 		</c:forEach>
 	</table>
-	<table style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
+	<div align="right">
+	<table style="border: 10px #dcefef solid; border-collapse: collapse;" >
 	<tr>
-	<td style="border-bottom: 10px #dcefef solid;">총액</td>
+	<td class="wbbr" >총액</td>
+	
 	<td>${totalPrice }</td>
-	<td><input type="submit" value="확인" /></td>
+	<td><input class="btncss2" type="submit" value="확인" /></td>
 	</tr>
 	</table>
+	</div>
 </form>

@@ -29,7 +29,7 @@
 			<td>${adto.location2 }</td>
 			<td>${adto.psn }</td>
 			<td>${adto.totalPrice }</td>
-			<td><a style="width:100%;" class="btncss" href="BasketItemDeleteReg?basketID=${adto.basketID }" >삭제</a></td>
+			<td  class="btncss"><a style="width:100%;" href="BasketItemDeleteReg?basketID=${adto.basketID }" >삭제</a></td>
 		</tr>
 		</c:forEach>
 	</table>
@@ -59,11 +59,11 @@
 			<td>${hdto.location2 }</td>
 			<td>${hdto.psn }</td>
 			<td>${hdto.totalPrice }</td>
-			<td><a style="width:100%;" class="btncss" href="BasketItemDeleteReg?basketID=${hdto.basketID }" >삭제</a></td>
+			<td class="btncss"><a style="width:100%;" href="BasketItemDeleteReg?basketID=${hdto.basketID }" >삭제</a></td>
 		</tr>
 		</c:forEach>
 	</table>
-	<div align="right" ><input class="btncss" id="basketPay" type="button" value="결제하기" /></div>
+	<div align="right" ><input class="btncss2" id="basketPay" type="button" value="결제하기" /></div>
 </form>
 </div>
 

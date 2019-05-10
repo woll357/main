@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%request.setCharacterEncoding("utf-8"); %>
+<link rel="stylesheet" href="../css/nh/tot.css" />
 	<h2>항공구매내역</h2>
-	<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0" >
+	<table class="ttcss" border="" >
 		<tr>
-			<td style="border-bottom: 10px #dcefef solid;">항공사명</td>
-			<td style="border-bottom: 10px #dcefef solid;">비행기코드</td>
-			<td style="border-bottom: 10px #dcefef solid;">출발날짜</td>
-			<td style="border-bottom: 10px #dcefef solid;">도착날짜</td>
-			<td style="border-bottom: 10px #dcefef solid;">출발도시</td>
-			<td style="border-bottom: 10px #dcefef solid;">도착도시</td>
-			<td style="border-bottom: 10px #dcefef solid;">예약인원</td>
-			<td style="border-bottom: 10px #dcefef solid;">가격</td>
+			<td class="wbbr">항공사명</td>
+			<td class="wbbr">비행기코드</td>
+			<td class="wbbr">출발날짜</td>
+			<td class="wbbr">도착날짜</td>
+			<td class="wbbr">출발도시</td>
+			<td class="wbbr">도착도시</td>
+			<td class="wbbr">예약인원</td>
+			<td class="wbbr">가격</td>
 		</tr>
 		<c:forEach var="adto" items="${adtos }"   >
 		<tr>
@@ -33,16 +33,16 @@
 		</c:when>
 		</c:choose>
 	<h2>호텔구매내역</h2>
-	<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0" >
+	<table class="ttcss" border="" >
 		<tr>
-			<td style="border-bottom: 10px #dcefef solid;">호텔이름</td>
-			<td style="border-bottom: 10px #dcefef solid;">방이름</td>
-			<td style="border-bottom: 10px #dcefef solid;">체크인날짜</td>
-			<td style="border-bottom: 10px #dcefef solid;">체크아웃날짜</td>
-			<td style="border-bottom: 10px #dcefef solid;">국가명</td>
-			<td style="border-bottom: 10px #dcefef solid;">도시명</td>
-			<td style="border-bottom: 10px #dcefef solid;">방인원</td>
-			<td style="border-bottom: 10px #dcefef solid;">가격</td>
+			<td class="wbbr">호텔이름</td>
+			<td class="wbbr">방이름</td>
+			<td class="wbbr">체크인날짜</td>
+			<td class="wbbr">체크아웃날짜</td>
+			<td class="wbbr">국가명</td>
+			<td class="wbbr">도시명</td>
+			<td class="wbbr">방인원</td>
+			<td class="wbbr">가격</td>
 		</tr>
 		
 		<c:forEach var="hdto" items="${hdtos }" >
