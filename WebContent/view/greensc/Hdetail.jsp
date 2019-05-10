@@ -32,6 +32,7 @@
 <div align="center">
 <h1>방목록</h1>
 <c:forEach var="data" items="${roomdata }" varStatus="no">
+<c:if test="${roomkind==data.rkind }">
 <form action="../Basket/BasketHotelReg" method="post">
 		<input type="hidden" name="rcode" value="${data.rcode }" />
 		<input type="hidden" name="startDay" value="${param.startDay }" />
@@ -79,6 +80,7 @@
 	</tr>
 	</table>
 	</form>
+	</c:if>
 </c:forEach>
 </div>
 <br><br>

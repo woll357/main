@@ -27,6 +27,8 @@ public class Hdetail implements MvcAction {
 		
 		request.setAttribute("roomdata", new Hot_tempDAO().roomlist(dtoto));
 		
+		request.setAttribute("roomkind", request.getParameter("rkind"));
+		
 		return null;
 	}
 
