@@ -2,8 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%request.setCharacterEncoding("utf-8"); %>
-	<div align="center">
-	<h1>항공구매내역</h1>
+	<h2>항공구매내역</h2>
 	<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0" >
 		<tr>
 			<td style="border-bottom: 10px #dcefef solid;">항공사명</td>
@@ -33,9 +32,7 @@
 			<h2>조회된 결과가 없습니다.</h2>
 		</c:when>
 		</c:choose>
-	</div>
-	<div align="center">
-	<h1>호텔구매내역</h1>
+	<h2>호텔구매내역</h2>
 	<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0" >
 		<tr>
 			<td style="border-bottom: 10px #dcefef solid;">호텔이름</td>
@@ -66,4 +63,3 @@
 			<h2>조회된 결과가 없습니다.</h2>
 		</c:when>
 		</c:choose>
-	</div>

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%request.setCharacterEncoding("utf-8"); %>
-<table align="right">
+<table>
 	<tr>
 	<td style="border-bottom: 10px #dcefef solid;">
 	<select style="width: 60px" id="year" name="year">

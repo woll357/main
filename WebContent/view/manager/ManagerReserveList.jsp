@@ -4,8 +4,7 @@
 <%request.setCharacterEncoding("utf-8"); %>
 <script src="../js/jquery-3.3.1.min.js"></script>
 
-<div align="center">
-<h1>예약내역조회</h1>
+<h2>예약내역조회</h2>
 <table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0" >
 		<tr>
 		<td style="border-bottom: 10px #dcefef solid;">전체<input type="radio" id="total" name ="type" /></td>
@@ -13,7 +12,6 @@
 		<td style="border-bottom: 10px #dcefef solid;">날짜별<input type="radio" id="yearMonth" name ="type" /></td>
 		</tr>
 	</table>
-	</div>
 	<div id="serachEngine">
 	
 	</div>

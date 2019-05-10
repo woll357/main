@@ -72,7 +72,7 @@ function mkdate(){
 	}
 }
 </script>
-<table align="right">
+<table>
 <tr>
 
 	<td style="border-bottom: 10px #dcefef solid;">

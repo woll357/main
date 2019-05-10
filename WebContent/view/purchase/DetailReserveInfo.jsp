@@ -13,8 +13,7 @@ function Refund(id){
 }
 
 </script>
-<div align="center">
-<h1>항공예약내역</h1>
+<h2>항공예약내역</h2>
 	<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0" >
 		<tr>
 			<td style="border-bottom: 10px #dcefef solid;">항공사명</td>
@@ -47,9 +46,7 @@ function Refund(id){
 		</c:when>
 		</c:choose>
 	
-	</div>
-	<div align="center">
-	<h1>호텔예약내역</h1>
+	<h2>호텔예약내역</h2>
 	<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 		<tr>
 			<td style="border-bottom: 10px #dcefef solid;">호텔이름</td>
@@ -83,4 +80,3 @@ function Refund(id){
 		</c:when>
 		</c:choose>
 	
-	</div>

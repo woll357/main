@@ -17,22 +17,13 @@ public class ReserveTotal implements MvcAction {
 	@Override
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		String bstatus = "m";
 
 		
 		ArrayList<BasketpaidDTO> reserveTotalList = new ArrayList<BasketpaidDTO>();
 		
-		BasketItemDTO bidto = new BasketItemDTO();
-		bidto.setBstatus(bstatus);
-		ArrayList<BasketItemDTO> bidtos = new ArrayList<BasketItemDTO>();
 		
-		bidtos = new BasketItemDAO().basketIDListByBstatus(bidto);
+		reserveTotalList = new BasketpaidDAO().reserveTotalList();
 		
-		for (BasketItemDTO basketItemDTO : bidtos) {	
-			BasketpaidDTO bpdto = new BasketpaidDTO();
-			bpdto.setBasketID(basketItemDTO.getBasketID());
-			reserveTotalList.add(new BasketpaidDAO().detail(bpdto));
-		}
 		
 		request.setAttribute("reserveTotalList",reserveTotalList);
 		

@@ -1517,6 +1517,46 @@ public class BasketpaidDAO {
 			return res;
 		}
 		
+		public ArrayList<BasketpaidDTO> reserveTotalList() {	
+			
+			ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
+			
+			sql = "select distinct basketpaid.cName, basketpaid.cType, basketpaid.itemName,basketpaid.code, "
+					+ "basketpaid.ddate, basketpaid.fdate, basketpaid.psn, basketpaid.id "
+					+ "from basketpaid, basketitem where basketpaid.basketID = basketitem.basketID and basketpaid.bstatus='m' order by ddate";
+			
+			
+			System.out.println(sql);
+			
+			try {
+	
+				ptmt = con.prepareStatement(sql);
+
+	
+				rs = ptmt.executeQuery();
+				
+				while(rs.next()) {
+				BasketpaidDTO dto = new BasketpaidDTO();
+				dto.setcName(rs.getString(1));
+				dto.setcType(rs.getString(2));
+				dto.setItemName(rs.getString(3));
+				dto.setCode(rs.getString(4));
+				dto.setDdate(rs.getTimestamp(5));
+				dto.setFdate(rs.getTimestamp(6));
+				dto.setPsn(rs.getInt(7));
+				dto.setId(rs.getString(8));
+				res.add(dto);
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}finally {
+				close();
+			}
+			
+			return res;
+		}
+		
 	public void close() {
 		if(rs!=null) try {rs.close();} catch (SQLException e) {	}
 		if(ptmt!=null) try {ptmt.close();} catch (SQLException e) {	}

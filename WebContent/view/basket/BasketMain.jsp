@@ -2,10 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%request.setCharacterEncoding("utf-8"); %>
-<div align="center">
-
+<div>
 <form  name = "basket" action="BasketReg" method="post">
-	<h1>항공장바구니</h1>
+	<h2>항공장바구니</h2>
 	<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0" >
 		<tr>
 			<td style="border-bottom: 10px #dcefef solid;">상태</td>
@@ -34,7 +33,7 @@
 		</tr>
 		</c:forEach>
 	</table>
-		<h1>호텔장바구니</h1>
+		<h2>호텔장바구니</h2>
 	<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 		<tr>
 			<td style="border-bottom: 10px #dcefef solid;">상태</td>
@@ -64,11 +63,7 @@
 		</tr>
 		</c:forEach>
 	</table>
-	<table>
-	<tr>
-	<td><input id="basketPay" type="button" value="결제하기" /></td>
-	</tr>
-	</table>
+	<div align="right" ><input id="basketPay" type="button" value="결제하기" /></div>
 </form>
 </div>
 

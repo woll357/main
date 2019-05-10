@@ -56,8 +56,7 @@ function mkdate(){
 	}
 }
 </script>
-<div align="center">
-<h1>구매내역</h1>
+<h2>구매내역</h2>
 <table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
 	<tr>
 	<td  style="width: 50px" >회사명</td>
@@ -101,7 +100,6 @@ function mkdate(){
 	</td>
 	</tr>
 	</table>
-</div>
 	<div id="searchResult">
 
 	</div>
