@@ -55,7 +55,7 @@ public class HroomModiReg implements MvcAction {
 			
 			
 			new Hot_tempDAO().roommodify(dto);
-			goUrl = "Hdetail?hcode="+(mm.getParameter("hcode"));
+			goUrl = "Hdetail?hcode="+(mm.getParameter("hcode")+"&partner=in");
 			
 
 			
