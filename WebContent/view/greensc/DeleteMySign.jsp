@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <script src="../js/jquery-3.3.1.min.js"></script>
-
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 
 <script>
 $(document).ready(function(){
@@ -26,11 +26,11 @@ $(document).ready(function(){
 <form action="DeleteMySignReg" method="post" name="frm">
 	<table style="width: 100%; border : 10px #dcefef solid; border-collapse: collapse;" cellpadding="10px" border="">
 		<tr>
-			<td class="lgtd">아이디</td>
+			<td class="wbbr">아이디</td>
 			<td id="mem" class="lgtd">${mem.id }</td>
 		</tr>
 		<tr>
-			<td class="lgtd">비밀번호</td>
+			<td class="wbbr">비밀번호</td>
 			<td><input type="text" name="pw"/></td>
 		</tr>
 		<tr>

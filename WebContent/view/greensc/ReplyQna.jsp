@@ -5,7 +5,7 @@
 <script src = "../js/nh/centerWriteChk.js"></script>     
 
 <h2>Q&A 답변하기</h2>
-<table style="width: 100%; border: 10px #dcefef solid; border-collapse: collapse;"cellpadding="5px;" cellspacing="0" border="">
+<table class="ttcss">
 	<tr><td colspan="2">회원 문의</td>
 	</tr><tr>
 		<td style="width: 200px;">글번호</td><td>${dto.num }</td>

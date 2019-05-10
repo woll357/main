@@ -115,7 +115,7 @@
 		
 		
 		if(idPat.test($('#email1').val()) && emailPat.test($('#email2').val()) && $('#email1').val().length>0 && $('#email2').val().length>0){
-			$('#emTag').html("정상입력");
+			$('#emTag').html("정상적으로 입력되었습니다.");
 			 chk5=true;
 
 		}else{
@@ -138,7 +138,7 @@
 				&& (ychk>19 ||(ychk==19 && (mchk-bchk)>-1))){
 			
 			
-			$('#bbTag').html("정상입력");
+			$('#bbTag').html("정상적으로 입력되었습니다.");
 			chk4=true;
 		}else{
 			chk4=false;
@@ -146,7 +146,7 @@
 			$('#bbTag').html("예) 19000101");
 		}
 		if(korPat.test($('#pname').val()) && $('#pname').val().length>0){
-			$('#nameTag').html("정상입력");
+			$('#nameTag').html("정상적으로 입력되었습니다.");
 			chk3=true;
 		}else{
 			chk3=false;
@@ -154,19 +154,19 @@
 			$('#nameTag').html("한글이름");
 		}
 		if(idPat.test($('#pw').val()) && $('#pw').val().length>7 && $('#pw').val().length<17){		
-			$('#pwTag').html("정상입력");
+			$('#pwTag').html("정상적으로 입력되었습니다.");
 			chk1=true;
 		}else{
 			chk1=false;
 			msg = "PW 확인 부탁드립니다.";
-			$('#pwTag').html("8 ~ 16자, 특수문자 제외");
+			$('#pwTag').html("8 ~ 16자, 영문, 숫자, 한글 입력 가능합니다.");
 			}
 		if($('#pw').val()==$('#pw2').val() && $('#pw2').val().length>0){
-			$('#pw2Tag').html("정상입력");
+			$('#pw2Tag').html("정상적으로 입력되었습니다.");
 			chk2=true;
 		}else{
 			chk2=false;
-			$('#pw2Tag').html("pw와 동일하게 입력");
+			$('#pw2Tag').html("pw와 동일하게 입력하세요");
 			msg = "PW 확인 부탁드립니다.";
 		
 		}
@@ -192,13 +192,13 @@
 		if( (idPat.test($('#id').val()))
 			&& $('#id').val().length>3 && $('#id').val().length<9){
 			chk6=true;
-			$('#idTag').html("정상입력");
+			$('#idTag').html("정상적으로 입력되었습니다.");
 			$('#idBtn').removeAttr("disabled");
 			
 		}else{
 			msg = "id 확인 부탁드립니다.";
 			chk6=false;
-			$('#idTag').html("4~16자, 특수문자, 한글 제외");
+			$('#idTag').html("4~16자, 영문과 숫자로 입력하세요.");
 			$('#idBtn').attr("disabled","disabled");
 
 		}
@@ -206,7 +206,7 @@
 				&& numPat.test($('#phone3').val()) && $('#phone1').val().length >2
 				&& $('#phone2').val().length >2 && $('#phone3').val().length >3){
 			chk7=true; 
-			$('#ppTag').html("정상입력");
+			$('#ppTag').html("정상적으로 입력되었습니다.");
 			$('#phoneBtn').removeAttr("disabled");
 		}else{
 			chk7=false;

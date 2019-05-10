@@ -67,28 +67,28 @@
 
 .airBackDiv {
 	width: 600px;
-	height: 430px;
+	height: 450px;
 	background-color: #dcefef;
 }
 
 .airInDiv {
 	position: absolute;
 	width: 580px;
-	height: 410px;
+	height: 430px;
 	background-color: white;
 	margin-left: 10px;
 	margin-top: 10px;
 }
 .hotBackDiv {
 	width: 380px;
-	height: 430px;
+	height: 450px;
 	background-color: #dcefef;
 }
 
 .hotInDiv {
 	position: absolute;
 	width: 360px;
-	height: 410px;
+	height: 430px;
 	background-color: white;
 	margin-left: 10px;
 	margin-top: 10px;

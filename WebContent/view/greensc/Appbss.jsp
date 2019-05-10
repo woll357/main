@@ -8,11 +8,11 @@
 <h2>등업 신청</h2>
 
 
-<table style="border-collapse: collapse; border : 10px #dcefef solid; width: 100%"  border="" cellspacing="0">
+<table class="ttcss" border="" cellpadding="0">
 
 	<tr>
 
-		<td align="center" class="gg" style="padding: 5px">회원등급</td>
+		<td align="center" class="wbbr">회원등급</td>
 				<td class="gg" style="padding: 5px">
 				<select name="grade" id="grade" style="width: 200px;">                                   <!-- select 콤보박스 같은거 -->
 				<option value="A">항공사</option>

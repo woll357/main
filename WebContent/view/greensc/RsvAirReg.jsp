@@ -143,12 +143,11 @@ width: 1000px;
 </style>
 
 
-<table class="ttcss" border="">
-	<tr>
-		<td colspan="9" class="tt">
-			가는 편
-		</td>
-	</tr>
+
+	
+			<h2>가는 편</h2>
+
+	<table class="ttcss" border="">
 	<tr class="gogoTr">
 		<td colspan="2" width="180px" class="wbbr">항공사</td>
 				<td width="190px" class="wbbr">출발일</td>
@@ -176,25 +175,24 @@ width: 1000px;
 		<td><input type="button" value="선택" id="${dto.cCode}" class="awpBtn"/></td>
 		</tr>
 		</c:forEach>
-		
+		</table>
 		
 		
 		<c:if test="${way=='rtp' }">
-		<tr>
-			<td colspan="9" class="tt">
-				오는 편
-			</td>
-		</tr>
 		
+		
+				<h2>오는 편</h2>
+
+		<table class="ttcss" border="">
 		<tr class="rrTr">
-		<td colspan="2">항공사</td>
-		<td>출발일</td>
-		<td>도착일</td>
-		<td>출발도시</td>
-		<td>도착도시</td>
-		<td>잔여석</td>
-		<td>가격</td>
-		<td>선택</td>
+		<td colspan="2" class="wbbr">항공사</td>
+		<td class="wbbr">출발일</td>
+		<td class="wbbr">도착일</td>
+		<td class="wbbr">출발도시</td>
+		<td class="wbbr">도착도시</td>
+		<td class="wbbr">잔여석</td>
+		<td class="wbbr">가격</td>
+		<td class="wbb">선택</td>
 		</tr>
 		<c:forEach var="dto" items="${dto2}" varStatus="no">
 		<tr>
@@ -212,30 +210,29 @@ width: 1000px;
 		<td><input type="button" value="선택"  id="${dto.cCode}" class="rtpBtn"/></td>
 		</tr>
 		</c:forEach>
-		
+		</table>
 		</c:if>
-		
-		
-		
+		<br><br>
+		<hr color="#dcefef" noshade />
+		<br>
 		<form action="../Basket/BasketAirReg" method="post" name="frm" >
 		<input type="hidden" name="seatcnt" value="${param.seatcnt }"/>
-		<table>
-			<tr>
-				<td colspan="9" class="tt">
+		
+			
+				
 				<input type="hidden" id="ccode1" name="ccode">
-				<hr color="blue" size="1px">
-				선택하신 가는 편
-				</td>
-			</tr>
+				
+				<h2>선택하신 가는 편</h2>
+			<table class="ttcss" border="">	
 			<tr class="gogoTr">
-				<td colspan="2" width="180px">항공사</td>
-				<td width="220px">출발일</td>
-				<td width="220px">도착일</td>
-				<td width="80px">출발도시</td>
-				<td width="80px">도착도시</td>
-				<td width="70px">잔여석</td>
-				<td width="80px">가격</td>
-				<td width="50px">취소</td>
+				<td colspan="2" width="180px" class="wbbr">항공사</td>
+				<td width="190px" class="wbbr">출발일</td>
+				<td width="220px" class="wbbr">도착일</td>
+				<td width="80px" class="wbbr">출발도시</td>
+				<td width="80px" class="wbbr">도착도시</td>
+				<td width="70px" class="wbbr">잔여석</td>
+				<td width="80px" class="wbbr">가격</td>
+				<td width="50px" class="wbb">취소</td>
 			</tr>
 			
 			<tr>
@@ -249,7 +246,7 @@ width: 1000px;
 				<td id="awpMoney"></td>
 				<td><input type="button" value="취소" id="cancel1"/></td>
 			</tr>
-			
+		</table>	
 			
 			
 			
@@ -258,21 +255,20 @@ width: 1000px;
 			
 		<c:if test="${way=='rtp' }">
 		
-			<tr>
-			<td colspan="9" class="tt">
+			
 			<input type="hidden" id="ccode2" name="ccode">
-				선택하신 오는 편
-			</td>
-			</tr>
+				<h2>선택하신 오는 편</h2>
+			
+			<table class="ttcss" border="">	
 			<tr class="rrTr">
-				<td colspan="2">항공사</td>
-				<td>출발일</td>
-				<td>도착일</td>
-				<td>출발도시</td>
-				<td>도착도시</td>
-				<td>잔여석</td>
-				<td>가격</td>
-				<td>취소</td>
+				<td colspan="2" width="180px" class="wbbr">항공사</td>
+				<td width="190px" class="wbbr">출발일</td>
+				<td width="220px" class="wbbr">도착일</td>
+				<td width="80px" class="wbbr">출발도시</td>
+				<td width="80px" class="wbbr">도착도시</td>
+				<td width="70px" class="wbbr">잔여석</td>
+				<td width="80px" class="wbbr">가격</td>
+				<td width="50px" class="wbb">취소</td>
 			</tr>
 			<tr>
 				<td id="rtpNo"></td>
@@ -285,9 +281,10 @@ width: 1000px;
 				<td id="rtpMoney"></td>
 				<td><input type="button" value="취소" id="cancel2"/></td>
 			</tr>
+			</table>
 		</c:if>
 		
-		
+		<table>	
 		<tr>
 		<td colspan="9" align="right"style="padding: 20px;">
 		<input type="button" value="장바구니" id="btn" style="width: 100px; height: 50px;"/>
@@ -304,5 +301,5 @@ width: 1000px;
 		
 		
 		
-</table>
+
 
