@@ -8,17 +8,7 @@ margin-left: 10px;
 margin-right: 10p
 }
 .azaz{
-	
-	position: absolute;
 
-}
-.stitle{
-	top: 320px;
-	position: absolute;
-}
-.contable{
-	top: 400px;
-	position: absolute;
 }
 
 </style>
