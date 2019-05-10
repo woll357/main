@@ -4,6 +4,8 @@
 
 <link rel="stylesheet" href="../css/dk/input.css" type="text/css">
 
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
+
 <script src="../js/odk/datesarch.js"></script>
 
 <c:forEach var="dt" items="${dto }" end="0">

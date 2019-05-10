@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<body>
-<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<link rel="stylesheet" href="../css/dk/input.css" type="text/css">
+
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
+<table border="">
 	<tr>
 		<td style="background: #D4F4FA" width="250" ></td>
 		<td style="background: #D4F4FA" >항공사 코드</td>

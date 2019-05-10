@@ -1,20 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>지난상품 목록</title>
-</head>
-<body>
-</head>
-<body>
-<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">	
+<link rel="stylesheet" href="../css/dk/input.css" type="text/css">
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
+
+<table class="ttcss" border="">	
 
 	<tr>
-		<td width="40">상품코드</td>
-		<td width="30">비행기코드</td>
+		<td class="wbbr" width="40">상품코드</td>
+		<td class="wbbr" width="30">비행기코드</td>
 		<td>출발시간</td>
 		<td>출발지</td>
 		<td>도착지</td>

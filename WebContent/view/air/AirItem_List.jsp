@@ -12,7 +12,7 @@
 		<tr>
 			
 			<td align="right" colspan="9" class="wbbr" style="border-bottom: 3px white solid;">상품 코드　　<input style="padding: 10px" type="text" name="ccode" /></td>
-			<td class="wbbr" style="border-bottom: 3px white solid;" align="center"><input type="submit" value="선택  " style="background: #FFFFFF ; font-size: 20px" /></td>
+			<td class="wbbr" style="border-bottom: 3px white solid;" align="center"><input type="submit" value="선택  " style="background: #FFFFFF ;" class="btncss2"/></td>
 		</tr>
 	
 	<tr>

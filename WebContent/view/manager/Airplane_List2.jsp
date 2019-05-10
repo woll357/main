@@ -1,13 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>비향기 목록</title>
-</head>
-<body>
+<link rel="stylesheet" href="../css/dk/input.css" type="text/css">
+
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 
 <h3>비행기 목록</h3>
 <form action="Airplane_List2">

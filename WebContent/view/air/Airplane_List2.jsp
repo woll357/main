@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="../css/dk/input.css" type="text/css">
+
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 <h2>비행기 검색</h2>
 <form action="Airplane_List2">
 <input type="hidden" name="air_code" value="${dd }">

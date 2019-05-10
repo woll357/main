@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="../css/dk/input.css" type="text/css">
+
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 <form action="Airp_Detail">
 <h2 >항공편 검색</h2>
 <table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">

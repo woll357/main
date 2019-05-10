@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
+<link rel="stylesheet" href="../css/dk/input.css" type="text/css">
 
-<body>
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 
 <form action="AirCom_Detail" method="post">
-<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<table border="" >
 		<tr>
 			<td style="background: #D4F4FA"  colspan="2">항공편 코드</td>
 			<td style="background: #D4F4FA" ><input type="text" name="air_p"/></td>

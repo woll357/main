@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="../css/dk/input.css" type="text/css">
+
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 <script src="../js/jquery-3.3.1.min.js"></script>   
 <script src="../js/odk/Airplane_insert.js"></script>
 <h2 >비행기 등록</h2>

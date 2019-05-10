@@ -1,13 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
+<link rel="stylesheet" href="../css/dk/input.css" type="text/css">
 
-</head>
-<body>
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 <h4>항공편 검색</h4>
 <form action="Airp_Detail">
 <table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
