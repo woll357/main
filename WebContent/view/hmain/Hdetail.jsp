@@ -18,7 +18,8 @@
 	<td colspan="2">${dto.hinfo }</td>
 	</tr>
 		<tr>
-		<td colspan="3">${dto.addDetail }</td>
+		<td>상세주소</td>
+		<td colspan="2">${dto.addDetail }</td>
 	</tr>
 	<tr>
 		<td>사업자등록번호</td>

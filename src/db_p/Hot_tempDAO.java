@@ -471,6 +471,30 @@ public SignUpDTO phonefind(Hot_comDTO dto) {
 		return res;
 	}
 	
+	public int norescnt(BasketItemDTO dto, String date) {
+		int res = 0;
+		
+		sql = "select count(*) from basketitem where rcode = ? and date(ddate) = ?";
+		
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getRcode());
+			ptmt.setString(2, date);
+			rs = ptmt.executeQuery();
+			rs.next();
+			res = rs.getInt(1);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			close();
+		}	
+		
+		
+		return res;
+	}
+	
 	public Hot_comDTO detail(Hot_comDTO dto) {
 		Hot_comDTO res = null;
 		
