@@ -1,13 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-
-<body>
+<link rel="stylesheet" href="../css/dk/input.css" type="text/css">
 <script src="../js/jquery-3.3.1.min.js"></script>   
 <script src="../js/odk/Airplane_insert.js"></script>
-<h2 class="stitle">비행기 등록</h2>
-<form class="contable" name="airinre" action="Airplane_InsertReg">
+<h2 >비행기 등록</h2>
+<form name="airinre" action="Airplane_InsertReg">
 <table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 	<tr >
 		<td>비행기 코드</td><td><input type="text" class="ap"  name="ap_code"></td>
@@ -30,5 +27,3 @@
 	</tr>
 </table>
 </form>
-</body>
-</html>

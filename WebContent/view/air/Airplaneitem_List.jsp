@@ -1,15 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<h2 class="stitle">항공편 상품 목록</h2>
-<body>
-<table class="contable" border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<link rel="stylesheet" href="../css/dk/input.css" type="text/css">
+<h2>항공편 상품 목록</h2>
+<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 		<tr>
 			<td style="background: #D4F4FA"  colspan="8">상품 코드</td>
 			<td style="background: #D4F4FA" ><input type="text" name="ccode" /></td>
@@ -45,5 +39,3 @@
 	</tr>
 	</c:forEach>
 </table>
-</body>
-</html>

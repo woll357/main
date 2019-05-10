@@ -1,15 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
+
+<link rel="stylesheet" href="../css/dk/input.css" type="text/css">
 
 <script src="../js/odk/datesarch.js"></script>
-</head>
-<body>
 
+<h2>여긴어디니</h2>
 <form id="cc" action="Airp_Detail">
-<table class="contable" border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 
 <input type="hidden" name= "aotcont"  value="in"/>
 <input type="hidden" value="${air_p }" name="air_p">
@@ -65,5 +64,3 @@
 		</td>
 	</tr>
 </table>
-</body>
-</html>

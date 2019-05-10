@@ -1,18 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<!DOCTYPE html>
-
-<html>
+<link rel="stylesheet" href="../css/dk/input.css" type="text/css">
  <link rel="stylesheet" href="../css/nh/centerList.css" type="text/css">
- <style type="text/css">
- 
-</style>
-</head>
-<body>
 
-<h2 class="stitle">지난 상품 목록</h2>
-<table class="acc" border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+
+<h2 >지난 상품 목록</h2>
+<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 	<tr>
 		<td width="80">상품코드</td>
 		<td width="35">비행기코드</td>
@@ -64,4 +58,3 @@
 	</tr>
 	</table>
 </body>
-</html>

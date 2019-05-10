@@ -2,17 +2,12 @@
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 
-<!DOCTYPE html>
-
-<html>
  <link rel="stylesheet" href="../css/nh/centerList.css" type="text/css">
-<body>
-</head>
-<body>
-<h2 class="stitle">상품 목록</h2>
+<link rel="stylesheet" href="../css/dk/input.css" type="text/css">
+<h2 >상품 목록</h2>
 <form action="AirItem_Detail">
 <input type="hidden" name= "aotcont"  value="in"/>
-<table class="contable" border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<table  border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 		<tr>
 			<td style="background: #D4F4FA" colspan="8">상품 코드</td>
 			<td style="background: #D4F4FA"><input type="text" name="ccode" /></td>
@@ -77,5 +72,3 @@
 	</table>
 
 </form>
-</body>
-</html>
