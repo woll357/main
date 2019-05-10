@@ -9,7 +9,7 @@
 	<table>
 
 
-		<tr><td><input type="submit" value="삭제" /></td></tr>
+		<tr><td><input type="submit" value="삭제"  style="background-color: #dcefef; font-size: 20px; color: #779191 ; border: 0;" /></td></tr>
 	</table>
 
 

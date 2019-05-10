@@ -11,34 +11,36 @@
 .bbb{
 position: absolute;
 	top: 4px; 
-	left:323px;
+	left:331px;
 
 }
 </style>
+   <link rel="stylesheet" href="../css/dk/input.css" type="text/css">
 
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 <div align="center">
 <form class="aaa" action="HlistSearch?partner=in" method="post">
-	<table border="" style="text-align: center; border: 5px #dcefef solid;" cellspacing="0">
+	<table class="ttcss" border="">
 		<tr>
-			<td style="background: #D4F4FA">호텔코드검색</td>
+			<td class="wbbr">호텔코드검색</td>
 			<td><input type="text" name="hcode" /></td>
-			<td><input type="submit" value="검색" /></td>
+			<td><input type="submit" value="검색"  class="btncss2" style="background: #FFFFFF ;"/></td>
 		</tr>
 	</table>
 </form>
 </div>
 <div align="center">
 <form class="bbb" action="HlistCountrySearch?partner=in" method="post">
-	<table border="" style="text-align: center; border: 5px #dcefef solid;" cellspacing="0">
+	<table class="ttcss" border="">
 		<tr>
-			<td style="background: #D4F4FA">나라검색</td>
+			<td class="wbbr">나라검색</td>
 			<td><select name="country">
 				<option value=일본>일본</option>
 				<option value=중국>중국</option>
 				<option value=필리핀>필리핀</option>
 				<option value=태국>태국</option>
 			</select></td>
-			<td><input type="submit" value="검색" /></td>
+			<td><input type="submit" value="검색" class="btncss2" style="background: #FFFFFF ;" /></td>
 		</tr>
 	</table>
 </form>
@@ -51,27 +53,36 @@ position: absolute;
 	</c:when>
 </c:choose>
 <br><br>
-<h2 align="left">검색결과</h2>
+<h2>검색결과</h2>
 <div align="center">
-<table width="100%" border="" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
+<table class="ttcss" border="" style="text-align: center;">
 <c:forEach var="dto" items="${data }" varStatus="no">	
-	<tr>
-		<td style="background: #D4F4FA">호텔코드</td>
-		<td style="background: #D4F4FA" colspan="2" width="200">${dto.hcode }</td>
-	</tr>
+
 	<tr>
 		<td rowspan="3" width="220"><img src="../img/${dto.himg }" alt="" /></td>
 		<td>${dto.country }</td>
-		<td>${dto.city }</td>
+		<td style="border-right: 10px #dcefef solid;">${dto.city }</td>
 	</tr>
 	<tr>
-	<td colspan="2">${dto.hname }</td>
+	<td colspan="2" style="border-right: 10px #dcefef solid;">${dto.hname }</td>
 	</tr>
 	<tr>
-	<td colspan="2">${dto.hinfo }</td>
+	<td colspan="2" style="border-right: 10px #dcefef solid;">${dto.hinfo }</td>
+	</tr>
+		<tr>
+		<td class="wbbr">호텔코드</td>
+		<td  colspan="2" width="200" style="border-right: 10px #dcefef solid;" >${dto.hcode }</td> 
 	</tr>
 	<tr>
-	<td align="right" colspan="3"><a href="Hdetail?hcode=${dto.hcode }&partner=in">관리자상세조회</a></td>
+		<td class="wbbr">아이디</td>
+		<td colspan="2" style="border-right: 10px #dcefef solid;">${dto.id }</td>
+	</tr>
+		<tr>
+		<td class="wbbr">상세주소</td>
+		<td colspan="2" style="border-right: 10px #dcefef solid;">${dto.addDetail }</td>
+	</tr>
+	<tr>
+	<td align="right" colspan="3" style="border-right: 10px #dcefef solid;"><a href="Hdetail?hcode=${dto.hcode }&partner=in">관리자상세조회</a></td>
 	</tr>
 </c:forEach>
 	<tr>

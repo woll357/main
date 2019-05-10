@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<div align="left" >
-<h1 class="stitle">방수정</h1>
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
+<div  >
+<h2>방수정</h2>
     <script src="../js/yjm/manager_rmodi.js"></script>
 
  <form name = "roommod" action="HroomModiReg" method="post" enctype="multipart/form-data">
      <input type="hidden" name="rcode" value="${dto.rcode }" />
      <input type="hidden" name="hcode" value="${dto.hcode }" />
- 	<table width="100%" border=""  style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
+ 	<table class="ttcss" border="" style="text-align: center;">
  		<tr>
-			<td style=" border-bottom: 10px #dcefef solid;">방종류</td>
+			<td class="wbbr">방종류</td>
 			<td><select name="rkind">
 				<option value="${dto.rkind }">${dto.rkind }</option>
 				<option value="S">스탠다드</option>
@@ -18,13 +19,13 @@
 			</select></td>
 		</tr>
 		<tr>
-			<td style="border-bottom: 10px #dcefef solid;">방갯수</td>
+			<td class="wbbr">방갯수</td>
 			<td>
 				<input type="number" name="rcnt" maxlength="2" oninput="maxLengthCheck(this)" value="${dto.rcnt }" id="rcnt">
 			</td>
 		</tr>
 		<tr>
-			<td style="border-bottom: 10px #dcefef solid;">방인원</td>
+			<td class="wbbr">방인원</td>
 			<td><select name="pcnt">
 				<option value="${dto.pcnt }">${dto.pcnt }</option>
 				<option value=2>2</option>
@@ -32,11 +33,11 @@
 			</select></td>		
 		</tr>
 		<tr>
-			<td style="border-bottom: 10px #dcefef solid;">방이미지</td>
+			<td class="wbbr">방이미지</td>
 			<td>
 			<c:choose>
 				<c:when test="${dto.rimg!=null }">
-					${dto.rimg }<input type="button" value="파일삭제" onclick="fileDelete()"/>	
+					${dto.rimg }<input type="button" value="파일삭제" style="background-color: #dcefef; font-size: 20px; color: #779191 ; border: 0;" onclick="fileDelete()"/>	
 					<input type="hidden" name="rimg" value="${dto.rimg }"  id="rimg"/>
 				</c:when>
 				<c:otherwise>
@@ -46,15 +47,15 @@
 			</td>
 		</tr>
 		<tr>
-			<td style="border-bottom: 10px #dcefef solid;">금액</td>
+			<td class="wbbr">금액</td>
 			<td><input type="number" name="money" value="${dto.money }" id="money"/></td>
 		</tr>
 				<tr>
-			<td style="border-bottom: 10px #dcefef solid;">주말금액</td>
+			<td class="wbbr">주말금액</td>
 			<td><input type="number" name="wmoney" value="${dto.wmoney }" id="wmoney"/></td>
 		</tr>		
 		<tr>
-			<td style="border-bottom: 10px #dcefef solid;">wifi여부</td>
+			<td class="wbbr">wifi여부</td>
 			<td><select name="wifi">
 				<option value="${dto.wifi }">${dto.wifi }</option>
 				<option value=false>false</option>
@@ -62,7 +63,7 @@
 			</select></td>
 		</tr>
 		<tr>
-			<td style="border-bottom: 10px #dcefef solid;">조식여부</td>
+			<td class="wbbr">조식여부</td>
 			<td><select name="morning">
 				<option value="${dto.morning }">${dto.morning }</option>
 				<option value=false>false</option>
@@ -71,7 +72,7 @@
 		</tr>
 		   <tr>
 			<td colspan="2" align="right">
-			<input type="button" value="수정" class="modimodi"/>
+			<input type="button" value="수정" class="modimodi" style="background-color: #dcefef; font-size: 20px; color: #779191 ; border: 0;"/>
     	</td>
     	</tr>
  	
