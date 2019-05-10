@@ -2,30 +2,29 @@
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <link rel="stylesheet" href="../css/dk/input.css" type="text/css">
-
 <link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
-<h1 align="center">상품 목록</h1>
+<h2>상품 목록</h1>
 <form action="AirItem_Detail">
-<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<table border="" class="ttcss">
 <input type="hidden" name= "partner"  value="in"/>
 		<tr>
-			<td style="background: #D4F4FA" colspan="9">상품 코드</td>
-			<td style="background: #D4F4FA"><input type="text" name="ccode" /></td>
-			<td style="background: #D4F4FA" align="center"><input type="submit" value="선택  " style="background: #FFFFFF"/></td>
+			
+			<td class="wbbr" align="right" colspan="10" class="wbbr"  style="border-bottom: 3px white solid;">상품 코드　<input style="padding: 10px"  type="text" name="ccode" /></td>
+			<td class="wbbr"  style="border-bottom: 3px white solid;" align="center"><input type="submit" value="선택  "  style="background: #FFFFFF ;" class="btncss2"/></td>
 		</tr>
 	<tr>
 	
-		<td width="40">상품코드</td>
-		<td width="30">비행기코드</td>
-		<td>비행기코드</td>
-		<td>출발시간</td>
-		<td>출발지</td>
-		<td>도착지</td>
-		<td>가격</td>
-		<td>도착시간</td>
-		<td width="50" >예약된좌석</td>
-		<td width="35">총좌석</td>	
-		<td>좌석등급</td>
+		<td class="wbbr" width="40">상품코드</td>
+		<td class="wbbr" width="50">비행기코드</td>
+		<td class="wbbr">비행기코드</td>
+		<td class="wbbr">출발시간</td>
+		<td class="wbbr">출발지</td>
+		<td class="wbbr">도착지</td>
+		<td class="wbbr">가격</td>
+		<td class="wbbr">도착시간</td>
+		<td class="wbbr" width="50" >예약된좌석</td>
+		<td class="wbbr" width="35">총좌석</td>	
+		<td class="wbbr">좌석등급</td>
 	</tr>
 
 <c:forEach var="dto" items="${data}" varStatus="no">	

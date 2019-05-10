@@ -6,17 +6,17 @@
 <link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 
 <form action="AirCom_Detail" method="post">
-<table border="" >
+<table border="" class="ttcss" >
 		<tr>
-			<td style="background: #D4F4FA"  colspan="2">항공편 코드</td>
-			<td style="background: #D4F4FA" ><input type="text" name="air_p"/></td>
-			<td style="background: #D4F4FA"  align="center"><input type="submit" value="선택  " /></td>
+			<td   colspan="2">항공편 코드</td>
+			<td  ><input type="text" name="air_p"/></td>
+			<td   align="center"><input type="submit" value="선택  " /></td>
 		</tr>
 	<tr>
-		<td>항공편코드</td>
-		<td>회사명</td>
-		<td>출발지</td>
-		<td>도착지</td>
+		<td class="wbbr">항공편코드</td>
+		<td class="wbbr">회사명</td>
+		<td class="wbbr">출발지</td>
+		<td class="wbbr">도착지</td>
 	</tr>
 <c:forEach var="dto" items="${data }" varStatus="no">	
 	<tr>

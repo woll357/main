@@ -2,17 +2,16 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="../css/dk/input.css" type="text/css">
-
 <link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 <form action="Airp_Detail">
-<h2 >항공편 검색</h2>
+<h2>항공편 검색</h2>
 <table class="ttcss" border="">
 <input type="hidden" name= "aotcont"  value="in"/>
 <input type="hidden" value="${air_p }" name="air_p">
 		<tr>
 			
-			<td align="right"  colspan="7" class="wbbr" style="border-bottom: 3px white solid; pad" >날짜　<input style="padding: 10px" type="text" name="ddate" /></td>
-			<td class="wbbr" style="border-bottom: 3px white solid; align="center"><input type="submit" style="background: #FFFFFF ;" class="btncss2" value="선택  " /></td>
+			<td  align="right"  colspan="7" class="wbbr" style="border-bottom: 3px white solid; " >날짜　<input style="padding: 10px" type="text" name="ddate" /></td>
+			<td align="center" class="wbbr" style="border-bottom: 3px white solid; "><input type="submit" style="background: #FFFFFF ;" class="btncss2" value="선택  " /></td>
 		</tr>
 	<tr>
 		<td class="wbbr">상품코드</td>
@@ -27,14 +26,14 @@
 <c:forEach var="dt" items="${dto }" varStatus="no" >
 	<tr>
 	
-	<td><a href="AirItem_Detail?ccode=${dt.ccode }&aotcont=in">${dt.ccode }</a></td>	
-		<td>${dt.ap_code }</td>
-		<td>${dt.ddate }</td>
-		<td>${dt.darea }</td>
-		<td>${dt.carea }</td>
-		<td>${dt.a_time }</td>
-		<td>${dt.seatcnt }</td>
-		<td>${dt.flightclass }</td>
+	<td style="border-bottom: 10px #dcefef solid;"><a href="AirItem_Detail?ccode=${dt.ccode }&aotcont=in">${dt.ccode }</a></td>	
+		<td style="border-bottom: 10px #dcefef solid;">${dt.ap_code }</td>
+		<td style="border-bottom: 10px #dcefef solid;">${dt.ddate }</td>
+		<td style="border-bottom: 10px #dcefef solid;">${dt.darea }</td>
+		<td style="border-bottom: 10px #dcefef solid;">${dt.carea }</td>
+		<td style="border-bottom: 10px #dcefef solid;">${dt.a_time }</td>
+		<td style="border-bottom: 10px #dcefef solid;">${dt.seatcnt }</td>
+		<td style="border-bottom: 10px #dcefef solid;">${dt.flightclass }</td>
 	</tr>
  </c:forEach>
   <tr>

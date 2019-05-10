@@ -7,13 +7,13 @@
 <link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 <script src="../js/odk/datesarch.js"></script>
 <form id="cc" action="Airp_Detail">
-<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<table border="" class="ttcss">
 <input type="hidden" value="${param.air_p}" name="air_p">
 <input type="hidden" value="in" name="partner">
 		<tr>
-			<td style="background: #D4F4FA" colspan="6">날짜</td>
-			<td style="background: #D4F4FA" ><input type="text" class="ddate" name="ddate" /></td>
-			<td style="background: #D4F4FA"  align="center"><input class="aa" type="button" value="선택  " /></td>
+			
+			<td class="wbbr" align="right" colspan="7" >날짜　<input style="padding: 10px"" type="text" class="ddate" name="ddate" /></td>
+			<td class="wbbr" style="border-right: 10px #dcefef solid; align="center"><input class="aa"  style="background: #FFFFFF;font-size: 20px;color: #779191;"  type="button" value="선택  " /></td>
 		</tr>
 	<tr>
 		<td>상품코드</td>
@@ -23,7 +23,7 @@
 		<td>도착지</td>
 		<td>도착시간</td>
 		<td>남은좌석</td>	
-		<td>좌석등급</td>
+		<td style="border-right: 10px #dcefef solid;">좌석등급</td>
 	</tr>
 <c:forEach var="dt" items="${dto }" varStatus="no" >
 	<tr>
@@ -34,7 +34,7 @@
 		<td>${dt.carea }</td>
 		<td>${dt.a_time }</td>
 		<td>${dt.seatcnt }</td>
-		<td>${dt.flightclass }</td>
+		<td style="border-right: 10px #dcefef solid;">${dt.flightclass }</td>
 	</tr>
  </c:forEach>
 		<tr>

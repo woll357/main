@@ -32,7 +32,60 @@ public class Air_itemDAO {
 	}
 	
 	
-	
+	//관리자
+	public Object air_pdetailm(Air_itemDTO dto) {
+		
+		ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
+			//air_itemDTO res = null;
+			
+			sql = "select * from air_item where air_p = ? and date(ddate)=date(?) " ;
+		        //select * from air_item where air_p = 'TPI-200' and date(ddate)=date('2019-12-27');
+			System.out.println("select * from air_item where air_p = 'TPI-200' and date(ddate)=date('2019-12-27') and air_code = 'AAA1012'");
+			
+			try {
+			System.out.println("진입1"+ dto.getAir_p() + dto.getDdateStr2());	
+		
+				ptmt = con.prepareStatement(sql);
+			
+				ptmt.setString(1, dto.getAir_p());
+				ptmt.setString(2, dto.getDdateStr2());
+
+
+				rs = ptmt.executeQuery();
+				
+				while(rs.next()) {
+					
+					System.out.println("진입2");
+					
+					dto = new Air_itemDTO();
+					
+					dto.setDdate(rs.getTimestamp("ddate"));
+					dto.setDarea(rs.getString("darea"));
+					dto.setCarea(rs.getString("carea"));
+					dto.setAp_code(rs.getString("ap_code"));
+					dto.setCcode(rs.getString("ccode"));
+					dto.setMoney(rs.getInt("money"));
+					dto.setA_time(rs.getTimestamp("a_time"));
+					dto.setSeatcnt(rs.getInt("seatcnt"));
+					dto.setFlightclass(rs.getString("flightclass"));	
+					dto.setTotseatcnt(rs.getInt("totseatcnt"));
+				
+					
+					res.add(dto);
+					
+					
+				}
+						
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			
+			}finally {
+			   close();
+		  }
+			       
+			return res;
+		}
 	//총 게시글 구하기
 	public int total(String air_code) {
 		

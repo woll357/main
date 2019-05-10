@@ -5,23 +5,23 @@
 
 <link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 <h2>항공편 상품 목록</h2>
-<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<table border="" class="ttcss">
 		<tr>
-			<td style="background: #D4F4FA"  colspan="8">상품 코드</td>
-			<td style="background: #D4F4FA" ><input type="text" name="ccode" /></td>
-			<td style="background: #D4F4FA"  align="center"><input type="submit" value="선택  " /></td>
+			
+			<td align="right" class="wbbr" colspan="9" style="border-bottom: 3px white solid;" >상품 코드　<input style="padding: 10px" type="text" name="ccode" /></td>
+			<td  class="wbbr" style="border-bottom: 3px white solid;" align="center"><input type="submit" value="선택  " style="background: #FFFFFF ;" class="btncss2" /></td>
 		</tr>
 	<tr>
-		<td>상품코드</td>
-		<td>비행기코드</td>
-		<td>출발시간</td>
-		<td>출발지</td>
-		<td>도착지</td>
-		<td>가격</td>
-		<td>도착시간</td>
-		<td>예약된좌석</td>
-		<td>총좌석</td>	
-		<td>좌석등급</td>
+		<td class="wbbr">상품코드</td>
+		<td class="wbbr">비행기코드</td>
+		<td class="wbbr">출발시간</td>
+		<td class="wbbr">출발지</td>
+		<td class="wbbr">도착지</td>
+		<td class="wbbr">가격</td>
+		<td class="wbbr">도착시간</td>
+		<td class="wbbr">예약된좌석</td>
+		<td class="wbbr">총좌석</td>	
+		<td class="wbbr">좌석등급</td>
 	</tr>
 
 <c:forEach var="dto" items="${data}" varStatus="no">	
