@@ -58,8 +58,8 @@
 			<td>${i.fdateStr }</td>
 			<td>${i.psn }</td>
 			<td>${i.id }</td>
-			<td><button onclick="boarding('${i.basketID }', '${i.ddateStr }')">보딩</button></td>
-			<td><button onclick="TravelerInfoDetail('${i.basketID}')" >여행객 상세 정보</button></td>
+			<td><button class="btncss" onclick="boarding('${i.basketID }', '${i.ddateStr }')">보딩</button></td>
+			<td><button class="btncss" onclick="TravelerInfoDetail('${i.basketID}')" >여행객 상세 정보</button></td>
 		</tr>
 		</c:forEach>
 		

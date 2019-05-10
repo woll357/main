@@ -56,13 +56,14 @@ function mkdate(){
 	}
 }
 </script>
+<link rel="stylesheet" href="../css/nh/tot.css" />
 <h2>매출내역</h2>
-<table style="text-align: center; width:100%; border: 10px #dcefef solid;" cellspacing="0">
+<table  class = "ttcss">
 	<tr>
-	<td  style="width: 50px" >방코드</td>
+	<td class="wbbr" >방코드</td>
 	<td>
-	<select style="width: 200px" id="rcode" name="rcode">
-	<option value="">방선택</option>
+	<select style="width:100%" id="rcode" name="rcode">
+	<option value="">방코드 선택</option>
 	<c:forEach var="i" items="${rlists }">
 	<option  value="${i.rcode }">${i.rcode }</option>
 	</c:forEach>
@@ -71,32 +72,32 @@ function mkdate(){
 	
 	
 	<td>
-	<select style="width: 80px" id="year" name="year" onchange="mkmonth()">
+	<select style="width:100%" id="year" name="year" onchange="mkmonth()">
 	<option value="">필수입력</option>
 	<c:forEach var="i" items="${years }">
 	<option value="${i }">${i }</option>
 	</c:forEach>
 	</select>
 	</td>
-	<td  style="width: 25px" >년</td>
+	<td class="wbbr"  style="width: 25px" >년</td>
 
 	<td>
-	<select style="width: 80px" id="month" name="month" onchange="mkdate()">
+	<select style="width:100%" id="month" name="month" onchange="mkdate()">
 	<option value="">입력없음</option>
 	</select>
 	</td>
-	<td  style="width: 25px" >월</td>
+	<td class="wbbr" style="width: 25px" >월</td>
 
 		<td>
-	<select style="width: 80px" id="day" name="day">
+	<select style="width:100%" id="day" name="day">
 	<option value="">입력없음</option>
 	</select>
 	</td>
-	<td  style="width: 25px" >일</td>
+	<td class="wbbr" style="width: 25px" >일</td>
 
 
 	<td>
-	<input id="search" type="button" value="검색" />
+	<input class="btncss2" style="width:100%" id="search" type="button" value="검색" />
 	</td>
 	</tr>
 	</table>
