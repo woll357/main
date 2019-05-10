@@ -2,74 +2,66 @@
 	pageEncoding="UTF-8"%>
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src="../js/nh/blackListChk.js"></script>
-<link rel="stylesheet" href="../css/nh/mgpage.css" type="text/css">
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 
+<h2>블랙리스트 관리</h2>
+	<table style="border : 10px #dcefef solid; width: 100%" cellspacing="0">
 
-<div id="back">
-
-	<table  style="width: 100%">
 		<tr>
-			<td id="searchId" class="tt">블랙리스트 검색</td>
-			<td id="searchNum" class="tt">블랙리스트 회원 총 수 : ${memNum }</td>
+			<td id="searchNum" colspan="2" class="bb">블랙리스트 회원 총 수 : ${memNum }</td>
 		</tr>
-		<tr>
-			<td colspan="2"><hr color="#dcefef" size="1px"></td>
-		</tr>
+		
 		<tr>
 			<td colspan="2">
 				<table style="width: 100%">
 					<tr>
-						<td class="tt">아이디 검색</td>
-						<td class="tt"><input type="text" id="id" maxlength="8"
-							onkeyup="chkPat1()" /></td>
-						<td class="tt"><input type="button" value="검색" id="btn1"/></td>
+						<td class="bbr">아이디 검색</td>
+						<td class="bb"><input type="text" id="id" maxlength="8"
+							onkeyup="chkPat1()"/></td>
+						<td class="bb"><input type="button" value="검색" id="btn1" sty/></td>
 					</tr>
 					<tr>
-						<td class="tt">이름 검색</td>
-						<td class="tt"><input type="text" id="name"
+						<td class="bbr">이름 검색</td>
+						<td class="bb"><input type="text" id="name"
 							onkeyup="chkPat2()" /></td>
-						<td class="tt"><input type="button" value="검색" id="btn2" /></td>
+						<td style="border-bottom:  1px #dcefef solid;"><input type="button" value="검색" id="btn2" /></td>
 					</tr>
 					<tr>
-						<td class="tt">핸드폰 뒷자리 검색</td>
-						<td class="tt"><input type="text" id="phone" maxlength="4"
+						<td class="bbr">핸드폰 뒷자리 검색</td>
+						<td class="bb"><input type="text" id="phone" maxlength="4"
 							onkeyup="chkPat3()" /></td>
-						<td class="tt"><input type="button" value="검색" id="btn3" /></td>
+						<td style="border-bottom:  1px #dcefef solid;"><input type="button" value="검색" id="btn3" /></td>
 					</tr>
 					<tr>
-						<td class="tt">블랙리스트 사유검색</td>
-						<td class="tt"><select name="preason" id="preason">
+						<td class="bbr">블랙리스트 사유검색</td>
+						<td class="bb"><select name="preason" id="preason">
 								<option value="강성고객">강성고객</option>
 								<option value="경범죄">경범죄</option>
 								<option value="중범죄">중범죄</option>
 						</select></td>
-						<td class="tt"><input type="button" value="검색" id="btn4" /></td>
+						<td class="bb"><input type="button" value="검색" id="btn4" /></td>
 					</tr>
-					<tr>
-						<td colspan="3"><hr color="#dcefef" size="1px"></td>
-					</tr>
+					
 				</table>
 			</td>
 		</tr>
 
 		<tr>
-			<td colspan="2" class="tt">회원 검색 결과</td>
+			<td colspan="2" class="bb">회원 검색 결과</td>
 
 		</tr>
-		<tr>
-						<td colspan="2"><hr color="#dcefef" size="1px"></td>
-					</tr>
+		
 		<tr>
 			<td colspan="3">
-				<table style="width: 100%">
+				<table style="border-collapse: collapse; width: 100%">
 					<tr>
-						<td class="ttt">번호</td>
-						<td class="ttt">아이디</td>
-						<td class="ttt">이름</td>
-						<td class="ttt">연락처</td>
-						<td class="ttt">블랙리스트</td>
-						<td class="ttt">사유</td>
-						<td class="ttt">상세보기</td>
+						<td style="width: 50px;" class="bbr">번호</td>
+						<td style="width: 200px;" class="bbr">아이디</td>
+						<td style="width: 150px;" class="bbr">이름</td>
+						<td style="width: 200px;" class="bbr">연락처</td>
+						<td style="width: 100px;" class="bbr">블랙리스트</td>
+						<td style="width: 100px;" class="bbr">사유</td>
+						<td style="width: 100px;" class="bb">상세보기</td>
 					</tr>
 				</table>
 
@@ -79,4 +71,3 @@
 			<td colspan="3" id="contents"></td>
 		</tr>
 	</table>
-</div>

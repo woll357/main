@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src = "../js/nh/countryCombo.js"></script>
-<link rel="stylesheet" href="../css/nh/signup.css" type="text/css">
+
 <script>
 
 var no=0;
@@ -209,11 +209,11 @@ function butPat(){
 
 
 </script>
-	
+	<h2>회원 정보 조회 / 수정</h2>
 	<div id="back"><div id="in">
 	<form action="ModifyMemReg" method="post" name="frm">
 	<input type="hidden" value="${dto.id }" name="id"/>
-	<table style="width: 100%">
+	<table style="border-collapse: collapse; border : 10px #dcefef solid; width: 100%"  border="" cellspacing="0">
 		<tr>
     			<td width="100" class="tt" align="center">ID</td>
     			<td colspan="2" class="tt">${dto.id }</td>
@@ -239,7 +239,7 @@ function butPat(){
 		</tr>
 		<tr>
 			<td align="center" class="tt">연락처</td>
-			<td>
+			<td style="width: 600px;">
 			<input name="phone" type="text" id="phone1"  maxlength="3" onkeyup="butPat()" value="${dto.phone1 }" class="ppin"/> -
 			<input name="phone" type="text" id="phone2"  maxlength="4" onkeyup="butPat()" value="${dto.phone2 }" class="ppin"/> -
 			<input name="phone" type="text" id="phone3" maxlength="4" onkeyup="butPat()" value="${dto.phone3 }" class="ppin"/>
@@ -454,7 +454,7 @@ function butPat(){
 		<tr>
 			<td colspan="3" align="center">
 			<input type="button" value="수정" id="subBtn"/>
-			<input type="button" value="블랙리스트 추가하기" id="blackBtn" />
+			<input type="button" value="블랙리스트 추가/해지" id="blackBtn" />
 				<input type="reset" value="초기화" /></td>
 		</tr>
 	</table>

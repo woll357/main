@@ -2,15 +2,14 @@
 	pageEncoding="UTF-8"%>
 <script src="../js/jquery-3.3.1.min.js"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link rel="stylesheet" href="../css/nh/mgpage.css" type="text/css">
 <script src="../js/nh/blackListChk.js"></script>
-
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 
 
 <table style="width: 100%">
 
 	<tr>
-		<td colspan="7" class="ttt"><c:choose>
+		<td colspan="7"><c:choose>
 				<c:when test="${msg=='No' }">
 	자료가 없습니다.
 	</c:when>
@@ -24,20 +23,17 @@
 
 						<form action="FindDetail" method="post">
 							<input type="hidden" value="${dto.id }" name="id" />
-							<table style="width: 100%">
+							<table style="width: 100%" cellspacing="0">
 								<tr>
-									<td class="ttt">${no.index+1 }</td>
-									<td class="ttt">${dto.id }</td>
-									<td class="ttt">${dto.pname }</td>
-									<td class="ttt"><font size="3px;">${dto.phone1 }-****-${dto.phone3 }</font></td>
-									<td class="ttt">${dto.black }</td>
-									<td class="ttt">${dto.preason }</td>
-
-									<td class="ttt"><input type="submit" value="검색" /></td>
+									<td style="width: 50px;" class="bbr">${no.index+1 }</td>
+									<td style="width: 200px;" class="bbr">${dto.id }</td>
+									<td style="width: 150px;" class="bbr">${dto.pname }</td>
+									<td style="width: 200px;" class="bbr">${dto.phone1 }-****-${dto.phone3 }</td>
+									<td style="width: 100px;" class="bbr">${dto.black }</td>
+									<td style="width: 100px;" class="bbr">${dto.preason }</td>
+									<td style="width: 100px;" class="bb"><input type="submit" value="검색" /></td>
 								</tr>
-								<tr>
-									<td colspan="7"><hr color="#dcefef" size="1px"></td>
-								</tr>
+								
 							</table>
 						</form>
 
