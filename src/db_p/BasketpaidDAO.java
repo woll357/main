@@ -71,6 +71,34 @@ public class BasketpaidDAO {
 		return res;
 	}
 	
+	public ArrayList<BasketpaidDTO> findComNameComcode() {
+		ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
+		
+		try {
+			
+			sql = "select distinct cName, comcode from basketpaid union all select hname, hot_com.hcode from hot_com union all select air_name, air_code from air_com";
+			ptmt = con.prepareStatement(sql);
+
+			rs = ptmt.executeQuery();
+			
+			while(rs.next()) {
+				BasketpaidDTO dto = new BasketpaidDTO();
+				dto.setcName(rs.getString(1));
+				dto.setComcode(rs.getString(2));				
+				res.add(dto);
+			}
+	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+			close();
+		}
+
+		return res;
+	}
+	
 	public ArrayList<BasketpaidDTO> myReserveList(BasketpaidDTO dto) {
 		ArrayList<BasketpaidDTO> res = new ArrayList<BasketpaidDTO>();
 		

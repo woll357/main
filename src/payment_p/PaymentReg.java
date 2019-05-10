@@ -8,6 +8,8 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import db_p.Air_comDAO;
+import db_p.Air_comDTO;
 import db_p.Air_itemDAO;
 import db_p.Air_itemDTO;
 import db_p.BasketDAO;
@@ -19,6 +21,7 @@ import db_p.BasketpaidDTO;
 import db_p.BuyDAO;
 import db_p.BuyDTO;
 import db_p.Hold_tableDTO;
+import db_p.Hot_comDTO;
 import db_p.Hot_tempDAO;
 import db_p.PaymentDAO;
 import db_p.PaymentDTO;
@@ -281,6 +284,21 @@ public class PaymentReg implements MvcAction {
 					bpdto.setBcode(bdto.getBcode());
 					bpdto.setId(badto.getId());
 					bpdto.setCode(badto.getCode());
+					String comcode = "";
+					if(bpdto.getcType().equals("A")) {
+						Air_comDTO adto = new Air_comDTO();
+						adto.setAir_name(bpdto.getcName());
+						adto = new Air_comDAO().serarchByAirName(adto);
+						bpdto.setComcode(adto.getAir_code());
+					}
+					else if(bpdto.getcType().equals("H")) {
+						Hot_comDTO hdto = new Hot_comDTO();
+						hdto.setHname(bpdto.getcName());
+						
+						
+					}
+					
+					
 					
 
 					new BasketpaidDAO().insert(bpdto); // 구매된 장바구니에 넣는다.

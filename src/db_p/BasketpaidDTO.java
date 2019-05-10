@@ -6,22 +6,27 @@ import java.util.Date;
 
 public class BasketpaidDTO {
 	int pno, cNum, totalPrice, psn;
-	String basketID, cType, cName, itemName, location1, location2, bcode, id, bstatus, code;
+	String basketID, cType, cName, itemName, location1, location2, bcode, id, bstatus, code, comcode;
 	Date ddate, fdate, bdate;
 	double salesPercent;
 	double managerSales;// 관리자가 먹는 량
 	double comSales; //협력업체가 먹는 양
 	
+	public String getComcode() {
+		return comcode;
+	}
+
+	public void setComcode(String comcode) {
+		this.comcode = comcode;
+	}
+
 	public double getSalesPercent() {
 		return salesPercent;
 	}
 
 	public void setSalesPercent(double salesPercent) {
 		this.salesPercent = salesPercent;
-		System.out.println("이익률"+salesPercent);
-		System.out.println("가격"+this.totalPrice);
 		this.managerSales = (this.totalPrice*(100-salesPercent*100))/100;
-		System.out.println("회사가 갖는 돈"+this.managerSales);
 		this.comSales = (double)(this.totalPrice)*salesPercent;
 	}
 

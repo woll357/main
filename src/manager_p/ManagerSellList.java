@@ -60,14 +60,11 @@ public class ManagerSellList implements MvcAction {
 		//회사명설정
 		HashMap<String, String> clists = new HashMap<String, String>();
 		
-		ArrayList<Air_comDTO> aclist = new Air_comDAO().air_comList();
-		for (Air_comDTO aa : aclist) {
-			clists.put(aa.getAir_code(), aa.getAir_name());
-		}
+		ArrayList<BasketpaidDTO> comlists =	new BasketpaidDAO().findComNameComcode();
 		
-		ArrayList<Hot_comDTO> hclist = new Hot_tempDAO().hotelList();
-		for (Hot_comDTO hh : hclist) {
-			clists.put(hh.getHcode(), hh.getHname());
+		for (BasketpaidDTO bdto : comlists) {
+			clists.put(bdto.getComcode(), bdto.getcName());
+		
 		}
 		
 		request.setAttribute("clists", clists);

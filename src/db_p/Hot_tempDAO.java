@@ -118,6 +118,38 @@ public SignUpDTO phonefind(Hot_comDTO dto) {
 		return res;
 	}
 	
+	public Hot_comDTO serarchByHotName(Hot_comDTO dto) {
+		Hot_comDTO res = null;
+		
+		sql = "select * from hot_com where hname = ?";
+		
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getHname());
+			rs=ptmt.executeQuery();
+			if(rs.next()) {
+				res = new Hot_comDTO();
+				res.setId(rs.getString("id"));
+				res.setHname(rs.getString("hname"));
+				res.setCrn(rs.getString("crn"));
+				res.setHimg(rs.getString("himg"));
+				res.setCountry(rs.getString("country"));
+				res.setCity(rs.getString("city"));
+				res.setGrade(rs.getString("grade"));
+				res.setHcode(rs.getString("hcode"));
+				res.setHinfo(rs.getString("hinfo"));
+				res.setAddDetail(rs.getString("adddetail"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			close();
+		}	
+		return res;
+	}
+	
 	
 	public ArrayList<Hot_comDTO> countrysearch(Hot_comDTO rr, int page, int limit) {
 		ArrayList<Hot_comDTO> res = new ArrayList<Hot_comDTO>();

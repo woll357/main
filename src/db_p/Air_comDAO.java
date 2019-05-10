@@ -350,6 +350,40 @@ public Object air_pdetaill(String a) {
 			  }
 				return res;
 		}
+		
+		public Air_comDTO serarchByAirName(Air_comDTO dto) {
+			Air_comDTO res = null;
+			
+			sql = "select * from air_com where air_name = ? " ;
+			
+			try {
+				ptmt = con.prepareStatement(sql);
+				
+				ptmt.setString(1, dto.getAir_name());
+				rs = ptmt.executeQuery();
+				
+				if(rs.next()) {
+					
+					res = new Air_comDTO();
+					res.setAir_code(rs.getString("air_code"));
+					res.setId(rs.getString("id"));
+					res.setCrn(rs.getString("crn"));
+					res.setImg(rs.getString("img"));
+					res.setAir_name(rs.getString("air_name"));
+				}
+						
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			
+			}
+			
+			  finally {
+			  
+			  close();
+			  }
+				return res;
+		}
 	
 	
 		public void close() {
