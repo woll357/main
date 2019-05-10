@@ -3,47 +3,47 @@
      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <link rel="stylesheet" href="../css/dk/input.css" type="text/css">
-
 <link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
-
 <script src="../js/odk/datesarch.js"></script>
 
 <c:forEach var="dt" items="${dto }" end="0">
 <h2>${dt.darea } → ${dt.carea } 상품 목록</h2>
 </c:forEach>
+
+
 <form id="cc" action="Airp_Detail" >
-<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<table border="" class="ttcss">
 
 <input type="hidden" name= "aotcont"  value="in"/>
 <input type="hidden" value="${air_p }" name="air_p">
 <input type="hidden" name= "air_code"  value="${mem.air_code }"/>
 <tr>
-			<td style="background: #D4F4FA" colspan="6" >날짜</td>			
-			<td style="background: #D4F4FA" ><input type="text" name="ddate" class="ddate" /></td>
-			<td style="background: #D4F4FA"  align="center"><input type="button" class="aa" value="선택  " /></td>
+					
+			<td style="border-bottom: 3px white solid;" class="wbbr" align="right" colspan="7">날짜　<input style="padding: 10px"  type="text" name="ddate" class="ddate" /></td>
+			<td  class="wbbr" style="border-bottom: 3px white solid; border-right: 10px #dcefef solid;" align="center"><input  type="button"  class="aa" value="선택  " style="background: #FFFFFF ;	font-size: 20px;color: #779191;" /></td>
 		</tr>
 
 
 	<tr>
-		<td style="background: #D4F4FA" >상품코드</td>
-		<td style="background: #D4F4FA" >비행기코드</td>
-		<td style="background: #D4F4FA" >출발시간</td>
-		<td style="background: #D4F4FA" >출발지</td>
-		<td style="background: #D4F4FA" >도착지</td>
-		<td style="background: #D4F4FA" >도착시간</td>
-		<td style="background: #D4F4FA" >예약된좌석</td>	
-		<td style="background: #D4F4FA" >좌석등급</td>
+		<td class="wbbr" >상품코드</td>
+		<td class="wbbr" >비행기코드</td>
+		<td class="wbbr" >출발시간</td>
+		<td class="wbbr" >출발지</td>
+		<td class="wbbr" >도착지</td>
+		<td class="wbbr" >도착시간</td>
+		<td class="wbbr" >예약된좌석</td>	
+		<td class="wbbr" style="border-right: 10px #dcefef solid;">좌석등급</td>
 	</tr>
 <c:forEach var="dt" items="${dto }" varStatus="no" >
 	<tr>
-	<td>${dt.ccode }</td>	
-		<td>${dt.ap_code }</td>
+	<td >${dt.ccode }</td>	
+		<td >${dt.ap_code }</td>
 		<td>${dt.ddate }</td>
 		<td>${dt.darea }</td>
 		<td>${dt.carea }</td>
 		<td>${dt.a_time }</td>
 		<td>${dt.seatcnt }</td>
-		<td>${dt.flightclass }</td>
+		<td style="border-right: 10px #dcefef solid;">${dt.flightclass }</td>
 	</tr>
  </c:forEach>
 	<tr>

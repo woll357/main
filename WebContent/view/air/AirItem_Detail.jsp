@@ -42,23 +42,23 @@ function delchk(){
 <h2>상품 상세</h2>
 <form action="AirItem_Detail">
 	<input type="hidden" name= "aotcont"  value="in"/>
-<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<table border="" class="ttcss">
 		<tr>
-			<td colspan="8" style="background: #D4F4FA">상품 코드</td>
-			<td style="background: #D4F4FA"><input type="text" name="ccode" /></td>
-			<td align="center" style="background: #D4F4FA"><input type="submit" value="선택  " /></td>
+
+			<td align="right" colspan="9" class="wbbr" style="border-bottom: 3px white solid;">상품 코드　　<input type="text" style="padding: 10px" type="text" name="ccode" /></td>
+			<td  class="wbbr" style="border-bottom: 3px white solid;" align="center"><input type="submit" value="선택  "  style="background: #FFFFFF ;" class="btncss2"/></td>
 		</tr>
 	<tr>
-		<td>상품코드</td>
-		<td>비행기코드</td>
-		<td>출발시간</td>
-		<td>출발지</td>
-		<td>도착지</td>
-		<td>가격</td>
-		<td>도착시간</td>
-		<td>예약된좌석</td>
-		<td>총좌석</td>	
-		<td>좌석등급</td>
+		<td  class="wbbr">상품코드</td>
+		<td  class="wbbr">비행기코드</td>
+		<td  class="wbbr">출발시간</td>
+		<td  class="wbbr">출발지</td>
+		<td  class="wbbr">도착지</td>
+		<td  class="wbbr">가격</td>
+		<td  class="wbbr">도착시간</td>
+		<td  class="wbbr">예약된좌석</td>
+		<td  class="wbbr">총좌석</td>	
+		<td  class="wbbr">좌석등급</td>
 	</tr>
 
 	<tr>
@@ -78,9 +78,10 @@ function delchk(){
 	
 <tr>
 <td colspan="10" align="right">
-	<a onclick="showHide()" class="acccc" href="AirItem_Modify?ccode=${dto.ccode }&aotcont=in"><input class="acb" type="button" value="수정"  ></a>
-	<a href=AirItem_Insert?aotcont=in><input type="button" value="등록"></a>
-	<a href= "AirItem_Delete?ccode=${dto.ccode }&aotcont=in" ><input type="button" value="삭제"></a>
+	<a href="AirItem_Modify?ccode=${dto.ccode }&aotcont=in"><input style="background-color: #dcefef; font-size: 20px; color: #779191;" class="acb" type="button" value="수정"  ></a>
+	<a href=AirItem_Insert?aotcont=in><input  type="button" class="btncss"  value="등록"></a>
+	<a href= "AirItem_Delete?ccode=${dto.ccode }&aotcont=in" ><input class="btncss"  type="button" value="삭제"></a>
+
 </td>
 </tr>
 

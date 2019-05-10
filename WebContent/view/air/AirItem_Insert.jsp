@@ -9,25 +9,25 @@
 <script src="../js/odk/textnum.js"></script> 
 <script src="../js/odk/item_insert.js"></script> 
 
-
+<h2>상품 등록</h2>
 <form name="AirItem_InsertReg" action="AirItem_InsertReg">
-<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<table border="" class="ttcss">
 		<tr>
-			<td>비행기코드</td>
-			<td><input type="text" name="ap_code"  class="ap_code"/></td>
+			<td class="wbbr">비행기코드</td>
+			<td style="border-right: 10px #dcefef solid;"><input type="text" name="ap_code"  class="ap_code"/></td>
 		</tr>
 		<tr>
-			<td rowspan="2">출발날짜</td>
-			<td><input readonly="readonly" type="text" id="ddate" name="ddate" class="ddate"/></td>
+			<td class="wbbr" rowspan="2">출발날짜</td>
+			<td style="border-right: 10px #dcefef solid;"><input readonly="readonly" type="text" id="ddate" name="ddate" class="ddate"/></td>
 		
 		</tr>
 		<tr>
 		
-		<td ><div id="ddateCal1"></div></td>  
+		<td style="border-right: 10px #dcefef solid;"><div id="ddateCal1"></div></td>  
 		</tr>
 		<tr>
-			<td >출발시간</td>
-			<td>
+			<td class="wbbr" >출발시간</td>
+			<td style="border-right: 10px #dcefef solid;">
 				<select class="hh" name="h">		                         
 				<option value="시"> 시</option>
 				<option value="00">00</option>
@@ -195,8 +195,8 @@
 				
 		</tr>
 		<tr>
-				<td>출발지</td>
-				<td>
+				<td class="wbbr">출발지</td>
+				<td style="border-right: 10px #dcefef solid;">
 				<select class="darea"  name="darea">
 				<option value="출발지">출발지</option>                                  
 				<option value="인천">인천</option>
@@ -215,8 +215,8 @@
 		</tr>
 		<tr>
 		<tr>
-			<td>도착지</td>
-				<td>
+			<td class="wbbr">도착지</td>
+				<td style="border-right: 10px #dcefef solid;">
 				<select class="carea" name="carea">   
 				<option value="도착지">도착지</option>      				                    
 				<option value="인천">인천</option>
@@ -235,12 +235,13 @@
 
 		</tr>
 		<tr>
-			<td>가격</td>
-			<td><input type="text" class="money" value="" name="money" onkeypress="inNumber();" /></td>
+			<td  class="wbbr">가격</td>
+			<td style="border-right: 10px #dcefef solid;"><input type="text" class="money" value="" name="money" onkeypress="inNumber();" /></td>
 		</tr>
 
 				<tr>
-				<td colspan="3" align="right">
+				<td class="wbbr"></td>
+				<td  colspan="2" align="right">
 				<input type="button" value="작성" class="airgo" />
 				<input type="reset" value="초기화" />
 			</td>
