@@ -55,7 +55,7 @@
 			<td>${i.fdateStr }</td>
 			<td>${i.psn }</td>
 			<td>${i.id }</td>
-			<td><button class="btncss" onclick="boarding('${i.basketID }', '${i.ddateStr }')">체크인</button></td>
+			<td><button class="btncss" style="width:100%" onclick="boarding('${i.basketID }', '${i.ddateStr }')">체크인</button></td>
 		</tr>
 		</c:forEach>
 		

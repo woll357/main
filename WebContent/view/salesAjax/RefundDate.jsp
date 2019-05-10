@@ -2,19 +2,19 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%request.setCharacterEncoding("utf-8"); %>
-<table>
+<table class="ttcss" border = "">
 	<tr>
 	<td style="border-bottom: 10px #dcefef solid;">
-	<select style="width: 60px" id="year" name="year">
+	<select style="width:100%" id="year" name="year">
 	<c:forEach var="i" items="${years }">
 	<option value="${i }">${i }</option>
 	</c:forEach>
 	</select>
 	</td>
-	<td  style="width: 25px" >년</td>
+	<td class = "wbbr"  style="width: 25px" >년</td>
 	
-	<td style="border-bottom: 10px #dcefef solid;">
-	<select style="width: 50px" id="month" name="month">
+	<td  style="border-bottom: 10px #dcefef solid;">
+	<select style="width:100%"  style="width: 50px" id="month" name="month">
 	<option value="1">1</option>
 	<option value="2">2</option>
 	<option value="3">3</option>
@@ -29,10 +29,10 @@
 	<option value="12">12</option>
 	</select>
 	</td>
-	<td  style="width: 25px" >월</td>
+	<td class = "wbbr"  style="width: 25px" >월</td>
 	
 	<td>
-	<input id="search" type="button" value="검색" />
+	<input class="btncss2" id="search" style="width:100%" type="button" value="검색" />
 	</td>
 	</tr>
 </table>

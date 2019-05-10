@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <link rel="stylesheet" href="../css/nh/tot.css" />
 <br>
-
 <table  class = "ttcss" border="">
 		<tr>
 			<td class="wbbr">상품코드</td>

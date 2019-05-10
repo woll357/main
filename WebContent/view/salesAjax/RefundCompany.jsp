@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%request.setCharacterEncoding("utf-8"); %>
 <table>
 	<tr>
-	<td style="border-bottom: 10px #dcefef solid;">
+	<td >
 	<select style="width: 200px" id="comName" name="comName">
 	<c:forEach var="i" items="${clists }">
 	<option  value="${i.key }">${i.value }</option>
@@ -13,7 +12,7 @@
 	</td>
 	
 	<td>
-	<input id="search" type="button" value="검색" />
+	<input class="btncss2" id="search" type="button" value="검색" />
 	</td>
 	</tr>
 </table>

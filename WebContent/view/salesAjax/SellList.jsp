@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%request.setCharacterEncoding("utf-8"); %>
-<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
+<br>
+<table class = "ttcss" border="">
 		<tr>
-			<td style="border-bottom: 10px #dcefef solid;">회사명</td>
-			<td style="border-bottom: 10px #dcefef solid;">상품종류</td>
-			<td style="border-bottom: 10px #dcefef solid;">상품명</td>
-			<td style="border-bottom: 10px #dcefef solid;">시작날짜</td>
-			<td style="border-bottom: 10px #dcefef solid;">인원</td>
-			<td style="border-bottom: 10px #dcefef solid;">매출액</td>
-			<td style="border-bottom: 10px #dcefef solid;">이익</td>
+			<td class="wbbr">회사명</td>
+			<td class="wbbr">상품종류</td>
+			<td class="wbbr">상품명</td>
+			<td class="wbbr">시작날짜</td>
+			<td class="wbbr">인원</td>
+			<td class="wbbr">매출액</td>
+			<td class="wbbr">이익</td>
 		</tr>
 		<c:forEach var="i" items="${salesList }">
 		<tr>
