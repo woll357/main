@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%request.setCharacterEncoding("utf-8"); %>
 <script src="../js/jquery-3.3.1.min.js"></script>
-<h1>결제화면</h1>
+<h2>결제화면</h2>
 
 <form name="frm" action="PaymentReg" method="post">
 
@@ -45,15 +45,15 @@
 			<td style="width: 120px;border-bottom: 10px #dcefef solid;">유효기간</td>
 			<td>
 			<select style="width: 50px;border-bottom: 10px #dcefef solid;" id="exDateMonth" name="exDateMonth">
-			<option value="01">01</option>
-			<option value="02">02</option>
-			<option value="03">03</option>
-			<option value="04">04</option>
-			<option value="05">05</option>
-			<option value="06">06</option>
-			<option value="07">07</option>
-			<option value="08">08</option>
-			<option value="09">09</option>
+			<option value="01">1</option>
+			<option value="02">2</option>
+			<option value="03">3</option>
+			<option value="04">4</option>
+			<option value="05">5</option>
+			<option value="06">6</option>
+			<option value="07">7</option>
+			<option value="08">8</option>
+			<option value="09">9</option>
 			<option value="10">10</option>
 			<option value="11">11</option>
 			<option value="12">12</option>
@@ -156,7 +156,24 @@
 		  $('#btn').on({
 		      'click':function(){
 		    	  
-		    		if(chk1 && chk2 && chk3 && chk4 && chk5 && chk6){
+		    	 var exDateYear =  $('#exDateYear').val();
+		    	 var exDateMonth = $('#exDateMonth').val();
+		    
+		    	 var chk11 = true;
+		    	 var chk12 = true;
+		    	 var today = new Date();
+		    	 var thisyear = ""+today.getFullYear();
+		    	 
+		    	 if(eval(exDateMonth-today.getMonth()<0)){
+		    		 chk11 = false;
+		    		 console.log("여긴오니?");
+		    	 }
+		    	 
+		    	 if (thisyear.substring(2,4)==exDateYear && !chk11){
+		    		 chk12 = false;
+		    	 }
+		    	  
+		    		if(chk1 && chk2 && chk3 && chk4 && chk5 && chk6 && chk12){
 		    			chk=true;
 		    			frm.submit();
 		    		}
@@ -176,7 +193,7 @@
 			}
 			else{
 				chk1=false;
-				 alert("유효하지 않은 카드번호 첫번째 4자리입니다.");
+				
 			}
 		})
 		
@@ -186,7 +203,7 @@
 			}
 			else{
 				chk2=false;
-				 alert("유효하지 않은 카드번호 두번째 4자리입니다.");
+				
 			}
 		})
 		
@@ -196,7 +213,7 @@
 			}
 			else{
 				chk3=false;
-				 alert("유효하지 않은 카드번호 세번째 4자리입니다.");
+				
 			}
 		})
 		
@@ -206,7 +223,7 @@
 			}
 			else{
 				chk4=false;
-				 alert("유효하지 않은 카드번호 네번째 4자리입니다.");
+				
 			}
 		})
 		$('#cvc').focusout(function(){
@@ -215,7 +232,7 @@
 			}
 			else{
 				chk5=false;
-				 alert("유효하지 않은 cvc 입니다.");
+			
 			}
 		})
 		$('#pw').focusout(function(){
@@ -224,7 +241,7 @@
 			}
 			else{
 				chk6=false;
-				 alert("유효하지 않은 pw 입니다.");
+				
 			}
 		})
 		

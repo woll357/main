@@ -72,6 +72,9 @@ public class SellList implements MvcAction {
 					startday = startday+"-"+month+"-"+day;
 					endday = endday+"-"+month+"-"+day;
 					salesList = new BasketpaidDAO().buyListByHotComDate(comcode, startday, endday);
+					
+					System.out.println("여긴들어오니?");
+					
 				}
 				else if(year!=null && month!=null && day==null) {
 					String endday = ""+(Integer.parseInt(year));

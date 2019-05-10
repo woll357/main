@@ -55,14 +55,11 @@
 					</tr>
 				</c:forEach>
 		</c:forEach>	
-		<tr>
-		<td colspan="10" align="right">
-		<input style="width:75px" type="button" value="제출" onclick="chkPat()" />
-		</td>
-		</tr>
 	</table>
+	<div align="right"><input style="width:75px" type="button" value="제출" onclick="chkPat()" /></div>
 </form>
 <script>
+
 
 	var chk = false;
 	
@@ -78,6 +75,8 @@
 	
 	var chk10=false;
 
+	var chk11=false;
+	
 	var msg = "";
 	
 	var cKorNamePat= /^[가-힣]*$/;
@@ -92,23 +91,108 @@
 	
 	function chkPat(){
 		
+		$('.cKorName').each(function(i){
+			i+$(this).val()+","+$('.passport').eq(i).val()
+			
+			if(cKorNamePat.test($(this).val())){
+				chk1=true;
+			}
+			else{
+				chk1=false;
+				alert(""+(i+1)+"번째 고객님의 한글이름이 잘못되었습니다");
+				return;
+			}
+			
+			if(passportPat.test($('.passport').eq(i).val())){
+				chk2=true;
+			}
+			else{
+				chk2=false;
+				alert(""+(i+1)+"번째 고객님의 여권번호가 잘못되었습니다");
+				return;
+			}
+			if(cEngLastNamePat.test($('.cEngLastName').eq(i).val())){
+				chk3=true;
+			}
+			else{
+				chk3=false;
+				alert(""+(i+1)+"번째 고객님의 영문 성이 잘못되었습니다");
+				return;
+			}
+			if(cEngFirstNamePat.test($('.cEngFirstName').eq(i).val())){
+				chk4=true;
+			}
+			else{
+				chk4=false;
+				alert(""+(i+1)+"번째 고객님의 영문 이름이 잘못되었습니다");
+				return;
+			}
+			if(birthDatePat.test($('.birthDate').eq(i).val())){
+				chk5=true;
+			}
+			else{
+				chk5=false;
+				alert(""+(i+1)+"번째 고객님의 생년월일이 잘못되었습니다");
+				return;
+			}
+			if($('.cph1').eq(i).val()=="선택"){
+				chk11=false;
+				alert(""+(i+1)+"번째 고객님의 핸드폰 첫재짜리가 잘못되었습니다");
+				return;
+			}
+			else{
+				chk11=true;
+			}
+			if(cph2Pat.test($('.cph2').eq(i).val())){
+				chk6=true;
+			}
+			else{
+				chk6=false;
+				alert(""+(i+1)+"번째 고객님의 핸드폰 둘재짜리가 잘못되었습니다");
+				return;
+			}
+			if(cph3Pat.test($('.cph3').eq(i).val())){
+				chk7=true;
+			}
+			else{
+				chk7=false;
+				alert(""+(i+1)+"번째 고객님의 핸드폰 셋재짜리가 잘못되었습니다");
+				return;
+			}
+			if(cemail1Pat.test($('.cemail1').eq(i).val())){
+				chk8=true;
+			}
+			else{
+				chk8=false;
+				alert(""+(i+1)+"번째 고객님의 이메일 앞부분이 잘못되었습니다");
+				return;
+			}
+			if(cemail2Pat.test($('.cemail2').eq(i).val())){
+				chk9=true;
+			}
+			else{
+				chk9=false;
+				alert(""+(i+1)+"번째 고객님의 이메일 뒷부분이 잘못되었습니다");
+				return;
+			}		
+		});
+		
+		
 		if(chk1 && chk2 && chk3 && chk4 && chk5 && chk6 && chk7 && chk8 && chk9){
 			chk=true;
 			
 			if($('.cph1').val()!="선택"){
 				chk10=true;
-
+				alert("결제성공");
 				frm.submit();
 			}
 			else{
 				chk10=false;
-				alert("핸드폰 앞자리가 잘못되었습니다.");
 			}
 			
 		}
 		else{
 			chk=false;
-			alert("잘못된 입력값이 존재합니다.");
 		}
 	}
 	
@@ -122,7 +206,6 @@
 			}
 			else{
 				chk1=false;
-				 alert("한글이름을 잘못 입력하셨습니다.");
 			}
 		})
 		
@@ -132,7 +215,6 @@
 			}
 			else{
 				chk2=false;
-				 alert("여권번호를 잘못 입력하셨습니다.");
 			}
 		})
 		
@@ -142,7 +224,6 @@
 			}
 			else{
 				chk3=false;
-				 alert("영문 성을 잘못 입력하셨습니다. 대문자로 입력하세요");
 			}
 		})
 
@@ -152,7 +233,6 @@
 			}
 			else{
 				chk4=false;
-				 alert("영문 이름을 잘못 입력하셨습니다. 대문자로 입력하세요");
 			}
 		})
 		
@@ -162,7 +242,6 @@
 			}
 			else{
 				chk5=false;
-				 alert("생년월일을 잘못 입력하셨습니다");
 			}
 		})
 		
@@ -172,7 +251,6 @@
 			}
 			else{
 				chk6=false;
-				 alert("가온데 핸드폰번호를 잘못 입력하셨습니다.");
 			}
 		})
 		
@@ -182,7 +260,6 @@
 			}
 			else{
 				chk7=false;
-				 alert("마지막 핸드폰번호를 잘못 입력하셨습니다.");
 			}
 		})
 		
@@ -192,7 +269,6 @@
 			}
 			else{
 				chk8=false;
-				 alert("앞 이메일을 잘못 입력하셨습니다.");
 			}
 		})
 		
@@ -202,7 +278,6 @@
 			}
 			else{
 				chk9=false;
-				 alert("뒤 이메일을 잘못 입력하셨습니다.");
 			}
 		})
 		

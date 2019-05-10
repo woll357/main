@@ -706,7 +706,7 @@ public class BasketpaidDAO {
 				sql = "select basketpaid.cName, basketpaid.cType, basketpaid.itemName, basketpaid.ddate, "
 						+ "basketpaid.psn, basketpaid.totalPrice, air_com.salesPercent "
 						+ "from basketpaid, air_com where basketpaid.cName = air_com.air_name and "
-						+ "air_com.air_code = ? and date(basketpaid.ddate) between ? and ? "
+						+ "basketpaid.comcode = ? and date(basketpaid.ddate) between ? and ? "
 						+ "and (basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n') ";
 				ptmt = con.prepareStatement(sql);
 		
@@ -749,7 +749,7 @@ public class BasketpaidDAO {
 				sql = "select basketpaid.cName, basketpaid.cType, basketpaid.itemName, basketpaid.ddate, "
 						+ "basketpaid.psn, basketpaid.totalPrice, air_com.salesPercent "
 						+ "from basketpaid, air_com where basketpaid.cName = air_com.air_name and "
-						+ "air_com.air_code = ? and date(basketpaid.ddate) = ? "
+						+ "basketpaid.comcode = ? and date(basketpaid.ddate) = ? "
 						+ "and (basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n')";
 				ptmt = con.prepareStatement(sql);
 		
@@ -791,7 +791,7 @@ public class BasketpaidDAO {
 				sql = "select basketpaid.cName, basketpaid.cType, basketpaid.itemName, basketpaid.ddate, "
 						+ "basketpaid.psn, basketpaid.totalPrice, hot_com.salesPercent "
 						+ "from basketpaid, hot_com where basketpaid.cName = hot_com.hname and "
-						+ "hot_com.hcode = ? and date(basketpaid.ddate) between ? and ? "
+						+ "basketpaid.comcode = ? and date(basketpaid.ddate) between ? and ? "
 						+ "and (basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n') ";
 				ptmt = con.prepareStatement(sql);
 		
@@ -836,7 +836,7 @@ public class BasketpaidDAO {
 				sql = "select basketpaid.cName, basketpaid.cType, basketpaid.itemName, basketpaid.ddate, "
 						+ "basketpaid.psn, basketpaid.totalPrice, hot_com.salesPercent "
 						+ "from basketpaid, hot_com where basketpaid.cName = hot_com.hname and "
-						+ "hot_com.hcode = ? and date(basketpaid.ddate) = ? "
+						+ "basketpaid.comcode = ? and date(basketpaid.ddate) = ? "
 						+ "and (basketpaid.bstatus = 'p' or basketpaid.bstatus = 'n') ";
 				ptmt = con.prepareStatement(sql);
 		

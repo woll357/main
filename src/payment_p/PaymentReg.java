@@ -284,7 +284,7 @@ public class PaymentReg implements MvcAction {
 					bpdto.setBcode(bdto.getBcode());
 					bpdto.setId(badto.getId());
 					bpdto.setCode(badto.getCode());
-					String comcode = "";
+					
 					if(bpdto.getcType().equals("A")) {
 						Air_comDTO adto = new Air_comDTO();
 						adto.setAir_name(bpdto.getcName());
