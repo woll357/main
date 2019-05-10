@@ -240,7 +240,7 @@ public class BasketpaidDAO {
 		try {
 
 			sql = "insert into basketpaid "
-					+ "(cNum, id, psn, ddate, fdate, cType, bcode, totalPrice, location1, location2, cName, itemName, basketID, code) "
+					+ "(cNum, id, psn, ddate, fdate, cType, bcode, totalPrice, location1, location2, cName, itemName, basketID, code, comcode) "
 					+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			System.out.println(sql);
 			
@@ -261,6 +261,7 @@ public class BasketpaidDAO {
 			ptmt.setString(12, dto.getItemName());
 			ptmt.setString(13, dto.getBasketID());
 			ptmt.setString(14, dto.getCode());
+			ptmt.setString(15, dto.getComcode());
 			
 			ptmt.executeUpdate();
 			

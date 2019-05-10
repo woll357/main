@@ -294,8 +294,8 @@ public class PaymentReg implements MvcAction {
 					else if(bpdto.getcType().equals("H")) {
 						Hot_comDTO hdto = new Hot_comDTO();
 						hdto.setHname(bpdto.getcName());
-						
-						
+						hdto = new Hot_tempDAO().serarchByHotName(hdto);
+						bpdto.setComcode(hdto.getHcode());
 					}
 					
 					
