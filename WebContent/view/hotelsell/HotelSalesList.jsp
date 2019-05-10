@@ -57,8 +57,8 @@ function mkdate(){
 }
 </script>
 <div align="center">
-<h1 align="center">매출내역</h1>
-<table style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
+<h2>매출내역</h2>
+<table style="text-align: center; width:100%; border: 10px #dcefef solid;" cellspacing="0">
 	<tr>
 	<td  style="width: 50px" >방코드</td>
 	<td>

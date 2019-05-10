@@ -79,9 +79,9 @@ function mkdate(){
 	}
 }
 </script>
-<div align="center">
-<h2 class="stitle">예약내역</h2>
-<table style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
+<div>
+<h2>예약내역</h2>
+<table style="text-align: center; width:100%; border: 10px #dcefef solid;" cellspacing="0">
 <tr>
 	<td>상품코드</td>
 	<td>

@@ -25,7 +25,7 @@
 }
 #bottom{
    position:relative;
-   top:60px;
+   top:70px;
 }
 </style>
 </head>
