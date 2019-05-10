@@ -56,9 +56,10 @@ function mkdate(){
 	}
 }
 </script>
+<link rel="stylesheet" href="../css/nh/tot.css" />
 <div>
 <h2>매출내역</h2>
-<table style="text-align: center; width:100%; border: 10px #dcefef solid;" cellspacing="0">
+<table  class = "ttcss">
 	<tr>
 	<td  style="width: 70px" >상품코드</td>
 	<td>

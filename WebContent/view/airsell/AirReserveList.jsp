@@ -13,13 +13,6 @@ function mkmonth(){
 	options = $('<option value="">필수입력</option>');
 	$("#month").append(options);
 	if($('#year').val()==todayYear){
-		/* for (var i = 1; i < 13 ; i++) {
-			if(i<13){
-			options = $('<option value='+i+'>'+i+'</option>');
-			$("#month").append(options);
-			}
-		} */
-		
 		for (var i = todayMonth; i < todayMonth+3 ; i++) {
 			if(i<13){
 			options = $('<option value='+i+'>'+i+'</option>');
@@ -79,9 +72,9 @@ function mkdate(){
 	}
 }
 </script>
-<div>
+<link rel="stylesheet" href="../css/nh/tot.css" />
 <h2>예약내역</h2>
-<table style="text-align: center; width:100%; border: 10px #dcefef solid;" cellspacing="0">
+<table class = "ttcss">
 <tr>
 	<td>상품코드</td>
 	<td>
@@ -122,7 +115,6 @@ function mkdate(){
 	</td>
 	</tr>
 	</table>
-	</div>
 	<div id="searchResult" align="center">
 
 	</div>
@@ -202,23 +194,3 @@ $(document).ready(function(){
 
 });
 </script>
-
-<%-- 	<table>
-		<tr>
-			<td>항공권명</td>
-			<td>출발날짜</td>
-			<td>도착날짜</td>
-			<td>고객id</td>
-			<td>체크인</td>
-		</tr>
-		<c:forEach var="i" items="${reserveList }" >
-		<tr>
-			<td>${i.itemName }</td>
-			<td>${i.ddate }</td>
-			<td>${i.fdate }</td>
-			<td>${i.id }</td>
-			<td><a href="BoardingReg?basketID=${i.basketID }&aotcont=in">탑승수속</a></td>
-		</tr>
-		</c:forEach>
-		
-	</table> --%>

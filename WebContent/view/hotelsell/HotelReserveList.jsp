@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%request.setCharacterEncoding("utf-8"); %>
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script>
 function mkmonth(){
@@ -13,18 +12,12 @@ function mkmonth(){
 	options = $('<option value="">필수입력</option>');
 	$("#month").append(options);
 	if($('#year').val()==todayYear){
-		for (var i = 1; i < 13 ; i++) {
+		 for (var i = todayMonth; i < todayMonth+3 ; i++) {
 			if(i<13){
 			options = $('<option value='+i+'>'+i+'</option>');
 			$("#month").append(options);
 			}
 		}
-		/* for (var i = todayMonth; i < todayMonth+3 ; i++) {
-			if(i<13){
-			options = $('<option value='+i+'>'+i+'</option>');
-			$("#month").append(options);
-			}
-		} */
 	}
 	else if($('#year').val()==todayYear+1){
 		for (var i = 1; i < todayMonth-9 ; i++) {
@@ -78,8 +71,9 @@ function mkdate(){
 	}
 }
 </script>
+<link rel="stylesheet" href="../css/nh/tot.css" />
 <h2>예약내역</h2>
-<table style="text-align: center; width:100%; border: 10px #dcefef solid;" cellspacing="0">
+<table class = "ttcss">
 <tr>
 	<td>방코드</td>
 	<td>

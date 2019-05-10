@@ -8,14 +8,16 @@
 	
 
 </script>
-<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
+<link rel="stylesheet" href="../css/nh/tot.css" />
+<br>
+<table class = "ttcss" border="">
 		<tr>
-			<td style="border-bottom: 10px #dcefef solid;">상품코드</td>
-			<td style="border-bottom: 10px #dcefef solid;">상품명</td>
-			<td style="border-bottom: 10px #dcefef solid;">시작날짜</td>
-			<td style="border-bottom: 10px #dcefef solid;">인원</td>
-			<td style="border-bottom: 10px #dcefef solid;">매출액</td>
-			<td style="border-bottom: 10px #dcefef solid;">이익</td>
+			<td class="wbbr">상품코드</td>
+			<td class="wbbr">상품명</td>
+			<td class="wbbr">시작날짜</td>
+			<td class="wbbr">인원</td>
+			<td class="wbbr">매출액</td>
+			<td class="wbbr">이익</td>
 		</tr>
 		<c:forEach var="i" items="${salesList }">
 		<tr>

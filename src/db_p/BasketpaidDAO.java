@@ -241,7 +241,7 @@ public class BasketpaidDAO {
 
 			sql = "insert into basketpaid "
 					+ "(cNum, id, psn, ddate, fdate, cType, bcode, totalPrice, location1, location2, cName, itemName, basketID, code, comcode) "
-					+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+					+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			System.out.println(sql);
 			
 			System.out.println(dto.getDdateStr());

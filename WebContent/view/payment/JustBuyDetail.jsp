@@ -4,6 +4,7 @@
 <%request.setCharacterEncoding("utf-8"); %>
 
 <form action="../greensc/Home">
+<h2>방금 결제하신 상품</h2>
 	<table style="text-align: center; border: 10px #dcefef solid;" cellspacing="0" >
 		<tr>
 			<td style="border-bottom: 10px #dcefef solid;">항공사명</td>

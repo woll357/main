@@ -32,15 +32,16 @@
 		
 	}
 </script>
-
-	<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
+<link rel="stylesheet" href="../css/nh/tot.css" />
+<br>
+	<table class = "ttcss" border="">
 		<tr>
-			<td style="border-bottom: 10px #dcefef solid;">방종류</td>
-			<td style="border-bottom: 10px #dcefef solid;">체크인날짜</td>
-			<td style="border-bottom: 10px #dcefef solid;">체크아웃날짜</td>
-			<td style="border-bottom: 10px #dcefef solid;">사람수</td>
-			<td style="border-bottom: 10px #dcefef solid;">고객id</td>
-			<td style="border-bottom: 10px #dcefef solid;">체크인</td>
+			<td  class="wbbr">방종류</td>
+			<td  class="wbbr">체크인날짜</td>
+			<td  class="wbbr">체크아웃날짜</td>
+			<td  class="wbbr">사람수</td>
+			<td  class="wbbr">고객id</td>
+			<td  class="wbbr">체크인</td>
 		</tr>
 		<c:forEach var="i" items="${reserveList }" >
 		<tr>

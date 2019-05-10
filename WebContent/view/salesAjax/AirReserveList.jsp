@@ -37,16 +37,18 @@
 		
 	}
 </script>
-	<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
+<link rel="stylesheet" href="../css/nh/tot.css" />
+<br>
+	<table class = "ttcss" border="">
 		<tr>
-			<td id="zz" style="border-bottom: 10px #dcefef solid;">상품코드</td>
-			<td style="border-bottom: 10px #dcefef solid;">상품이름</td>
-			<td style="border-bottom: 10px #dcefef solid;">이륙날짜</td>
-			<td style="border-bottom: 10px #dcefef solid;">착륙날짜</td>
-			<td style="border-bottom: 10px #dcefef solid;">사람수</td>
-			<td style="border-bottom: 10px #dcefef solid;">고객id</td>
-			<td style="border-bottom: 10px #dcefef solid;">보딩</td>
-			<td style="border-bottom: 10px #dcefef solid;">여행객 상세 정보</td>
+			<td class="wbbr">상품코드</td>
+			<td class="wbbr">상품이름</td>
+			<td class="wbbr">이륙날짜</td>
+			<td class="wbbr">착륙날짜</td>
+			<td class="wbbr">사람수</td>
+			<td class="wbbr">고객id</td>
+			<td class="wbbr">보딩</td>
+			<td class="wbbr">여행객 상세 정보</td>
 		</tr>
 		<c:forEach var="i" items="${reserveList }" >
 		<tr id="bd">
