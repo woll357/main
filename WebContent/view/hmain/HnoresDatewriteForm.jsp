@@ -5,10 +5,10 @@
 <script src="../js/jquery-3.3.1.min.js"></script>   
 <script src="../js/yjm/nores_pm.js"></script>
 <script src="../js/yjm/nores_cal.js"></script>
-<div align="center" style="margin-top: -250px">
-<h1 class="stitle">예약불가날짜선정</h1>
+
+<h2 align="left">예약불가날짜선정</h2>
 	  
-<form class="contable" name="nono" action="HnoresDatewriteReg" method="post">
+<form  name="nono" action="HnoresDatewriteReg" method="post">
 	 <input type="hidden" name="rcnt" value="${param.rcnt }" id="hiddenrcnt" />
      <input type="hidden" name="rcode" value="${param.rcode }" />     
      <table  border=""  style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
@@ -36,7 +36,7 @@
 		</tr>
      </table>
 </form>  
-</div>  
+
 </body>
 <%-- 		<c:choose>
 		<c:when test="${mem.id!=null && mem.id!=''}">

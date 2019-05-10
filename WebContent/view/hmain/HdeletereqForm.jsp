@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <div align="center" style="margin-top: -250px">
-    <h1 class="stitle">삭제신청</h1>
-<form class="contable" action="HdeletereqReg" method="post">
+
+    <h2 align="left">삭제신청</h2>
+<form  action="HdeletereqReg" method="post">
 		<input type="hidden" name="Code" value="${mem.hcode }"  />
 		<input type="hidden" name="id" value="${mem.id }"  />
 		<input type="hidden" name="kind" value="호텔" />
@@ -21,4 +21,3 @@
 		</table>
 
 </form>
-</div>
