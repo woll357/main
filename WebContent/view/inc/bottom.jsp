@@ -7,7 +7,11 @@ color:#4374D9;
 margin-left: 10px;
 margin-right: 10p
 }
+.azaz{
+	
+	position: absolute;
 
+}
 .stitle{
 	top: 320px;
 	position: absolute;
@@ -16,11 +20,7 @@ margin-right: 10p
 	top: 400px;
 	position: absolute;
 }
-.azaz{
-	top:100px;
-	position: relative;
 
-}
 </style>
 <table class="azaz" style="background: #D4F4FA; width: 1000px;" cellspacing="0">
 	<tr>
