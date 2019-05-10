@@ -6,9 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	.box1{
-		margin-top:-50px;
-	}
+	
 	.road{
 		width:800px;
 		height:400px;
@@ -19,7 +17,7 @@
 <body>
 	<div class="box1" align="center">
 	<a href= "Cinfo" style="margin: 20px">기업소개</a> |
-	<a href= "Cinforoad" style="color:red; margin: 20px">오시는길</a>
+	<a href= "Cinforoad" style="background-color:#dcefef; margin: 20px; padding: 5px;">오시는길</a>
 	</div>
 	<br><br>
 	<div class="imgbox" align="center">
