@@ -10,8 +10,8 @@
 <input type="hidden" value="${air_p }" name="air_p">
 		<tr>
 			
-			<td  align="right"  colspan="7" class="wbbr" style="border-bottom: 3px white solid; " >날짜　<input style="padding: 10px" type="text" name="ddate" /></td>
-			<td align="center" class="wbbr" style="border-bottom: 3px white solid; "><input type="submit" style="background: #FFFFFF ;" class="btncss2" value="선택  " /></td>
+			<td class="wbbr"  align="right"  colspan="7"  style="border-bottom: 3px white solid; " >날짜　<input style="padding: 10px" type="text" name="ddate" /></td>
+			<td class="wbbr" align="center"  style="border-bottom: 3px white solid; "><input type="submit" style="background: #FFFFFF ;" class="btncss2" value="선택  " /></td>
 		</tr>
 	<tr>
 		<td class="wbbr">상품코드</td>
