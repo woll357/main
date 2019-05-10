@@ -1,30 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<!DOCTYPE html>
-<html>
+    <link rel="stylesheet" href="../css/dk/input.css" type="text/css">
 
-<body onload="calendar()">
+
+
 <script src="../js/jquery-3.3.1.min.js"></script>   
 <script src="../js/odk/item_Modifyday.js"></script> 
 <script src="../js/odk/textnum.js"></script> 
 <script src="../js/odk/item_insert.js"></script> 
 
-<h2 class="stitle">상품 수정</h2>
+<h2>상품 수정</h2>
+<body onload="calendar()">
 <form name="AirItem_InsertReg" action="AirItem_InsertReg">
 <table class="contable" border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 		<tr>
-			<td  colspan="2">비행기코드</td>
+			<td>비행기코드</td>
 			<td><input type="text" name="ap_code"  class="ap_code" value="${dto.ap_code }"/></td>
 		</tr>
 		<tr>
-			<td>출발날짜</td>
+			<td rowspan="2">출발날짜</td>
 			<td><input readonly="readonly" type="text" id="ddate" name="ddate" class="ddate"/></td>
-			<td><div id="ddateCal1"></div></td>  
+			
 
 		</tr>
 		<tr>
-			<td colspan="2">출발시간</td>
+		
+		<td colspan="2"><div id="ddateCal1"></div></td>  
+		</tr>
+		<tr>
+			<td>출발시간</td>
 			<td>
 				<select class="hh" name="h">		                         
 				<option value="시">시</option>
@@ -193,7 +197,7 @@
 				
 		</tr>
 		<tr>
-				<td colspan="2">출발지</td>
+				<td>출발지</td>
 				<td>
 				<select class="darea"  name="darea">
 				<option value="출발지">출발지</option>                                  
@@ -213,7 +217,7 @@
 		</tr>
 		<tr>
 		<tr>
-			<td colspan="2">도착지</td>
+			<td >도착지</td>
 				<td>
 				<select class="carea" name="carea">   
 				<option value="도착지">도착지</option>      				                    
@@ -233,7 +237,7 @@
 
 		</tr>
 		<tr>
-			<td colspan="2">가격</td>
+			<td >가격</td>
 			<td><input type="text" name="money" class="money" onkeypress="inNumber();" value="${dto.money }"/></td>
 		</tr>
 
@@ -246,8 +250,6 @@
 	</table>
 </form>
 </body>
-</html> 
-
 
 
 

@@ -1,13 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<h2 class="stitle">항공사 정보</h2>
-<body>
+<link rel="stylesheet" href="../css/dk/input.css" type="text/css">
+<h2>항공사 정보</h2>
 
 <form action="AirLine_Modify?id=${mem.id }" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="id" value="${mem.id }">
-<table class="contable" border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
+<table border="" style="width: 100%; border : 10px #dcefef solid;" cellspacing="0">
 		<tr>
 			<td width="200" style="background: #D4F4FA">이미지</td>
 			<td style="background: #D4F4FA">사업자등록증</td>
@@ -24,5 +22,3 @@
 		</tr>
 	</table>
 </form>
-</body>
-</html>

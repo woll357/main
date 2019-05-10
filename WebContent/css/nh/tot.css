@@ -1,0 +1,16 @@
+.bbr{
+border-bottom: 1px #dcefef solid;
+border-collapse: collapse;
+border-right: 1px #dcefef solid;
+padding: 5px;
+}
+.bb{
+border-collapse: collapse;
+border-bottom: 1px #dcefef solid;
+padding: 5px;
+}
+.br{
+border-collapse: collapse;
+border-right: 1px #dcefef solid;
+padding: 5px;
+}

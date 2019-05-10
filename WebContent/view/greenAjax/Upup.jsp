@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 <script src="../js/jquery-3.3.1.min.js"></script>
-<link rel="stylesheet" href="../css/nh/gradeUp.css" type="text/css">
 <script>
 	var no=0;
 	var chk = false;
@@ -150,7 +150,7 @@
 		
 			}
 		
-		if($('#hinfo').val()!="남기실 말"){
+		if($('#hinfo').val()!=""){
 			
 			 chk4=true;
 
@@ -217,7 +217,7 @@ function chkPat2(){
 		var bnumPat = /^[A-Z]{1}[0-9]{6}/;
 		
 	
-		if(bnumPat.test($('#bnum').val())){
+		if(bnumPat.test($('#bnum').val()) && $('#bnum').val().length==7){
 			chkBnum=false;
 			chk1=true;
 
@@ -227,7 +227,7 @@ function chkPat2(){
 			msg = "사번 확인 부탁드립니다.";
 		
 			}
-		
+		console.log(chk1);
 		
 		}
 	
@@ -239,16 +239,16 @@ function chkPat2(){
 
 	<c:when test="${param.grade=='M' }">
 
-		<form action="UpupReg" method="post" enctype="multipart/form-data" name="frm">
+		<form action="UpupReg" method="post" enctype="multipart/form-data" name="frm" style="width: 1000px">
 			<input type="hidden" name="grade" value="M" />
-			<table style="width: 100%" cellpadding="5px;">
+			<table style="width: 100%; border-collapse: collapse;" cellpadding="5px;">
 				<tr>
-					<td>아이디</td>
-					<td>${mem.id }</td>
+					<td class="bbr">아이디</td>
+					<td class="bb">${mem.id }</td>
 				</tr>
 				<tr>
-					<td>사번</td>
-					<td><input type="text" name="bnum" id="bnum" onkeyup="chkPat2()">
+					<td class="bbr">사번</td>
+					<td class="bb"><input type="text" name="bnum" id="bnum" onkeyup="chkPat2()">
 						<input type="button" id="bBtn" value="중복검사"/>
 					</td>
 				</tr>
@@ -264,37 +264,36 @@ function chkPat2(){
 	<c:when test="${param.grade=='A' }">
 
 
-		<form action="UpupReg" method="post" enctype="multipart/form-data" name="frm">
+		<form action="UpupReg" method="post" enctype="multipart/form-data" name="frm" style="width: 1000px">
 			<input type="hidden" name="grade" value="A" />
-			<table cellpadding="5px;">
+			<table style="width: 100%; border-collapse: collapse; cellpadding="5px;" cellpadding="5px;">
 				<tr>
-					<td>아이디</td>
-					<td>${mem.id }</td>
+					<td class="bbr">아이디</td>
+					<td class="bb">${mem.id }</td>
 				</tr>
 				<tr>
-					<td id="bnum">사업자등록번호</td>
-					<td><input type="text" name="crn" id="crn" onkeyup="chkPat()"/>
+					<td id="bnum" class="bbr">사업자등록번호</td>
+					<td class="bb"><input type="text" name="crn" id="crn" onkeyup="chkPat()"/>
 					<input type="button" id="aBtn" value="중복검사"/></td>
 				</tr>
 				<tr>
-					<td>파일</td>
-					<td><input type="file" name="img" id="img" onchange="chkPat()"/></td>
+					<td class="bbr">파일</td>
+					<td class="bb"><input type="file" name="img" id="img" onchange="chkPat()"/></td>
 				</tr>
 				<tr>
-					<td>회사명</td>
-					<td><input type="text" name="air_name" id="name" onkeyup="chkPat()"/></td>
+					<td class="bbr">회사명</td>
+					<td class="bb"><input type="text" name="air_name" id="name" onkeyup="chkPat()"/></td>
 				</tr>
 				<tr>
-					<td>회사코드</td>
-					<td><input type="text" name="air_codecom" id="info" onkeyup="chkPat()"/></td>
+					<td class="bbr">회사코드</td>
+					<td class="bb"><input type="text" name="air_codecom" id="info" onkeyup="chkPat()"/></td>
 				</tr>
 				<tr>
-					<td>수익률</td>
-					<td><input type="text" name="salesPercent" id="salesPercent" onkeyup="chkPat()"/>%</td>
+					<td class="bbr" rowspan="2">수익률</td>
+					<td ><input type="text" name="salesPercent" id="salesPercent" onkeyup="chkPat()"/>%</td>
 				</tr>
 				<tr>
-				<td></td>
-					<td>0.1~100.0%, 소수점 1자리까지</td>
+					<td class="bb">0.1~100.0%, 소수점 1자리까지</td>
 				</tr>
 				<tr>
 					<td colspan="2" class="bbb"><input type="button" value="제출" id="subBtn" /> 
@@ -308,45 +307,44 @@ function chkPat2(){
 	
 	<c:otherwise>
 
-		<form action="UpupReg" method="post" enctype="multipart/form-data" name="frm">
+		<form action="UpupReg" method="post" enctype="multipart/form-data" name="frm" style="width: 1000px">
 			<input type="hidden" name="grade" value="H" />
 
-			<table cellpadding="3px;">
+			<table style="width: 100%; border-collapse: collapse;" cellpadding="5px;">
 
 
 				<tr>
-					<td>아이디</td>
-					<td>${mem.id }</td>
+					<td class="bbr">아이디</td>
+					<td class="bb">${mem.id }</td>
 				</tr>
 
 				<tr>
-					<td>사업자등록번호</td>
-					<td><input type="text" name="crn" id="crn" onkeyup="chkPat()"/>
+					<td class="bbr">사업자등록번호</td>
+					<td class="bb"><input type="text" name="crn" id="crn" onkeyup="chkPat()"/>
 					<input type="button" id="hBtn" value="중복검사"/></td>
 				</tr>
 				<tr>
-					<td>호텔이미지</td>
-					<td><input type="file" name="himg" id="img" onchange="chkPat()"/></td>
+					<td class="bbr">호텔이미지</td>
+					<td class="bb"><input type="file" name="himg" id="img" onchange="chkPat()"/></td>
 				</tr>
 				<tr>
-					<td>호텔명</td>
-					<td><input type="text" name="hname" id="name" onkeyup="chkPat()"/></td>
+					<td class="bbr">호텔명</td>
+					<td class="bb"><input type="text" name="hname" id="name" onkeyup="chkPat()"/></td>
 				</tr>
 				<tr>
-					<td>호텔정보</td>
-					<td><textarea name="hinfo" rows="5" cols="30" id="hinfo" onkeyup="chkPat()">남기실 말</textarea></td>
+					<td class="bbr">호텔정보</td>
+					<td class="bb"><textarea name="hinfo" rows="5" cols="30" id="hinfo" onkeyup="chkPat()"></textarea></td>
 				</tr>
 				<tr>
-					<td>수익률</td>
+					<td class="bbr" rowspan="2">수익률</td>
 					<td><input type="text" name="salesPercent" id="salesPercent" onkeyup="chkPat()"/>%</td>
 				</tr>
 				<tr>
-					<td></td>
 					<td>0.1~100.0%, 소수점 1자리까지</td>
 				</tr>
 				<tr>
 
-					<td colspan="2" align="right" class="bbb"><input type="button" value="제출" id="subBtn" />
+					<td colspan="2"class="bbb"><input type="button" value="제출" id="subBtn" />
 						<input type="reset" value="초기화" /></td>
 				</tr>
 			</table>

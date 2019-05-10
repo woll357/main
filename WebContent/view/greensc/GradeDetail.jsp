@@ -4,53 +4,40 @@
 
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src="../js/nh/GradeUpRg.js"></script>
-<link rel="stylesheet" href="../css/nh/centerList.css" type="text/css">
-
-<div id="back">
-
-
 
 	<c:choose>
 
 		<c:when test="${param.rq=='mg' }">
+		<h2>등업관리 / 매니저등업</h2>
 			<form action="GradeDetailReg" method="post" name="frm" id="ff">
 				<input type="hidden" name="id" value="${dto.id }" /> <input
 					type="hidden" name="bnum" value="${dto.bnum }" /> <input
 					type="hidden" name="grade" value="${dto.grade }" /> <input
 					type="hidden" name="time" value="${dto.time }" />
-				<table style="width: 100%; border: 10px #dcefef solid;"
-					cellspacing="0">
+				<table style="border-collapse: collapse; width: 100%; border: 10px #dcefef solid;" border="" cellspacing="0" cellpadding=5px;>
 					<tr>
-						<td class="ggList">요청 등급</td>
-						<td class="ggcont">${dto.grade }</td>
-					</tr>
-					<tr>
-						<td colspan="2"><hr color="#dcefef" size="1px"></td>
-					</tr>
-					<tr>
-						<td class="ggList">ID</td>
-						<td class="ggcont">${dto.id }</td>
-					</tr>
-					<tr>
-						<td colspan="2"><hr color="#dcefef" size="1px"></td>
-					</tr>
-					<tr>
-						<td class="ggList">사번</td>
-						<td class="ggcont">${dto.bnum }</td>
-					</tr>
-					<tr>
-						<td colspan="2"><hr color="#dcefef" size="1px"></td>
+						<td>요청 등급</td>
+						<td>${dto.grade }</td>
 					</tr>
 					
 					<tr>
-						<td class="ggList">요청 시간</td>
-						<td class="ggcont">${dto.time }</td>
+						<td>ID</td>
+						<td>${dto.id }</td>
 					</tr>
+					
 					<tr>
-						<td colspan="2"><hr color="#dcefef" size="1px"></td>
+						<td>사번</td>
+						<td>${dto.bnum }</td>
 					</tr>
+					
+					
 					<tr>
-						<td colspan="2" class="ggList" style="padding: 10px;"><input type="button" value="승인" id="ok" /> <input
+						<td>요청 시간</td>
+						<td>${dto.time }</td>
+					</tr>
+					
+					<tr>
+						<td colspan="2" style="padding: 10px;" align="center"><input type="button" value="승인" id="ok" /> <input
 							type="button" value="거절" id="no" /></td>
 					</tr>
 				</table>
@@ -59,6 +46,7 @@
 		</c:when>
 
 		<c:when test="${param.rq=='air' }">
+		<h2>등업관리 / 항공사등업</h2>
 			<form action="GradeDetailReg" method="post" name="frm" id="ff">
 				<input type="hidden" name="no" value="${dto.no }" /> <input
 					type="hidden" name="id" value="${dto.id }" /> <input type="hidden"
@@ -68,59 +56,44 @@
 					name="air_codecom" value="${dto.air_codecom }" /> <input
 					type="hidden" name="img" value="${dto.img }" /> <input
 					type="hidden" name="salesPercent" value="${dto.salesPercent }" />
-				<table style="width: 100%; border: 10px #dcefef solid;"
-					cellspacing="0">
+				<table style="border-collapse: collapse; width: 100%; border: 10px #dcefef solid;" border="" cellspacing="0" cellpadding=5px;>
 					<tr>
-						<td class="ggList">요청 등급</td>
-						<td class="ggcont">${dto.grade }</td>
+						<td>요청 등급</td>
+						<td>${dto.grade }</td>
 					</tr>
+					
 					<tr>
-						<td colspan="2"><hr color="#dcefef" size="1px"></td>
+						<td>ID</td>
+						<td>${dto.id }</td>
 					</tr>
+					
 					<tr>
-						<td class="ggList">ID</td>
-						<td class="ggcont">${dto.id }</td>
+						<td>사업자 번호</td>
+						<td>${dto.crn }</td>
 					</tr>
+					
 					<tr>
-						<td colspan="2"><hr color="#dcefef" size="1px"></td>
+						<td>항공사 이름</td>
+						<td>${dto.air_name }</td>
 					</tr>
+					
 					<tr>
-						<td class="ggList">사업자 번호</td>
-						<td class="ggcont">${dto.crn }</td>
+						<td>요청 수익률</td>
+						<td>${dto.salesPercent*100 }%</td>
 					</tr>
+					
 					<tr>
-						<td colspan="2"><hr color="#dcefef" size="1px"></td>
-					</tr>
-					<tr>
-						<td class="ggList">항공사 이름</td>
-						<td class="ggcont">${dto.air_name }</td>
-					</tr>
-					<tr>
-						<td colspan="2"><hr color="#dcefef" size="1px"></td>
-					</tr>
-					<tr>
-						<td class="ggList">요청 수익률</td>
-						<td class="ggcont">${dto.salesPercent*100 }%</td>
-					</tr>
-					<tr>
-						<td colspan="2"><hr color="#dcefef" size="1px"></td>
-					</tr>
-					<tr>
-						<td class="ggList">항공사 사진</td>
+						<td>항공사 사진</td>
 						<td><img alt="" src="../img/${dto.img }"></td>
 					</tr>
+					
 					<tr>
-						<td colspan="2"><hr color="#dcefef" size="1px"></td>
+						<td>요청 시간</td>
+						<td>${dto.time }</td>
 					</tr>
+					
 					<tr>
-						<td class="ggList">요청 시간</td>
-						<td class="ggcont">${dto.time }</td>
-					</tr>
-					<tr>
-						<td colspan="2"><hr color="#dcefef" size="1px"></td>
-					</tr>
-					<tr>
-						<td colspan="2" class="ggList" style="padding: 10px;"><input type="button" value="승인" id="ok" /> <input
+						<td colspan="2" style="padding: 10px;" align="center"><input type="button" value="승인" id="ok" /> <input
 							type="button" value="거절" id="no" /></td>
 					</tr>
 				</table>
@@ -131,7 +104,7 @@
 
 
 		<c:otherwise>
-
+			<h2>등업관리 / 호텔사등업</h2>
 			<form action="GradeDetailReg" method="post" name="frm" id="ff">
 				<input type="hidden" name="no" value="${dto.no }" /> <input
 					type="hidden" name="id" value="${dto.id }" /> <input type="hidden"
@@ -143,59 +116,44 @@
 					value="${dto.grade }" /> <input type="hidden" name="himg"
 					value="${dto.himg }" /> <input type="hidden" name="salesPercent"
 					value="${dto.salesPercent }" />
-				<table style="width: 100%; border: 10px #dcefef solid;"
-					cellspacing="0">
+				<table style="border-collapse: collapse; width: 100%; border: 10px #dcefef solid;" border="" cellspacing="0" cellpadding=5px;>
 					<tr>
-						<td class="ggList">요청 등급</td>
-						<td class="ggcont">${dto.grade }</td>
+						<td>요청 등급</td>
+						<td>${dto.grade }</td>
 					</tr>
+					
 					<tr>
-						<td colspan="2"><hr color="#dcefef" size="1px"></td>
+						<td>ID</td>
+						<td>${dto.id }</td>
 					</tr>
+					
 					<tr>
-						<td class="ggList">ID</td>
-						<td class="ggcont">${dto.id }</td>
+						<td>사업자 번호</td>
+						<td>${dto.crn }</td>
 					</tr>
+					
 					<tr>
-						<td colspan="2"><hr color="#dcefef" size="1px"></td>
+						<td>호텔 이름</td>
+						<td>${dto.hname }</td>
 					</tr>
+					
 					<tr>
-						<td class="ggList">사업자 번호</td>
-						<td class="ggcont">${dto.crn }</td>
+						<td>요청 수익률</td>
+						<td>${dto.salesPercent*100 }%</td>
 					</tr>
+					
 					<tr>
-						<td colspan="2"><hr color="#dcefef" size="1px"></td>
+						<td>호텔 사진</td>
+						<td><img alt="" src="../img/${dto.himg }"></td>
 					</tr>
+					
 					<tr>
-						<td class="ggList">호텔 이름</td>
-						<td class="ggcont">${dto.hname }</td>
+						<td>요청 시간</td>
+						<td>${dto.time }</td>
 					</tr>
+					
 					<tr>
-						<td colspan="2"><hr color="#dcefef" size="1px"></td>
-					</tr>
-					<tr>
-						<td class="ggList">요청 수익률</td>
-						<td class="ggcont">${dto.salesPercent*100 }%</td>
-					</tr>
-					<tr>
-						<td colspan="2"><hr color="#dcefef" size="1px"></td>
-					</tr>
-					<tr>
-						<td class="ggList">호텔 사진</td>
-						<td class="ggcont"><img alt="" src="../img/${dto.himg }"></td>
-					</tr>
-					<tr>
-						<td colspan="2"><hr color="#dcefef" size="1px"></td>
-					</tr>
-					<tr>
-						<td class="ggList">요청 시간</td>
-						<td class="ggcont">${dto.time }</td>
-					</tr>
-					<tr>
-						<td colspan="2"><hr color="#dcefef" size="1px"></td>
-					</tr>
-					<tr>
-						<td colspan="2" class="ggList" style="padding: 10px;"><input
+						<td colspan="2" style="padding: 10px;" align="center"><input
 							type="button" value="승인" id="ok" /> <input type="button"
 							value="거절" id="no" /></td>
 					</tr>
@@ -204,5 +162,4 @@
 
 		</c:otherwise>
 	</c:choose>
-</div>
 

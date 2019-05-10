@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<script src="../js/jquery-3.3.1.min.js"></script>  
-<link rel="stylesheet" href="../css/nh/login.css" type="text/css">
+<script src="../js/jquery-3.3.1.min.js"></script>
 
 
 <script>
@@ -23,14 +22,9 @@ $(document).ready(function(){
 </script>
 
 
-    
+<h2>회원 탈퇴 신청</h2>
 <form action="DeleteMySignReg" method="post" name="frm">
-	<table style="width: 100%; border : 10px #dcefef solid;" cellspacing="20px">
-		<tr>
-			<td colspan="2"  class="lgtd"><b>회원 탈퇴</b>
-			<hr color="#dcefef" size="1px">
-			</td>
-		</tr>
+	<table style="width: 100%; border : 10px #dcefef solid; border-collapse: collapse;" cellpadding="10px" border="">
 		<tr>
 			<td class="lgtd">아이디</td>
 			<td id="mem" class="lgtd">${mem.id }</td>

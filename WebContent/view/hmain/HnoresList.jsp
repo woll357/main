@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <div align="center" style="margin-top: -250px">
-<h1 class="stitle">예약불가목록</h1>
+
+<h1 align="left">예약불가목록</h1>
     
     <c:choose>
 
@@ -11,7 +11,7 @@
 		</c:when>
 	</c:choose>
     
-      <table class="contable" width="100%" border=""  style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">  
+      <table  width="100%" border=""  style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">  
           	<tr>
     		<td>날짜</td>
     		<td>예약불가갯수</td>
@@ -28,4 +28,4 @@
 
     </c:forEach>
         </table>
-</div>
+

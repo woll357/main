@@ -198,11 +198,15 @@ width: 250px;
 							type="hidden" name="grade" value="${mem.grade }" />
 						<table style="font-size: 25px; width: 100%;">
 							<tr>
-								<td style="height: 50px;">출국도시</td>
+								<td style="height: 20px;"></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="height: 50px; padding-left: 60px;">출국도시</td>
 								<td>도착도시</td>
 							</tr>
 							<tr>
-								<td style="height: 40px;"><select name="darea" id="darea" class="airSelect">
+								<td style="height: 40px; padding-left: 60px;"><select name="darea" id="darea" class="airSelect">
 										<option value="인천">인천</option>
 										<option value="상해">상해</option>
 										<option value="베이징">베이징</option>
@@ -226,13 +230,13 @@ width: 250px;
 								</select></td>
 							</tr>
 							<tr>
-								<td class="start" style="height: 50px;">출발날짜</td>
+								<td class="start" style="height: 50px;padding-left: 60px;">출발날짜</td>
 								<td class="return">
 									<div class="dd" style="visibility: visible;">귀국날짜</div>
 								</td>
 							</tr>
 							<tr>
-								<td class="start" style="height: 40px;"><input type="text" name="ddate1"
+								<td class="start" style="height: 40px; padding-left: 60px;"><input type="text" name="ddate1"
 									class="ssdate1" readonly="readonly" /> <input type="button"
 									value="날짜" id="ssdate1"></td>
 								<td class="return">
@@ -244,11 +248,11 @@ width: 250px;
 								</td>
 							</tr>
 							<tr>
-								<td style="height: 50px;">인원</td>
+								<td style="height: 50px;padding-left: 60px;">인원</td>
 								<td>좌석</td>
 							</tr>
 							<tr>
-								<td style="height: 40px;"><input type="number" name="seatcnt" id="seatcnt" />명</td>
+								<td style="height: 40px;padding-left: 60px;"><input type="number" name="seatcnt" id="seatcnt" />명</td>
 								<td><select name="flightclass" id="flightclass" class="airSelect">
 										<option value="일반">일반</option>
 										<option value="비즈니스">비즈니스</option>
@@ -256,7 +260,7 @@ width: 250px;
 							</tr>
 							<tr>
 							<td></td>
-								<td style="height: 50px;">
+								<td style="height: 50px;padding-left: 60px;">
 								<input type="button" id="plane" value="검색" /></td>
 							</tr>
 
@@ -292,10 +296,10 @@ width: 250px;
 					type="hidden" name="grade" value="${mem.grade }" />
 				<table style="font-size: 25px; width: 100%;">
 					<tr>
-						<td>목적지</td>
+						<td style="padding-left: 50px;">목적지</td>
 					</tr>
 					<tr>
-						<td><select name="city" class="hotSelect">
+						<td style="padding-left: 50px;"><select name="city" class="hotSelect">
 								<option value="상해">상해</option>
 								<option value="베이징">베이징</option>
 								<option value="도쿄">도쿄</option>
@@ -307,26 +311,26 @@ width: 250px;
 						</select></td>
 					</tr>
 					<tr>
-						<td>체크인</td>
+						<td style="padding-left: 50px;">체크인</td>
 					</tr>
 					<tr>
-						<td><input type="text" name="startDay" class="startDay"
+						<td style="padding-left: 50px;"><input type="text" name="startDay" class="startDay"
 							readonly="readonly" />  <input type="button" value="날짜검색"
 							id="startDay"></td>
 					</tr>
 					<tr>
-						<td>체크아웃</td>
+						<td style="padding-left: 50px;">체크아웃</td>
 					</tr>
 					<tr>
-						<td><input type="text" name="endDay" class="endDay"
+						<td style="padding-left: 50px;"><input type="text" name="endDay" class="endDay"
 							readonly="readonly" />  <input type="button" value="날짜검색"
 							id="endDay"></td>
 					</tr>
 					<tr>
-						<td>인원</td>
+						<td style="padding-left: 50px;">인원</td>
 					</tr>
 					<tr>
-						<td>
+						<td style="padding-left: 50px;">
 						<select name="pcnt" id="pcnt">
 										<option value="2">2</option>
 										<option value="4">4</option>
@@ -334,16 +338,16 @@ width: 250px;
 						</td>
 					</tr>
 					<tr>
-						<td>등급</td>
+						<td style="padding-left: 50px;">등급</td>
 					</tr>
 					<tr>
-						<td><select name="rkind" id="rkind" class="hotSelect">
+						<td style="padding-left: 50px;"><select name="rkind" id="rkind" class="hotSelect">
 								<option value="D">디럭스룸</option>
 								<option value="S">스탠다드룸</option>
 						</select></td>
 					</tr>
 					<tr>
-						<td  align="center"><input type="button" id="hott" value="검색" /></td>
+						<td  align="center" style="padding-left: 50px;"><input type="button" id="hott" value="검색" /></td>
 					</tr>
 
 				</table>

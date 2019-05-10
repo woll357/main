@@ -42,9 +42,11 @@ public class FileDelete implements MvcAction {
 			
 			Air_comDTO dto = new Air_comDTO();
 			
+			dto.setCrn(mm.getParameter("crn"));
+			dto.setAir_name(mm.getParameter("air_name"));
 		
 			dto.setAir_code(((SignUpDTO) session.getAttribute("mem")).getAir_code());
-		
+			dto.setId(((SignUpDTO) session.getAttribute("mem")).getId());
 		
 			String msg = "";
 			
@@ -56,18 +58,20 @@ public class FileDelete implements MvcAction {
 				File ff = new File(path+"\\"+dto2.getImg());
 				ff.delete();
 				
-				msg = "파일이 삭제되었습니다.";
+			//	msg = "파일이 삭제되었습니다.";
 				
 			}else {
 				
 				dto.setImg(mm.getParameter("img"));
 			}
 			
-			
+		
 			request.setAttribute("dto", dto);			
-			request.setAttribute("msg", msg);
-			request.setAttribute("goUrl", "AirLine_Detail?aotcont=in");		
-			request.setAttribute("mainUrl", "air/alert.jsp");
+			//request.setAttribute("msg", msg);
+			//request.setAttribute("goUrl", "AirLine_Detail?aotcont=in");		
+			//request.setAttribute("mainUrl", "air/alert.jsp");
+			request.setAttribute("mainUrl", "air/AirLine_Modify.jsp" );
+		//	request.setAttribute("mainUrl", "air/AirLine_Modify.jsp?id="+((SignUpDTO) session.getAttribute("mem")).getId());
 			
 			
 		} catch (IOException e) {
