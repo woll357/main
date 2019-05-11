@@ -6,6 +6,12 @@
 
 <link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 <script src="../js/odk/datesarch.js"></script>
+
+<c:forEach var="dt" items="${dto }" end="0">
+<h2>${dt.darea } → ${dt.carea } 상품 목록</h2>
+</c:forEach>
+
+
 <form id="cc" action="Airp_Detail">
 <table border="" class="ttcss">
 <input type="hidden" value="${param.air_p}" name="air_p">

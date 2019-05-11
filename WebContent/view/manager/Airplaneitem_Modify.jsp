@@ -7,6 +7,7 @@
 
 <form action="Airplaneitem_Modify">
 <input type="hidden" value="${param.ap_code }" name="ap_code" /> 		
+<input type="hidden" value="in" name="partner">
 <table border="" class="ttcss"> 
  		<tr> 
  			<td align="right" class="wbbr" colspan="9" style="border-bottom: 3px white solid;" >날짜　<input style="padding: 10px" type="text" name="ddate" /></td> 
