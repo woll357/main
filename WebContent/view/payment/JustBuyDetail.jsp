@@ -8,7 +8,7 @@
 	<table class="ttcss" border="" >
 		<tr>
 			<td class="wbbr">항공사명</td>
-			<td class="wbbr">비행기코드</td>
+			<td class="wbbr">상품코드</td>
 			<td class="wbbr">출발날짜</td>
 			<td class="wbbr">도착날짜</td>
 			<td class="wbbr">출발도시</td>
@@ -19,7 +19,7 @@
 		<c:forEach var="adto" items="${adtos }"   >
 		<tr>
 			<td>${adto.cName }</td>
-			<td>${adto.itemName }</td>
+			<td>${adto.code }</td>
 			<td>${adto.ddateStr }</td>
 			<td>${adto.fdateStr }</td>
 			<td>${adto.location1 }</td>
