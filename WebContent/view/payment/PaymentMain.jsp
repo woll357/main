@@ -101,10 +101,10 @@
 		<table style="text-align: center;color: #779191;background-color: #dcefef; margin-left: 100px;" cellspacing="0">
 		<tr>
 			<td class="wbr" style="width:115px">총액</td>
-			<td style="width:125px;" align="left">
+			<td style="width:120px;" align="left">
 			<input type="text" value=${totalPrice } readonly="readonly" name="totalPrice"/>
 			</td>
-			<td style="width:123px;"><input class="btncss2" id="btn" type="button" value="결제하기"/></td>
+			<td style="width:100px;"><input class="btncss" id="btn" type="button" value="결제하기"/></td>
 		</tr>	
 		<tr>
 			

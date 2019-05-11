@@ -61,7 +61,7 @@
 	<td class="wbbr" >총액</td>
 	
 	<td>${totalPrice }</td>
-	<td><input class="btncss2" type="submit" value="확인" /></td>
+	<td><input class="btncss" type="submit" value="확인" /></td>
 	</tr>
 	</table>
 	</div>

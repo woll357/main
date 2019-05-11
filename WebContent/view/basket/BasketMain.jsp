@@ -70,7 +70,7 @@
 		</tr>
 		</c:forEach>
 	</table>
-	<div align="right" ><input class="btncss2" id="basketPay" type="button" value="결제하기" /></div>
+	<div align="right" ><input class="btncss" id="basketPay" type="button" value="결제하기" /></div>
 </form>
 </div>
 

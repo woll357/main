@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-
+<link rel="stylesheet" href="../css/nh/tot.css" />
 <h1>여행객 정보</h1>
 <form name="frm" action="../payment/TravelerInfoReg" method="post">
 
@@ -22,15 +22,15 @@
 
 	<c:forEach var="i" items="${airBaskets }" >
 		<input type="hidden" name="airBaskets" value="${i.basketID }"  />
-				<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
+				<table class="ttcss" border = "">
 					<tr>
-					<td style="border-bottom: 10px #dcefef solid;">성명(한글)</td>
-					<td style="border-bottom: 10px #dcefef solid;">여권번호</td>
-					<td style="border-bottom: 10px #dcefef solid;">성(영어)</td>
-					<td style="border-bottom: 10px #dcefef solid;">이름(영어)</td>
-					<td style="border-bottom: 10px #dcefef solid;">생년월일 6자리</td>
-					<td style="border-bottom: 10px #dcefef solid;">연락처</td>
-					<td style="border-bottom: 10px #dcefef solid;">이메일</td>
+					<td class="wbbr">성명(한글)</td>
+					<td class="wbbr">여권번호</td>
+					<td class="wbbr">성(영어)</td>
+					<td class="wbbr">이름(영어)</td>
+					<td class="wbbr">생년월일 6자리</td>
+					<td class="wbbr">연락처</td>
+					<td class="wbbr">이메일</td>
 					</tr>
 					
 					<c:forEach  var="j" begin="1" end="${i.psn }" step="1" >
@@ -55,7 +55,7 @@
 				</c:forEach>
 		</c:forEach>	
 	</table>
-	<div align="right"><input style="width:75px" type="button" value="제출" onclick="chkPat()" /></div>
+	<div align="right"><input class="btncss" style="width:75px" type="button" value="제출" onclick="chkPat()" /></div>
 </form>
 <script>
 
