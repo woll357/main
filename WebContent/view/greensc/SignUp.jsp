@@ -14,7 +14,7 @@
 			<td align="center" width="100" class="wbbr" >ID</td>
 			<td width="400px;" colspan="2">
 			<input name="id" type="text" id="id" maxlength="8"  onkeyup="butPat()"/>
-			<input type="button" value="중복확인" class="btn" id="idBtn" disabled="disabled"/>
+			<input type="button" value="중복확인" class="btn" id="idBtn" disabled="disabled" style="background-color: #dcefef; color: #779191;"/>
 			<div id="idTag">4~16자, 영문과 숫자로 입력하세요.</div>
 			
 			</td>
@@ -46,7 +46,7 @@
 			<input name="phone" type="text" id="phone3" maxlength="4" onkeyup="butPat()"/>
 			<div id="ppTag"></div>
 			</td><td>
-			<input type="button" value="중복확인" class="btn" id="phoneBtn" disabled="disabled"/>
+			<input type="button" value="중복확인" class="btn" id="phoneBtn" disabled="disabled" style="background-color: #dcefef; color: #779191;"/>
 			</td>
 		</tr>
 		<tr>
@@ -95,8 +95,8 @@
 			</td>
 		</tr>
 		<tr>
-			<td colspan="3" align="center" ><input type="button" value="가입" id="subBtn"/>
-				<input type="reset" value="초기화" /></td>
+			<td colspan="3" align="center" ><input type="button" value="가입" id="subBtn" style="background-color: #dcefef; color: #779191;"/>
+				<input type="reset" value="초기화" style="background-color: #dcefef; color: #779191;"/></td>
 		</tr>
 	</table>
 </form>

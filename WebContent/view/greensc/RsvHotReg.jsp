@@ -73,10 +73,10 @@ $(document).ready(function(){
 
 					<c:choose>
 						<c:when test="${mem.id!=null && mem.id!=''}">
-							<td  class="bb" width="75px"><input type="submit" value="상세조회" /></td>
+							<td  class="bb" width="75px"><input type="submit" value="상세조회" style="background-color: #dcefef; color: #779191;"/></td>
 						</c:when>
 						<c:otherwise>
-							<td  class="bb" width="75px"><input type="button" value="상세조회" class="btn" /></td>
+							<td  class="bb" width="75px"><input type="button" value="상세조회" style="background-color: #dcefef; color: #779191;"/></td>
 						</c:otherwise>
 					</c:choose>
 
