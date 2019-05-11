@@ -1337,6 +1337,56 @@ public Object air_pitemlist3(String air_p , String air_code ,  int page , int li
 			return res;
 		}
 
+
+//비행기 날짜별 검색
+public Object air_pdate(String ap_code , String air_code , String date) {
+	
+	ArrayList<Air_itemDTO> res = new ArrayList<Air_itemDTO>();
+
+	try {
+		sql = "select * from air_item where ap_code = ? and date(ddate) >= date( ? ) and air_code = ? " ;          
+
+		ptmt = con.prepareStatement(sql);
+		
+		ptmt.setString(1, ap_code);
+		ptmt.setString(2, date);
+		ptmt.setString(3, air_code);
+		
+		rs = ptmt.executeQuery();
+		
+		while(rs.next()) {
+			
+			Air_itemDTO dto = new Air_itemDTO();
+						
+			
+			dto.setCcode(rs.getString("ccode"));
+			dto.setDdate(rs.getTimestamp("ddate"));
+			dto.setDarea(rs.getString("darea"));
+			dto.setCarea(rs.getString("carea"));
+			dto.setAp_code(rs.getString("ap_code"));
+			dto.setMoney(rs.getInt("money"));
+			dto.setA_time(rs.getTimestamp("a_time"));
+			dto.setSeatcnt(rs.getInt("seatcnt"));
+			dto.setFlightclass(rs.getString("flightclass"));	
+			dto.setTotseatcnt(rs.getInt("totseatcnt"));
+			
+						
+			res.add(dto);
+		}
+		
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally {
+		
+		close();
+	}
+	
+	
+	return res;
+}
+
 //관리자 비행기 모든 상품 열람 select * from air_item where ap_code = 'a105';
 public Object mair_planeitemlist(String ap_code , int page , int limit) {
 	
