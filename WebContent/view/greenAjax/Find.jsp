@@ -22,6 +22,7 @@
 
 						<form action="FindDetail" method="post">
 							<input type="hidden" value="${dto.id }" name="id" />
+							<input type="hidden" value="in" name="mgpage" />
 							<table style="width: 100%" cellspacing="0">
 								<tr>
 									<td style="width: 49px;" class="bbr">${no.index+1 }</td>
