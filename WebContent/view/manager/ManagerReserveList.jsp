@@ -5,11 +5,11 @@
 <script src="../js/jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" href="../css/nh/tot.css" />
 <h2>예약내역조회</h2>
-<table class = "ttcss">
+<table class = "ttcss" border="">
 		<tr>
 		<td class="wbbr">전체<input type="radio" id="total" name ="type" /></td>
 		<td class="wbbr">회사별<input type="radio" id="company" name ="type" /></td>
-		<td class="wbbr"">날짜별<input type="radio" id="yearMonth" name ="type" /></td>
+		<td class="wbbr">날짜별<input type="radio" id="yearMonth" name ="type" /></td>
 		</tr>
 	</table>
 	<div id="serachEngine">

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%request.setCharacterEncoding("utf-8"); %>
 
 <h1>여행객 정보</h1>
 <form name="frm" action="../payment/TravelerInfoReg" method="post">
@@ -183,7 +182,7 @@
 			
 			if($('.cph1').val()!="선택"){
 				chk10=true;
-				alert("결제성공");
+				alert("입력성공");
 				frm.submit();
 			}
 			else{
