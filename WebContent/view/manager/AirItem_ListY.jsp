@@ -3,7 +3,7 @@
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <link rel="stylesheet" href="../css/dk/input.css" type="text/css">
 <link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
-
+<h2>지난상품목록</h2>
 <table class="ttcss" border="">	
 
 	<tr>

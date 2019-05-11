@@ -5,12 +5,13 @@
 <link rel="stylesheet" href="../css/dk/input.css" type="text/css">
 <link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 
-<form action="Airplaneitem_Modify">
+<form action="Airplaneitem_Detail">
+<input type="hidden" name= "aotcont"  value="in"/>
 <input type="hidden" value="${param.ap_code }" name="ap_code" /> 			
 <table border="" class="ttcss">
 
 		<tr>
-			<td align="right" class="wbbr" colspan="9" style="border-bottom: 3px white solid;" >상품 코드　<input style="padding: 10px" type="text" name="ddate" /></td>
+			<td align="right" class="wbbr" colspan="9" style="border-bottom: 3px white solid;" >날짜　<input style="padding: 10px" type="text" name="ddate" /></td>
 			<td  class="wbbr" style="border-bottom: 3px white solid;" align="center"><input type="submit" value="선택  " style="background: #FFFFFF ;" class="btncss2" /></td>
 		</tr>
 	<tr>

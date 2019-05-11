@@ -17,7 +17,6 @@ public class FindDetail implements MvcAction {
 		
 		SignUpDTO dto = new SignUpDTO();
 		dto.setId(request.getParameter("id"));
-		System.out.println(request.getParameter("id"));
 		
 		request.setAttribute("dto", new SignUpDAO().detailMem(dto));
 		

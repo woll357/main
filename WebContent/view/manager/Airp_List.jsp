@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="../css/dk/input.css" type="text/css">
 
 <link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
+<h2>항공편 목록</h2>
 <table border="" class="ttcss">
 <input type="hidden" value="${param.air_code }" name="air_code" />
 <input type="hidden" value="${param.air_p}" name="air_p" />

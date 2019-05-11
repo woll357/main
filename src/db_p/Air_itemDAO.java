@@ -1152,8 +1152,8 @@ public Object air_pdetail(Air_itemDTO dto) {
 		
 		
 		try {
-			sql = "	select distinct air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code and air_item.air_p = ? and air_item.air_code = ? ";          //limit 를 이용해서 일부 글만 추출해오는것은 아무 문제가 없음.
-			//limit 0, 3  - > 3개만 가져옴
+			sql = "	select distinct air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code and air_item.air_p = ? and air_item.air_code = ? ";        
+		
 			ptmt = con.prepareStatement(sql);
 			
 			ptmt.setString(1, air_p);

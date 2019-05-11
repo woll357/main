@@ -8,27 +8,28 @@
 <h3>비행기 목록</h3>
 <form action="Airplane_List2">
 <input type="hidden" name="air_code" value="${dd }">
+<input type="hidden" name="partner" value="in">
 <table border="" class="ttcss">
 <tr>
-		<td   colspan="11">비행기 검색</td>
-		<td   colspan="4"><input type="text" name="ap_code"><input type="submit" value="선택"></td>
+		<td class="wbbr" style="border-bottom: 3px white solid;" align="right"  colspan="14">비행기 검색　<input style="padding: 10px" type="text" name="ap_code"></td>
+		<td style="border-right: 10px #dcefef solid;" class="wbbr" align="center"><input  class="btncss2"  type="submit" value="선택"></td>
 	</tr>
 	<tr >
 		
-		<td>비행기 코드</td>
-		<td>항공사명</td>
-		<td>항공사 코드</td>
-		<td>항공기이름</td>
-		<td>기종</td>
-		<td>길이</td>
-		<td>날개폭</td>
-		<td>좌석수</td>
-		<td>최대 이륙 무게 (톤)</td>
-		<td>엔진 종류</td>
-		<td>순향 속도</td>
-		<td>최대 고도</td>
-		<td>최대운항거리</td>
-		<td colspan="3">좌석종류</td>
+		<td class="wbbr">비행기 코드</td>
+		<td class="wbbr">항공사명</td>
+		<td class="wbbr">항공사 코드</td>
+		<td class="wbbr">항공기이름</td>
+		<td class="wbbr">기종</td>
+		<td class="wbbr">길이</td>
+		<td class="wbbr">날개폭</td>
+		<td class="wbbr">좌석수</td>
+		<td class="wbbr">최대 이륙 무게 (톤)</td>
+		<td class="wbbr">엔진 종류</td>
+		<td class="wbbr">순향 속도</td>
+		<td class="wbbr">최대 고도</td>
+		<td class="wbbr">최대운항거리</td>
+		<td class="wbbr" colspan="3">좌석종류</td>
 		
 		
 	</tr>
@@ -49,7 +50,7 @@
 	<td>${dto.maximum_altitude }</td>
 	<td>${dto.maximum_od }</td>
 	<td>${dto.flightclass }</td>
-	<td><a href="Airplane_Delete?ap_code=${dto.ap_code }&partner=in"><input type="button" value="삭제"></a></td>
+	<td style="border-right: 10px #dcefef solid;"><a href="Airplane_Delete?ap_code=${dto.ap_code }&partner=in"><input type="button" value="삭제"></a></td>
 	</tr>
 	</c:forEach>
 	

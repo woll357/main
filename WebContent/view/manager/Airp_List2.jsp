@@ -6,6 +6,12 @@
 
 <link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 <script src="../js/odk/datesarch.js"></script>
+
+<c:forEach var="dt" items="${dto }" end="0">
+<h2>${dt.darea } → ${dt.carea } 상품 목록</h2>
+</c:forEach>
+
+
 <form id="cc" action="Airp_Detail">
 <table border="" class="ttcss">
 <input type="hidden" value="${param.air_p}" name="air_p">
@@ -40,7 +46,7 @@
 		<tr>
 		<td colspan="10" align="center">
 		<c:if test="${startpage>1 }">       <!-- 스타트 페이지가 1보다클때만 나와라 -->
-			<a href="?page=${startpage-1 }&partner=in">[이전]</a> 
+			<a href="?page=${startpage-1 }&partner=in&air_p=${param.air_p}">[이전]</a> 
 		</c:if>
 		<c:forEach begin="${startpage }" end="${endpage }" var="i">
 				<c:choose>
@@ -53,7 +59,7 @@
 				</c:choose>			
 			</c:forEach>
 			<c:if test="${endpage<totalpage }">  <!-- 마지막 페이지가 토탈페이지보다 작을때만 다음이 나오게-->
-			<a href="?page=${endpage+1 }&partner=in">[다음]</a> 
+			<a href="?page=${endpage+1 }&partner=in&air_p=${param.air_p}">[다음]</a> 
 		</c:if>
 		</td>
 	</tr>

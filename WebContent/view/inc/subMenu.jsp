@@ -63,8 +63,8 @@
 			<tr>
 				
 				<td><a href="../airgreen/AirLine_Detail?aotcont=in">항공사 수정 및 삭제</a></td>
-				<td><a href="../airgreen/AirItem_ListY?aotcont=in">지난상품목록조회</a></td>
-				<td><a href="../airgreen/AirItem_List?aotcont=in">상품목록조회</a></td>
+				<td><a href="../airgreen/AirItem_ListY?aotcont=in">항공사 지난상품목록조회</a></td>
+				<td><a href="../airgreen/AirItem_List?aotcont=in">항공사 상품목록조회</a></td>
 				<td><a href="../airgreen/Airp_List?aotcont=in">항공편목록</a></td>
 				<td><a href="../airgreen/Airplane_List?aotcont=in">비행기목록</a></td>
 				<td><a href="../airsell/AirSalesList?aotcont=in">매출내역</a></td>
@@ -77,8 +77,8 @@
 		<table width=100% >
 			<tr>
 				<td><a href="../Manager/AirLine_List?partner=in">항공사 목록</a></td>
-				<td><a href="../Manager/AirItem_ListY?partner=in">지난상품목록조회</a></td>
-				<td><a href="../Manager/AirItem_List?partner=in">상품목록조회</a></td>
+				<td><a href="../Manager/AirItem_ListY?partner=in">항공사 지난상품목록조회</a></td>
+				<td><a href="../Manager/AirItem_List?partner=in">항공사 상품목록조회</a></td>
 				<td><a href="../Manager/Airplane_List?partner=in">비행기목록</a></td>
 				<td><a href="../Manager/Airp_List?partner=in">항공편목록</a></td>
 				<td>/</td>

@@ -13,7 +13,7 @@
 	<tr>
 		
 		<td class="wbbr" style="border-bottom: 3px white solid;" align="right"  colspan="14">비행기 검색　<input style="padding: 10px" type="text" name="ap_code"></td>
-		<td class="wbbr" style="border-right: 10px white solid;" align="center"><input style="background: #FFFFFF ;border-right: 10px white solid;" class="btncss2"  type="submit" value="선택"></td>
+		<td class="wbbr" style="border-right: 10px #dcefef solid;" align="center"><input class="btncss2"  type="submit" value="선택"></td>
 	</tr>
 	<tr >
 		
@@ -52,7 +52,7 @@
 	<td>${dto.maximum_altitude }</td>
 	<td>${dto.maximum_od }</td>
 	<td>${dto.flightclass }</td>
-	<td  style="border-right: 10px white solid;"><a href="Airplane_Delete?ap_code=${dto.ap_code }&partner=in"><input class="btncss" type="button" style="background-color: #dcefef;" value="삭제"></a></td>
+	<td  style="border-right: 10px #dcefef solid;"><a href="Airplane_Delete?ap_code=${dto.ap_code }&partner=in"><input class="btncss" type="button" style="background-color: #dcefef;" value="삭제"></a></td>
 	</tr>
 </c:forEach>
 </table>

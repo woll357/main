@@ -5,8 +5,9 @@
 
 <link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 <body>
-<h1>상품 상세</h1>
+<h2>상품 상세</h2>
 <form action="AirItem_Detail">
+	<input type="hidden" name= "partner"  value="in"/>
 <table border=""class="ttcss">
 		<tr>
 			

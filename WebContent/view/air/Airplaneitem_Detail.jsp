@@ -5,7 +5,8 @@
 <link rel="stylesheet" href="../css/dk/input.css" type="text/css">
 <link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 
-<form action="Airplaneitem_Modify">
+<form action="Airplaneitem_Detail">
+<input type="hidden" name= "aotcont"  value="in"/>
 <input type="hidden" value="${param.ap_code }" name="ap_code" /> 		
 <table border="" class="ttcss"> 
  		<tr> 

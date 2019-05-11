@@ -242,8 +242,8 @@
 				<tr>
 				<td class="wbbr"></td>
 				<td  colspan="2" align="right">
-				<input type="button" value="작성" class="airgo" />
-				<input type="reset" value="초기화" />
+				<input   type="button" value="작성" class="airgo" style="background-color: #dcefef;font-size: 20px;color: #779191;" />
+				<input class="btncss" type="reset" value="초기화" />
 			</td>
 		</tr>
 	</table>
