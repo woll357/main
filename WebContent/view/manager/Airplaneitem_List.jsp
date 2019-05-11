@@ -6,11 +6,12 @@
 <link rel="stylesheet" href="../css/dk/input.css" type="text/css">
 <link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
 <h2>비행기 상품 목록</h2>
+<form action="Airplaneitem_Modify">
+<input type="hidden" value="${param.ap_code }" name="ap_code" /> 		
 <table border="" class="ttcss">
-		<tr>
-			
-			<td style="border-bottom: 3px white solid;"  align="right" class="wbbr" colspan="9">상품 코드　<input style="padding: 10px" type="text" name="ccode" /></td>
-			<td style="border-bottom: 3px white solid;" align="center" class="wbbr" align="center"><input   type="submit" value="선택  "  style="background: #FFFFFF ;" class="btncss2" /></td>
+			<tr>
+			<td align="right" class="wbbr" colspan="9" style="border-bottom: 3px white solid;" >상품 코드　<input style="padding: 10px" type="text" name="ddate" /></td>
+			<td  class="wbbr" style="border-bottom: 3px white solid;" align="center"><input type="submit" value="선택  " style="background: #FFFFFF ;" class="btncss2" /></td>
 		</tr>
 	<tr>
 		<td class="wbbr" width="40">상품코드</td>
@@ -62,3 +63,4 @@
 		</td>
 	</tr>
 </table>
+</form>

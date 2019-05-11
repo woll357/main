@@ -1,4 +1,4 @@
-package dk_service_p;
+package manager_p;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,19 +16,16 @@ public class Airplaneitem_Modify implements MvcAction {
 		// TODO Auto-generated method stub
 		
 		
-		HttpSession session = request.getSession();
+	
 		String date = request.getParameter("ddate");
-		  String air_code = (((SignUpDTO) session.getAttribute("mem")).getAir_code());
+
 		  
-		  System.out.println("데이트 ㅔ이트"+date+date+date+date+date+date+date);
-		  System.out.println(air_code+air_code+air_code+air_code+air_code);
-		      System.out.println(request.getParameter("ap_code"));
-		      
+	
 		      Air_itemDAO dao = new Air_itemDAO();
 		  
 	     
 		
-	      request.setAttribute("data", dao.air_pdate(request.getParameter("ap_code") ,air_code , date ));
+	      request.setAttribute("data", dao.air_pdatem(request.getParameter("ap_code") , date ));
 	    
 	    
 	      
