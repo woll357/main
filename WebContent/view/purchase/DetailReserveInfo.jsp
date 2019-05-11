@@ -35,7 +35,7 @@ function Refund(id){
 			<td>${adto.location1 }</td>
 			<td>${adto.location2 }</td>
 			<td>${adto.psn }</td>
-			<td><button class="btncss" style="width:100%" onclick="TravelerInfoDetail('${adto.basketID}')" >여행객 상세 정보</button></td>
+			<td><button class="btncss" style="width:100%" onclick="TravelerInfoDetail('${adto.basketID}')" >여행객 정보</button></td>
 			<td><button class="btncss" style="width:100%" onclick="Refund('${adto.basketID}')" >환불</button></td>
 		</tr>
 		</c:forEach>

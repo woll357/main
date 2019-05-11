@@ -405,6 +405,30 @@ public class BasketDAO {
 		}
 	}
 	
+	public void modifycName(String oldcName, String newcName ) {
+		
+		sql = "update basket set cName = ? "
+				+ " where cName = ?";
+				
+	System.out.println(sql);
+	
+		try {
+			ptmt = con.prepareStatement(sql);
+			
+			ptmt.setString(1, oldcName);
+			ptmt.setString(2, newcName);
+			
+			ptmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+
+	}
+	
 	public void close() {
 		if(rs!=null) try {rs.close();} catch (SQLException e) {	}
 		if(ptmt!=null) try {ptmt.close();} catch (SQLException e) {	}

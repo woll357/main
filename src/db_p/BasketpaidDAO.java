@@ -56,6 +56,7 @@ public class BasketpaidDAO {
 				dto.setBcode(rs.getString("bcode"));
 				dto.setId(rs.getString("id"));
 				dto.setBstatus(rs.getString("bstatus"));
+				dto.setCode(rs.getString("code"));
 				
 				res.add(dto);
 			}
@@ -173,6 +174,7 @@ public class BasketpaidDAO {
 				dto.setBcode(rs.getString("bcode"));
 				dto.setId(rs.getString("id"));
 				dto.setBstatus(rs.getString("bstatus"));
+				dto.setCode(rs.getString("code"));
 				
 				res.add(dto);
 			}
@@ -342,6 +344,30 @@ public class BasketpaidDAO {
 		}finally {
 			close();
 		}
+
+		}
+		
+		public void modifycName(String oldcName, String newcName ) {
+			
+			sql = "update basketpaid set cName = ? "
+					+ " where cName = ?";
+					
+		System.out.println(sql);
+		
+			try {
+				ptmt = con.prepareStatement(sql);
+				
+				ptmt.setString(1, oldcName);
+				ptmt.setString(2, newcName);
+				
+				ptmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				close();
+			}
 
 		}
 		

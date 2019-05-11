@@ -7,7 +7,7 @@
 		<tr>
 			<td class="wbbr">회사명</td>
 			<td class="wbbr">상품종류</td>
-			<td class="wbbr">상품명</td>
+			<td class="wbbr">상품코드</td>
 			<td class="wbbr">시작날짜</td>
 			<td class="wbbr">끝날짜</td>
 			<td class="wbbr"></td>
@@ -17,8 +17,15 @@
 		<c:forEach var="bpdto" items="${bpdtos }"   >
 		<tr>
 			<td>${bpdto.cName }</td>
-			<td>${bpdto.cType }</td>
-			<td>${bpdto.itemName }</td>
+			<c:choose>
+				<c:when test="${bpdto.cType=='A' }">
+				<td>항공권</td>
+				</c:when>
+				<c:when test="${bpdto.cType=='H' }">
+				<td>호텔</td>
+				</c:when>
+			</c:choose>
+			<td>${bpdto.code }</td>
 			<td>${bpdto.ddateStr }</td>
 			<td>${bpdto.fdateStr }</td>
 			<td>${bpdto.location1 }</td>
