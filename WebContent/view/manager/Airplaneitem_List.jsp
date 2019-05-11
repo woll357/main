@@ -5,7 +5,7 @@
 
 <link rel="stylesheet" href="../css/dk/input.css" type="text/css">
 <link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
-<h2>비행기 상품 목록</h2>
+<h2>${param.ap_code }상품 목록</h2>
 <form action="Airplaneitem_Modify">
 <input type="hidden" value="${param.ap_code }" name="ap_code" /> 		
 <input type="hidden" value="in" name="partner">
