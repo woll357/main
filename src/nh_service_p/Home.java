@@ -14,7 +14,6 @@ public class Home implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		System.out.println("홈화면 진입");
 		return null;
 	}
 

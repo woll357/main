@@ -57,7 +57,6 @@ public class RsvAirReg implements MvcAction {
 			dto2.setSeatcnt(Integer.parseInt(request.getParameter("seatcnt")));
 			dto2.setFlightclass(request.getParameter("flightclass"));
 			request.setAttribute("dto2", new SearchDAO().searchAir(dto2));
-			System.out.println("여긴 왕복");
 			request.setAttribute("way", "rtp");
 			}
 		}else {
@@ -87,7 +86,6 @@ public class RsvAirReg implements MvcAction {
 		dto2.setSeatcnt(Integer.parseInt(request.getParameter("seatcnt")));
 		dto2.setFlightclass(request.getParameter("flightclass"));
 		request.setAttribute("dto2", new SearchDAO().searchAir(dto2));
-		System.out.println("여긴 왕복");
 		request.setAttribute("way", "rtp");
 		}
 		

@@ -62,7 +62,7 @@ public class ModifyMemReg implements MvcAction {
 		}else {
 			
 			
-			request.setAttribute("goUrl", "ModifyMem");
+			request.setAttribute("goUrl", "ModifyMem?mypage=in");
 			new SignUpDAO().modifyMem(dto);
 			request.setAttribute("msg", "수정되었습니다.");
 			

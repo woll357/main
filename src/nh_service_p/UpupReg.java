@@ -52,13 +52,13 @@ public class UpupReg implements MvcAction {
 			if (new SignUpDAO().chkApply(dto)) {
 				request.setAttribute("msg", "이미 신청하셨습니다.");
 				request.setAttribute("mainUrl", "greensc/alert.jsp");
-				request.setAttribute("goUrl", "Appbss");
+				request.setAttribute("goUrl", "Appbss?mgpage=in");
 			} else {
 
 				if (new SignUpDAO().chkempty(dto)) {
 					request.setAttribute("msg", "관계자는 예약하실 수 없습니다. 예약내역을 환불하여 주세요.");
 					request.setAttribute("mainUrl", "greensc/alert.jsp");
-					request.setAttribute("goUrl", "Appbss");
+					request.setAttribute("goUrl", "Appbss?mgpage=in");
 				} else {
 
 					if (mm.getParameter("grade").equals("M")) {
@@ -87,7 +87,7 @@ public class UpupReg implements MvcAction {
 					new SignUpDAO().upupGrade(dto);
 					request.setAttribute("msg", "신청이 완료되었습니다.");
 					request.setAttribute("mainUrl", "greensc/alert.jsp");
-					request.setAttribute("goUrl", "Appbss");
+					request.setAttribute("goUrl", "Appbss?mgpage=in");
 				}
 			}
 		} catch (IOException e) {

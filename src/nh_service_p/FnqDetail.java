@@ -26,7 +26,6 @@ public class FnqDetail implements MvcAction {
 		
 		dao.close();
 		
-		System.out.println("디테일 서비스 진입");
 		
 		return null;
 	}

@@ -25,8 +25,7 @@ public class UpupChk implements MvcAction {
 		dto.setBnum(request.getParameter("bnum"));
 		dto.setCrn(request.getParameter("crn"));
 		
-		System.out.println("중복체크 합니다."+new SignUpDAO().chkApply(dto));
-
+		
 		if (new SignUpDAO().chkApply(dto)) {
 			
 			request.setAttribute("msg", "중복");
