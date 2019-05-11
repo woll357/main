@@ -18,18 +18,18 @@
 <input type="hidden" value="in" name="partner">
 		<tr>
 			
-			<td class="wbbr" align="right" colspan="7" >날짜　<input style="padding: 10px"" type="text" class="ddate" name="ddate" /></td>
-			<td class="wbbr" style="border-right: 10px #dcefef solid; align="center"><input class="aa"  style="background: #FFFFFF;font-size: 20px;color: #779191;"  type="button" value="선택  " /></td>
+			<td class="wbbr" style="border-bottom: 3px white solid;" align="right" colspan="7" >날짜　<input style="padding: 10px" type="text" class="ddate" name="ddate" /></td>
+			<td class="wbbr" style="border-right: 10px #dcefef solid;border-bottom: 3px white solid;" align="center"><input class="aa"  style="background: #FFFFFF;font-size: 20px;color: #779191;"  type="button" value="선택  " /></td>
 		</tr>
 	<tr>
-		<td>상품코드</td>
-		<td>비행기코드</td>
-		<td>출발시간</td>
-		<td>출발지</td>
-		<td>도착지</td>
-		<td>도착시간</td>
-		<td>남은좌석</td>	
-		<td style="border-right: 10px #dcefef solid;">좌석등급</td>
+		<td class="wbbr">상품코드</td>
+		<td class="wbbr">비행기코드</td>
+		<td class="wbbr">출발시간</td>
+		<td class="wbbr">출발지</td>
+		<td class="wbbr">도착지</td>
+		<td class="wbbr">도착시간</td>
+		<td class="wbbr">남은좌석</td>	
+		<td class="wbbr" style="border-right: 10px #dcefef solid;">좌석등급</td>
 	</tr>
 <c:forEach var="dt" items="${dto }" varStatus="no" >
 	<tr>
