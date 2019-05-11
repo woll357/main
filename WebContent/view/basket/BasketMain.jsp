@@ -52,7 +52,14 @@
 		<tr>
 			<td><input class="chk" name="basketIDs" type="checkbox" value="${hdto.basketID }" /></td>
 			<td>${hdto.cName }</td>
-			<td>${hdto.itemName }</td>
+		<c:choose>
+		<c:when test="${hdto.itemName=='S' }">
+			<td>스탠다드</td>
+		</c:when>
+		<c:when test="${hdto.itemName=='D' }">
+			<td>디럭스</td>
+		</c:when>
+		</c:choose>
 			<td>${hdto.ddateStr }</td>
 			<td>${hdto.fdateStr }</td>
 			<td>${hdto.location1 }</td>

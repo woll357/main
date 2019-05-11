@@ -128,6 +128,7 @@ public class BasketpaidDAO {
 				dto.setBcode(rs.getString("bcode"));
 				dto.setId(rs.getString("id"));
 				dto.setBstatus(rs.getString("bstatus"));
+				dto.setCode(rs.getString("code"));
 				
 				res.add(dto);
 			}
