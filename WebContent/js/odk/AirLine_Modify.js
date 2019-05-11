@@ -3,9 +3,10 @@
     			'click':function() {
     				var img = $('#img').val();
     				
-    				if($('#img').val()=='파일선택') {
+    				if(img==null){
+    				
     					alert("파일은 선택해주세요.");
-    					
+    				
     				}		
              		if(img!=null) {
                 		var ssimg = img.substring(img.lastIndexOf(".")+1);

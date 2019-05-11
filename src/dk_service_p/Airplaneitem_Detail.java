@@ -9,7 +9,7 @@ import db_p.SignUpDTO;
 import di.MvcAction;
 import di.MvcForward;
 
-public class Airplaneitem_Modify implements MvcAction {
+public class Airplaneitem_Detail implements MvcAction {
 
 	@Override
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
