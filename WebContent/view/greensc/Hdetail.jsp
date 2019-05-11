@@ -51,7 +51,7 @@
 		<c:if test="${data.rkind=='D' }">
 		<td style="border-top: 10px #dcefef solid;">디럭스룸</td>
 		</c:if>
-		<td rowspan="7" style="border-top: 10px #dcefef solid; border-bottom: 10px #dcefef solid;"><input type="submit" value="예약" /></td>
+		<td rowspan="7" style="border-top: 10px #dcefef solid; border-bottom: 10px #dcefef solid;"><input type="submit" value="예약" style="background-color: #dcefef; color: #779191;" /></td>
 		<%-- <td><a href="../Basket/BasketHotelReg?rcode=${data.rcode}&startDay=${param.startDay }&endDay=${param.endDay }">예약</a></td> --%>
 	</tr>
 	<tr>
