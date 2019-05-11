@@ -60,7 +60,7 @@ public class Airp_List2 implements MvcAction {
 	      request.setAttribute("startpage", startpage);
 	      request.setAttribute("endpage", endpage);
 	      request.setAttribute("totalpage", totalpage);
-	      request.setAttribute("totalpage",totalpage);
+
 
 
 	      

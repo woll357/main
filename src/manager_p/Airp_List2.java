@@ -24,7 +24,8 @@ public class Airp_List2 implements MvcAction {
 	         page = Integer.parseInt(request.getParameter("page")); //페이지가 널이 아니면 페이지를 받아오겠다.
 	      }
 	      Air_itemDAO dao = new Air_itemDAO();
-  int total = dao.total();
+	      System.out.println(request.getParameter("air_p")+"???????????????");
+  int total = dao.total3(request.getParameter("air_p"));
 	      
 	      int totalpage = total/limit;
 	      
