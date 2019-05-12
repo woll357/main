@@ -49,32 +49,32 @@
 
 <table style="width: 100%; border: 10px #dcefef solid; border-collapse: collapse;"cellpadding="5px;" cellspacing="0" border="">
 		<tr>
-			<td  width="100px;">글번호</td>
+			<td  width="100px;" class="wbbr">글번호</td>
 			<td>${param.no }</td>
 		</tr>
 		<tr>
-			<td>제목</td>
+			<td class="wbbr">제목</td>
 			<td>${dto2.title }</td>
 		</tr>
 		<tr>
-			<td>작성자</td>
+			<td class="wbbr">작성자</td>
 			<c:choose>
 				<c:when test="${mem.grade=='M' }">
 					<td>${mem.id }</td>
 				</c:when>
 				<c:otherwise>
-					<td>운영자</td>
+					<td class="wbbr">운영자</td>
 				</c:otherwise>
 			</c:choose>
 
 
 		</tr>
 		<tr>
-			<td>작성일</td>
+			<td class="wbbr">작성일</td>
 			<td>${dto2.time }</td>
 		</tr>
 		<tr>
-			<td>내용</td>
+			<td class="wbb">내용</td>
 			<td>
 			<c:if test="${dto2.img!=null}"><img alt="" src="../img/${dto2.img}"></c:if>
 			${dto2.contentBr }</td>

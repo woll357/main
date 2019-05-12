@@ -23,8 +23,6 @@ public class ReplyQnaWriteReg implements MvcAction {
 	public MvcForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		System.out.println("답변 작성 진입");
-		
 		try {
 			request.setCharacterEncoding("utf-8");
 		} catch (UnsupportedEncodingException e) {
@@ -33,9 +31,7 @@ public class ReplyQnaWriteReg implements MvcAction {
 		}
 			
 			HttpSession session = request.getSession();
-			
-		
-	         
+		 
 
 
 
@@ -56,9 +52,8 @@ public class ReplyQnaWriteReg implements MvcAction {
 
 
 				 int num = new CenterDAO().qnaReplyWrite(dto);
-		         
 			        request.setAttribute("msg", "작성되었습니다.");
-			        request.setAttribute("goUrl", "QnaDetail?num="+num+"&center=in");
+			        request.setAttribute("goUrl", "QnaDetail?num="+num+"&no="+mm.getParameter("no")+"&center=in");
 			        request.setAttribute("mainUrl", "greensc/alert.jsp");
 				
 				

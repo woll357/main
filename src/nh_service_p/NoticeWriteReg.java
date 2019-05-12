@@ -50,7 +50,7 @@ public class NoticeWriteReg implements MvcAction {
 			int num = new CenterDAO().noticeWrite(dto);
 
 			request.setAttribute("msg", "작성되었습니다.");
-			request.setAttribute("goUrl", "NoticeDetail?num=" + num + "&center=in");
+			request.setAttribute("goUrl", "NoticeDetail?num=" + num + "&no=1&center=in");
 			request.setAttribute("mainUrl", "greensc/alert.jsp");
 			
 			
