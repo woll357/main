@@ -59,6 +59,7 @@
 	height: 60px;
 	text-align: center;
 	border-radius: 10px 10px 0 0;
+	cursor: pointer;
 }
 
 #rtp {

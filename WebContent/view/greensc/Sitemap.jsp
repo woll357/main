@@ -1,23 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    
+    <link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
     <style>
     	.sitebox{
-    		margin-top:-250px;
+    		
     	}
     
     </style>
+    <h2>사이트맵</h2>
   <div align="center" class="sitebox">
-<h1>사이트맵</h1>
+
 
 <input type="hidden" value="${mem.id }"/>
 
-<table width="100%" style="text-align: center; border: 10px #dcefef solid;" cellspacing="0">
+<table class="ttcss" border="" style="text-align: center;">
 	<tr>
-		<td style="border-bottom: 10px #dcefef solid;">멤버페이지</td>
-		<td style="border-bottom: 10px #dcefef solid;">마이페이지</td>
-		<td style="border-bottom: 10px #dcefef solid;">고객센터</td>
+		<td class="wbbr">멤버페이지</td>
+		<td class="wbbr">마이페이지</td>
+		<td class="wbbr">고객센터</td>
 	</tr>
 	<tr>
 		<td><a href="../greensc/SignUp" >회원가입 </a></td>
