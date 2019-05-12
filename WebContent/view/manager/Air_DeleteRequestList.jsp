@@ -30,7 +30,7 @@
 		<td>${dto.requsetdate }</td>
 		<td>${dto.kind }</td>
 		<td>${dto.request }</td>
-		<td><a href="Air_DeleteRequestDelete?code=${dto.code }"><input type="button" value="삭제"></a></td>
+		<td><a href="Air_DeleteRequestDelete?code=${dto.code }"><input type="button" value="삭제" class="btncss" style="background-color: #dcefef; color: #779191;"></a></td>
 	</tr>
 	</c:forEach>
 </table>
