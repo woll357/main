@@ -7,6 +7,7 @@
 <script src="../js/odk/Airplane_insert.js"></script>
 <h2 >비행기 등록</h2>
 <form name="airinre" action="Airplane_InsertReg">
+<input  type="hidden" value="in" name="aotcont">
 <table border="" class="ttcss">
 	<tr >
 		<td class="wbbr">비행기 코드</td><td style="border-right: 10px #dcefef solid;"><input type="text" class="ap"  name="ap_code"></td>
@@ -26,8 +27,7 @@
 	</tr>
 	<tr>
 	<td class="wbbr"></td>
-		<td  align="right" colspan="2"><input type="button" style="background-color: #dcefef;font-size: 20px;color: #779191;
-		" class="planego" value="등록"></td>
+		<td  align="right" colspan="2"><input type="button" style="background-color: #dcefef;font-size: 20px;color: #779191;" class="planego" value="등록"></td>
 	</tr>
 </table>
 </form>

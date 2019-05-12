@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="../css/dk/input.css" type="text/css">
 
 <link rel="stylesheet" href="../css/nh/tot.css" type="text/css">
-<h4>항공편 검색</h4>
+<h2>항공편 검색</h2>
 <form action="Airp_Detail">
 <table border="" class="ttcss">
 <input type="hidden" name= "aotcont"  value="in"/>

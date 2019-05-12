@@ -7,7 +7,7 @@
 <table class="ttcss" border="">	
 
 	<tr>
-		<td class="wbbr" width="40">상품코드</td>
+		<td class="wbbr" width="80">상품코드</td>
 		<td class="wbbr" width="50">비행기코드</td>
 		<td class="wbbr">출발시간</td>
 		<td class="wbbr">출발지</td>

@@ -230,9 +230,12 @@ public class AirItem_InsertReg implements MvcAction {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
-		 
-		if(new Air_planeDAO().apvalidity(air_code,ap_code)) {		
+		if(	new Air_itemDAO().itemtimedetail(dto)) {		 
+			
+			 msg="같은날 상품이 있습니다."; 
+			 goUrl = "AirItem_List?aotcont=in"; 
+			 
+		}else if(new Air_planeDAO().apvalidity(air_code,ap_code)) {		
 			
 			msg = "추가되었습니다.";
 			goUrl = "AirItem_List?aotcont=in";

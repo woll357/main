@@ -14,14 +14,14 @@
 		</tr>
 	<tr>
 	
-		<td class="wbbr" width="40">상품코드</td>
+		<td class="wbbr" width="85">상품코드</td>
+		<td class="wbbr" width="50">항공사 코드</td>
 		<td class="wbbr" width="50">비행기코드</td>
-		<td class="wbbr">비행기코드</td>
 		<td class="wbbr">출발시간</td>
 		<td class="wbbr">출발지</td>
-		<td class="wbbr">도착지</td>
+		<td class="wbbr" width="50">도착지</td>
 		<td class="wbbr">가격</td>
-		<td class="wbbr">도착시간</td>
+		<td class="wbbr" >도착시간</td>
 		<td class="wbbr" width="50" >예약된좌석</td>
 		<td class="wbbr" width="35">총좌석</td>	
 		<td class="wbbr">좌석등급</td>

@@ -48,7 +48,7 @@ public class Airplane_InsertReg implements MvcAction {
 		}else {
 			
 			msg = "추가되었습니다.";
-			goUrl = "Airplane_List?air_code="+dto.getAir_code();
+			goUrl = "Airplane_List?air_code="+dto.getAir_code()+"&aotcont=in";
 			
 			new Air_planeDAO().airplaneinsert(dto);
 		}

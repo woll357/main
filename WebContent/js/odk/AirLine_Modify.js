@@ -3,17 +3,15 @@
     			'click':function() {
     				var img = $('#img').val();
     				
-    				if(img==null){
     				
-    					alert("파일은 선택해주세요.");
-    				
-    				}		
              		if(img!=null) {
                 		var ssimg = img.substring(img.lastIndexOf(".")+1);
                 		console.log(ssimg);
                  		if(ssimg=='txt' || ssimg=='doc' || ssimg=='hwp' || ssimg=='ppt' || ssimg=='xls' || ssimg=='pptx'
                  				|| ssimg=='xlsx' || ssimg=='docx' || ssimg=='mp3' || ssimg=='wma' || ssimg=='wav'){
                   			alert("값이 잘못되었습니다.");
+             			}else if(img==null || img==""){
+             				alert("파일은 선택해주세요.");    		
              			}
                  		else{
                  			airmod.submit();

@@ -1079,7 +1079,7 @@ public Object air_pdetail(Air_itemDTO dto) {
 			
 			
 			try {
-				sql = "select distinct air_name, air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code  ";         
+				sql = "select distinct air_p , darea, carea from air_com, air_item where air_com.air_code=air_item.air_code  ";         
 				
 				ptmt = con.prepareStatement(sql);
 				
@@ -1092,7 +1092,7 @@ public Object air_pdetail(Air_itemDTO dto) {
 					
 				Air_itemDTO dto = new Air_itemDTO();
 				
-				dto.setAir_name(rs.getString("air_name"));	
+			
 				dto.setAir_p(rs.getString("air_p"));	
 				dto.setDarea(rs.getString("darea"));
 				dto.setCarea(rs.getString("carea"));		
@@ -1505,7 +1505,8 @@ public Object mair_planeitemlist(String ap_code , int page , int limit) {
 
 	try {
 		
-		sql = "select * from air_item where air_p = ? and no limit ?, ? ";        
+		sql = "select * from air_item where air_p = ?  and date(ddate) >= date( sysdate() )  and no limit ?, ? ";   
+		//select * from air_item where air_p = 'IPB-100';
 		ptmt = con.prepareStatement(sql);
 		
 		ptmt.setString(1, air_p);
@@ -1598,7 +1599,7 @@ public Object mair_planeitemlist(String ap_code , int page , int limit) {
 		
 		ArrayList<Airp_detailsDTO> res = new ArrayList<Airp_detailsDTO>();
 		
-		sql = "select distinct air_com.air_name,  ap_code , air_com.air_code  , airp_details.air_ty , aircraft_type , linear_content , wings_width , numberof_sea , max_two , engine_type , tail_velocity , maximum_altitude , maximum_od ,flightclass from air_com, air_plane , airp_details where air_plane.air_ty =  airp_details.air_ty and air_plane.air_code = air_com.air_code";
+		sql = "select distinct air_com.air_name,  ap_code , air_com.air_code  , airp_details.air_ty , aircraft_type , linear_content , wings_width , numberof_sea , max_two , engine_type , tail_velocity , maximum_altitude , maximum_od ,flightclass from air_com, air_plane , airp_details where air_plane.air_ty =  airp_details.air_ty and air_plane.air_code = air_com.air_code order by air_name";
 		
 		try {
 			ptmt = con.prepareStatement(sql);
