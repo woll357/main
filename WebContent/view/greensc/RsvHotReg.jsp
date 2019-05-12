@@ -76,7 +76,7 @@ $(document).ready(function(){
 							<td  class="bb" width="75px"><input type="submit" value="상세조회" style="background-color: #dcefef; color: #779191;"/></td>
 						</c:when>
 						<c:otherwise>
-							<td  class="bb" width="75px"><input type="button" value="상세조회" style="background-color: #dcefef; color: #779191;"/></td>
+							<td  class="bb" width="75px"><input type="button" value="상세조회" style="background-color: #dcefef; color: #779191;" class="btn"/></td>
 						</c:otherwise>
 					</c:choose>
 
