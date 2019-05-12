@@ -23,9 +23,7 @@
 		<td class="bbr">${dto.time }</td>
 		<td class="bb"><a href="GradeDetail?no=${dto.num }&rq=mg">열람</a></td>
 		</tr>
-		<tr>
-		<td colspan="5"><hr color="#dcefef" size="1px"></td>
-		</tr>
+		
 	</c:forEach>
 	
 	<tr>
@@ -49,9 +47,7 @@
 		<td class="bbr">${dto.time }</td>
 		<td class="bb"><a href="GradeDetail?no=${dto.no }&rq=air">열람</a></td>
 		</tr>
-		<tr>
-		<td colspan="5"><hr color="#dcefef" size="1px"></td>
-		</tr>
+		
 	</c:forEach>
 	
 	

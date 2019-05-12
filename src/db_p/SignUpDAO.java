@@ -89,8 +89,8 @@ public class SignUpDAO {
 		boolean res = false;
 
 		try {
-			if (dto.getGrade().equals("C")) {
-				sql = "select * from basketpaid where id=? and bstatus='m'";
+			
+				sql = "select * from basketpaid where id=? and bstatus='p'";
 
 				ptmt = con.prepareStatement(sql);
 				ptmt.setString(1, dto.getId());
@@ -98,25 +98,6 @@ public class SignUpDAO {
 
 				res = rs.next();
 
-			} else if (dto.getGrade().equals("A")) {
-				sql = "select * from air_com where id=?";
-
-				ptmt = con.prepareStatement(sql);
-				ptmt.setString(1, dto.getId());
-				rs = ptmt.executeQuery();
-
-				res = rs.next();
-
-			} else if (dto.getGrade().equals("H")) {
-				sql = "select * from hot_com where id=?";
-
-				ptmt = con.prepareStatement(sql);
-				ptmt.setString(1, dto.getId());
-				rs = ptmt.executeQuery();
-
-				res = rs.next();
-
-			}
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
