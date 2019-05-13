@@ -1,6 +1,6 @@
  function calendar(year,month, id){ //달력 함수  
         //내장 객체
-	 	
+	
         if( id=='ssdate1' ||  id=='startDay'){
 	        var nowDate = new Date(); //오늘 날짜 객체 선언  
 	        var nYear = nowDate.getFullYear(); //오늘의 년도  
@@ -19,6 +19,7 @@
             var nNumday = nowDate.getDay(); //오늘의 요일 0=일요일...6=토요일  
             var endDay=new Array(31,28,31,30,31,30,31,31,30,31,30,31); //각달의 마지막 날짜  
             var dayName=new Array("일", "월", "화", "수", "목", "금", "토"); // 숫자 요일을 문자 요일 바꿀 함수  
+            
         }else if( id=='endDay'){
         	var std = $('.startDay').val();
         	var stdArr = std.split('-');
@@ -29,6 +30,7 @@
             var nNumday = nowDate.getDay(); //오늘의 요일 0=일요일...6=토요일  
             var endDay=new Array(31,28,31,30,31,30,31,31,30,31,30,31); //각달의 마지막 날짜  
             var dayName=new Array("일", "월", "화", "수", "목", "금", "토"); // 숫자 요일을 문자 요일 바꿀 함수  
+            
         }else{
         	var nowDate = new Date(); //오늘 날짜 객체 선언  
 	        var nYear = nowDate.getFullYear(); //오늘의 년도  
@@ -52,6 +54,7 @@
         eDate.setFullYear(year); //바뀌는 년도 
         eDate.setMonth(month); //바뀌는 월 
         eDate.setDate(1); // 날짜는 1일로 설정  
+        
         var fNumday=eDate.getDay(); //넘길때 달 1일 요일 (숫자)  
         var lastDay=endDay[eDate.getMonth()]; //바뀌는 월의 마지막 날짜  
   
@@ -64,14 +67,21 @@
         calendarStr  = "<table>"  
         calendarStr += "<tr align=center><td valign=middle>"  
 	
-        if(nYear==(eDate.getYear()+1900) && nMonth==eDate.getMonth()){
+        if((nYear==(eDate.getYear()+1900) && nMonth==eDate.getMonth()) || (nYear<(eDate.getYear()+1900) || eDate.getMonth()<=nMonth)){
         	calendarStr += "<a href=javascript:calendar("+year+","+(month-1)+",'"+id+"') class=preNext></a>"
         }else{
         calendarStr += "<a href=javascript:calendar("+year+","+(month-1)+",'"+id+"') class=preNext><</a>" //월을 넘길때 빼기 -1을 해서 넘긴다(년도는 자동 계산)  
         }
         
         calendarStr += "</td><td colspan=5 class='tt'>"  
+//////////////////////////////////////////////////////////////////        
+        	if(eDate.getMonth()<nMonth){
+        		eDate.setMonth(nMonth);
         calendarStr += "<b>"+eDate.getFullYear()+"년 "+(eDate.getMonth()+1)+"월</b>"//해당하는 년도와 월 표시  
+        	}else{
+        calendarStr += "<b>"+eDate.getFullYear()+"년 "+(eDate.getMonth()+1)+"월</b>"//해당하는 년도와 월 표시    		
+        	}
+////////////////////////////////////////////////////////////////////        
         calendarStr += "</td><td valign=middle>"  
         
         	
