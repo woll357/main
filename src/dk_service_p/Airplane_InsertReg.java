@@ -42,7 +42,7 @@ public class Airplane_InsertReg implements MvcAction {
 			
 			
 			msg = "있는 비행기입니다.";
-			goUrl = "Airplane_Insert?air_code"+dto.getAir_code();
+			goUrl = "Airplane_Insert?air_code"+dto.getAir_code()+"&aotcont=in";
 			
 			
 		}else {

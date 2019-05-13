@@ -11,7 +11,7 @@
 <table border="" class="ttcss">
 	<tr>
 
-		<td align="right" class="wbbr"  colspan="13" style="border-bottom: 3px white solid;" >비행기 검색　<input style="padding: 10px" type="text" name="ap_code"></td>
+		<td align="right" class="wbbr"  colspan="13" style="border-bottom: 3px white solid;" >비행기 코드　<input style="padding: 10px" type="text" name="ap_code"></td>
 		<td class="wbbr" style="border-bottom: 3px white solid; border-right: 10px #dcefef solid;" align="center"><input  class="btncss2"  type="submit" value="선택"></td>
 	</tr>
 	<tr >
