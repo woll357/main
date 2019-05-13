@@ -32,7 +32,7 @@ public class AirLine_Delete implements MvcAction {
 		
 		cdto.setId(request.getParameter("id"));
 		
-		System.out.println(request.getParameter("id")+"zzzzzzzzzzzz");
+		
 		
 		
 		if(new Air_itemDAO().aircomdelete(dto)) {
@@ -42,7 +42,7 @@ public class AirLine_Delete implements MvcAction {
 		}else {
 		
 			msg = "삭제되었습니다.";
-			goUrl = "../greensc/Home";
+			goUrl = "../greensc/LogOut";
 			new Air_comDAO().airlinedelete(cdto);
 		}
 		
