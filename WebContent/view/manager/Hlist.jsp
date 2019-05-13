@@ -51,7 +51,7 @@ position: absolute;
 <c:forEach var="dto" items="${data }" varStatus="no">	
 
 	<tr>
-		<td rowspan="3" width="220"><img src="../img/${dto.himg }" alt="" /></td>
+		<td rowspan="3" width="220"><img width="320" src="../img/${dto.himg }" alt="" /></td>
 		<td>${dto.country }</td>
 		<td style="border-right: 10px #dcefef solid;">${dto.city }</td>
 	</tr>

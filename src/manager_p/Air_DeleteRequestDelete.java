@@ -74,7 +74,7 @@ public class Air_DeleteRequestDelete implements MvcAction {
 
 		
 		request.setAttribute("msg", "삭제되었습니다.");
-		request.setAttribute("goUrl", "AirManagerHome?partner=in");
+		request.setAttribute("goUrl", "Hlist?partner=in");
 		request.setAttribute("mainUrl", "air/alert.jsp");
 		
 		return null;
