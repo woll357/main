@@ -63,7 +63,7 @@
 					<td>${mem.id }</td>
 				</c:when>
 				<c:otherwise>
-					<td class="wbbr">운영자</td>
+					<td>운영자</td>
 				</c:otherwise>
 			</c:choose>
 
