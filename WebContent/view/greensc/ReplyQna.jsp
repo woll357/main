@@ -26,6 +26,7 @@
 <form action="ReplyQnaWriteReg" method="post" enctype="multipart/form-data" name="frm">
 	<input type="hidden" name="num" value="${dto.num }"/>
 	<input type="hidden" name="qnum" value="${dto.num }"/>
+	<input type="hidden" name="no" value="${param.no}"/>
 	<table class="ttcss" cellpadding="5px;" cellspacing="0" border="">
 	<tr><td colspan="2">답변 내용</td>
 	</tr><tr>

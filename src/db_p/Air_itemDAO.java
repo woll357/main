@@ -112,7 +112,34 @@ public class Air_itemDAO {
 		return res;
 	}
 	
-public int total() {
+	public int totalap(String ap_code) {
+		
+		int res = 0;
+		
+		
+		try {
+			sql = "select count(*) from air_item where date(ddate) >= date( sysdate() ) and ap_code = ?";        //총 게시물이 몇개냐
+			
+			ptmt = con.prepareStatement(sql);		
+			ptmt.setString(1, ap_code);
+			rs = ptmt.executeQuery();
+			
+			rs.next() ;
+				
+			res = rs.getInt(1);
+				
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
+
+	
+	
+	public int total() {
 		
 		int res = 0;
 		

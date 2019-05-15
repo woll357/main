@@ -10,7 +10,7 @@
 .bbb{
 position: absolute;
 	top: 4px; 
-	left:331px;
+	left:339px;
 
 }
 

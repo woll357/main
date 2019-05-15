@@ -27,8 +27,8 @@ public class Airplaneitem_List implements MvcAction {
 	      
 	      Air_itemDAO dao = new Air_itemDAO();
 		 
-	      int total = dao.total();
-	      
+	      int total = dao.totalap(request.getParameter("ap_code"));
+	      System.out.println(request.getParameter("ap_code"));
 	      int totalpage = total/limit;
 	      
 	      if(total%limit>0)

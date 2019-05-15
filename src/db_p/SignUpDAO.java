@@ -90,7 +90,7 @@ public class SignUpDAO {
 
 		try {
 			
-				sql = "select * from basketpaid where id=? and bstatus='p'";
+				sql = "select * from basketpaid where id=? and bstatus='m'";
 
 				ptmt = con.prepareStatement(sql);
 				ptmt.setString(1, dto.getId());

@@ -66,7 +66,7 @@ public class QnaList implements MvcAction {
 	      request.setAttribute("data",dao.qnaList(dto, start, limit)); 
 	      request.setAttribute("totcnt", total);
 	      request.setAttribute("mycnt", cc.get(0));
-	      request.setAttribute("aacnt", cc.get(1));
+	      request.setAttribute("aacnt", cc.get(1)/2);
 	      request.setAttribute("qqcnt", cc.get(2));
 		
 		

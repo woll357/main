@@ -24,13 +24,12 @@ public class AirLine_Delete implements MvcAction {
 		String goUrl = "";
 		
 		
-		System.out.println("아이디아이디"+request.getParameter("id"));
-		System.out.println(request.getParameter("air_code"));
+		
 		Air_comDTO dto = new Air_comDTO();
 		dto.setId(request.getParameter("id"));
 		
 	
-	//	dto.setAir_code(request.getParameter("air_code"));
+	
 		Air_itemDTO idto = new Air_itemDTO();
 		idto.setAir_code(request.getParameter("air_code"));
 		
