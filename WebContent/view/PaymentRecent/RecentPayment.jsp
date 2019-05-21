@@ -31,7 +31,7 @@
 		</tr>
 		<tr>
 			<td class="wbbr">cvc</td>
-			<td class="wbbr" colspan="4" ><input style="width: 50px" readonly="readonly" type="text" maxlength="4" name="cvc" value="${pdto.cvc }"/></td>
+			<td class="wbbr" colspan="4" ><input style="width: 50px" readonly="readonly" type="password" maxlength="4" name="cvc" value="${pdto.cvc }"/></td>
 		</tr>
 		<tr>
 			<td class="wbbr">카드비밀번호</td>
