@@ -23,7 +23,6 @@ function bbtn5() {
 		$('#id').val(null);
 		$('#phone').val(null);
 		$('#name').val(null);
-		console.log("몇번?");
 	} else {
 		alert(msg);
 	}
